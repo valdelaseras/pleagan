@@ -8,7 +8,7 @@ import { PleaDetailsComponent } from './components/plea/children/plea-details/pl
 import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   {
     path: 'plea',
     component: PleaComponent,

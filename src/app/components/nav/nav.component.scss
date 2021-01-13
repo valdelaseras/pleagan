@@ -1,0 +1,18 @@
+.header .branding .title, header .branding .title {
+  font-size: .8rem;
+  letter-spacing: .01em;
+  line-height: 3rem;
+  text-decoration: none;
+}
+
+.sub-nav, .subnav {
+  align-items: flex-start;
+}
+
+nav.subnav ul {
+  list-style-type: none;
+}
+
+clr-main-container {
+  height: auto;
+}

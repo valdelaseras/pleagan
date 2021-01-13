@@ -12,6 +12,7 @@ import { PleaDetailsComponent } from './components/plea/children/plea-details/pl
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NewPleaComponent,
     PleasComponent,
     PleaDetailsComponent,
+    NavComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ClarityModule, BrowserAnimationsModule, ReactiveFormsModule],
   providers: [],
