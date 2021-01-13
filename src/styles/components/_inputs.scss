@@ -1,0 +1,13 @@
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  // override comp. lib width
+  width: 100%!important;
+  display: inline-block;
+  background-color: #f2f2f2;
+  border: 1px dashed #8c8c8c;
+  padding: 1rem 0;
+  cursor: pointer;
+  text-align: center;
+}

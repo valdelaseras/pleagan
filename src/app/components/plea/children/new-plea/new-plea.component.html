@@ -1,0 +1,50 @@
+<h2>Add a new plea</h2>
+
+<form clrForm (ngSubmit)="submit()"
+      [formGroup]="newPleaForm">
+  <clr-input-container>
+    <label>Product name *</label>
+    <input clrInput type="text" formControlName="productName" />
+
+    <clr-control-helper>Please enter the product name</clr-control-helper>
+    <clr-control-error>This field is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>Company name *</label>
+    <input clrInput type="text" formControlName="companyName"/>
+
+    <clr-control-helper>Please enter the company name</clr-control-helper>
+    <clr-control-error>This field is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>Company email *</label>
+    <input clrInput type="mail" formControlName="companyContact"/>
+
+    <clr-control-helper>Please provide the companies customer service email</clr-control-helper>
+    <clr-control-error>This field is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>Product image *</label>
+    <label class="custom-file-upload">
+      <clr-icon shape="upload" size="16"></clr-icon>
+    </label>
+    <input clrInput
+           type="file"
+           accept=".jpg,.png,.webp"
+           data-max-size="2048"
+           formControlName="productImage"/>
+
+    <clr-control-helper>Please upload an image of the current product</clr-control-helper>
+
+    <clr-control-error *clrIfError="'requiredFieldError'">This field is required</clr-control-error>
+    <clr-control-error *clrIfError="'fileSizeError'">File must not exceed 2mb</clr-control-error>
+    <clr-control-error *clrIfError="'extensionError'">Allowed file extensions are .jpg, .png or .webp</clr-control-error>
+  </clr-input-container>
+
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<!--TODO: must check all pleases for potential duplicates based on crosscheck product and company name-->
