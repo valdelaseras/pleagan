@@ -13,6 +13,11 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './components/nav/nav.component';
+import { ModalSuccessComponent } from './components/modals/modal-success/modal-success.component';
+import { ModalFailComponent } from './components/modals/modal-fail/modal-fail.component';
+import { ModalWarningComponent } from './components/modals/modal-warning/modal-warning.component';
+import { PleaCardComponent } from './components/plea/plea-card/plea-card.component';
+import {PleaService} from './services/plea.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +29,15 @@ import { NavComponent } from './components/nav/nav.component';
     PleasComponent,
     PleaDetailsComponent,
     NavComponent,
+    ModalSuccessComponent,
+    ModalFailComponent,
+    ModalWarningComponent,
+    PleaCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ClarityModule, BrowserAnimationsModule, ReactiveFormsModule],
-  providers: [],
+  providers: [
+    PleaService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavComponent } from './nav.component';
+import { ModalFailComponent } from './modal-fail.component';
 
-describe('NavComponent', () => {
-  let component: NavComponent;
-  let fixture: ComponentFixture<NavComponent>;
+describe('ModalFailComponent', () => {
+  let component: ModalFailComponent;
+  let fixture: ComponentFixture<ModalFailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NavComponent],
+      declarations: [ModalFailComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavComponent);
+    fixture = TestBed.createComponent(ModalFailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

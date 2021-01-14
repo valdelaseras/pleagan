@@ -1,0 +1,31 @@
+<div class="clr-row">
+  <div class="clr-col-lg-6 clr-col-12">
+    <a [routerLink]="['/plea', 'details', plea.id]" class="card clickable">
+      <div class="card-block">
+        <h4 class="card-title">{{ plea.company.product.name }}</h4>
+        <p class="card-text">by {{ plea.company.name }}</p>
+      </div>
+
+      <div class="card-img">
+        <img src="{{ plea.imageUrl }}" />
+      </div>
+
+      <div class="card-block">
+        <div class="progress">
+          <progress value="{{ plea.supporters.length }}" [max]="getTarget()"></progress>
+        </div>
+        <p class="card-text">
+          <span class="bold">{{ getTarget() - plea.supporters.length }}</span> required before {{ plea.company.name }} will be notified
+        </p>
+        <p class="card-text">
+          <span class="bold">{{ plea.supporters.length }}</span> current supporter{{ plea.supporters.length > 1 ? 's' : null }}
+        </p>
+
+        <button type="button" class="btn btn-primary btn-icon" aria-label="Support this plea">
+          <clr-icon shape="plus" size="16"></clr-icon>
+          Support this plea
+        </button>
+      </div>
+    </a>
+  </div>
+</div>

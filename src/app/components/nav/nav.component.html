@@ -1,36 +1,33 @@
 <clr-header>
   <div class="branding">
     <a [routerLink]="['/']">
-      <span class="title">Pleagan</span>
+      <span class="title">pleagan</span>
     </a>
+  </div>
+  <div class="page-title">
+    <span>{{ resolveCurrentPage() }}</span>
   </div>
 </clr-header>
 
 <nav class="subnav" [clr-nav-level]="1">
   <ul class="nav">
     <li class="nav-item">
-      <a class="nav-link"
-         [routerLinkActive]="'active'"
-         [routerLinkActiveOptions]="{ exact: true }"
-         [routerLink]="['/']">
+      <a
+        class="nav-link"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/']"
+      >
         Home
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link"
-         [routerLinkActive]="'active'"
-         [routerLink]="['plea', 'all']">
-        Pleas
-      </a>
+      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'all']">Pleas</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link"
-         [routerLinkActive]="'active'"
-         [routerLink]="['about']">
-        About
-      </a>
+      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['about']">About</a>
     </li>
   </ul>
 </nav>

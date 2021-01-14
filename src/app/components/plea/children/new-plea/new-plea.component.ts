@@ -7,14 +7,17 @@ import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
   styleUrls: ['./new-plea.component.scss'],
 })
 export class NewPleaComponent {
+  displayModal = false;
   newPleaForm = new FormGroup({
+    pleaganName: new FormControl('', Validators.required),
+    pleaganLocation: new FormControl('', Validators.required),
     productName: new FormControl('', Validators.required),
     companyName: new FormControl('', Validators.required),
     companyContact: new FormControl('', Validators.required),
+    pleaMsg: new FormControl('', Validators.required),
     productImage: new FormControl('', [Validators.required]),
   });
-
   submit(): void {
-    console.log(this.newPleaForm);
+    this.displayModal = true;
   }
 }

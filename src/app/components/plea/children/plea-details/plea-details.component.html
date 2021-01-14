@@ -1,1 +1,72 @@
-<p>submission-details works!</p>
+<div class="plea-details" *ngIf="plea$ | async as plea">
+  <div>
+    <h2>
+      Dear <span class="highlighted-txt">{{ plea.company.name }}</span
+      >,
+    </h2>
+
+    <p class="larger">
+      We the pleagans are pleading you to please veganize your <span class="highlighted-txt">{{ plea.company.product.name }}</span
+      >. We would be properly pleased with this plant-based product and would present you our precious money with
+      pleasure.
+    </p>
+    <p>
+      Since <span class="highlighted-txt">{{ plea.creationTimestamp | date :'dd-MM-yyyy' }}</span> this plea has been signed and supported by
+      <span class="highlighted-txt">{{ plea.supporters.length }}</span> Pleagan{{ plea.supporters.length > 1 ? 's' : null }}. We are longing for your product and want to
+      support your business! As you know we cannot do that until animal products have been removed from the product.
+    </p>
+
+    <div class="highlighted-div">
+      <p class="larger"><span class="highlighted-txt">{{ plea.company.name }}</span>, please read all our desperate
+        calls to you<a (click)="scrollTo('original-plea')" class="underlined">here!</a></p>
+    </div>
+
+    <h3>Want to know more?</h3>
+    <p>
+      To help you out we have some gathered some handy stats for you <a href="#stats" class="underlined">here</a>. You
+      can see where we are situated, how popular the plea is compared to your competitors and how fast it has reached
+      {{ plea.supporters.length }} supporter{{ plea.supporters.length > 1 ? 's' : null }}.
+    </p>
+  </div>
+
+  <div id="original-plea">
+    <div class="plea-support-btn">
+      <button type="button" class="btn btn-primary btn-icon" aria-label="Support this plea">
+        <clr-icon shape="plus" size="16"></clr-icon>
+        Support this plea
+      </button>
+    </div>
+
+    <div class="plea-header">
+      <h3>
+        Presenting the plea for a plant-based <span class="bold">{{ plea.company.product.name }}</span> product
+      </h3>
+      <span>by {{ plea.company.name }}</span>
+    </div>
+
+    <div>
+      <ul class="og-plea-details">
+        <li>
+          <p>
+            Since <span class="bold">{{ plea.creationTimestamp | date: 'dd-MM-yyyy' }}</span
+            >, <span class="bold">{{ plea.supporters.length }}</span> pleagans have supported this plea!
+          </p>
+        </li>
+        <li>
+          <p>
+            Plea initiator <span class="bold">{{ plea.initiator.name }}</span> wrote:<br />
+            <span class="italic">"{{ plea.initiator.message }}"</span>
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <img class="plea-img" src="{{ plea.imageUrl }}" alt="Image of product" />
+    </div>
+
+    <div>
+      <h3>Supporters</h3>
+    </div>
+  </div>
+</div>

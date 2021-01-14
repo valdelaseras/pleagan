@@ -1,6 +1,7 @@
 input[type='file'] {
   display: none;
 }
+
 .custom-file-upload {
   //TODO: remove .5rem from horizontal sides
   // override comp. lib width
@@ -11,4 +12,8 @@ input[type='file'] {
   padding: 1rem 0;
   cursor: pointer;
   text-align: center;
+}
+
+.clr-control-container textarea {
+  width: 100%;
 }

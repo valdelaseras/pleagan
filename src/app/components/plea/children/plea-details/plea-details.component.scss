@@ -1,0 +1,39 @@
+#original-plea {
+  margin-top: 1.5rem;
+  margin-left: -24px;
+  margin-right: -24px;
+  margin-bottom: -1.2rem;
+  background-color: indianred;
+  padding: 1.5rem 20px 20px 20px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  color: black;
+}
+
+.plea-support-btn {
+  text-align: center;
+  margin-top: -50px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.og-plea-details {
+  list-style-type: none;
+  padding: 0.5rem 0;
+}
+
+.og-plea-details > li p {
+  color: black;
+  margin: 20px 0;
+}
+
+.plea-img {
+  width: 100vw;
+  max-width: 100vw;
+  height: auto;
+  margin-left: -20px;
+  margin-bottom: 10px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

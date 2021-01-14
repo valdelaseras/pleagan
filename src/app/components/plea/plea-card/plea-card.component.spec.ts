@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavComponent } from './nav.component';
+import { PleaCardComponent } from './plea-card.component';
 
-describe('NavComponent', () => {
-  let component: NavComponent;
-  let fixture: ComponentFixture<NavComponent>;
+describe('PleaCardComponent', () => {
+  let component: PleaCardComponent;
+  let fixture: ComponentFixture<PleaCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NavComponent],
+      declarations: [PleaCardComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavComponent);
+    fixture = TestBed.createComponent(PleaCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

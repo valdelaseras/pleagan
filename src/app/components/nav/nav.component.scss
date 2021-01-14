@@ -1,11 +1,14 @@
-.header .branding .title, header .branding .title {
-  font-size: .8rem;
-  letter-spacing: .01em;
+.header .branding .title,
+header .branding .title,
+.page-title span {
+  font-size: 1rem;
+  letter-spacing: 0.01em;
   line-height: 3rem;
   text-decoration: none;
 }
 
-.sub-nav, .subnav {
+.sub-nav,
+.subnav {
   align-items: flex-start;
 }
 
@@ -13,6 +16,7 @@ nav.subnav ul {
   list-style-type: none;
 }
 
-clr-main-container {
-  height: auto;
+clr-header .page-title {
+  position: fixed;
+  right: 20px;
 }

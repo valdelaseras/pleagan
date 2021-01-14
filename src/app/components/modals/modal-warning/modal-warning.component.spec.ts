@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavComponent } from './nav.component';
+import { ModalWarningComponent } from './modal-warning.component';
 
-describe('NavComponent', () => {
-  let component: NavComponent;
-  let fixture: ComponentFixture<NavComponent>;
+describe('ModalWarningComponent', () => {
+  let component: ModalWarningComponent;
+  let fixture: ComponentFixture<ModalWarningComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NavComponent],
+      declarations: [ModalWarningComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavComponent);
+    fixture = TestBed.createComponent(ModalWarningComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

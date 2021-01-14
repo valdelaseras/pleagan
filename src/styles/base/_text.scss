@@ -1,0 +1,26 @@
+.underlined {
+  text-decoration: underline !important;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.larger {
+  font-size: larger;
+}
+
+.highlighted-div p,
+.highlighted-div a,
+.highlighted-div span {
+  color: black;
+  margin: 5px;
+}

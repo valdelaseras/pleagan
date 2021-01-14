@@ -1,0 +1,19 @@
+.card-text {
+  margin: 5px 0;
+}
+
+.card-block button {
+  margin: 10px 0;
+}
+
+.card-img img {
+  filter: opacity(.8);
+  transition: all 500ms;
+}
+
+.card-img img:hover,
+.card-img img:focus,
+.card-img img:focus-within,
+.card-img img:active {
+  filter: opacity(1);
+}
