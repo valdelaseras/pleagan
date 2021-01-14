@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {Plea} from '../../../models/plea/plea.model';
+import { Component, Input } from '@angular/core';
+import { Plea } from '../../../models/plea/plea.model';
 
 @Component({
   selector: 'app-plea-card',
@@ -11,9 +11,9 @@ export class PleaCardComponent {
   constructor() {}
 
   getTarget(): number {
-    if ( this.plea.supporters.length < PLEA_TARGET.FIRST ) {
+    if (this.plea.supporters.length < PLEA_TARGET.FIRST) {
       return PLEA_TARGET.FIRST;
-    } else if ( this.plea.supporters.length >= PLEA_TARGET.FIRST && this.plea.supporters.length < PLEA_TARGET.SECOND ) {
+    } else if (this.plea.supporters.length >= PLEA_TARGET.FIRST && this.plea.supporters.length < PLEA_TARGET.SECOND) {
       return PLEA_TARGET.SECOND;
     } else {
       return PLEA_TARGET.THIRD;
@@ -25,5 +25,5 @@ export class PleaCardComponent {
 export enum PLEA_TARGET {
   FIRST = 1000,
   SECOND = 2000,
-  THIRD = 3000
+  THIRD = 3000,
 }

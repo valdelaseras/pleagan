@@ -17,7 +17,7 @@ import { ModalSuccessComponent } from './components/modals/modal-success/modal-s
 import { ModalFailComponent } from './components/modals/modal-fail/modal-fail.component';
 import { ModalWarningComponent } from './components/modals/modal-warning/modal-warning.component';
 import { PleaCardComponent } from './components/plea/plea-card/plea-card.component';
-import {PleaService} from './services/plea.service';
+import { PleaService } from './services/plea.service';
 
 @NgModule({
   declarations: [
@@ -35,9 +35,7 @@ import {PleaService} from './services/plea.service';
     PleaCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ClarityModule, BrowserAnimationsModule, ReactiveFormsModule],
-  providers: [
-    PleaService
-  ],
+  providers: [PleaService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -6,19 +6,24 @@
     </h2>
 
     <p class="larger">
-      We the pleagans are pleading you to please veganize your <span class="highlighted-txt">{{ plea.company.product.name }}</span
+      We the pleagans are pleading you to please veganize your
+      <span class="highlighted-txt">{{ plea.company.product.name }}</span
       >. We would be properly pleased with this plant-based product and would present you our precious money with
       pleasure.
     </p>
     <p>
-      Since <span class="highlighted-txt">{{ plea.creationTimestamp | date :'dd-MM-yyyy' }}</span> this plea has been signed and supported by
-      <span class="highlighted-txt">{{ plea.supporters.length }}</span> Pleagan{{ plea.supporters.length > 1 ? 's' : null }}. We are longing for your product and want to
-      support your business! As you know we cannot do that until animal products have been removed from the product.
+      Since <span class="highlighted-txt">{{ plea.creationTimestamp | date: 'dd-MM-yyyy' }}</span> this plea has been
+      signed and supported by <span class="highlighted-txt">{{ plea.supporters.length }}</span> Pleagan{{
+        plea.supporters.length > 1 ? 's' : null
+      }}. We are longing for your product and want to support your business! As you know we cannot do that until animal
+      products have been removed from the product.
     </p>
 
     <div class="highlighted-div">
-      <p class="larger"><span class="highlighted-txt">{{ plea.company.name }}</span>, please read all our desperate
-        calls to you<a (click)="scrollTo('original-plea')" class="underlined">here!</a></p>
+      <p class="larger">
+        <span class="highlighted-txt">{{ plea.company.name }}</span
+        >, please read all our desperate calls to you<a (click)="scrollTo('original-plea')" class="underlined">here!</a>
+      </p>
     </div>
 
     <h3>Want to know more?</h3>

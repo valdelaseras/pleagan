@@ -1,9 +1,8 @@
-import {Component, Input} from '@angular/core';
+import { Component } from '@angular/core';
 import { Plea } from '../../../../models/plea/plea.model';
-import {ActivatedRoute, ParamMap, Route} from '@angular/router';
-import {Observable} from 'rxjs';
-import {PleaService} from '../../../../services/plea.service';
-import {switchMap} from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { PleaService } from '../../../../services/plea.service';
 
 @Component({
   selector: 'app-submission-details',
@@ -12,8 +11,8 @@ import {switchMap} from 'rxjs/operators';
 })
 export class PleaDetailsComponent {
   plea$: Observable<Plea>;
-  constructor( private route: ActivatedRoute, private pleaService: PleaService ) {
-    this.plea$ = this.pleaService.getPleaById( this.route.snapshot.paramMap.get('id') || '');
+  constructor(private route: ActivatedRoute, private pleaService: PleaService) {
+    this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
   }
   scrollTo(id: string): void {
     const target = document.getElementById(id);

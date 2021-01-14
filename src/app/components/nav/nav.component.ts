@@ -9,7 +9,7 @@ export class NavComponent {
   constructor() {}
   resolveCurrentPage(): string {
     const currentPage = window.location.pathname;
-    switch ( currentPage ){
+    switch (currentPage) {
       case '/': {
         return 'home';
         break;
@@ -23,7 +23,7 @@ export class NavComponent {
         break;
       }
       case '/about': {
-        return 'about us';
+        return 'about';
         break;
       }
       default: {

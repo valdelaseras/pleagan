@@ -9,13 +9,15 @@ export class Plea {
   initiator: Pleagan;
   supporters: Pleagan[];
   imageUrl: string;
-  constructor( id: string,
-               creationTimestamp: string,
-               company: Company,
-               status: PLEA_STATUS,
-               initiator: Pleagan,
-               supporters: Pleagan[],
-               imageUrl: string ) {
+  constructor(
+    id: string,
+    creationTimestamp: string,
+    company: Company,
+    status: PLEA_STATUS,
+    initiator: Pleagan,
+    supporters: Pleagan[],
+    imageUrl: string,
+  ) {
     this.id = id;
     this.creationTimestamp = creationTimestamp;
     this.company = company;
@@ -30,5 +32,5 @@ export enum PLEA_STATUS {
   UNNOTIFIED = 'Unnotified',
   NOTIFIED = 'Notified',
   RESPONDED = 'Responded',
-  COMPLIED = 'Complied'
+  COMPLIED = 'Complied',
 }

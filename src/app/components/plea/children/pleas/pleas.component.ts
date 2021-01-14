@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
-import {Plea} from '../../../../models/plea/plea.model';
-import {PleaService} from '../../../../services/plea.service';
+import { Observable } from 'rxjs';
+import { Plea } from '../../../../models/plea/plea.model';
+import { PleaService } from '../../../../services/plea.service';
 
 @Component({
   selector: 'app-submissions',
@@ -10,7 +10,7 @@ import {PleaService} from '../../../../services/plea.service';
 })
 export class PleasComponent implements OnInit {
   pleas$: Observable<Plea[]>;
-  constructor( private pleaService: PleaService ) {
+  constructor(private pleaService: PleaService) {
     this.pleas$ = this.pleaService.getPleas();
   }
 

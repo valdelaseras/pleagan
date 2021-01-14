@@ -15,10 +15,13 @@
           <progress value="{{ plea.supporters.length }}" [max]="getTarget()"></progress>
         </div>
         <p class="card-text">
-          <span class="bold">{{ getTarget() - plea.supporters.length }}</span> required before {{ plea.company.name }} will be notified
+          <span class="bold">{{ getTarget() - plea.supporters.length }}</span> required before
+          {{ plea.company.name }} will be notified
         </p>
         <p class="card-text">
-          <span class="bold">{{ plea.supporters.length }}</span> current supporter{{ plea.supporters.length > 1 ? 's' : null }}
+          <span class="bold">{{ plea.supporters.length }}</span> current supporter{{
+            plea.supporters.length > 1 ? 's' : null
+          }}
         </p>
 
         <button type="button" class="btn btn-primary btn-icon" aria-label="Support this plea">
