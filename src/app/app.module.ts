@@ -26,6 +26,7 @@ import { SupportPleaComponent } from './components/plea/children/support-plea/su
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { HafCardComponent } from './components/hall-of-fame/haf-card/haf-card.component';
 import { NewsCardComponent } from './components/news/news-card/news-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { NewsCardComponent } from './components/news/news-card/news-card.compone
     HafCardComponent,
     NewsCardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ClarityModule, BrowserAnimationsModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, ClarityModule, BrowserAnimationsModule, ReactiveFormsModule, HttpClientModule],
   providers: [PleaService],
   bootstrap: [AppComponent],
 })

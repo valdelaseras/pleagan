@@ -13,7 +13,7 @@ import { IPlea } from 'pleagan-model';
 })
 // TODO: scroll to top on init but window.scrollTo doesn't work
 export class SupportPleaComponent {
-  plea$: Observable<IPlea>;
+  plea$: Observable<IPlea | undefined>;
   displayModal = false;
   supportPleaForm = new FormGroup({
     pleaganName: new FormControl('', Validators.required),

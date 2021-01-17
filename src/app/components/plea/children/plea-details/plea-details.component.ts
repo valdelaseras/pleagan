@@ -12,7 +12,7 @@ import { IPlea } from 'pleagan-model';
 })
 export class PleaDetailsComponent {
   isVisible = false;
-  plea$: Observable<IPlea>;
+  plea$: Observable<IPlea | undefined>;
   constructor(private route: ActivatedRoute, private pleaService: PleaService) {
     this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
   }
