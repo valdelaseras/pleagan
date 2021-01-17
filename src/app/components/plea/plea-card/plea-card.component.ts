@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Plea } from '../../../models/plea/plea.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plea-card',
@@ -8,7 +9,7 @@ import { Plea } from '../../../models/plea/plea.model';
 })
 export class PleaCardComponent {
   @Input() plea!: Plea;
-  constructor() {}
+  constructor(private router: Router) {}
 
   getTarget(): number {
     if (this.plea.supporters.length < PLEA_TARGET.FIRST) {

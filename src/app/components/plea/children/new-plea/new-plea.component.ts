@@ -17,18 +17,18 @@ export class NewPleaComponent {
     companyContact: new FormControl('', Validators.required),
     pleaMsg: new FormControl('', Validators.required),
     productImage: new FormControl('', [Validators.required]),
-    ingredient: new FormControl()
+    ingredient: new FormControl(),
   });
   submit(): void {
     this.displayModal = true;
   }
-  createTag( event: KeyboardEvent ): void {
-    if ( event.code === 'Comma') {
-      this.addedIngredients.push( this.newPleaForm.value.ingredient.replace(',', '') );
-      this.newPleaForm.controls['ingredient'].setValue( '' );
+  createTag(event: KeyboardEvent): void {
+    if (event.code === 'Comma') {
+      this.addedIngredients.push(this.newPleaForm.value.ingredient.replace(',', ''));
+      this.newPleaForm.controls['ingredient'].setValue('');
     }
   }
-  removeTag( index: number ): void {
-    this.addedIngredients.splice( index, 1 );
+  removeTag(index: number): void {
+    this.addedIngredients.splice(index, 1);
   }
 }

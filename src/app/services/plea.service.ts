@@ -4,15 +4,16 @@ import { Company } from '../models/company/company.model';
 import { Product } from '../models/product/product.model';
 import { Pleagan } from '../models/pleagan/pleagan.model';
 import { Observable, of } from 'rxjs';
+// import {IPlea} from 'pleagan-model';
 
 const mockPleagan = new Pleagan(
   '1',
   'DolphinOnWheels',
   'cetaceanrave@sea.com',
-  'I loved this icecream so much and used to eat it a lot. Giving it up after going vegan has ' +
-    'been hard but it needed to be done. Kapiti, I would be so happy if you could create a vegan ' +
-    'version of this delicious icecream!',
-  'Somewhere over the rainbow',
+  'I loved this product so much and used to buy it a lot. Giving it up after going vegan has ' +
+    'been hard but it needed to be done. I would be so happy if you could create a vegan ' +
+    'version of this!',
+  'Wellington',
 );
 
 export class PleaService extends Injectable {
@@ -29,20 +30,20 @@ export class PleaService extends Injectable {
     new Plea(
       '2',
       '2021-02-02T01:00:00+12:00',
-      new Company('1', 'Kapiti Icecream', new Product('1', 'Boysenberry Icecream')),
+      new Company('2', 'Quorn', new Product('2', 'Vegetarian Meal Meat Free Soy Free Pieces')),
       PLEA_STATUS.UNNOTIFIED,
       mockPleagan,
       [mockPleagan],
-      '/assets/images/kapiti.jpg',
+      '/assets/images/quorn.jpeg',
     ),
     new Plea(
       '3',
       '2021-02-03T01:00:00+12:00',
-      new Company('1', 'Kapiti Icecream', new Product('1', 'Boysenberry Icecream')),
+      new Company('3', 'Stoneleigh', new Product('3', 'Sauvignon Blanc')),
       PLEA_STATUS.UNNOTIFIED,
       mockPleagan,
       [mockPleagan],
-      '/assets/images/kapiti.jpg',
+      '/assets/images/stoneleigh.jpeg',
     ),
   ];
 

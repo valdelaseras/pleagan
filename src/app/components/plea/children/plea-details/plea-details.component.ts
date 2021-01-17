@@ -3,6 +3,7 @@ import { Plea } from '../../../../models/plea/plea.model';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PleaService } from '../../../../services/plea.service';
+import { IPlea } from 'pleagan-model';
 
 @Component({
   selector: 'app-submission-details',
@@ -11,7 +12,7 @@ import { PleaService } from '../../../../services/plea.service';
 })
 export class PleaDetailsComponent {
   isVisible = false;
-  plea$: Observable<Plea>;
+  plea$: Observable<IPlea>;
   constructor(private route: ActivatedRoute, private pleaService: PleaService) {
     this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
   }

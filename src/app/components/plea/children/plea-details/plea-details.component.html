@@ -36,7 +36,13 @@
 
   <div id="original-plea">
     <div class="plea-support-btn">
-      <button type="button" class="btn btn-primary btn-icon" (click)="showModal()" aria-label="Support this plea">
+      <button
+        type="button"
+        (click)="$event.preventDefault()"
+        [routerLink]="['/plea', 'support', plea.id]"
+        class="btn btn-primary btn-icon"
+        aria-label="Support this plea"
+      >
         <clr-icon shape="plus" size="16"></clr-icon>
         Support this plea
       </button>

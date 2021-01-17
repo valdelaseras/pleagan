@@ -1,6 +1,7 @@
 import { Product } from '../product/product.model';
+import { ICompany } from 'pleagan-model';
 
-export class Company {
+export class Company implements ICompany {
   id: string;
   name: string;
   product: Product;

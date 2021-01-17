@@ -4,6 +4,7 @@ import { PleaService } from '../../../../services/plea.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Plea } from '../../../../models/plea/plea.model';
+import { IPlea } from 'pleagan-model';
 
 @Component({
   selector: 'app-support-plea',
@@ -12,7 +13,7 @@ import { Plea } from '../../../../models/plea/plea.model';
 })
 // TODO: scroll to top on init but window.scrollTo doesn't work
 export class SupportPleaComponent {
-  plea$: Observable<Plea>;
+  plea$: Observable<IPlea>;
   displayModal = false;
   supportPleaForm = new FormGroup({
     pleaganName: new FormControl('', Validators.required),

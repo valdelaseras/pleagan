@@ -1,7 +1,8 @@
 import { Company } from '../company/company.model';
 import { Pleagan } from '../pleagan/pleagan.model';
+import { IPlea } from 'pleagan-model';
 
-export class Plea {
+export class Plea implements IPlea {
   id: string;
   status: PLEA_STATUS;
   creationTimestamp: string;

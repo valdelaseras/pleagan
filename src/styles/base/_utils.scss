@@ -39,8 +39,13 @@
 .reg-list {
   margin: 20px 0;
   list-style-position: outside;
+  list-style-type: disc;
 }
 
 .reg-list > li {
   margin-inline-start: 20px;
+}
+
+ul {
+  list-style-type: none;
 }

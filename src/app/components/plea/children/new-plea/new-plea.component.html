@@ -65,17 +65,17 @@
 
   <clr-input-container>
     <label>Ingredients to be taken out</label>
-    <input clrInput type="text" formControlName="ingredient" (keyup)="createTag($event)"/>
+    <input clrInput type="text" formControlName="ingredient" (keyup)="createTag($event)" />
 
     <clr-control-helper>
-      <span class="tag" *ngFor="let ingredient of addedIngredients; index as index">{{ ingredient }}
-        <clr-icon shape="times" size="14" (click)="removeTag( index )"></clr-icon>
+      <span class="tag" *ngFor="let ingredient of addedIngredients; index as index"
+        >{{ ingredient }}
+        <clr-icon shape="times" size="14" (click)="removeTag(index)"></clr-icon>
       </span>
     </clr-control-helper>
 
     <clr-control-helper>
-      Which ingredients of this product will need to be removed or replaced? Type the ingredient(s) separated
-      by commas
+      Which ingredients of this product will need to be removed or replaced? Type the ingredient(s) separated by commas
     </clr-control-helper>
   </clr-input-container>
 
@@ -87,6 +87,13 @@
       Write your plea to the producer or call for support of other pleagans here!
     </clr-control-helper>
   </clr-textarea-container>
+
+  <clr-checkbox-container>
+    <clr-checkbox-wrapper>
+      <input type="checkbox" clrCheckbox value="receiveUpdates" name="permissions" />
+      <label>Keep me updated regarding this plea</label>
+    </clr-checkbox-wrapper>
+  </clr-checkbox-container>
 
   <!--  TODO: add optional ingredient list textarea, like how you can add tags when uploading a YT video separated by commas-->
   <!--  TODO: then let user tap and highlight the animal products in these tags-->

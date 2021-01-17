@@ -1,0 +1,34 @@
+<div class="clr-row">
+  <div class="clr-col-lg-5 clr-col-md-8 clr-col-12">
+    <div class="card">
+      <div class="card-header">{{ plea.company.name }}</div>
+      <div class="card-block">
+        <!--        new product name goes here-->
+        <div class="card-title">{{ plea.company.product.name }}</div>
+        <div class="card-text">
+          <p>
+            <span class="highlighted-txt">{{ plea.company.name }}</span> has read your pleas and decided to do the right
+            thing! On <span class="highlighted-txt">date</span> they have launched their new product,
+            <span class="highlighted-txt"> new product name</span> available in
+            <span class="highlighted-txt">list of countries</span>.
+          </p>
+          <p>
+            Be sure to support their new product if you can and leave a little comment below to show them your
+            appreciation and love.
+          </p>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary btn-icon">
+          <clr-icon shape="heart" size="16"></clr-icon>
+          Send some love
+        </button>
+        <!--        news post link goes here, with info on where to buy-->
+        <button class="btn btn-primary btn-icon">
+          <clr-icon shape="details" size="16"></clr-icon>
+          Product details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

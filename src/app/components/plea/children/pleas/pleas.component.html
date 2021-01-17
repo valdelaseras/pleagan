@@ -2,12 +2,7 @@
 <!--TODO: add search component on top-->
 <!--TODO: add 'add plea' button on fixed bottom-->
 
-<form class="clr-form search-box">
-  <div class="flex-row">
-    <clr-icon shape="search" size="20"></clr-icon>
-    <input type="text" id="basic" placeholder="Search by product or company name" class="clr-input" />
-  </div>
-</form>
+<app-search-box></app-search-box>
 
 <div>
   <ul class="plea-list" *ngIf="pleas$ | async as pleas">

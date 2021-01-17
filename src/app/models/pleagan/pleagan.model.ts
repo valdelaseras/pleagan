@@ -1,4 +1,6 @@
-export class Pleagan {
+import { IPleagan } from 'pleagan-model';
+
+export class Pleagan implements IPleagan {
   id: string;
   name: string;
   email: string;

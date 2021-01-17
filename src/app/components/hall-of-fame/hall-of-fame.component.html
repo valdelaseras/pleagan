@@ -1,1 +1,13 @@
-<p>hall-of-fame works!</p>
+<app-search-box></app-search-box>
+
+<h2>Hall of fame</h2>
+<p class="larger">Our eternal Hall of Fame for all companies who were awesome enough to listen to your pleas!</p>
+
+<div>
+  <!--  replace with eligible pleas only, also change ul class etc -->
+  <ul *ngIf="pleas$ | async as pleas">
+    <li *ngFor="let plea of pleas">
+      <app-haf-card [plea]="plea"></app-haf-card>
+    </li>
+  </ul>
+</div>

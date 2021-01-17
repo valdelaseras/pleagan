@@ -44,6 +44,13 @@
     </clr-control-helper>
   </clr-textarea-container>
 
+  <clr-checkbox-container>
+    <clr-checkbox-wrapper>
+      <input type="checkbox" clrCheckbox value="receiveUpdates" name="permissions" />
+      <label>Send me updates regarding this plea</label>
+    </clr-checkbox-wrapper>
+  </clr-checkbox-container>
+
   <button class="btn btn-primary" type="submit" [disabled]="!supportPleaForm.valid">Submit</button>
 </form>
 

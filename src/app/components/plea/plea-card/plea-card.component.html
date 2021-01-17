@@ -24,7 +24,13 @@
           }}
         </p>
 
-        <button type="button" class="btn btn-primary btn-icon" aria-label="Support this plea">
+        <button
+          (click)="$event.preventDefault()"
+          [routerLink]="['/plea', 'support', plea.id]"
+          type="button"
+          class="btn btn-primary btn-icon"
+          aria-label="Support this plea"
+        >
           <clr-icon shape="plus" size="16"></clr-icon>
           Support this plea
         </button>

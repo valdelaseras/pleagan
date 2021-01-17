@@ -22,6 +22,10 @@ import { NewsComponent } from './components/news/news.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { HallOfFameComponent } from './components/hall-of-fame/hall-of-fame.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { SupportPleaComponent } from './components/plea/children/support-plea/support-plea.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { HafCardComponent } from './components/hall-of-fame/haf-card/haf-card.component';
+import { NewsCardComponent } from './components/news/news-card/news-card.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +45,10 @@ import { ContactComponent } from './components/contact/contact.component';
     LeaderboardComponent,
     HallOfFameComponent,
     ContactComponent,
+    SupportPleaComponent,
+    SearchBoxComponent,
+    HafCardComponent,
+    NewsCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ClarityModule, BrowserAnimationsModule, ReactiveFormsModule],
   providers: [PleaService],
