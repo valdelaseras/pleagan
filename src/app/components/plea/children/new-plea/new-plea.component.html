@@ -41,8 +41,7 @@
     <input clrInput type="mail" formControlName="companyContact" />
 
     <clr-control-helper>
-      Please help us out and provide the companies customer service email, so we can notify them of the
-      plea
+      Please help us out and provide the companies customer service email, so we can notify them of the plea
     </clr-control-helper>
     <clr-control-error>This field is required</clr-control-error>
   </clr-input-container>
@@ -64,14 +63,21 @@
     >
   </clr-input-container>
 
-  <clr-textarea-container>
-    <label>Ingredients to be taken out *</label>
-    <textarea clrTextarea formControlName="ingredients"></textarea>
+  <clr-input-container>
+    <label>Ingredients to be taken out</label>
+    <input clrInput type="text" formControlName="ingredient" (keyup)="createTag($event)"/>
 
     <clr-control-helper>
-      Which ingredients or parts of this product will need to be removed or replaced?
+      <span class="tag" *ngFor="let ingredient of addedIngredients; index as index">{{ ingredient }}
+        <clr-icon shape="times" size="14" (click)="removeTag( index )"></clr-icon>
+      </span>
     </clr-control-helper>
-  </clr-textarea-container>
+
+    <clr-control-helper>
+      Which ingredients of this product will need to be removed or replaced? Type the ingredient(s) separated
+      by commas
+    </clr-control-helper>
+  </clr-input-container>
 
   <clr-textarea-container>
     <label>Your message *</label>
