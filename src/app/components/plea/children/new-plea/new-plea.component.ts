@@ -16,6 +16,7 @@ export class NewPleaComponent {
     companyContact: new FormControl('', Validators.required),
     pleaMsg: new FormControl('', Validators.required),
     productImage: new FormControl('', [Validators.required]),
+    ingredients: new FormControl('', [Validators.required]),
   });
   submit(): void {
     this.displayModal = true;

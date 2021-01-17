@@ -14,10 +14,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './components/nav/nav.component';
 import { ModalSuccessComponent } from './components/modals/modal-success/modal-success.component';
-import { ModalFailComponent } from './components/modals/modal-fail/modal-fail.component';
-import { ModalWarningComponent } from './components/modals/modal-warning/modal-warning.component';
 import { PleaCardComponent } from './components/plea/plea-card/plea-card.component';
 import { PleaService } from './services/plea.service';
+import { ModalComponent } from './components/modals/modal/modal.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { NewsComponent } from './components/news/news.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { HallOfFameComponent } from './components/hall-of-fame/hall-of-fame.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +34,13 @@ import { PleaService } from './services/plea.service';
     PleaDetailsComponent,
     NavComponent,
     ModalSuccessComponent,
-    ModalFailComponent,
-    ModalWarningComponent,
     PleaCardComponent,
+    ModalComponent,
+    FaqComponent,
+    NewsComponent,
+    LeaderboardComponent,
+    HallOfFameComponent,
+    ContactComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ClarityModule, BrowserAnimationsModule, ReactiveFormsModule],
   providers: [PleaService],

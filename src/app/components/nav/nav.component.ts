@@ -11,7 +11,7 @@ export class NavComponent {
     const currentPage = window.location.pathname;
     switch (currentPage) {
       case '/': {
-        return 'home';
+        return '';
         break;
       }
       case '/plea/all': {

@@ -10,6 +10,7 @@ import { PleaService } from '../../../../services/plea.service';
   styleUrls: ['./plea-details.component.scss'],
 })
 export class PleaDetailsComponent {
+  isVisible = false;
   plea$: Observable<Plea>;
   constructor(private route: ActivatedRoute, private pleaService: PleaService) {
     this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
@@ -19,5 +20,8 @@ export class PleaDetailsComponent {
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
+  }
+  showModal(): void {
+    this.isVisible = true;
   }
 }

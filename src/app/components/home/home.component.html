@@ -1,1 +1,17 @@
-<p>home works!</p>
+<div class="landing">
+  <div class="landing-branding">
+    <div class="branding-image">
+      <img src="{{ imgUrl }}" alt="icon of soybeans smiling" />
+    </div>
+    <h1>pleagan</h1>
+  </div>
+
+  <div class="landing-cta">
+    <p class="animate-first bold larger">Hello friend,</p>
+    <p class="animate-second">Find out below what pleagan can do for you!</p>
+    <p class="animate-third">I'm visiting as a...</p>
+
+    <button class="btn" id="vegan-visitor-btn" [routerLink]="['/about']">herbivore</button>
+    <button class="btn" id="company-visitor-btn" [routerLink]="['/about']">company rep</button>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+.landing {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.landing-branding {
+  width: 100%;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-branding h1 {
+  position: absolute;
+  font-size: 50px;
+  letter-spacing: 0.07em;
+  z-index: 20;
+  color: #333;
+}
+
+.landing-branding img {
+  height: 180px;
+  filter: opacity(0.65);
+}
+
+.landing-cta {
+  height: 35%;
+  text-align: left;
+}
+
+.landing-cta p {
+  margin: 5px 0;
+}
+
+.landing-cta button {
+  margin-top: 15px;
+}
+
+// Setting initial visibility of these elements to 0
+.landing-cta p,
+.landing-cta button,
+.branding-image {
+  opacity: 0;
+}
+
+.landing-cta p.animate-third {
+  margin-top: 30px;
+}
+
+// Animations for page init
+.branding-image {
+  animation: entryFromRight 3.5s ease-out 1s forwards;
+}
+
+.animate-first {
+  animation: entryFromRight 1.25s ease-out 1s forwards;
+}
+.animate-second {
+  animation: entryFromRight 1.25s ease-out 1.5s forwards;
+}
+.animate-third {
+  animation: entryFromRight 1.25s ease-out 2s forwards;
+}
+
+#vegan-visitor-btn {
+  animation: fadeIn 1s ease 3.25s forwards;
+}
+#company-visitor-btn {
+  animation: fadeIn 1s ease 3.5s forwards;
+}

@@ -1,4 +1,4 @@
-<h2>Add a new plea</h2>
+<h2>Initiate a plea</h2>
 
 <form clrForm (ngSubmit)="submit()" [formGroup]="newPleaForm">
   <clr-input-container>
@@ -13,10 +13,10 @@
     <label>Location *</label>
     <input clrInput type="text" formControlName="pleaganLocation" />
 
-    <clr-control-helper
-      >Please let us know your general location (a country or even continent is fine). We will use this information in
-      stats and graphs to find out where demand is the highest</clr-control-helper
-    >
+    <clr-control-helper>
+      Please let us know your general location (a country or even continent is fine). We will use this information in
+      stats and graphs to find out where demand is the highest
+    </clr-control-helper>
     <clr-control-error>This field is required</clr-control-error>
   </clr-input-container>
 
@@ -40,21 +40,12 @@
     <label>Company email *</label>
     <input clrInput type="mail" formControlName="companyContact" />
 
-    <clr-control-helper
-      >Please help us out and provide the companies customer service email, so we can notify them of the
-      plea</clr-control-helper
-    >
+    <clr-control-helper>
+      Please help us out and provide the companies customer service email, so we can notify them of the
+      plea
+    </clr-control-helper>
     <clr-control-error>This field is required</clr-control-error>
   </clr-input-container>
-
-  <clr-textarea-container>
-    <label>Your message *</label>
-    <textarea clrTextarea formControlName="pleaMsg"></textarea>
-
-    <clr-control-helper
-      >Write your plea to the producer or call for support of other pleagans here!
-    </clr-control-helper>
-  </clr-textarea-container>
 
   <clr-input-container>
     <label>Product image *</label>
@@ -72,6 +63,24 @@
       >Allowed file extensions are .jpg, .png or .webp</clr-control-error
     >
   </clr-input-container>
+
+  <clr-textarea-container>
+    <label>Ingredients to be taken out *</label>
+    <textarea clrTextarea formControlName="ingredients"></textarea>
+
+    <clr-control-helper>
+      Which ingredients or parts of this product will need to be removed or replaced?
+    </clr-control-helper>
+  </clr-textarea-container>
+
+  <clr-textarea-container>
+    <label>Your message *</label>
+    <textarea clrTextarea formControlName="pleaMsg"></textarea>
+
+    <clr-control-helper>
+      Write your plea to the producer or call for support of other pleagans here!
+    </clr-control-helper>
+  </clr-textarea-container>
 
   <!--  TODO: add optional ingredient list textarea, like how you can add tags when uploading a YT video separated by commas-->
   <!--  TODO: then let user tap and highlight the animal products in these tags-->

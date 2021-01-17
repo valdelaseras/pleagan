@@ -1,8 +1,46 @@
-.highlighted-div {
-  background-color: indianred;
-  margin-left: -24px;
-  margin-right: -24px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+//.highlighted-div {
+//  background-color: indianred;
+//  margin-left: -24px;
+//  margin-right: -24px;
+//  margin-top: 1rem;
+//  margin-bottom: 1rem;
+//  padding: 20px;
+//}
+
+.align-center {
+  text-align: center;
+}
+
+.icon-list {
+  list-style-type: none;
+}
+
+.icon-list.horizontal > li {
+  display: inline-block;
+  padding-right: 20px;
+}
+
+.icon-list.horizontal > li:last-child {
+  padding-right: 0;
+}
+
+.banner {
+  margin: 40px -24px;
   padding: 20px;
+  background-color: indianred;
+  color: white;
+}
+
+.banner p {
+  color: white;
+  margin-top: 5px;
+}
+
+.reg-list {
+  margin: 20px 0;
+  list-style-position: outside;
+}
+
+.reg-list > li {
+  margin-inline-start: 20px;
 }

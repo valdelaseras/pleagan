@@ -6,6 +6,11 @@ import { NewPleaComponent } from './components/plea/children/new-plea/new-plea.c
 import { PleasComponent } from './components/plea/children/pleas/pleas.component';
 import { PleaDetailsComponent } from './components/plea/children/plea-details/plea-details.component';
 import { AboutComponent } from './components/about/about.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { NewsComponent } from './components/news/news.component';
+import { HallOfFameComponent } from './components/hall-of-fame/hall-of-fame.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -18,7 +23,12 @@ const routes: Routes = [
       { path: 'details/:id', component: PleaDetailsComponent },
     ],
   },
+  { path: 'leaderboard', component: LeaderboardComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'haf', component: HallOfFameComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'faq', component: FaqComponent },
   { path: '**', redirectTo: '/' },
 ];
 

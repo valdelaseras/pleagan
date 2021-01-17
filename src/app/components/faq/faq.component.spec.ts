@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalFailComponent } from './modal-fail.component';
+import { FaqComponent } from './faq.component';
 
-describe('ModalFailComponent', () => {
-  let component: ModalFailComponent;
-  let fixture: ComponentFixture<ModalFailComponent>;
+describe('FaqComponent', () => {
+  let component: FaqComponent;
+  let fixture: ComponentFixture<FaqComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ModalFailComponent],
+      declarations: [FaqComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalFailComponent);
+    fixture = TestBed.createComponent(FaqComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -12,11 +12,36 @@ header .branding .title,
   align-items: flex-start;
 }
 
+nav.subnav p {
+  padding: 0 24px;
+}
+
 nav.subnav ul {
   list-style-type: none;
+}
+
+nav.subnav ul > li:first-child {
+  padding: 20px 0;
+  height: 100px;
+  text-decoration: none;
+}
+
+a.nav-link {
+  text-decoration: underline;
 }
 
 clr-header .page-title {
   position: fixed;
   right: 20px;
+}
+
+#initiate-plea-btn {
+  margin: 20px 0;
+  width: calc(100% - 20px);
+}
+
+@media only screen and (min-width: 768px) {
+  nav.subnav {
+    display: none;
+  }
 }

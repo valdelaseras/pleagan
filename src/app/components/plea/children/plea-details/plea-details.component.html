@@ -19,10 +19,10 @@
       products have been removed from the product.
     </p>
 
-    <div class="highlighted-div">
+    <div class="banner">
       <p class="larger">
-        <span class="highlighted-txt">{{ plea.company.name }}</span
-        >, please read all our desperate calls to you<a (click)="scrollTo('original-plea')" class="underlined">here!</a>
+        {{ plea.company.name }}, please read our desperate calls to you
+        <a (click)="scrollTo('original-plea')" class="underlined">here!</a>
       </p>
     </div>
 
@@ -36,7 +36,7 @@
 
   <div id="original-plea">
     <div class="plea-support-btn">
-      <button type="button" class="btn btn-primary btn-icon" aria-label="Support this plea">
+      <button type="button" class="btn btn-primary btn-icon" (click)="showModal()" aria-label="Support this plea">
         <clr-icon shape="plus" size="16"></clr-icon>
         Support this plea
       </button>
@@ -71,7 +71,10 @@
     </div>
 
     <div>
+      <h3>Stats</h3>
       <h3>Supporters</h3>
     </div>
   </div>
 </div>
+
+<!--<app-modal *ngIf="isVisible" content="test"></app-modal>-->
