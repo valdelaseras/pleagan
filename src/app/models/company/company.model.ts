@@ -1,13 +1,15 @@
 import { Product } from '../product/product.model';
 import { ICompany } from 'pleagan-model';
+import { JsonObject, JsonProperty } from 'json2typescript';
 
+@JsonObject('Company')
 export class Company implements ICompany {
-  id: string;
-  name: string;
-  product: Product;
-  constructor(id: string, name: string, product: Product) {
-    this.id = id;
-    this.name = name;
-    this.product = product;
-  }
+  @JsonProperty( 'id', String )
+  id: string = '';
+
+  @JsonProperty( 'name', String )
+  name: string = '';
+
+  @JsonProperty( 'product', Product )
+  product: Product = new Product();
 }

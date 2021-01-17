@@ -6031,6 +6031,11 @@ json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
+json2typescript@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/json2typescript/-/json2typescript-1.4.1.tgz#de4b8ef5044bce7a580ebd4fafbe75d807001016"
+  integrity sha512-l+gmzjK4klnIG4Nr9SdHlhc03e63ln6UN1AASTTufrRoG3MjR443HqGmx/1OMOb/xvp7Ztb7UKZIzxXyDjGSsw==
+
 json3@^3.3.2:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/json3/-/json3-3.3.3.tgz#7fc10e375fc5ae42c4705a5cc0aa6f62be305b81"
@@ -7472,10 +7477,10 @@ pkg-dir@^4.1.0, pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-pleagan-model@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/pleagan-model/-/pleagan-model-0.0.8.tgz#847b2dd04790ea5a7cb7fa75808037d7c66aee94"
-  integrity sha512-FggumS0IqwYAeP/gObcF3l/kiEbWFQ81vsoIrH/0/VLIFDI8XuM3KT34/O6nNzONxPu6anOUpRdiGWe3QJGezg==
+pleagan-model@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/pleagan-model/-/pleagan-model-0.0.9.tgz#49612b888caa79e0900cc504731896993dbc812e"
+  integrity sha512-r/aBoZzI5wsnTJ1Yy/n7FQUgJsF4sJXJgfemzinDO0WPoc/DzbxqJZgjs9sAsu3lV8n+IJMNsTmtT05gY31BLg==
   dependencies:
     tslint "^6.1.3"
     tslint-config-prettier "^1.18.0"

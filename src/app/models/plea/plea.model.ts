@@ -1,37 +1,28 @@
 import { Company } from '../company/company.model';
 import { Pleagan } from '../pleagan/pleagan.model';
-import { IPlea } from 'pleagan-model';
+import { IPlea, PLEA_STATUS } from 'pleagan-model';
+import { JsonObject, JsonProperty } from 'json2typescript';
 
+@JsonObject('Plea')
 export class Plea implements IPlea {
-  id: string;
-  status: PLEA_STATUS;
-  creationTimestamp: string;
-  company: Company;
-  initiator: Pleagan;
-  supporters: Pleagan[];
-  imageUrl: string;
-  constructor(
-    id: string,
-    creationTimestamp: string,
-    company: Company,
-    status: PLEA_STATUS,
-    initiator: Pleagan,
-    supporters: Pleagan[],
-    imageUrl: string,
-  ) {
-    this.id = id;
-    this.creationTimestamp = creationTimestamp;
-    this.company = company;
-    this.status = status;
-    this.initiator = initiator;
-    this.supporters = supporters;
-    this.imageUrl = imageUrl;
-  }
-}
+  @JsonProperty( 'id', String )
+  id: string = '';
 
-export enum PLEA_STATUS {
-  UNNOTIFIED = 'Unnotified',
-  NOTIFIED = 'Notified',
-  RESPONDED = 'Responded',
-  COMPLIED = 'Complied',
+  @JsonProperty( 'status', String )
+  status: PLEA_STATUS = PLEA_STATUS.UNNOTIFIED;
+
+  @JsonProperty( 'creationTimestamp', String )
+  creationTimestamp: string = '';
+
+  @JsonProperty( 'company', Company )
+  company: Company = new Company();
+
+  @JsonProperty( 'initiator', Pleagan )
+  initiator: Pleagan = new Pleagan();
+
+  @JsonProperty( 'supporters', [Pleagan] )
+  supporters: Pleagan[] = [];
+
+  @JsonProperty( 'imageUrl', String )
+  imageUrl: string = '';
 }
