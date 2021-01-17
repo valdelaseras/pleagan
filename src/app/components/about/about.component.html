@@ -1,5 +1,4 @@
 <div>
-  <div>
     <h1>What is pleagan?</h1>
     <p>Pleagan is essentially a platform for two groups:</p>
 
@@ -10,7 +9,7 @@
       </li>
       <li>
         for companies to get insight in the vegan market. If handled well, pleagan can be a place for exposure and
-        promotion of your animal free product
+        promotion of new animal free products.
       </li>
     </ul>
 
@@ -18,23 +17,26 @@
 
     <p>
       Of course many petitions and initiatives already exist scattered over the internet. Pleagan aims to aggregate this
-      into one place, to help companies efficiently adjust their business strategies.
+      into one place, to help vegans to display their collective pleas for more plant-based products and for
+      companies to efficiently adjust their business strategies accordingly.
     </p>
 
     <p>
       At pleagan we believe the most effective way to a more vegan world is to increase demand. Consequently, the more
       plant-based products are available on the market, the easier it will be for people to consume more animal free
-      products.
+      products. <span class="highlighted-txt">Everybody wins</span>.
     </p>
 
-    <p class="larger">Your success is our success and everybody wins.</p>
+    <p>
+      Read more about Pleagans' value for companies
+      <a class="underlined" [routerLink]="['/about']" [queryParams]="{'section': 'company'}" (click)="scrollTo('company')">here</a>.
+    </p>
 
     <div class="banner align-center">
       <clr-icon shape="recycle" size="42"></clr-icon>
     </div>
 
-    <!--    if company rep..-->
-    <div id="company-info">
+    <div id="company" *ngIf="section === 'company'">
       <h2>How pleagan helps your company</h2>
 
       <p class="larger">
@@ -88,29 +90,29 @@
         <li>Your product is permanently placed in our Hall of Fame</li>
         <li>You will climb the rankings of our leaderboard</li>
       </ul>
+
+      <h3>The future is plant-based</h3>
+      <p>
+        Many, if not all, vegans feel an urgent need for plant-based diets to gain popularity and become ever more normalised.
+        In the world as it exists today, <a class="underlined" href="https://www.vegansociety.com/news/media/statistics">
+        there are a ton of important reasons</a> for going vegan. We also understand that as a company you need to make profit.
+        Veganism is <a class="underlined" href="https://foodrevolution.org/blog/vegan-statistics-global/">rising in popularity
+        and continues to do so</a>. In recent years companies like <a class="underlined" href="https://www.cnbc.com/2020/08/19/beyond-meat-ceo-ethan-brown-on-early-naysayers.html">
+        Beyond Meat</a> have had massive successes.
+      </p>
+      <p>
+        We urge you to <a class="underlined" href="https://www.ox.ac.uk/news/2019-10-29-plant-based-foods-are-good-both-health-and-environment">take the health of the planet in
+        consideration</a> in your future business decisions, by redirecting your efforts to plant-based products.
+      </p>
     </div>
 
-    <!-- if herbivore..-->
-    <!--    <div id="herbivore-info">-->
-    <!--      <h2>How pleagan helps</h2>-->
-    <!--      <p>-->
-    <!--        Fusce accumsan velit scelerisque diam tincidunt feugiat. Fusce eget sodales leo. Etiam ultrices tempus est non-->
-    <!--        ultricies. Integer posuere iaculis sapien, et faucibus lorem tincidunt et.-->
-    <!--      </p>-->
+    <div id="herbivore" *ngIf="section !== 'company'">
+      <h2>A title</h2>
+      <h3>A subtitle</h3>
+      <p>
+        Some text
+      </p>
+    </div>
 
-    <!--      <div class="banner align-center">-->
-    <!--        <ul class="icon-list horizontal">-->
-    <!--          <li>-->
-    <!--            <clr-icon shape="line-chart" size="42"></clr-icon>-->
-    <!--          </li>-->
-    <!--          <li>-->
-    <!--            <clr-icon shape="bar-chart" size="42"></clr-icon>-->
-    <!--          </li>-->
-    <!--          <li>-->
-    <!--            <clr-icon shape="pie-chart" size="42"></clr-icon>-->
-    <!--          </li>-->
-    <!--        </ul>-->
-    <!--      </div>-->
-    <!--    </div>-->
   </div>
-</div>
+

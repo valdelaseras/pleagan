@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit {
+  @Input() imageUrl = 'assets/icons/instagram.svg';
+  @Input() socialUrl = '/';
+  @Input() socialAlt = 'Instagram logo';
   constructor() {}
 
   ngOnInit(): void {}
