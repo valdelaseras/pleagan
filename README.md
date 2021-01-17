@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
 
+[data model](https://www.npmjs.com/package/pleagan-model)
+
 ## Set up
 
 [backend](https://github.com/valdelaseras/pleagan-service)
