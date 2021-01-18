@@ -12,9 +12,7 @@ import { tap } from 'rxjs/operators';
 export class PleasComponent implements OnInit {
   pleas$: Observable<Plea[]>;
   constructor(private pleaService: PleaService) {
-    this.pleas$ = this.pleaService.getPleas().pipe(
-      tap(console.log)
-    );
+    this.pleas$ = this.pleaService.getPleas().pipe(tap(console.log));
   }
 
   ngOnInit(): void {}

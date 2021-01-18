@@ -1,20 +1,20 @@
 import { IPleagan } from 'pleagan-model';
 import { JsonObject, JsonProperty } from 'json2typescript';
 
-@JsonObject( 'Pleagan' )
+@JsonObject('Pleagan')
 export class Pleagan implements IPleagan {
-  @JsonProperty( 'id', String )
+  @JsonProperty('id', String)
   id: string = '';
 
-  @JsonProperty( 'name', String )
+  @JsonProperty('name', String)
   name: string = '';
 
-  @JsonProperty( 'email', String )
+  @JsonProperty('email', String)
   email: string = '';
 
-  @JsonProperty( 'message', String )
+  @JsonProperty('message', String)
   message?: string = undefined;
 
-  @JsonProperty( 'location', String )
+  @JsonProperty('location', String)
   location?: string = undefined;
 }

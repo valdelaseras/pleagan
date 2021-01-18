@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Plea } from '../../../models/plea/plea.model';
 import { Router } from '@angular/router';
+import {PLEA_TARGET} from 'pleagan-model';
 
 @Component({
   selector: 'app-plea-card',
@@ -22,9 +23,4 @@ export class PleaCardComponent {
   }
 }
 
-// TEMPORARY PLEA TARGETS ENUM @TODO: REFACTOR
-export enum PLEA_TARGET {
-  FIRST = 1000,
-  SECOND = 2000,
-  THIRD = 3000,
-}
+

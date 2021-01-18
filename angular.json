@@ -21,10 +21,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/pleagan",
-            "allowedCommonJsDependencies": [
-              "pleagan-model",
-              "json2typescript"
-            ],
+            "allowedCommonJsDependencies": ["pleagan-model", "json2typescript"],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

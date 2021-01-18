@@ -5,24 +5,24 @@ import { JsonObject, JsonProperty } from 'json2typescript';
 
 @JsonObject('Plea')
 export class Plea implements IPlea {
-  @JsonProperty( 'id', String )
+  @JsonProperty('id', String)
   id: string = '';
 
-  @JsonProperty( 'status', String )
+  @JsonProperty('status', String)
   status: PLEA_STATUS = PLEA_STATUS.UNNOTIFIED;
 
-  @JsonProperty( 'creationTimestamp', String )
+  @JsonProperty('creationTimestamp', String)
   creationTimestamp: string = '';
 
-  @JsonProperty( 'company', Company )
+  @JsonProperty('company', Company)
   company: Company = new Company();
 
-  @JsonProperty( 'initiator', Pleagan )
+  @JsonProperty('initiator', Pleagan)
   initiator: Pleagan = new Pleagan();
 
-  @JsonProperty( 'supporters', [Pleagan] )
+  @JsonProperty('supporters', [Pleagan])
   supporters: Pleagan[] = [];
 
-  @JsonProperty( 'imageUrl', String )
+  @JsonProperty('imageUrl', String)
   imageUrl: string = '';
 }

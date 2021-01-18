@@ -12,6 +12,7 @@ import { NewsComponent } from './components/news/news.component';
 import { HallOfFameComponent } from './components/hall-of-fame/hall-of-fame.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SupportPleaComponent } from './components/plea/children/support-plea/support-plea.component';
+import { SpecialThanksComponent } from './components/special-thanks/special-thanks.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
     ],
   },
   { path: 'leaderboard', component: LeaderboardComponent },
+  { path: 'special-thanks', component: SpecialThanksComponent },
   { path: 'news', component: NewsComponent },
   { path: 'haf', component: HallOfFameComponent },
   { path: 'about', component: AboutComponent },

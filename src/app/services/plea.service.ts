@@ -10,7 +10,7 @@ import { map, tap } from 'rxjs/operators';
 @Injectable()
 export class PleaService {
   parse: JsonConvert;
-  constructor( private http: HttpClient ) {
+  constructor(private http: HttpClient) {
     this.parse = new JsonConvert();
 
     this.parse.operationMode = OperationMode.LOGGING;
@@ -18,28 +18,28 @@ export class PleaService {
     this.parse.valueCheckingMode = ValueCheckingMode.ALLOW_NULL;
   }
   getPleas(): Observable<Plea[]> {
-    return this.http.get<Plea[]>( `${environment.apiBaseUrl}/plea/all` ).pipe(
-      map( (pleas: IPlea[]) => {
+    return this.http.get<Plea[]>(`${environment.apiBaseUrl}/plea/all`).pipe(
+      map((pleas: IPlea[]) => {
         try {
-          return this.parse.deserializeArray( pleas, Plea );
-        } catch ( e ) {
+          return this.parse.deserializeArray(pleas, Plea);
+        } catch (e) {
           console.log(e);
           return [];
         }
-      } )
+      }),
     );
   }
 
   getPleaById(id: string): Observable<Plea | undefined> {
-    return this.http.get<IPlea>( `${environment.apiBaseUrl}/plea/${id}` ).pipe(
-      map( (plea: IPlea) => {
+    return this.http.get<IPlea>(`${environment.apiBaseUrl}/plea/${id}`).pipe(
+      map((plea: IPlea) => {
         try {
-          return this.parse.deserializeObject( plea, Plea );
-        } catch ( e ) {
+          return this.parse.deserializeObject(plea, Plea);
+        } catch (e) {
           console.log(e);
           return undefined;
         }
-      } )
+      }),
     );
   }
 }

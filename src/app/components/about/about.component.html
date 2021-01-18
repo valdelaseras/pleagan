@@ -1,118 +1,133 @@
 <div>
-    <h1>What is pleagan?</h1>
-    <p>Pleagan is essentially a platform for two groups:</p>
+  <h1>What is pleagan?</h1>
+  <p>Pleagan is essentially a platform for two groups:</p>
 
-    <ul class="reg-list">
-      <li>
-        for people on plant-based diets to initiate and support pleas to companies. The goal is a veganised version of
-        an already existing product.
-      </li>
-      <li>
-        for companies to get insight in the vegan market. If handled well, pleagan can be a place for exposure and
-        promotion of new animal free products.
-      </li>
-    </ul>
+  <ul class="reg-list">
+    <li>
+      for people on plant-based diets to initiate and support pleas to companies. The goal is a veganised version of an
+      already existing product.
+    </li>
+    <li>
+      for companies to get insight in the vegan market. If handled well, pleagan can be a place for exposure and
+      promotion of new animal free products.
+    </li>
+  </ul>
 
-    <h2>A virtuous circle</h2>
+  <h2>A virtuous circle</h2>
+
+  <p>
+    Of course many petitions and initiatives already exist scattered over the internet. Pleagan aims to aggregate this
+    into one place, to help vegans to have their collective pleas for more plant-based products heard loud and clear.
+    Businesses can use the information on Pleagan to efficiently adjust their business strategies accordingly.
+  </p>
+
+  <p>
+    At pleagan we believe the most effective way to a more vegan world is to increase demand. Consequently, the more
+    plant-based products are available on the market, the easier it will be for people to consume more animal free
+    products. <span class="highlighted-txt">Everybody wins</span>.
+  </p>
+
+  <p>
+    Read more about Pleagans' value for companies
+    <a
+      class="underlined"
+      [routerLink]="['/about']"
+      [queryParams]="{ section: 'business' }"
+      (click)="scrollTo('business')"
+      >here</a
+    >.
+  </p>
+
+  <div class="banner align-center">
+    <clr-icon shape="recycle" size="42"></clr-icon>
+  </div>
+
+  <div id="business" *ngIf="section === 'business'">
+    <h2>How pleagan helps your business</h2>
+
+    <p class="larger">
+      <span class="bold">Quick tip:</span> you can initiate a plea yourself to gauge demand for your product.
+    </p>
+
+    <h3>Stats</h3>
 
     <p>
-      Of course many petitions and initiatives already exist scattered over the internet. Pleagan aims to aggregate this
-      into one place, to help vegans to display their collective pleas for more plant-based products and for
-      companies to efficiently adjust their business strategies accordingly.
+      With every plea we gather some stats and put them in handy graphs. These stats are intended to give you insight in
+      the demand for the product, where demand might be the highest and how the plea for your product is doing compared
+      to your competitors.
     </p>
 
     <p>
-      At pleagan we believe the most effective way to a more vegan world is to increase demand. Consequently, the more
-      plant-based products are available on the market, the easier it will be for people to consume more animal free
-      products. <span class="highlighted-txt">Everybody wins</span>.
+      These statistics are freely available for everybody to see. If you search your company or product name
+      <a [routerLinkActive]="'active'" [routerLink]="['/plea', 'all']" class="underlined">here</a> and a plea comes up,
+      open the plea and you will find the stats, along with a list of all supporters of the plea. You can also check out
+      our <a [routerLinkActive]="'active'" [routerLink]="['/leaderboard']" class="underlined">leaderboards</a>.
     </p>
 
-    <p>
-      Read more about Pleagans' value for companies
-      <a class="underlined" [routerLink]="['/about']" [queryParams]="{'section': 'company'}" (click)="scrollTo('company')">here</a>.
+    <p class="larger">
+      If a plea to your company has been initiated and a certain threshold of support has been reached, we will reach
+      out to you.
     </p>
 
     <div class="banner align-center">
-      <clr-icon shape="recycle" size="42"></clr-icon>
-    </div>
-
-    <div id="company" *ngIf="section === 'company'">
-      <h2>How pleagan helps your company</h2>
-
-      <p class="larger">
-        <span class="bold">Quick tip:</span> you can initiate a plea yourself to gauge demand for your product.
-      </p>
-
-      <h3>Stats</h3>
-
-      <p>
-        With every plea we gather some stats and put them in handy graphs. These stats are intended to give you insight
-        in the demand for the product, where demand might be the highest and how the plea for your product is doing
-        compared to your competitors.
-      </p>
-
-      <p>
-        These statistics are freely available for everybody to see. If you search your company or product name
-        <a [routerLinkActive]="'active'" [routerLink]="['/plea', 'all']" class="underlined">here</a> and a plea comes
-        up, open the plea and you will find the stats, along with a list of all supporters of the plea. You can also
-        check out our
-        <a [routerLinkActive]="'active'" [routerLink]="['/leaderboard']" class="underlined">leaderboards</a>.
-      </p>
-
-      <p class="larger">
-        If a plea to your company has been initiated and a certain threshold of support has been reached, we will reach
-        out to you.
-      </p>
-
-      <div class="banner align-center">
-        <ul class="icon-list horizontal">
-          <li>
-            <clr-icon shape="line-chart" size="42"></clr-icon>
-          </li>
-          <li>
-            <clr-icon shape="bar-chart" size="42"></clr-icon>
-          </li>
-          <li>
-            <clr-icon shape="pie-chart" size="42"></clr-icon>
-          </li>
-        </ul>
-      </div>
-
-      <h3>Exposure</h3>
-      <p>
-        If you respond to our pleas and bring out a new animal free product, we happily offer you and your product
-        exposure in several ways, to keep that snowball effect going:
-      </p>
-
-      <ul class="reg-list">
-        <li>We send out an email to all supporters of the plea who have checked the box to receive a notification</li>
-        <li>Any news relating to your animal free products will be posted on our news page</li>
-        <li>Your product is permanently placed in our Hall of Fame</li>
-        <li>You will climb the rankings of our leaderboard</li>
+      <ul class="icon-list horizontal">
+        <li>
+          <clr-icon shape="line-chart" size="42"></clr-icon>
+        </li>
+        <li>
+          <clr-icon shape="bar-chart" size="42"></clr-icon>
+        </li>
+        <li>
+          <clr-icon shape="pie-chart" size="42"></clr-icon>
+        </li>
       </ul>
-
-      <h3>The future is plant-based</h3>
-      <p>
-        Many, if not all, vegans feel an urgent need for plant-based diets to gain popularity and become ever more normalised.
-        In the world as it exists today, <a class="underlined" href="https://www.vegansociety.com/news/media/statistics">
-        there are a ton of important reasons</a> for going vegan. We also understand that as a company you need to make profit.
-        Veganism is <a class="underlined" href="https://foodrevolution.org/blog/vegan-statistics-global/">rising in popularity
-        and continues to do so</a>. In recent years companies like <a class="underlined" href="https://www.cnbc.com/2020/08/19/beyond-meat-ceo-ethan-brown-on-early-naysayers.html">
-        Beyond Meat</a> have had massive successes.
-      </p>
-      <p>
-        We urge you to <a class="underlined" href="https://www.ox.ac.uk/news/2019-10-29-plant-based-foods-are-good-both-health-and-environment">take the health of the planet in
-        consideration</a> in your future business decisions, by redirecting your efforts to plant-based products.
-      </p>
     </div>
 
-    <div id="herbivore" *ngIf="section !== 'company'">
-      <h2>A title</h2>
-      <h3>A subtitle</h3>
-      <p>
-        Some text
-      </p>
-    </div>
+    <h3>Exposure</h3>
+    <p>
+      If you respond to our pleas and bring out a new animal free product, we happily offer you and your product
+      exposure in several ways, to keep that snowball effect going:
+    </p>
 
+    <ul class="reg-list">
+      <li>We send out an email to all supporters of the plea who have checked the box to receive a notification</li>
+      <li>Any news relating to your animal free products will be posted on our news page</li>
+      <li>Your product is permanently placed in our Hall of Fame</li>
+      <li>You will climb the rankings of our leaderboard</li>
+    </ul>
+
+    <!--      <h3>The future is plant-based</h3>-->
+    <!--      <p>-->
+    <!--        Many, if not all, vegans feel an urgent need for plant-based diets to gain popularity and become ever more normalised.-->
+    <!--        In the world as it exists today, <a class="underlined" href="https://www.vegansociety.com/news/media/statistics">-->
+    <!--        there are a ton of important reasons</a> for going vegan. We also understand that as a company you need to make profit.-->
+    <!--        Veganism is <a class="underlined" href="https://foodrevolution.org/blog/vegan-statistics-global/">rising in popularity-->
+    <!--        and continues to do so</a>. In recent years companies like <a class="underlined" href="https://www.cnbc.com/2020/08/19/beyond-meat-ceo-ethan-brown-on-early-naysayers.html">-->
+    <!--        Beyond Meat</a> have had massive successes.-->
+    <!--      </p>-->
+    <!--      <p>-->
+    <!--        We urge you to <a class="underlined" href="https://www.ox.ac.uk/news/2019-10-29-plant-based-foods-are-good-both-health-and-environment">take the health of the planet in-->
+    <!--        consideration</a> in your future business decisions, by redirecting your efforts to plant-based products.-->
+    <!--      </p>-->
   </div>
 
+  <div id="herbivore" *ngIf="section !== 'business'">
+    <h2>How to use Pleagan</h2>
+    <p>
+      As mentioned above, the goal is to have businesses either replace a non-vegan product with a vegan one, or at the
+      least add a vegan product to their inventory. You can either
+      <a class="underlined" [routerLink]="['/plea', 'new']">initiate a new plea</a> or look through
+      <a class="underlined" [routerLink]="['/plea', 'all']">all existing pleas</a> and add your support to it.
+    </p>
+
+    <h3>Initiating a plea</h3>
+    <p>
+      Before you <a class="underlined" [routerLink]="['/plea', 'new']">initiate a new plea</a> please search by either
+      company or product name if a plea already exists. One plea backed by all supporters is more impressive and
+      effective than several of the same pleas with the support scattered between those.
+    </p>
+
+    <h3>Supporting a plea</h3>
+    <p></p>
+  </div>
+</div>
