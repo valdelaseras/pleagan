@@ -7,14 +7,16 @@
         <div class="card-title">{{ plea.company.product.name }}</div>
         <div class="card-text">
           <p>
-            <span class="highlighted-txt">{{ plea.company.name }}</span> has read your pleas and decided to do the right
-            thing! On <span class="highlighted-txt">date</span> they have launched their new product,
-            <span class="highlighted-txt"> new product name</span> available in
+            <span class="highlighted-txt">{{ plea.company.name }}</span> has read our pleas and on
+            <span class="highlighted-txt">date</span> they have launched their new animal free product,
+            <span class="highlighted-txt"> new product name</span>! {{ plea.company.product.name }} is available in
             <span class="highlighted-txt">list of countries</span>.
           </p>
           <p>
-            Be sure to support their new product if you can and leave a little comment below to show them your
-            appreciation and love.
+            Be sure to support their new product and leave a little comment below to show them your appreciation and
+            love.
+            <a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/haf', 'product']"> Find the details here</a>
+            and spread the word in the your social circles!
           </p>
         </div>
       </div>

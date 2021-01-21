@@ -1,17 +1,17 @@
 <div class="clr-row">
   <div class="clr-col-lg-6 clr-col-12">
     <div class="card">
-      <div class="card-header">Title</div>
+      <div class="card-header">{{ title }}</div>
       <div class="card-block">
         <div class="card-media-block">
-          <img src="..." class="card-media-image" />
+          <img src="{{ imageUrl }}" class="card-media-image" />
           <div class="card-media-description">
-            <span class="card-media-title">Subtitle</span>
-            <span class="card-media-text">Date</span>
+            <span class="card-media-title">{{ subtitle }}</span>
+            <span class="card-media-text">{{ date }}</span>
           </div>
         </div>
         <div class="card-text">
-          <p>News text</p>
+          <p>{{ content }}</p>
         </div>
       </div>
       <!--      optional-->

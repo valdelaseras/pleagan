@@ -13,7 +13,7 @@ export class PleaService {
   constructor(private http: HttpClient) {
     this.parse = new JsonConvert();
 
-    this.parse.operationMode = OperationMode.LOGGING;
+    // this.parse.operationMode = OperationMode.LOGGING;
     this.parse.ignorePrimitiveChecks = false;
     this.parse.valueCheckingMode = ValueCheckingMode.ALLOW_NULL;
   }

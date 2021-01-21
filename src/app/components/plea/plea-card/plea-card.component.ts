@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Plea } from '../../../models/plea/plea.model';
 import { Router } from '@angular/router';
-import {PLEA_TARGET} from 'pleagan-model';
+import { PLEA_TARGET } from 'pleagan-model';
 
 @Component({
   selector: 'app-plea-card',
@@ -22,5 +22,3 @@ export class PleaCardComponent {
     }
   }
 }
-
-
