@@ -6,13 +6,13 @@ import { JsonObject, JsonProperty } from 'json2typescript';
 @JsonObject('Plea')
 export class Plea implements IPlea {
   @JsonProperty('id', String)
-  id: string = '';
+  id = '';
 
   @JsonProperty('status', String)
   status: PLEA_STATUS = PLEA_STATUS.UNNOTIFIED;
 
   @JsonProperty('creationTimestamp', String)
-  creationTimestamp: string = '';
+  creationTimestamp = '';
 
   @JsonProperty('company', Company)
   company: Company = new Company();
@@ -24,5 +24,5 @@ export class Plea implements IPlea {
   supporters: Pleagan[] = [];
 
   @JsonProperty('imageUrl', String)
-  imageUrl: string = '';
+  imageUrl = '';
 }

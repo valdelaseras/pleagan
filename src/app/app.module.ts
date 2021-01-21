@@ -28,6 +28,7 @@ import { HafCardComponent } from './components/hall-of-fame/haf-card/haf-card.co
 import { NewsCardComponent } from './components/news/news-card/news-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SpecialThanksComponent } from './components/special-thanks/special-thanks.component';
+import { CardListComponent } from './components/hall-of-fame/children/card-list/card-list.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { SpecialThanksComponent } from './components/special-thanks/special-than
     HafCardComponent,
     NewsCardComponent,
     SpecialThanksComponent,
+    CardListComponent,
   ],
   imports: [
     BrowserModule,

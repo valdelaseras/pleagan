@@ -13,6 +13,7 @@ import { HallOfFameComponent } from './components/hall-of-fame/hall-of-fame.comp
 import { ContactComponent } from './components/contact/contact.component';
 import { SupportPleaComponent } from './components/plea/children/support-plea/support-plea.component';
 import { SpecialThanksComponent } from './components/special-thanks/special-thanks.component';
+import {CardListComponent} from './components/hall-of-fame/children/card-list/card-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -29,7 +30,10 @@ const routes: Routes = [
   { path: 'leaderboard', component: LeaderboardComponent },
   { path: 'special-thanks', component: SpecialThanksComponent },
   { path: 'news', component: NewsComponent },
-  { path: 'haf', component: HallOfFameComponent },
+  { path: 'haf', component: HallOfFameComponent, children: [
+      { path: 'all', component: CardListComponent }
+    ],
+  },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'faq', component: FaqComponent },

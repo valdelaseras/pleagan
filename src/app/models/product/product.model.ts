@@ -4,10 +4,13 @@ import { JsonObject, JsonProperty } from 'json2typescript';
 @JsonObject('Product')
 export class Product implements IProduct {
   @JsonProperty('id', String)
-  id: string = '';
+  id = '';
 
   @JsonProperty('name', String)
-  name: string = '';
+  name = '';
+
+  @JsonProperty('vegan', Boolean)
+   vegan = false;
 
   @JsonProperty('ingredients', [String])
   ingredients: string[] = [];

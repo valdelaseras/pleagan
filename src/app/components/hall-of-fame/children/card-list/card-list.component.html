@@ -1,0 +1,7 @@
+<div>
+  <ul *ngIf="pleas$ | async as pleas">
+    <li *ngFor="let plea of pleas">
+      <app-haf-card [plea]="plea"></app-haf-card>
+    </li>
+  </ul>
+</div>
