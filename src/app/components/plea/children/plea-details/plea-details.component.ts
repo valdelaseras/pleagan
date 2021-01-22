@@ -3,8 +3,8 @@ import { Plea } from '../../../../models/plea/plea.model';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PleaService } from '../../../../services/plea.service';
-import { IPlea } from 'pleagan-model';
-
+import { Product } from '../../../../models/product/product.model';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-submission-details',
   templateUrl: './plea-details.component.html',
@@ -12,9 +12,17 @@ import { IPlea } from 'pleagan-model';
 })
 export class PleaDetailsComponent {
   isVisible = false;
-  plea$: Observable<IPlea | undefined>;
+  plea$: Observable<Plea>;
+  product: Product;
   constructor(private route: ActivatedRoute, private pleaService: PleaService) {
     this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
+    this.plea$
+      .pipe(
+        map((plea: Plea) => {
+          this.product = plea.company.products.filter((product: Product) => !product.vegan).pop()!;
+        }),
+      )
+      .subscribe();
   }
   scrollTo(id: string): void {
     const target = document.getElementById(id);

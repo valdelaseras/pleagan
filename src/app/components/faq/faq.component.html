@@ -52,9 +52,11 @@
         <p>We have a couple of pages where we focus on successfully achieved results and plea-compliant companies:</p>
 
         <ul class="reg-list">
-          <li><a class="underlined" [routerLinkActive]="'active'" [routerLink]="'/news'">News</a></li>
-          <li><a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/', 'haf', 'all']">Hall of Fame</a></li>
-          <li><a class="underlined" [routerLinkActive]="'active'" [routerLink]="'/leaderboard'">Leaderboards</a></li>
+          <li><a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/', 'news', 'all']">News</a></li>
+          <li>
+            <a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/', 'hall-of-fame', 'all']">Hall of Fame</a>
+          </li>
+          <li><a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/', 'leaderboard']">Leaderboards</a></li>
         </ul>
 
         <p>

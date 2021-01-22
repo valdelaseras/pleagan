@@ -7,7 +7,7 @@
 
     <p class="larger">
       We the pleagans are pleading you to please veganize your
-      <span class="highlighted-txt">{{ plea.company.product.name }}</span
+      <span class="highlighted-txt">{{ product.name }}</span
       >. We would be properly pleased with this 100% plant-based product and would present you our precious money with
       pleasure.
     </p>
@@ -36,7 +36,7 @@
 
   <div id="original-plea">
     <div class="plea-support-btn">
-      <button
+      <a
         type="button"
         (click)="$event.preventDefault()"
         [routerLink]="['/plea', 'support', plea.id]"
@@ -45,12 +45,12 @@
       >
         <clr-icon shape="plus" size="16"></clr-icon>
         Support this plea
-      </button>
+      </a>
     </div>
 
     <div class="plea-header">
       <h3>
-        Presenting the plea for a plant-based <span class="bold">{{ plea.company.product.name }}</span> product
+        Presenting the plea for a plant-based <span class="bold">{{ product.name }}</span> product
       </h3>
       <span>by {{ plea.company.name }}</span>
     </div>

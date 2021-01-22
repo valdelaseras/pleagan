@@ -30,14 +30,13 @@ export class PleaService {
     );
   }
 
-  getPleaById(id: string): Observable<Plea | undefined> {
+  getPleaById(id: string): Observable<Plea> {
     return this.http.get<IPlea>(`${environment.apiBaseUrl}/plea/${id}`).pipe(
       map((plea: IPlea) => {
         try {
           return this.parse.deserializeObject(plea, Plea);
         } catch (e) {
-          console.log(e);
-          return undefined;
+          throw e;
         }
       }),
     );

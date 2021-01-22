@@ -10,7 +10,7 @@ export class Product implements IProduct {
   name = '';
 
   @JsonProperty('vegan', Boolean)
-   vegan = false;
+  vegan = false;
 
   @JsonProperty('ingredients', [String])
   ingredients: string[] = [];

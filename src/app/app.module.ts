@@ -7,11 +7,11 @@ import { HomeComponent } from './components/home/home.component';
 import { PleaComponent } from './components/plea/plea.component';
 import { AboutComponent } from './components/about/about.component';
 import { NewPleaComponent } from './components/plea/children/new-plea/new-plea.component';
-import { PleasComponent } from './components/plea/children/pleas/pleas.component';
+import { PleasListComponent } from './components/plea/children/pleas-list/pleas-list.component';
 import { PleaDetailsComponent } from './components/plea/children/plea-details/plea-details.component';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './components/nav/nav.component';
 import { ModalSuccessComponent } from './components/modals/modal-success/modal-success.component';
 import { PleaCardComponent } from './components/plea/plea-card/plea-card.component';
@@ -29,6 +29,9 @@ import { NewsCardComponent } from './components/news/news-card/news-card.compone
 import { HttpClientModule } from '@angular/common/http';
 import { SpecialThanksComponent } from './components/special-thanks/special-thanks.component';
 import { CardListComponent } from './components/hall-of-fame/children/card-list/card-list.component';
+import { DetailsComponent } from './components/hall-of-fame/children/details/details.component';
+import { SearchPipe } from './components/search.pipe';
+import { NewsListComponent } from './components/news/children/news-list/news-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,7 @@ import { CardListComponent } from './components/hall-of-fame/children/card-list/
     PleaComponent,
     AboutComponent,
     NewPleaComponent,
-    PleasComponent,
+    PleasListComponent,
     PleaDetailsComponent,
     NavComponent,
     ModalSuccessComponent,
@@ -54,6 +57,9 @@ import { CardListComponent } from './components/hall-of-fame/children/card-list/
     NewsCardComponent,
     SpecialThanksComponent,
     CardListComponent,
+    DetailsComponent,
+    SearchPipe,
+    NewsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +68,7 @@ import { CardListComponent } from './components/hall-of-fame/children/card-list/
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [PleaService],
   bootstrap: [AppComponent],

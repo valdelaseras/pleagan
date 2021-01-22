@@ -24,10 +24,10 @@
 
     <li class="nav-item">
       <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'new']">
-        <button type="button" id="initiate-plea-btn" class="btn btn-primary btn-icon" aria-label="Initiate a plea">
+        <span id="initiate-plea-btn" class="btn btn-primary btn-icon" aria-label="Initiate a plea">
           <clr-icon shape="plus" size="16"></clr-icon>
           Initiate a plea
-        </button>
+        </span>
       </a>
     </li>
 
@@ -40,11 +40,11 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['news']">News</a>
+      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['news', 'all']">News</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['haf', 'all']">Hall of Fame</a>
+      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['hall-of-fame', 'all']">Hall of Fame</a>
     </li>
 
     <li class="nav-item">

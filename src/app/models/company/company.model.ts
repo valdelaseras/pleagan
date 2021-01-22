@@ -10,6 +10,6 @@ export class Company implements ICompany {
   @JsonProperty('name', String)
   name: string = '';
 
-  @JsonProperty('product', Product)
-  product: Product = new Product();
+  @JsonProperty('products', [Product])
+  products: Product[] = [];
 }

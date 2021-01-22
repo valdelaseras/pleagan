@@ -3,33 +3,42 @@
     <div class="card">
       <div class="card-header">{{ plea.company.name }}</div>
       <div class="card-block">
-        <!--        new product name goes here-->
-        <div class="card-title">{{ plea.company.product.name }} is now <span class="highlighted-txt">new product name</span></div>
+        <div class="card-title">
+          {{ nonVeganProduct.name }}
+          is now <span class="highlighted-txt">{{ veganProduct.name }}</span>
+        </div>
         <div class="card-text">
           <p>
             <span class="highlighted-txt">{{ plea.company.name }}</span> has read our pleas and on
-            <span class="highlighted-txt">date</span> they have launched their new animal free product,
-            <span class="highlighted-txt"> new product name</span>! {{ plea.company.product.name }} is available in
-            <span class="highlighted-txt">list of countries</span>.
+            <span class="highlighted-txt">date</span> they launched their new animal free product,
+            <span class="highlighted-txt">veganProduct.name</span>! veganProduct.name is currently available in:
           </p>
+
+          <ul class="reg-list">
+            <li>list</li>
+            <li>of</li>
+            <li>countries</li>
+          </ul>
+
           <p>
-            Be sure to support their new product and leave a little comment below to show them your appreciation and
-            love.
-            <a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/haf', 'product']"> Find the details here</a>
+            Be sure to support their product and leave a little comment below to show them your appreciation!
+            <a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/haf', 'details', plea.id]">
+              Find further product details here</a
+            >
             and spread the word in the your social circles!
           </p>
         </div>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary btn-icon">
+        <a class="btn btn-primary btn-icon">
           <clr-icon shape="heart" size="16"></clr-icon>
           Send some love
-        </button>
-        <!--        news post link goes here, with info on where to buy-->
-        <button class="btn btn-primary btn-icon">
+        </a>
+        <!--news post link goes here, with info on where to buy-->
+        <a class="btn btn-primary btn-icon" [routerLinkActive]="'active'" [routerLink]="['/haf', 'details', plea.id]">
           <clr-icon shape="details" size="16"></clr-icon>
           Product details
-        </button>
+        </a>
       </div>
     </div>
   </div>
