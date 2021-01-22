@@ -29,8 +29,8 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "node_modules/@clr/icons/clr-icons.min.css",
               "node_modules/@clr/ui/clr-ui.min.css",
+              "node_modules/@clr/icons/clr-icons.min.css",
               "src/styles/index.scss"
             ],
             "scripts": [

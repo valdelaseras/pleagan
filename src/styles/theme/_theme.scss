@@ -1,0 +1,60 @@
+body[cds-theme="dark"] {
+  --primary-color: #111;
+  --secondary-color: #000;
+  --tertiary-color: white;
+
+  --primary-accent-color: #ff6d0d;
+  --primary-accent-darker-color: #ff4b03;
+
+  --secondary-accent-color: green;
+
+  --primary-text-color: #d3d3d3;
+
+  // TEXT
+  --clr-global-font-color: var(--primary-text-color);
+  --clr-p1-color: var(--primary-text-color);
+
+  --clr-h1-color: var(--primary-accent-color);
+  --clr-h2-color: var(--primary-accent-color);
+  --clr-h3-color: var(--primary-accent-color);
+  --clr-h4-color: var(--primary-accent-color);
+  --clr-h5-color: var(--primary-accent-color);
+
+  // BASE
+  --clr-global-app-background: var(--secondary-color);
+
+  // BUTTONS
+  --clr-btn-primary-color: var(--tertiary-color);
+  --clr-btn-primary-bg-color: var(--primary-accent-color);
+  --clr-btn-primary-border-color: var(--primary-accent-color);
+  --clr-btn-primary-hover-bg-color: var(--primary-accent-darker-color);
+
+  --clr-btn-default-color: var(--primary-accent-color);
+  --clr-btn-default-hover-color: var(--tertiary-color);
+  --clr-btn-default-border-color: var(--primary-accent-color);
+  --clr-btn-default-hover-bg-color: var(--primary-accent-darker-color);
+
+  // CARDS
+  --clr-card-bg-color: var(--primary-color);
+  --clr-card-border-color: var(--secondary-color);
+  --clr-card-title-color: var(--primary-accent-color);
+  --clr-card-divider-color: var(--secondary-color);
+  --clr-card-box-shadow: 0 0 0 0 var(--primary-color);
+
+  .card {
+    box-shadow: none;
+  }
+
+  // NAV
+  --clr-vertical-nav-item-color: var(--tertiary-color);
+  --clr-vertical-nav-item-active-color: var(--tertiary-color);
+  --clr-vertical-nav-active-bg-color: var(--primary-accent-darker-color);
+  --clr-vertical-nav-hover-bg-color: var(--secondary-accent-color);
+}
+
+//body[cds-theme="light"] {
+//  --clr-h2-color: red;
+//}
+
+
+
