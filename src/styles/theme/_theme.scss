@@ -1,24 +1,34 @@
-body[cds-theme="dark"] {
-  --primary-color: #111;
-  --secondary-color: #000;
-  --tertiary-color: white;
+body[cds-theme="light"] {
+  --primary-color: #F4F4F4;
+  --secondary-color: #E3E3E3;
+  --tertiary-color: #FFF;
+  --quaternary-color: #222;
 
-  --primary-accent-color: #ff6d0d;
-  --primary-accent-darker-color: #ff4b03;
+  --primary-accent-color: #3ca658;
+  --primary-accent-darker-color: #2e8043;
 
-  --secondary-accent-color: green;
+  --secondary-accent-color: #328949;
+  --secondary-accent-darker-color: #246234;
 
-  --primary-text-color: #d3d3d3;
+  --primary-text-color: var(--quaternary-color);
+  --primary-text-color-inverted: var(--primary-color);
+  --text-accent-color: var(--primary-accent-color);
+
+  // NAV
+  --clr-vertical-nav-item-color: var(--primary-text-color);
+  --clr-vertical-nav-item-active-color: var(--primary-text-color);
+  --clr-vertical-nav-active-bg-color: var(--tertiary-color);
+  --clr-vertical-nav-hover-bg-color: var(--primary-color);
 
   // TEXT
   --clr-global-font-color: var(--primary-text-color);
-  --clr-p1-color: var(--primary-text-color);
 
-  --clr-h1-color: var(--primary-accent-color);
-  --clr-h2-color: var(--primary-accent-color);
-  --clr-h3-color: var(--primary-accent-color);
-  --clr-h4-color: var(--primary-accent-color);
-  --clr-h5-color: var(--primary-accent-color);
+  --clr-p1-color: var(--primary-text-color);
+  --clr-h1-color: var(--text-accent-color);
+  --clr-h2-color: var(--text-accent-color);
+  --clr-h3-color: var(--text-accent-color);
+  --clr-h4-color: var(--text-accent-color);
+  --clr-h5-color: var(--text-accent-color);
 
   // BASE
   --clr-global-app-background: var(--secondary-color);
@@ -41,15 +51,8 @@ body[cds-theme="dark"] {
   --clr-card-divider-color: var(--secondary-color);
   --clr-card-box-shadow: 0 0 0 0 var(--primary-color);
 
-  .card {
-    box-shadow: none;
-  }
-
-  // NAV
-  --clr-vertical-nav-item-color: var(--tertiary-color);
-  --clr-vertical-nav-item-active-color: var(--tertiary-color);
-  --clr-vertical-nav-active-bg-color: var(--primary-accent-darker-color);
-  --clr-vertical-nav-hover-bg-color: var(--secondary-accent-color);
+  // CARDS - PROGRESS
+  --clr-progress-default-color: var(--primary-accent-color);
 }
 
 //body[cds-theme="light"] {

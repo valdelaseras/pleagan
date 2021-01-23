@@ -4,21 +4,14 @@
       <div class="card-header">{{ plea.company.name }}</div>
       <div class="card-block">
         <div class="card-title">
-          {{ nonVeganProduct.name }}
-          is now <span class="highlighted-txt">{{ veganProduct.name }}</span>
+          <span class="highlighted-txt">{{ veganProduct.name }}</span>
         </div>
         <div class="card-text">
           <p>
             <span class="highlighted-txt">{{ plea.company.name }}</span> has read our pleas and on
-            <span class="highlighted-txt">date</span> they launched their new animal free product,
-            <span class="highlighted-txt">veganProduct.name</span>! veganProduct.name is currently available in:
+            <span class="highlighted-txt">date</span> they replaced
+            <span class="highlighted-txt">{{ nonVeganProduct.name }}</span> with the new product!
           </p>
-
-          <ul class="reg-list">
-            <li>list</li>
-            <li>of</li>
-            <li>countries</li>
-          </ul>
 
           <p>
             Be sure to support their product and leave a little comment below to show them your appreciation!

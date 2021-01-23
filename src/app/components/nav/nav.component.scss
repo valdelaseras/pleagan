@@ -1,3 +1,7 @@
+nav.subnav.clr-nav-level-1 .nav .nav-link {
+  padding: .25rem 1rem!important;
+}
+
 .header .branding .title,
 header .branding .title,
 .page-title span {
@@ -7,13 +11,10 @@ header .branding .title,
   text-decoration: none;
 }
 
-.sub-nav,
-.subnav {
-  align-items: flex-start;
-}
-
 nav.subnav p {
-  padding: 0 24px;
+  padding: 0 1rem;
+  font-size: larger;
+  color: var(--primary-accent-color);
 }
 
 nav.subnav ul {
@@ -21,9 +22,13 @@ nav.subnav ul {
 }
 
 nav.subnav ul > li:first-child {
-  padding: 20px 0;
+  padding: 1rem 0;
   height: 100px;
   text-decoration: none;
+}
+
+nav.subnav ul > li:not(:first-child) {
+  margin: .25rem 0;
 }
 
 a.nav-link {
@@ -32,13 +37,16 @@ a.nav-link {
 
 clr-header .page-title {
   position: fixed;
-  right: 20px;
+  right: 1rem;
 }
 
 #initiate-plea-btn {
-  margin: 20px 0;
-  width: calc(100% - 20px);
-  background-color: darken(#0072a3, 15%);
+  margin: 1rem 0;
+  width: 100%;
+}
+
+#initiate-plea-btn clr-icon {
+  margin-top: -4px;
 }
 
 @media only screen and (min-width: 768px) {

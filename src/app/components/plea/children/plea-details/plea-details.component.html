@@ -5,12 +5,15 @@
       >,
     </h2>
 
-    <p class="larger">
-      We the pleagans are pleading you to please veganize your
-      <span class="highlighted-txt">{{ product.name }}</span
-      >. We would be properly pleased with this 100% plant-based product and would present you our precious money with
-      pleasure.
-    </p>
+<!--    <div class="banner">-->
+      <p class="larger">
+        <span class="bold">We the pleagans</span> are pleading you to please veganize your
+        <span class="highlighted-txt">{{ product.name }}</span
+        >. We would be properly pleased with this 100% plant-based product and would present you our precious money with
+        pleasure.
+      </p>
+<!--    </div>-->
+
     <p>
       Since <span class="highlighted-txt">{{ plea.creationTimestamp | date: 'dd-MM-yyyy' }}</span> this plea has been
       signed and supported by <span class="highlighted-txt">{{ plea.supporters.length }}</span> Pleagan{{
@@ -19,20 +22,20 @@
       products have been removed from the product.
     </p>
 
-    <div class="banner">
-      <p class="larger">
-        {{ plea.company.name }}, please read our desperate calls to you
-        <a (click)="scrollTo('original-plea')" class="underlined">here!</a>
-      </p>
-    </div>
+<!--    <div class="banner">-->
+<!--      <p>-->
+<!--        {{ plea.company.name }}, please read our desperate calls to you-->
+<!--        <a (click)="scrollTo('original-plea')" class="underlined">here!</a>-->
+<!--      </p>-->
+<!--    </div>-->
 
-    <h3>Want to know more?</h3>
-    <p>
-      To help you out we have some gathered some handy stats for you <a href="#stats" class="underlined">here</a>. You
-      can see where we are situated, how popular the plea is compared to your competitors and how fast it has reached
-      {{ plea.supporters.length }} supporter{{ plea.supporters.length > 1 ? 's' : null }}.
-    </p>
-  </div>
+<!--    <h3>Want to know more?</h3>-->
+<!--    <p>-->
+<!--      To help you out we have some gathered some handy stats for you <a href="#stats" class="underlined">here</a>. You-->
+<!--      can see where we are situated, how popular the plea is compared to your competitors and how fast it has reached-->
+<!--      {{ plea.supporters.length }} supporter{{ plea.supporters.length > 1 ? 's' : null }}.-->
+<!--    </p>-->
+<!--  </div>-->
 
   <div id="original-plea">
     <div class="plea-support-btn">

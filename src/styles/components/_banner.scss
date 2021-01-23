@@ -1,0 +1,13 @@
+.banner {
+  margin: 40px -20px;
+  padding: 20px;
+  background-color: var(--primary-accent-color);
+  color: var(--primary-text-color-inverted);
+}
+
+// for now !important but find proper selector
+.banner p {
+  font-size: larger!important;
+  color: white!important;
+  margin-top: 5px!important;
+}

@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent {
+  imgUrl = '/assets/icons/happy-beans.svg';
   constructor() {}
   resolveCurrentPage(): string {
     const currentPage = window.location.pathname;

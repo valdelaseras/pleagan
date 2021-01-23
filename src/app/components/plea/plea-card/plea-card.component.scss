@@ -1,9 +1,5 @@
-.card-text {
-  margin: 5px 0;
-}
-
-.card-block button {
-  margin: 10px 0;
+.card-block a.btn {
+  margin: .5rem 0;
 }
 
 .card-img img {
@@ -11,9 +7,12 @@
   transition: all 500ms;
 }
 
-.card-img img:hover,
-.card-img img:focus,
-.card-img img:focus-within,
-.card-img img:active {
+.card.clickable:active,
+.card.clickable:hover {
+  box-shadow: none;
+}
+
+.card.clickable:active .card-img img,
+.card.clickable:hover .card-img img {
   filter: opacity(1);
 }
