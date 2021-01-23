@@ -46,7 +46,7 @@
     <clr-control-error>This field is required</clr-control-error>
   </clr-input-container>
 
-  <clr-input-container>
+  <clr-input-container class="file-upload-container">
     <label>Product image *</label>
     <label class="custom-file-upload">
       <clr-icon shape="upload" size="16"></clr-icon>
@@ -55,7 +55,7 @@
 
     <clr-control-helper>Please upload an image of the current product</clr-control-helper>
 
-    <!--    TODO: these don't work yet-->
+    <!--TODO: these don't work yet-->
     <clr-control-error *clrIfError="'requiredFieldError'">This field is required</clr-control-error>
     <clr-control-error *clrIfError="'fileSizeError'">File must not exceed 2mb</clr-control-error>
     <clr-control-error *clrIfError="'extensionError'"

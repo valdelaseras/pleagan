@@ -15,7 +15,7 @@ import { SupportPleaComponent } from './components/plea/children/support-plea/su
 import { SpecialThanksComponent } from './components/special-thanks/special-thanks.component';
 import { CardListComponent } from './components/hall-of-fame/children/card-list/card-list.component';
 import { DetailsComponent } from './components/hall-of-fame/children/details/details.component';
-import {NewsListComponent} from './components/news/children/news-list/news-list.component';
+import { NewsListComponent } from './components/news/children/news-list/news-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -31,12 +31,7 @@ const routes: Routes = [
   },
   { path: 'leaderboard', component: LeaderboardComponent },
   { path: 'special-thanks', component: SpecialThanksComponent },
-  { path: 'news',
-    component: NewsComponent,
-    children: [
-      { path: 'all', component: NewsListComponent }
-    ],
-  },
+  { path: 'news', component: NewsComponent, children: [{ path: 'all', component: NewsListComponent }] },
   {
     path: 'hall-of-fame',
     component: HallOfFameComponent,

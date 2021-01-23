@@ -1,10 +1,14 @@
 #original-plea {
   margin: 2rem -1rem -1rem;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-accent-color);
   padding: 2rem 1rem;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
-  color: black;
+  color: var(--primary-text-color);
+}
+
+#original-plea h3 {
+  color: var(--primary-text-color);
 }
 
 .plea-support-btn {
@@ -15,22 +19,21 @@
   top: 0;
 }
 
-.og-plea-details {
-  list-style-type: none;
-  padding: 0.5rem 0;
-}
-
-.og-plea-details > li p {
-  //color: var(--primary-text-color);
-  margin: 1rem 0;
-}
-
 .plea-img {
   width: 100vw;
   max-width: 100vw;
   height: auto;
   margin-left: -1rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.plea-text > p:first-child {
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+.plea-details img {
+  margin-top: 0.75rem;
 }

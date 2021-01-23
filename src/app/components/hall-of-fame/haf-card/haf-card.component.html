@@ -15,7 +15,11 @@
 
           <p>
             Be sure to support their product and leave a little comment below to show them your appreciation!
-            <a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/', 'hall-of-fame', 'details', plea.id]">
+            <a
+              class="underlined"
+              [routerLinkActive]="'active'"
+              [routerLink]="['/', 'hall-of-fame', 'details', plea.id]"
+            >
               Find further product details here</a
             >
             and spread the word in the your social circles!
@@ -28,7 +32,11 @@
           Send some love
         </a>
         <!--news post link goes here, with info on where to buy-->
-        <a class="btn btn-primary btn-icon" [routerLinkActive]="'active'" [routerLink]="['/', 'hall-of-fame', 'details', plea.id]">
+        <a
+          class="btn btn-primary btn-icon"
+          [routerLinkActive]="'active'"
+          [routerLink]="['/', 'hall-of-fame', 'details', plea.id]"
+        >
           <clr-icon shape="details" size="16"></clr-icon>
           Product details
         </a>

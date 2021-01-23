@@ -1,5 +1,5 @@
 .underlined {
-  text-decoration: underline!important;
+  text-decoration: underline !important;
 }
 
 .italic {
@@ -23,4 +23,16 @@ a:hover {
 .highlighted-div span {
   color: var(--primary-text-color);
   margin: 5px;
+}
+
+a:link {
+  color: hotpink;
+}
+
+a:visited {
+  color: red;
+}
+
+.highlighted-txt {
+  color: var(--primary-accent-color);
 }

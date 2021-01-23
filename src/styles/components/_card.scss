@@ -1,0 +1,28 @@
+.card {
+  box-shadow: none;
+}
+
+.card-block .progress,
+.card-block .progress-static,
+.card-footer .progress,
+.card-footer .progress-static {
+  height: 0.5rem;
+  margin-top: -1.1rem;
+  position: absolute;
+  left: 0;
+}
+
+.card-block .progress > progress,
+.card-block .progress-static > .progress-meter,
+.card-footer .progress > progress,
+.card-footer .progress-static > .progress-meter {
+  height: 0.5rem;
+  position: absolute;
+}
+
+.card.clickable:active,
+.card.clickable:focus,
+.card.clickable:focus-within,
+.card.clickable:hover {
+  border-color: var(--primary-accent-color);
+}

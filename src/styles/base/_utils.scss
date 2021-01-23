@@ -21,16 +21,25 @@
 
 // also get rid of important and find overriding selectors
 .reg-list {
-  margin: 1rem 0!important;
-  list-style-position: outside!important;
+  margin: 1rem 0 !important;
+  list-style-position: outside !important;
   list-style-type: disc;
 }
 
 .reg-list > li {
-  margin-inline-start: 1rem!important;
+  margin-inline-start: 1rem !important;
+}
+
+.reg-list > li:not(:last-child) {
   padding-bottom: 1rem;
 }
 
 ul {
   list-style-type: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  .mobile-only {
+    display: none;
+  }
 }

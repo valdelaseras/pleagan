@@ -1,75 +1,57 @@
-<clr-header>
-  <div class="branding">
-    <a [routerLink]="['/']">
-<!--      <img class="branding-img" src="{{ imgUrl }}" alt="icon of soybeans smiling" />-->
-      <span class="title">pleagan</span>
-    </a>
-  </div>
-  <div class="page-title">
-    <span>{{ resolveCurrentPage() }}</span>
-  </div>
-</clr-header>
-
-<nav class="subnav" [clr-nav-level]="1">
-  <ul class="nav">
-    <!--    <li class="nav-item">-->
-    <!--      <a-->
-    <!--        class="nav-link"-->
-    <!--        [routerLinkActive]="'active'"-->
-    <!--        [routerLinkActiveOptions]="{ exact: true }"-->
-    <!--        [routerLink]="['/']"-->
-    <!--      >-->
-    <!--        Home-->
-    <!--      </a>-->
-    <!--    </li>-->
-
-    <li class="nav-item">
+<nav id="sidenav" class="sidenav" [clr-nav-level]="1">
+  <section class="sidenav-content">
+    <div class="nav-item">
       <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'new']">
         <span id="initiate-plea-btn" class="btn btn-primary btn-icon" aria-label="Initiate a plea">
           <clr-icon shape="plus" size="14"></clr-icon>
           Initiate plea
         </span>
       </a>
-    </li>
+    </div>
 
-    <hr />
+    <section class="nav-group collapsible">
+      <input id="nav-pleas-section" type="checkbox" />
+      <label for="nav-pleas-section">Pleas</label>
 
-    <p class="larger">Pleas</p>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'all']">All pleas</a>
+        </li>
 
-    <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'all']">All pleas</a>
-    </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['news', 'all']">News</a>
+        </li>
 
-    <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['news', 'all']">News</a>
-    </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['hall-of-fame', 'all']">Hall of Fame</a>
+        </li>
 
-    <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['hall-of-fame', 'all']">Hall of Fame</a>
-    </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['leaderboard']">Leaderboards</a>
+        </li>
+      </ul>
+    </section>
 
-    <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['leaderboard']">Leaderboards</a>
-    </li>
+    <section class="nav-group collapsible">
+      <input id="nav-about-section" type="checkbox" />
+      <label for="nav-about-section">Pleagan</label>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['about']">About</a>
+        </li>
 
-    <hr />
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['faq']">FAQ</a>
+        </li>
 
-    <p class="larger">About</p>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['contact']">Contact</a>
+        </li>
 
-    <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['about']">About</a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['faq']">FAQ</a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['contact']">Contact</a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['special-thanks']">Special thanks</a>
-    </li>
-  </ul>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['special-thanks']">Special thanks</a>
+        </li>
+      </ul>
+    </section>
+  </section>
 </nav>

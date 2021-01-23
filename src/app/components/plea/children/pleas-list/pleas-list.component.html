@@ -10,9 +10,14 @@
   </ul>
 </main>
 
-<footer>
-  <a id="initiate-plea-btn" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'new']"
-     class="btn btn-primary btn-icon" aria-label="Initiate a plea">
+<footer class="mobile-only">
+  <a
+    id="initiate-plea-btn"
+    [routerLinkActive]="'active'"
+    [routerLink]="['/', 'plea', 'new']"
+    class="btn btn-primary btn-icon"
+    aria-label="Initiate a plea"
+  >
     <clr-icon shape="plus" size="16"></clr-icon>
     Initiate
   </a>

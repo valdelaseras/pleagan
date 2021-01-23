@@ -1,7 +1,7 @@
-body[cds-theme="light"] {
-  --primary-color: #F4F4F4;
-  --secondary-color: #E3E3E3;
-  --tertiary-color: #FFF;
+body[cds-theme='light'] {
+  --primary-color: #f4f4f4;
+  --secondary-color: #e3e3e3;
+  --tertiary-color: #fff;
   --quaternary-color: #222;
 
   --primary-accent-color: #3ca658;
@@ -19,6 +19,9 @@ body[cds-theme="light"] {
   --clr-vertical-nav-item-active-color: var(--primary-text-color);
   --clr-vertical-nav-active-bg-color: var(--tertiary-color);
   --clr-vertical-nav-hover-bg-color: var(--primary-color);
+
+  --clr-sidenav-link-active-bg-color: var(--clr-vertical-nav-active-bg-color);
+  --clr-sidenav-link-hover-color: var(--clr-vertical-nav-hover-bg-color);
 
   // TEXT
   --clr-global-font-color: var(--primary-text-color);
@@ -58,6 +61,3 @@ body[cds-theme="light"] {
 //body[cds-theme="light"] {
 //  --clr-h2-color: red;
 //}
-
-
-

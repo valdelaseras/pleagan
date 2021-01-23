@@ -32,6 +32,7 @@ import { CardListComponent } from './components/hall-of-fame/children/card-list/
 import { DetailsComponent } from './components/hall-of-fame/children/details/details.component';
 import { SearchPipe } from './components/search.pipe';
 import { NewsListComponent } from './components/news/children/news-list/news-list.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { NewsListComponent } from './components/news/children/news-list/news-lis
     DetailsComponent,
     SearchPipe,
     NewsListComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+.file-upload-container {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  label:first-child {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  clr-control-helper {
+    margin-left: -0.5rem !important;
+    margin-right: -0.5rem !important;
+  }
+}
