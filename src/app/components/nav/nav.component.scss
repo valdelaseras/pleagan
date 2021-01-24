@@ -2,10 +2,6 @@
   color: var(--primary-accent-color);
 }
 
-.nav-list .nav-item {
-  margin: 0.5rem 0;
-}
-
 #initiate-plea-btn {
   margin: 1rem;
   width: calc(100% - 2rem);
@@ -13,6 +9,19 @@
 
 #initiate-plea-btn clr-icon {
   margin-top: -4px;
+}
+
+.sidenav .nav-group .nav-list {
+  padding: 0;
+  margin: 0;
+}
+
+.sidenav .nav-group label {
+  margin-bottom: .25rem;
+}
+
+.sidenav .nav-group .nav-list > li a.nav-link {
+  padding: .5rem 2rem;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -26,12 +35,10 @@
   }
 
   .sidenav .sidenav-content .nav-link {
-    width: calc(100% - 1rem);
-    border-radius: 3px;
+    border-radius: 0;
   }
 
-  .sidenav .nav-group .nav-list,
-  .sidenav .nav-group label {
+  .sidenav .nav-group .nav-list {
     margin: 0;
   }
 
