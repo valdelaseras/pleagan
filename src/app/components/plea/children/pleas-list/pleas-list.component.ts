@@ -14,7 +14,7 @@ import {animate, stagger, style, transition, trigger, query } from '@angular/ani
     trigger('listAnimation', [
       transition('* => *', [
         query(':leave', [
-          stagger(150, [
+          stagger(50, [
             animate('0.5s', style({ opacity: 0 }))
           ])
         ], { optional: true }),

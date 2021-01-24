@@ -40,20 +40,26 @@
         <span>by {{ plea.company.name }}</span>
       </div>
 
-      <div class="plea-details">
-        <p>
-          Since <span class="bold">{{ plea.creationTimestamp | date: 'dd-MM-yyyy' }}</span
+      <div class="clr-row">
+        <div class="plea-details clr-col-xl-6 clr-col-12">
+          <p>
+            Since <span class="bold">{{ plea.creationTimestamp | date: 'dd-MM-yyyy' }}</span
           >, <span class="bold">{{ plea.supporters.length }}</span> pleagans have supported this plea!
-        </p>
+          </p>
 
-        <p>
-          Plea initiator <span class="bold">{{ plea.initiator.name }}</span> wrote:
-        </p>
-        <p class="italic">"{{ plea.initiator.message }}"</p>
+          <p>
+            Plea initiator <span class="bold">{{ plea.initiator.name }}</span> wrote:
+          </p>
+          <p class="italic">"{{ plea.initiator.message }}"</p>
+        </div>
 
-        <img class="plea-img" src="{{ plea.imageUrl }}" alt="Image of product" />
+        <div class="plea-product-img clr-col-xl-6 clr-col-12">
+          <img class="plea-img" src="{{ plea.imageUrl }}" alt="Image of product" />
+        </div>
       </div>
 
+      <!-- collapsible, graphs go here-->
+      <!-- banner maybe-->
       <div>
         <h3>Stats</h3>
       </div>
