@@ -1,23 +1,20 @@
-<div class="clr-row">
-  <div class="clr-col-lg-6 clr-col-12">
-    <div class="card">
-      <div class="card-header">{{ title }}</div>
-      <div class="card-block">
-        <div class="card-media-block">
-          <img src="{{ imageUrl }}" class="card-media-image" />
-          <div class="card-media-description">
-            <span class="card-media-title">{{ subtitle }}</span>
-            <span class="card-media-text">{{ date }}</span>
-          </div>
-        </div>
-        <div class="card-text">
-          <p>{{ content }}</p>
-        </div>
-      </div>
-      <!--      optional-->
-      <div class="card-footer">
-        <a class="btn btn-primary">Some action</a>
+<div class="card">
+  <div class="card-header">{{ title }}</div>
+  <div class="card-block">
+    <div class="card-media-block">
+      <img src="{{ imageUrl }}" class="card-media-image" />
+      <div class="card-media-description">
+        <span class="card-media-title">{{ subtitle }}</span>
+        <span class="card-media-text">{{ date }}</span>
       </div>
     </div>
+    <div class="card-text">
+      <p>{{ content }}</p>
+    </div>
+  </div>
+  <!--      optional-->
+  <div class="card-footer">
+    <a class="btn btn-primary">Some action</a>
   </div>
 </div>
+
