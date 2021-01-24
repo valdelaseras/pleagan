@@ -3,10 +3,9 @@
 <h2>Hall of fame</h2>
 <p class="larger">Our eternal Hall of Fame for all companies who were awesome enough to listen to your pleas!</p>
 
-<div>
-  <ul *ngIf="pleas$ | async as pleas">
-    <li *ngFor="let plea of pleas | search: query">
-      <app-haf-card [plea]="plea"></app-haf-card>
-    </li>
-  </ul>
-</div>
+<main>
+  <div class="clr-row" *ngIf="pleas$ | async as pleas">
+      <app-haf-card *ngFor="let plea of pleas | search: query"
+                    [plea]="plea" class="clr-col-md-6 clr-col-12"></app-haf-card>
+  </div>
+</main>

@@ -1,16 +1,10 @@
-<!--TODO: rename component to pleas-list or something. Make consistent with card-list in HAF in any case-->
-<!--TODO: add 'add plea' button on fixed bottom?-->
 <app-search-box (update)="updateQuery($event)"></app-search-box>
 
 <main class="all-pleas">
   <div class="clr-row" *ngIf="pleas$ | async as pleas" [@listAnimation]="pleas.length">
-<!--    <ul class="plea-list" *ngIf="pleas$ | async as pleas">-->
-<!--      <li *ngFor="let plea of pleas | search: query">-->
         <app-plea-card *ngFor="let plea of pleas | search: query"
                        [plea]="plea"
                        class="clr-col-md-6 clr-col-12"></app-plea-card>
-<!--      </li>-->
-<!--    </ul>-->
   </div>
 </main>
 
