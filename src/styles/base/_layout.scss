@@ -1,8 +1,5 @@
 .main-container .content-container .content-area {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 0 1rem;
+  padding: 0 1rem 1rem;
 }
 
 @media only screen and (min-width: 1024px) {
