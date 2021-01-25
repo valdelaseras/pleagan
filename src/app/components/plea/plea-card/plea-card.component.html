@@ -2,12 +2,12 @@
   <div class="clr-col-lg-6 clr-col-12">
     <a [routerLink]="['/plea', 'details', plea.id]" class="card clickable">
       <div class="card-block">
-        <h4 class="card-title">{{ product.name }}</h4>
+        <h4 class="card-title">{{ plea.nonVeganProduct.name }}</h4>
         <p class="card-text">by {{ plea.company.name }}</p>
       </div>
 
       <div class="card-img">
-        <img src="{{ plea.imageUrl }}" />
+        <img src="/assets/images/{{ plea.imageUrl }}" />
       </div>
 
       <div class="card-block">

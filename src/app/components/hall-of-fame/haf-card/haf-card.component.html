@@ -4,13 +4,13 @@
       <div class="card-header">{{ plea.company.name }}</div>
       <div class="card-block">
         <div class="card-title">
-          <span class="highlighted-txt">{{ veganProduct.name }}</span>
+          <span class="highlighted-txt">{{ plea.veganProduct!.name }}</span>
         </div>
         <div class="card-text">
           <p>
             <span class="highlighted-txt">{{ plea.company.name }}</span> has read our pleas and on
             <span class="highlighted-txt">date</span> they replaced
-            <span class="highlighted-txt">{{ nonVeganProduct.name }}</span> with the new product!
+            <span class="highlighted-txt">{{ plea.nonVeganProduct.name }}</span> with the new product!
           </p>
 
           <p>

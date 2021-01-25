@@ -70,7 +70,7 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [PleaService],
   bootstrap: [AppComponent],
