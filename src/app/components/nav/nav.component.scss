@@ -24,11 +24,12 @@
   padding: .5rem 2rem;
 }
 
+//TODO: take another look at this mq later
 @media only screen and (min-width: 769px) {
   clr-vertical-nav {
     width: 260px;
     border-right: 1px solid #ccc;
-    //box-shadow: 0 0 20px 2px rgba(0,0,0,.1);
+    box-shadow: 0 0 20px 2px rgba(0,0,0,.1);
   }
 
   #sidenav {

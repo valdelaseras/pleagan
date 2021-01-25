@@ -13,11 +13,6 @@ import {animate, stagger, style, transition, trigger, query } from '@angular/ani
   animations: [
     trigger('listAnimation', [
       transition('* => *', [
-        query(':leave', [
-          stagger(150, [
-            animate('0.8s', style({ opacity: 0 }))
-          ])
-        ], { optional: true }),
         query(':enter', [
           style({ opacity: 0 }),
           stagger(150, [
