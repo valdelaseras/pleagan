@@ -13,7 +13,7 @@ export class Plea implements IPlea {
   status: PLEA_STATUS = PLEA_STATUS.UNNOTIFIED;
 
   @JsonProperty('createdAt', String)
-  createdAt = '';
+  createdAt = new Date;
 
   @JsonProperty('company', Company)
   company: Company = new Company();
