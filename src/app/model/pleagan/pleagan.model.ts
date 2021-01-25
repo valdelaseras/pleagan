@@ -3,8 +3,8 @@ import { JsonObject, JsonProperty } from 'json2typescript';
 
 @JsonObject('Pleagan')
 export class Pleagan implements IPleagan {
-  @JsonProperty('id', String)
-  id: string = '';
+  @JsonProperty('id', Number)
+  id = 0;
 
   @JsonProperty('name', String)
   name: string = '';

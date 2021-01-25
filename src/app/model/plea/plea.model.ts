@@ -1,18 +1,19 @@
-import { Company } from '../company/company.model';
-import { Pleagan } from '../pleagan/pleagan.model';
+import { Company } from '../company';
+import { Pleagan } from '../pleagan';
 import { IPlea, PLEA_STATUS } from 'pleagan-model';
 import { JsonObject, JsonProperty } from 'json2typescript';
+import { Product } from '../product';
 
 @JsonObject('Plea')
 export class Plea implements IPlea {
-  @JsonProperty('id', String)
-  id = '';
+  @JsonProperty('id', Number)
+  id = 0;
 
   @JsonProperty('status', String)
   status: PLEA_STATUS = PLEA_STATUS.UNNOTIFIED;
 
-  @JsonProperty('creationTimestamp', String)
-  creationTimestamp = '';
+  @JsonProperty('createdAt', String)
+  createdAt = '';
 
   @JsonProperty('company', Company)
   company: Company = new Company();
@@ -25,4 +26,10 @@ export class Plea implements IPlea {
 
   @JsonProperty('imageUrl', String)
   imageUrl = '';
+
+  @JsonProperty('nonVeganProduct', Product)
+  nonVeganProduct: Product = new Product();
+
+  @JsonProperty('veganProduct', Product)
+  veganProduct?: Product = new Product();
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Plea } from '../../../../models/plea/plea.model';
+import { Plea } from '../../../../model/plea';
 import { PleaService } from '../../../../services/plea.service';
 import { map } from 'rxjs/operators';
 import { PLEA_STATUS } from 'pleagan-model';

@@ -1,6 +1,6 @@
 <h2>Support the plea for...</h2>
 <p *ngIf="plea$ | async as plea" class="larger">
-  a veganised <span class="highlighted-txt">{{ product.name }}</span> by
+  a veganised <span class="highlighted-txt">{{ plea.nonVeganProduct.name }}</span> by
   <span class="highlighted-txt">{{ plea.company.name }}</span>
 </p>
 

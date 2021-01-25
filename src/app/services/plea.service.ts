@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Plea } from '../models/plea/plea.model';
-import { Observable, of } from 'rxjs';
+import { Plea } from '../model/plea';
+import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { IPlea } from 'pleagan-model';
-import { JsonConvert, OperationMode, ValueCheckingMode } from 'json2typescript';
-import { map, tap } from 'rxjs/operators';
+import { JsonConvert, ValueCheckingMode } from 'json2typescript';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class PleaService {

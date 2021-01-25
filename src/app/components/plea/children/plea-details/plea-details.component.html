@@ -7,13 +7,13 @@
 
     <div class="plea-text">
       <p>
-        We the pleagans are pleading you to please veganize your <span class="highlighted-txt">{{ product.name }}</span
+        We the pleagans are pleading you to please veganize your <span class="highlighted-txt">{{ plea.nonVeganProduct.name }}</span
         >.
       </p>
 
       <p>
-        <span class="highlighted-txt bold">{{ plea.supporters.length }}</span> of us have supported this plea since its
-        initiation on <span class="highlighted-txt">{{ plea.creationTimestamp | date: 'dd-MM-yyyy' }} </span>. We are
+        <span class="highlighted-txt bold">{{ plea.supporters.length }}</span> of us {{ plea.supporters.length > 1 ? 'have' : 'has'}} supported this plea since its
+        initiation on <span class="highlighted-txt">{{ plea.createdAt | date: 'dd-MM-yyyy' }} </span>. We are
         longing for your product and want to support your business! As you know we can only do that if your product is
         100% plant based and free of any animal product.
       </p>
@@ -35,15 +35,15 @@
 
       <div class="plea-header">
         <h3>
-          Presenting the plea for a plant-based <span class="bold">{{ product.name }}</span> product
+          Presenting the plea for a plant-based <span class="bold">{{ plea.nonVeganProduct.name }}</span> product
         </h3>
         <span>by {{ plea.company.name }}</span>
       </div>
 
       <div class="plea-details">
         <p>
-          Since <span class="bold">{{ plea.creationTimestamp | date: 'dd-MM-yyyy' }}</span
-          >, <span class="bold">{{ plea.supporters.length }}</span> pleagans have supported this plea!
+          Since <span class="bold">{{ plea.createdAt | date: 'dd-MM-yyyy' }}</span
+          >, <span class="bold">{{ plea.supporters.length }}</span> pleagan{{ plea.supporters.length > 1 ? 's have' : ' has' }} supported this plea!
         </p>
 
         <p>
@@ -51,7 +51,7 @@
         </p>
         <p class="italic">"{{ plea.initiator.message }}"</p>
 
-        <img class="plea-img" src="{{ plea.imageUrl }}" alt="Image of product" />
+        <img class="plea-img" src="/assets/images/{{ plea.imageUrl }}" alt="Image of product" />
       </div>
 
       <div>

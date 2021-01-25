@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Plea } from '../models/plea/plea.model';
-import { Product } from '../models/product/product.model';
+import { Plea } from '../model/plea/plea.model';
+import { Product } from '../model/product/product.model';
 
 @Pipe({
   name: 'search',
@@ -21,11 +21,12 @@ export class SearchPipe implements PipeTransform {
   filterByProductName(pleas: Plea[], input: string): Plea[] {
     return pleas.filter((plea: Plea) => {
       return (
-        plea.company.products
-          .map((product: Product) => {
-            return product.name.toLowerCase().indexOf(input.toLowerCase()) >= 0;
-          })
-          .filter((result: boolean) => result).length > 0
+        // plea.company.products
+        //   .map((product: Product) => {
+        //     return product.name.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+        //   })
+        //   .filter((result: boolean) => result).length > 0
+        plea.nonVeganProduct.name.indexOf( input ) >= 0
       );
     });
   }
