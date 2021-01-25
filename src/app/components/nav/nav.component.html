@@ -1,57 +1,71 @@
-<nav id="sidenav" class="sidenav" [clr-nav-level]="1">
-  <section class="sidenav-content">
-    <div class="nav-item">
-      <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'new']">
-        <span id="initiate-plea-btn" class="btn btn-primary btn-icon" aria-label="Initiate a plea">
-          <clr-icon shape="plus" size="14"></clr-icon>
-          Initiate plea
-        </span>
-      </a>
-    </div>
+<ng-container *ngIf="largeScreen; else sidenav">
+  <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
+      <ng-container *ngTemplateOutlet="nav"></ng-container>
+  </clr-vertical-nav>
+</ng-container>
 
-    <section class="nav-group collapsible">
-      <input id="nav-pleas-section" type="checkbox" />
-      <label for="nav-pleas-section">Pleas</label>
+<ng-template #sidenav>
+  <ng-container *ngTemplateOutlet="nav"></ng-container>
+</ng-template>
 
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'all']">All pleas</a>
-        </li>
+<ng-template #nav>
+  <nav id="sidenav" class="sidenav" [clr-nav-level]="1">
+    <section class="sidenav-content">
+      <div class="nav-item nav-button">
+        <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'new']">
+          <span id="initiate-plea-btn" class="btn btn-primary btn-icon" aria-label="Initiate a plea">
+            <clr-icon shape="plus" size="14"></clr-icon>
+            Initiate plea
+          </span>
+        </a>
+      </div>
 
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['news', 'all']">News</a>
-        </li>
+      <section class="nav-group collapsible">
+        <input id="nav-pleas-section" type="checkbox" />
+        <label for="nav-pleas-section">Pleas</label>
 
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['hall-of-fame', 'all']">Hall of Fame</a>
-        </li>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'all']">All pleas</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['leaderboard']">Leaderboards</a>
-        </li>
-      </ul>
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['news', 'all']">News</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['hall-of-fame', 'all']">Hall of Fame</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['leaderboard']">Leaderboards</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="nav-group collapsible">
+        <input id="nav-about-section" type="checkbox" />
+        <label for="nav-about-section">Pleagan</label>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['about']">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['faq']">FAQ</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['contact']">Contact</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['special-thanks']">Special thanks</a>
+          </li>
+        </ul>
+      </section>
     </section>
+  </nav>
+</ng-template>
 
-    <section class="nav-group collapsible">
-      <input id="nav-about-section" type="checkbox" />
-      <label for="nav-about-section">Pleagan</label>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['about']">About</a>
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['faq']">FAQ</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['contact']">Contact</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['special-thanks']">Special thanks</a>
-        </li>
-      </ul>
-    </section>
-  </section>
-</nav>

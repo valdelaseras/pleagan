@@ -24,14 +24,34 @@
   padding: .5rem 2rem;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 769px) {
+  clr-vertical-nav {
+    width: 260px;
+    border-right: 1px solid #ccc;
+    //box-shadow: 0 0 20px 2px rgba(0,0,0,.1);
+  }
+
   #sidenav {
-    height: calc(100vh - 60px);
-    width: 250px;
+    height: calc(100vh - 98px);
+    width: 260px;
+    margin-top: -12px;
+    border: none
+  }
+
+  .clr-vertical-nav .nav-group-text, .clr-vertical-nav .nav-link {
+    padding-left: 0;
   }
 
   #initiate-plea-btn {
-    width: 210px;
+    width: 220px;
+  }
+
+  .nav-button {
+    height: 80px;
+  }
+
+  .nav-button a {
+    height: 80px;
   }
 
   .sidenav .sidenav-content .nav-link {

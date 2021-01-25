@@ -1,46 +1,43 @@
-<div class="clr-row">
-  <div class="clr-col-lg-5 clr-col-md-8 clr-col-12">
-    <div class="card">
-      <div class="card-header">{{ plea.company.name }}</div>
-      <div class="card-block">
-        <div class="card-title">
-          <span class="highlighted-txt">{{ plea.veganProduct!.name }}</span>
-        </div>
-        <div class="card-text">
-          <p>
-            <span class="highlighted-txt">{{ plea.company.name }}</span> has read our pleas and on
-            <span class="highlighted-txt">date</span> they replaced
-            <span class="highlighted-txt">{{ plea.nonVeganProduct.name }}</span> with the new product!
-          </p>
+<div class="card">
+  <div class="card-header">{{ plea.company.name }}</div>
+  <div class="card-block">
+    <div class="card-title">
+      <span class="highlighted-txt">{{ plea.veganProduct.name }}</span>
+    </div>
+    <div class="card-text">
+      <p>
+        <span class="highlighted-txt">{{ plea.company.name }}</span> has read our pleas and on
+        <span class="highlighted-txt">date</span> they replaced
+        <span class="highlighted-txt">{{ plea.nonVeganProduct.name }}</span> with the new product!
+      </p>
 
-          <p>
-            Be sure to support their product and leave a little comment below to show them your appreciation!
-            <a
-              class="underlined"
-              [routerLinkActive]="'active'"
-              [routerLink]="['/', 'hall-of-fame', 'details', plea.id]"
-            >
-              Find further product details here</a
-            >
-            and spread the word in the your social circles!
-          </p>
-        </div>
-      </div>
-      <div class="card-footer">
-        <a class="btn btn-primary btn-icon">
-          <clr-icon shape="heart" size="16"></clr-icon>
-          Send some love
-        </a>
-        <!--news post link goes here, with info on where to buy-->
+      <p>
+        Be sure to support their product and leave a little comment below to show them your appreciation!
         <a
-          class="btn btn-primary btn-icon"
+          class="underlined"
           [routerLinkActive]="'active'"
           [routerLink]="['/', 'hall-of-fame', 'details', plea.id]"
         >
-          <clr-icon shape="details" size="16"></clr-icon>
-          Product details
-        </a>
-      </div>
+          Find further product details here</a
+        >
+        and spread the word in the your social circles!
+      </p>
     </div>
   </div>
+  <div class="card-footer">
+    <a class="btn btn-primary btn-icon">
+      <clr-icon shape="heart" size="16"></clr-icon>
+      Send some love
+    </a>
+    <!--news post link goes here, with info on where to buy-->
+    <a
+      class="btn btn-primary btn-icon"
+      [routerLinkActive]="'active'"
+      [routerLink]="['/', 'hall-of-fame', 'details', plea.id]"
+    >
+      <clr-icon shape="details" size="16"></clr-icon>
+      Product details
+    </a>
+  </div>
 </div>
+

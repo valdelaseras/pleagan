@@ -1,36 +1,32 @@
-<div class="clr-row">
-  <div class="clr-col-lg-6 clr-col-12">
-    <a [routerLink]="['/plea', 'details', plea.id]" class="card clickable">
-      <div class="card-block">
-        <h4 class="card-title">{{ plea.nonVeganProduct.name }}</h4>
-        <p class="card-text">by {{ plea.company.name }}</p>
-      </div>
+<a [routerLink]="['/plea', 'details', plea.id]" class="card plea-card clickable">
+  <div class="card-block c-header">
+    <h4 class="card-title">{{ plea.nonVeganProduct.name }}</h4>
+    <span class="card-subtitle">by {{ plea.company.name }}</span>
+  </div>
 
       <div class="card-img">
         <img src="/assets/images/{{ plea.imageUrl }}" />
       </div>
 
-      <div class="card-block">
-        <div class="progress">
-          <progress value="{{ plea.supporters.length }}" [max]="getTarget()"></progress>
-        </div>
-        <p class="card-text">
-          <span class="bold">{{ plea.supporters.length }}</span> current supporter{{
-            plea.supporters.length > 1 ? 's' : null
-          }}
-        </p>
+  <div class="card-block c-footer">
+    <div class="progress">
+      <progress value="{{ plea.supporters.length }}" [max]="getTarget()"></progress>
+    </div>
+    <p class="card-text">
+      <span class="bold">{{ plea.supporters.length }}</span> current supporter{{
+        plea.supporters.length > 1 ? 's' : null
+      }}
+    </p>
 
-        <a
-          (click)="$event.preventDefault()"
-          [routerLink]="['/plea', 'support', plea.id]"
-          type="button"
-          class="btn btn-primary btn-icon"
-          aria-label="Support this plea"
-        >
-          <clr-icon shape="heart" size="16"></clr-icon>
-          Support this plea
-        </a>
-      </div>
+    <a
+      (click)="$event.preventDefault()"
+      [routerLink]="['/plea', 'support', plea.id]"
+      type="button"
+      class="btn btn-primary btn-icon"
+      aria-label="Support this plea"
+    >
+      <clr-icon shape="heart" size="16"></clr-icon>
+      Support
     </a>
   </div>
-</div>
+</a>

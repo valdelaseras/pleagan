@@ -20,9 +20,4 @@
   position: absolute;
 }
 
-.card.clickable:active,
-.card.clickable:focus,
-.card.clickable:focus-within,
-.card.clickable:hover {
-  border-color: var(--primary-accent-color);
-}
+

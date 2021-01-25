@@ -4,11 +4,29 @@ import { Plea } from '../../../../model/plea';
 import { PleaService } from '../../../../services/plea.service';
 import { map } from 'rxjs/operators';
 import { PLEA_STATUS } from 'pleagan-model';
+import {animate, stagger, style, transition, trigger, query } from '@angular/animations';
 
 @Component({
   selector: 'app-submissions',
   templateUrl: './pleas-list.component.html',
   styleUrls: ['./pleas-list.component.scss'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* => *', [
+        query(':leave', [
+          stagger(150, [
+            animate('0.8s', style({ opacity: 0 }))
+          ])
+        ], { optional: true }),
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(150, [
+            animate('0.8s', style({ opacity: 1 }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ],
 })
 export class PleasListComponent implements OnInit {
   query: string;
