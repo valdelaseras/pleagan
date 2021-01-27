@@ -1,27 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Plea } from '../model/plea';
+import { Plea } from '../../model/plea';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { IPlea } from 'pleagan-model';
-import { JsonConvert, ValueCheckingMode } from 'json2typescript';
 import { map } from 'rxjs/operators';
+import { JsonConvertService } from '../json-convert/json-convert.service';
 
 @Injectable()
 export class PleaService {
-  parse: JsonConvert;
-  constructor(private http: HttpClient) {
-    this.parse = new JsonConvert();
+  constructor(private http: HttpClient, private convertService: JsonConvertService) {}
 
-    // this.parse.operationMode = OperationMode.LOGGING;
-    this.parse.ignorePrimitiveChecks = false;
-    this.parse.valueCheckingMode = ValueCheckingMode.ALLOW_NULL;
-  }
   getPleas(): Observable<Plea[]> {
     return this.http.get<Plea[]>(`${environment.apiBaseUrl}/plea/all`).pipe(
       map((pleas: IPlea[]) => {
         try {
-          return this.parse.deserializeArray(pleas, Plea);
+          return this.convertService.parseArray(pleas, Plea);
         } catch (e) {
           console.log(e);
           return [];
@@ -34,7 +28,7 @@ export class PleaService {
     return this.http.get<IPlea>(`${environment.apiBaseUrl}/plea/${id}`).pipe(
       map((plea: IPlea) => {
         try {
-          return this.parse.deserializeObject(plea, Plea);
+          return this.convertService.parse(plea, Plea);
         } catch (e) {
           throw e;
         }
@@ -46,7 +40,7 @@ export class PleaService {
     return this.http.get<Plea[]>(`${environment.apiBaseUrl}/plea`, {
       params: { query },
     }).pipe(
-      map((pleas: IPlea[]) => this.parse.deserializeArray(pleas, Plea) ),
+      map((pleas: IPlea[]) => this.convertService.parseArray(pleas, Plea) ),
     );
   }
 }

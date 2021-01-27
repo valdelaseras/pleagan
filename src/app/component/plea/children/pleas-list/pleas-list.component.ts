@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Plea } from '../../../../model/plea';
-import { PleaService } from '../../../../services/plea.service';
+import { PleaService } from '../../../../service/plea/plea.service';
 import { map, switchMap } from 'rxjs/operators';
 import { PLEA_STATUS } from 'pleagan-model';
 import {animate, stagger, style, transition, trigger, query } from '@angular/animations';

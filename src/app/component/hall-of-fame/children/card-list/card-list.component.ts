@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PleaService } from '../../../../services/plea.service';
+import { PleaService } from '../../../../service/plea/plea.service';
 import { Observable } from 'rxjs';
 import { Plea } from '../../../../model/plea';
 import { map } from 'rxjs/operators';
