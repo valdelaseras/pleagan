@@ -41,4 +41,12 @@ export class PleaService {
       }),
     );
   }
+
+  searchPleas = ( query: string ): Observable<Plea[]> => {
+    return this.http.get<Plea[]>(`${environment.apiBaseUrl}/plea`, {
+      params: { query },
+    }).pipe(
+      map((pleas: IPlea[]) => this.parse.deserializeArray(pleas, Plea) ),
+    );
+  }
 }
