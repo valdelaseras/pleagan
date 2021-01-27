@@ -3,16 +3,17 @@ body[cds-theme='light'] {
   --secondary-color: #e3e3e3;
   --tertiary-color: #fff;
   --quaternary-color: #222;
+  --quinary-color: #b6b6b64f;
 
-  --primary-accent-color: #3ca658;
-  --primary-accent-darker-color: #2e8043;
+  --primary-accent-color: #797979;
+  --primary-accent-darker-color: #474747;
 
-  --secondary-accent-color: #328949;
-  --secondary-accent-darker-color: #246234;
+  --secondary-accent-color: #6f6f6f;
+  --secondary-accent-darker-color: #555555;
 
   --primary-text-color: var(--quaternary-color);
   --primary-text-color-inverted: var(--primary-color);
-  --text-accent-color: var(--primary-accent-color);
+  --text-accent-color: var(--secondary-accent-color);
 
   // HEADER
   //--clr-header-bg-color: red;
@@ -22,6 +23,7 @@ body[cds-theme='light'] {
   --clr-vertical-nav-item-active-color: var(--primary-text-color);
   --clr-vertical-nav-active-bg-color: var(--tertiary-color);
   --clr-vertical-nav-hover-bg-color: var(--primary-color);
+  --clr-vertical-nav-bg-color: var(--quinary-color);
 
   --clr-sidenav-link-active-bg-color: var(--clr-vertical-nav-active-bg-color);
   --clr-sidenav-link-hover-color: var(--clr-vertical-nav-hover-bg-color);
@@ -42,7 +44,6 @@ body[cds-theme='light'] {
   // BUTTONS
   --clr-btn-primary-color: var(--tertiary-color);
   --clr-btn-primary-bg-color: var(--primary-accent-color);
-  --clr-btn-primary-border-color: var(--primary-accent-color);
   --clr-btn-primary-hover-bg-color: var(--primary-accent-darker-color);
 
   --clr-btn-default-color: var(--primary-accent-color);

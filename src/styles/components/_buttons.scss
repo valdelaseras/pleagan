@@ -1,3 +1,16 @@
 button[type='submit'] {
   margin: 1.5rem 0;
 }
+
+.btn.btn-primary {
+  border: none!important;
+}
+
+.btn.btn-primary:hover {
+  border: none!important;
+}
+
+//TODO: some fun transition
+.btn {
+  transition: all 200ms;
+}

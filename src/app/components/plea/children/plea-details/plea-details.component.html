@@ -36,23 +36,22 @@
         <h3>
           Presenting the plea for a plant-based <span class="bold">{{ plea.nonVeganProduct.name }}</span>
         </h3>
-        <span>by {{ plea.company.name }}</span>
+        <span>by {{ plea.company.name }}</span><br>
+        <div class="tag"><span class="bolder">{{ plea.supporters.length }}</span> supporters and counting</div>
       </div>
 
       <div class="clr-row clr-flex-lg-row-reverse">
         <div class="plea-details clr-col-xl-6 clr-col-12">
           <p>
-            Initiated on <span class="bold">{{ plea.createdAt | date: 'dd-MM-yyyy' }}</span>
+            Initiated on <span class="bold">{{ plea.createdAt | date: 'dd-MM-yyyy' }}</span><br/>
+            By <span class="bold">{{ plea.initiator.name }}</span>
           </p>
 
-          <p>
-            <span class="bold">{{ plea.supporters.length }}</span> current supporters
-          </p>
-
-          <p>
-            Plea initiator <span class="bold">{{ plea.initiator.name }}</span> wrote:<br/>
+          <div class="msg-cloud">
+            <div class="msg-shape"></div>
             <span class="italic">"{{ plea.initiator.message }}"</span>
-          </p>
+          </div>
+
         </div>
 
         <div class="plea-product-img clr-col-xl-6 clr-col-12">

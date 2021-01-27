@@ -1,72 +1,48 @@
 <div>
   <h1>What is pleagan?</h1>
-  <p>Pleagan is essentially a platform for two groups:</p>
-
-  <ul class="reg-list">
-    <li>
-      for people on plant-based diets to initiate and support pleas to companies. The goal is a veganised version of an
-      already existing product.
-    </li>
-    <li>
-      for companies to get insight in the vegan market. If handled well, pleagan can be a place for exposure and
-      promotion of new animal free products.
-    </li>
-  </ul>
-
-  <h2>A virtuous circle</h2>
-
   <p>
-    Of course many petitions and initiatives already exist scattered over the internet. Pleagan aims to aggregate this
-    into one place, to help vegans to have their collective pleas for more plant-based products heard loud and clear.
-    Businesses can use the information on Pleagan to efficiently adjust their business strategies accordingly.
-  </p>
-
-  <p>
-    At pleagan we believe the most effective way to a more vegan world is to increase demand. Consequently, the more
-    plant-based products are available on the market, the easier it will be for people to consume more animal free
-    products. <span class="highlighted-txt">Everybody wins</span>.
-  </p>
-
-  <p>
-    Read more about Pleagans' value for companies
-    <a
-      class="underlined"
-      [routerLink]="['/about']"
-      [queryParams]="{ section: 'business' }"
-      (click)="scrollTo('business')"
-      >here</a
-    >.
+    Pleagan aims to aggregate the collective pleas of vegans for more plant-based products into one place, so they can
+    be heard loud and clear. Businesses can then use the information to efficiently adjust their business
+    strategies.
   </p>
 
   <div class="banner align-center">
     <clr-icon shape="recycle" size="40"></clr-icon>
   </div>
 
+  <h2>A virtuous circle</h2>
+
+  <p>
+    At pleagan we believe the most effective way to a more vegan world is to increase demand. Consequently, the more
+    plant-based products are available on the market, the easier it will be for people to consume more animal free
+    products. <span class="highlighted-txt bold">Everybody wins!</span>
+  </p>
+
+<!--  <p>-->
+<!--    Read more about Pleagans' value for companies-->
+<!--    <a-->
+<!--      class="underlined"-->
+<!--      [routerLink]="['/about']"-->
+<!--      [queryParams]="{ section: 'business' }"-->
+<!--      (click)="scrollTo('business')"-->
+<!--      >here</a-->
+<!--    >.-->
+<!--  </p>-->
+
   <div id="business" *ngIf="section === 'business'">
     <h2>How pleagan helps your business</h2>
 
-    <p class="larger">
-      <span class="bold">Quick tip:</span> you can initiate a plea yourself to gauge demand for your product.
-    </p>
-
     <h3>Stats</h3>
 
-    <p>
-      With every plea we gather some stats and put them in handy graphs. These stats are intended to give you insight in
-      the demand for the product, where demand might be the highest and how the plea for your product is doing compared
-      to your competitors.
-    </p>
-
-    <p>
-      These statistics are freely available for everybody to see. If you search your company or product name
-      <a [routerLinkActive]="'active'" [routerLink]="['/plea', 'all']" class="underlined">here</a> and a plea comes up,
-      open the plea and you will find the stats, along with a list of all supporters of the plea. You can also check out
-      our <a [routerLinkActive]="'active'" [routerLink]="['/leaderboard']" class="underlined">leaderboards</a>.
-    </p>
-
     <p class="larger">
-      If a plea to your company has been initiated and a certain threshold of support has been reached, we will reach
-      out to you.
+      Find out the demand for your vegan product, where demand is concentrated and how you are doing compared to your
+      competitors. Find the relevant pleas and statistics by searching for your company name
+      <a [routerLinkActive]="'active'" [routerLink]="['/plea', 'all']" class="underlined">here</a> and don't forget
+      to check out our <a [routerLinkActive]="'active'" [routerLink]="['/leaderboard']" class="underlined">leaderboards</a>.
+    </p>
+
+    <p>
+      <span class="bold">Quick tip:</span> you can also initiate a plea yourself to gauge demand for your product.
     </p>
 
     <div class="banner align-center">
@@ -85,7 +61,7 @@
 
     <h3>Exposure</h3>
     <p>
-      If you respond to our pleas and bring out a new animal free product, we happily offer you and your product
+      If you respond to a plea and bring out a vegan product, we happily offer you and your product
       exposure in several ways, to keep that snowball effect going:
     </p>
 
@@ -112,39 +88,9 @@
   </div>
 
   <div id="herbivore" *ngIf="section !== 'business'">
-    <h2>How to use Pleagan</h2>
     <p>
-      As mentioned above, the goal is to have businesses either replace a non-vegan product with a vegan one, or at the
-      least add a vegan product to their inventory. You can either
-      <a class="underlined" [routerLink]="['/plea', 'new']">initiate a new plea</a> or look through
-      <a class="underlined" [routerLink]="['/plea', 'all']">all existing pleas</a> and add your support to it.
-    </p>
-
-    <h3>Initiating a plea</h3>
-    <p>
-      When you <a class="underlined" [routerLink]="['/plea', 'new']">initiate a new plea</a>, we crosscheck the product
-      you entered in the form with all product and company names in our plea database. A notification will be displayed
-      if it looks like a plea for that specific product in combination with the company has already been initiated.
-      Please don't ignore this message and check out those other pleas to double check before you proceed with the plea
-      form.
-    </p>
-    <p class="larger">
-      <span class="highlighted-txt">Remember:</span> one plea backed by all supporters is more impressive and effective
-      than several of the same pleas with the support scattered between those.
-    </p>
-    <p>
-      You can always do a quick search beforehand in
-      <a class="underlined" [routerLink]="['/plea', 'all']">all pleas</a> on either product or company name.
-    </p>
-
-    <h3>Supporting a plea</h3>
-    <p>
-      This part is pretty straightforward. You don't have to leave a message to companies, you can just show your
-      support by backing the plea with your name.
-    </p>
-    <p>
-      However, we strongly encourage you to leave a short message to the business to make it more impactful. Let them
-      know why you really want or need their product!
+      Read how Pleagan helps businesses <a class="underlined">here</a>
+<!--      TODO: display about-business-->
     </p>
   </div>
 </div>
