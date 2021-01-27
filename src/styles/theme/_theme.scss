@@ -5,14 +5,18 @@ body[cds-theme='light'] {
   --quaternary-color: #222;
   --quinary-color: #b6b6b64f;
 
-  --primary-accent-color: #3ca658;
-  --primary-accent-darker-color: #226032;
+  --primary-accent-color: #f39e87;
+  --primary-accent-darker-color:#4fa78b;
 
-  --secondary-accent-color: #328949;
+  --secondary-accent-color: #f39e87;
+
+  //--tertiary-accent-color: #fa7268;
+  --tertiary-accent-color: var(--primary-accent-darker-color);
 
   --primary-text-color: var(--quaternary-color);
   --primary-text-color-inverted: var(--primary-color);
-  --text-accent-color: var(--secondary-accent-color);
+  //--text-accent-color: var(--secondary-accent-color);
+  --text-accent-color: var(--primary-accent-darker-color);
 
   // HEADER
   --clr-header-bg-color: var(--primary-accent-darker-color);
@@ -22,7 +26,7 @@ body[cds-theme='light'] {
   --clr-vertical-nav-item-active-color: var(--primary-text-color);
   --clr-vertical-nav-active-bg-color: var(--tertiary-color);
   --clr-vertical-nav-hover-bg-color: var(--primary-color);
-  --clr-vertical-nav-bg-color: var(--quinary-color);
+  --clr-vertical-nav-bg-color: var(--secondary-color);
 
   --clr-sidenav-link-active-bg-color: var(--clr-vertical-nav-active-bg-color);
   --clr-sidenav-link-hover-color: var(--clr-vertical-nav-hover-bg-color);

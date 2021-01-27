@@ -37,7 +37,7 @@
           Presenting the plea for a plant-based <span class="bold">{{ plea.nonVeganProduct.name }}</span>
         </h3>
         <span>by {{ plea.company.name }}</span><br>
-        <div class="tag"><span class="bolder">{{ plea.supporters.length }}</span> supporters and counting</div>
+        <div class="tag"><span class="bolder">{{ plea.supporters.length }}</span> supporter{{ plea.supporters.length > 1 ? 's' : null }}</div>
       </div>
 
       <div class="clr-row clr-flex-lg-row-reverse">

@@ -1,0 +1,27 @@
+clr-header.header {
+  height: 47px;
+  background-color: transparent;
+  color: var(--primary-text-color);
+}
+
+clr-header.header .branding a .title {
+  line-height: 47px;
+  margin-top: -12px;
+  color: var(--primary-text-color);
+}
+
+clr-header.header .page-title {
+  margin-top: -6px;
+}
+
+clr-header .header-hamburger-trigger {
+  margin-top: -6px;
+}
+
+clr-header .header-hamburger-trigger span,
+clr-header .header-hamburger-trigger span::before,
+clr-header .header-hamburger-trigger span::after {
+  background-color: var(--primary-text-color);
+}
+
+// TODO: if keep, adjust search-box margin top

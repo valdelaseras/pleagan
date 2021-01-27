@@ -3,17 +3,17 @@ html{
   -webkit-font-smoothing: antialiased;
 }
 
-body {
-  --clr-font: Arial, sans-serif;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    font-family: var(--clr-font)!important;
-  }
-}
+//body {
+//  --clr-font: "Avenir", sans-serif;
+//
+//  h1,
+//  h2,
+//  h3,
+//  h4,
+//  h5 {
+//    font-family: var(--clr-font)!important;
+//  }
+//}
 
 .underlined {
   text-decoration: underline !important;
@@ -42,13 +42,14 @@ a:hover {
   margin: 5px;
 }
 
+a:visited,
 a:link {
-  color: hotpink;
+  color: var(--text-accent-color);
 }
 
-a:visited {
-  color: red;
-}
+//a:visited {
+//  color: var(--primary-accent-darker-color);
+//}
 
 .highlighted-txt {
   color: var(--text-accent-color);

@@ -16,13 +16,19 @@
 
 .tag {
   padding: .25rem 1rem;
-  background-color: var(--primary-accent-color);
+  background-color: var(--tertiary-accent-color);
   color: var(--primary-text-color-inverted);
   display: inline-block;
   margin: .5rem 0 .5rem -1rem;
   text-transform: uppercase;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .tag {
+    margin: 1rem 0 .5rem -1rem;
+  }
 }
 
 #original-plea {
