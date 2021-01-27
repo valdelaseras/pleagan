@@ -5,18 +5,17 @@ body[cds-theme='light'] {
   --quaternary-color: #222;
   --quinary-color: #b6b6b64f;
 
-  --primary-accent-color: #797979;
-  --primary-accent-darker-color: #474747;
+  --primary-accent-color: #3ca658;
+  --primary-accent-darker-color: #226032;
 
-  --secondary-accent-color: #6f6f6f;
-  --secondary-accent-darker-color: #555555;
+  --secondary-accent-color: #328949;
 
   --primary-text-color: var(--quaternary-color);
   --primary-text-color-inverted: var(--primary-color);
   --text-accent-color: var(--secondary-accent-color);
 
   // HEADER
-  //--clr-header-bg-color: red;
+  --clr-header-bg-color: var(--primary-accent-darker-color);
 
   // NAV
   --clr-vertical-nav-item-color: var(--primary-text-color);
@@ -54,12 +53,12 @@ body[cds-theme='light'] {
   // CARDS
   --clr-card-bg-color: var(--primary-color);
   --clr-card-border-color: var(--secondary-color);
-  --clr-card-title-color: var(--primary-accent-color);
-  --clr-card-divider-color: var(--secondary-color);
+  //--clr-card-title-color: var(--primary-accent-color);
+  --clr-card-divider-color: var(--primary-color);
   --clr-card-box-shadow: 0 0 0 0 var(--primary-color);
 
   // CARDS - PROGRESS
-  --clr-progress-default-color: var(--primary-accent-color);
+  --clr-progress-default-color: var(--secondary-accent-color);
 }
 
 //body[cds-theme="light"] {
