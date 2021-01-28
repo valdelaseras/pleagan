@@ -26,4 +26,12 @@ export class CompanyService {
       }),
     );
   }
+
+  getCompanyNames(): Observable<string[]> {
+    return this.http.get<string[]>(`${environment.apiBaseUrl}/company/all`, {
+      params: {
+        namesOnly: 'true',
+      }
+    });
+  }
 }

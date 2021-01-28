@@ -32,7 +32,10 @@ import { CardListComponent } from './component/hall-of-fame/children/card-list/c
 import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
 import { NewsListComponent } from './component/news/children/news-list/news-list.component';
 import { HeaderComponent } from './component/header/header.component';
-import { SearchPipe } from './pipe/search.pipe';
+import { SearchPipe } from './pipe/search/search.pipe';
+import { SortByLikelihoodPipe } from './pipe/sort-by-likelihood/sort-by-likelihood.pipe';
+import { SuggestionListComponent } from './component/suggestion-list/suggestion-list.component';
+import { LoadingIndicatorComponent } from './component/loading-indicator/loading-indicator.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,10 @@ import { SearchPipe } from './pipe/search.pipe';
     DetailsComponent,
     NewsListComponent,
     HeaderComponent,
+    SuggestionListComponent,
     SearchPipe,
+    SortByLikelihoodPipe,
+    LoadingIndicatorComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,8 @@ input[type='file'] {
   width: 100%;
 }
 
-form clr-input-container input {
+form clr-input-container input,
+form clr-combobox-container .clr-combobox-wrapper,
+form clr-combobox-container .clr-combobox-wrapper .clr-input {
   width: 100%;
 }

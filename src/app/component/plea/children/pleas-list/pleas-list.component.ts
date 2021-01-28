@@ -4,23 +4,14 @@ import { Plea } from '../../../../model/plea';
 import { PleaService } from '../../../../service/plea/plea.service';
 import { map, switchMap } from 'rxjs/operators';
 import { PLEA_STATUS } from 'pleagan-model';
-import {animate, stagger, style, transition, trigger, query } from '@angular/animations';
+import { FADE_IN_LIST } from '../../../../animations';
 
 @Component({
   selector: 'app-submissions',
   templateUrl: './pleas-list.component.html',
   styleUrls: ['./pleas-list.component.scss'],
   animations: [
-    trigger('listAnimation', [
-      transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0 }),
-          stagger(150, [
-            animate('0.8s', style({ opacity: 1 }))
-          ])
-        ], { optional: true })
-      ])
-    ])
+    FADE_IN_LIST
   ],
 })
 export class PleasListComponent {
