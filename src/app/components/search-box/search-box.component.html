@@ -4,8 +4,7 @@
     <input
       type="search"
       name="query"
-      [(ngModel)]="query"
-      (keyup)="searchQueryChanged()"
+      (change)="updateQuery( $event )"
       placeholder="Search by product or company name"
       class="clr-input"
     />

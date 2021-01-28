@@ -6,10 +6,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./search-box.component.scss'],
 })
 export class SearchBoxComponent {
-  @Output() update: EventEmitter<string> = new EventEmitter<string>();
-  query: string;
+  @Output() queryUpdated: EventEmitter<string> = new EventEmitter<string>();
   constructor() {}
-  searchQueryChanged(): void {
-    this.update.emit(this.query);
+  updateQuery( event: any ): void {
+    this.queryUpdated.emit( event.currentTarget.value );
   }
 }

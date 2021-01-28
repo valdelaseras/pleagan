@@ -30,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SpecialThanksComponent } from './components/special-thanks/special-thanks.component';
 import { CardListComponent } from './components/hall-of-fame/children/card-list/card-list.component';
 import { DetailsComponent } from './components/hall-of-fame/children/details/details.component';
-import { SearchPipe } from './components/search.pipe';
 import { NewsListComponent } from './components/news/children/news-list/news-list.component';
 import { HeaderComponent } from './components/header/header.component';
 
@@ -59,7 +58,6 @@ import { HeaderComponent } from './components/header/header.component';
     SpecialThanksComponent,
     CardListComponent,
     DetailsComponent,
-    SearchPipe,
     NewsListComponent,
     HeaderComponent,
   ],

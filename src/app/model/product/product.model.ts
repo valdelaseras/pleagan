@@ -12,6 +12,9 @@ export class Product implements IProduct {
   @JsonProperty('vegan', Boolean)
   vegan = false;
 
+  @JsonProperty('imageUrl', String)
+  imageUrl = '';
+
   @JsonProperty('animalIngredients', [String])
   animalIngredients: string[] = [];
 }

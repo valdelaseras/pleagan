@@ -24,9 +24,6 @@ export class Plea implements IPlea {
   @JsonProperty('supporters', [Pleagan])
   supporters: Pleagan[] = [];
 
-  @JsonProperty('imageUrl', String)
-  imageUrl = '';
-
   @JsonProperty('nonVeganProduct', Product)
   nonVeganProduct: Product = new Product();
 
