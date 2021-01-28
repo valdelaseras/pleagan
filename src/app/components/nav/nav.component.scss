@@ -18,33 +18,39 @@
 
 .sidenav .nav-group label {
   margin-bottom: .25rem;
+  font-weight: bolder;
 }
 
 .sidenav .nav-group .nav-list > li a.nav-link {
   padding: .5rem 2rem;
 }
 
+.sidenav .nav-group .nav-list > li a.nav-link.active {
+  border-bottom: 1px solid var(--line-color);
+  font-weight: bolder;
+}
+
 //TODO: take another look at this mq later
 @media only screen and (min-width: 769px) {
   clr-vertical-nav {
     width: 260px;
-    //border-right: 1px solid #ccc;
-    //box-shadow: 0 0 20px 2px rgba(0,0,0,.1);
+    --clr-vertical-nav-trigger-divider-border-color: transparent;
   }
 
   #sidenav {
     height: calc(100vh - 98px);
-    width: 260px;
+    width: 240px;
     margin-top: -12px;
     border: none
   }
 
-  .clr-vertical-nav .nav-group-text, .clr-vertical-nav .nav-link {
+  .clr-vertical-nav .nav-group-text,
+  .clr-vertical-nav .nav-link {
     padding-left: 0;
   }
 
   #initiate-plea-btn {
-    width: 220px;
+    width: 200px;
   }
 
   .nav-button {
