@@ -1,0 +1,21 @@
+@media only screen and (min-width: 1024px) {
+  section.section {
+    margin-top: 2rem;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  //section.section .reverse {
+  //  flex-direction: row-reverse;
+  //}
+  //
+  //section.section .reverse > div:first-child {
+  //  text-align: right;
+  //}
+
+  //section.section .clr-row > div:first-child {
+  //  margin-bottom: 4rem;
+  //}
+}

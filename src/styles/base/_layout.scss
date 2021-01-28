@@ -1,19 +1,27 @@
 .main-container .content-container .content-area {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   padding: 0 1rem;
+}
+
+.main-container {
+  width: 100%;
 }
 
 @media only screen and (min-width: 1024px) {
   .main-container .content-container .content-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow-y: scroll;
+  }
+
+  .grid {
     max-width: 70vw;
-    margin: 0 auto;
   }
 }
 
 @media only screen and (min-width: 1440px) {
-  .main-container .content-container .content-area {
+  .grid {
     max-width: 50vw;
   }
 }
+
