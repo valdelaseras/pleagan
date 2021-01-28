@@ -1,24 +1,34 @@
 body[cds-theme='light'] {
+  // Variety of white to 'black' shades
   --primary-color: #f4f4f4;
   --secondary-color: #e3e3e3;
   --tertiary-color: #fff;
   --quaternary-color: #222;
+  --quinary-color: #b6b6b64f;
+  --line-color: rgba(70,70,70,.15);
 
-  --primary-accent-color: #3ca658;
-  --primary-accent-darker-color: #2e8043;
+  --primary-accent-color: #db8caf;
+  --primary-accent-darker-color: #222;
 
-  --secondary-accent-color: #328949;
-  --secondary-accent-darker-color: #246234;
+  --secondary-accent-color: var(--primary-accent-color);
+
+  //--tertiary-accent-color: #fa7268;
+  --tertiary-accent-color: var(--primary-accent-darker-color);
 
   --primary-text-color: var(--quaternary-color);
   --primary-text-color-inverted: var(--primary-color);
-  --text-accent-color: var(--primary-accent-color);
+  //--text-accent-color: var(--secondary-accent-color);
+  --text-accent-color: var(--primary-accent-darker-color);
+
+  // HEADER
+  --clr-header-bg-color: var(--primary-accent-darker-color);
 
   // NAV
   --clr-vertical-nav-item-color: var(--primary-text-color);
   --clr-vertical-nav-item-active-color: var(--primary-text-color);
-  --clr-vertical-nav-active-bg-color: var(--tertiary-color);
+  --clr-vertical-nav-active-bg-color: none;
   --clr-vertical-nav-hover-bg-color: var(--primary-color);
+  --clr-vertical-nav-bg-color: transparent;
 
   --clr-sidenav-link-active-bg-color: var(--clr-vertical-nav-active-bg-color);
   --clr-sidenav-link-hover-color: var(--clr-vertical-nav-hover-bg-color);
@@ -37,9 +47,9 @@ body[cds-theme='light'] {
   --clr-global-app-background: var(--secondary-color);
 
   // BUTTONS
-  --clr-btn-primary-color: var(--tertiary-color);
+  --clr-btn-primary-color: var(--quaternary-color);
   --clr-btn-primary-bg-color: var(--primary-accent-color);
-  --clr-btn-primary-border-color: var(--primary-accent-color);
+  //--clr-btn-primary-border-color: var(--quaternary-color);
   --clr-btn-primary-hover-bg-color: var(--primary-accent-darker-color);
 
   --clr-btn-default-color: var(--primary-accent-color);
@@ -50,12 +60,12 @@ body[cds-theme='light'] {
   // CARDS
   --clr-card-bg-color: var(--primary-color);
   --clr-card-border-color: var(--secondary-color);
-  --clr-card-title-color: var(--primary-accent-color);
-  --clr-card-divider-color: var(--secondary-color);
+  //--clr-card-title-color: var(--primary-accent-color);
+  --clr-card-divider-color: var(--primary-color);
   --clr-card-box-shadow: 0 0 0 0 var(--primary-color);
 
   // CARDS - PROGRESS
-  --clr-progress-default-color: var(--primary-accent-color);
+  --clr-progress-default-color: var(--secondary-accent-color);
 }
 
 //body[cds-theme="light"] {
