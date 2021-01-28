@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { PleaComponent } from './components/plea/plea.component';
-import { NewPleaComponent } from './components/plea/children/new-plea/new-plea.component';
-import { PleasListComponent } from './components/plea/children/pleas-list/pleas-list.component';
-import { PleaDetailsComponent } from './components/plea/children/plea-details/plea-details.component';
-import { AboutComponent } from './components/about/about.component';
-import { FaqComponent } from './components/faq/faq.component';
-import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
-import { NewsComponent } from './components/news/news.component';
-import { HallOfFameComponent } from './components/hall-of-fame/hall-of-fame.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { SupportPleaComponent } from './components/plea/children/support-plea/support-plea.component';
-import { SpecialThanksComponent } from './components/special-thanks/special-thanks.component';
-import { CardListComponent } from './components/hall-of-fame/children/card-list/card-list.component';
-import { DetailsComponent } from './components/hall-of-fame/children/details/details.component';
-import { NewsListComponent } from './components/news/children/news-list/news-list.component';
+import { HomeComponent } from './component/home/home.component';
+import { PleaComponent } from './component/plea/plea.component';
+import { NewPleaComponent } from './component/plea/children/new-plea/new-plea.component';
+import { PleasListComponent } from './component/plea/children/pleas-list/pleas-list.component';
+import { PleaDetailsComponent } from './component/plea/children/plea-details/plea-details.component';
+import { AboutComponent } from './component/about/about.component';
+import { FaqComponent } from './component/faq/faq.component';
+import { LeaderboardComponent } from './component/leaderboard/leaderboard.component';
+import { NewsComponent } from './component/news/news.component';
+import { HallOfFameComponent } from './component/hall-of-fame/hall-of-fame.component';
+import { ContactComponent } from './component/contact/contact.component';
+import { SupportPleaComponent } from './component/plea/children/support-plea/support-plea.component';
+import { SpecialThanksComponent } from './component/special-thanks/special-thanks.component';
+import { CardListComponent } from './component/hall-of-fame/children/card-list/card-list.component';
+import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
+import { NewsListComponent } from './component/news/children/news-list/news-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },

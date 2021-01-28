@@ -1,0 +1,13 @@
+<form class="clr-form search-box">
+  <div class="flex-row">
+    <clr-icon shape="search" size="20"></clr-icon>
+    <input
+      type="search"
+      name="query"
+      autocomplete="off"
+      (change)="updateQuery( $event )"
+      placeholder="Search by product or company name"
+      class="clr-input"
+    />
+  </div>
+</form>

@@ -1,0 +1,27 @@
+.suggestion-list {
+  opacity: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% - 12px);
+  border-radius: 3px;
+  background-color: var(--tertiary-color);
+  padding: .5rem;
+  transition: opacity ease-in-out 200ms;
+  z-index: 999;
+
+  &.invisible {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  li {
+    height: 32px;
+    display: flex;
+    align-items: center;
+  }
+
+  hr {
+    background-color: var(--clr-forms-subtext-color);
+  }
+}

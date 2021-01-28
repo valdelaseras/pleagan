@@ -1,0 +1,63 @@
+.file-upload-container {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  label:first-child {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  clr-control-helper {
+    margin-left: -0.5rem !important;
+    margin-right: -0.5rem !important;
+  }
+}
+
+.clr-form {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100% - 72px);
+  padding-bottom: 1rem;
+}
+
+.input-container-with-suggestions {
+  position: relative;
+}
+
+.overflow-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.suggested-pleas {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+
+  .card-block {
+    display: flex;
+    flex: 2;
+    overflow-y: scroll;
+
+    .card-text > p:first-child {
+      margin-top: 0;
+    }
+
+    clr-stack-view {
+      margin-top: 1rem;
+    }
+  }
+
+  .card-footer .btn {
+    width: 100%;
+  }
+}
+
+.loading-indicator-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 2;
+}
