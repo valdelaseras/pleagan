@@ -1,6 +1,6 @@
 <h1>Create an account</h1>
 <p>
-  In order to create or support pleas, you must create an account.
+  In order to create or support pleas, you must create an account
 </p>
 <div class="clr-row">
   <form clrForm (ngSubmit)="submit()" [formGroup]="registerForm">
@@ -11,7 +11,7 @@
     </clr-input-container>
 
     <clr-input-container>
-      <label for="username">A username</label>
+      <label for="username">A username</label><cds-icon status="danger" shape="exclamation-circle" aria-hidden="true" class="clr-validate-icon">…</cds-icon>
       <input id="username" clrInput type="text" formControlName="username" required/>
       <clr-control-error>Sorry! This username is already taken</clr-control-error>
     </clr-input-container>
@@ -24,7 +24,7 @@
 
     <clr-password-container>
       <label for="confirm-password">Confirm password</label>
-      <input id="confirm-password" clrPassword formControlName="confirm-password" required/>
+      <input id="confirm-password" clrPassword formControlName="confirmPassword" required/>
       <clr-control-error>Password must match</clr-control-error>
     </clr-password-container>
 
