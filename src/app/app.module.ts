@@ -37,6 +37,7 @@ import { SortByLikelihoodPipe } from './pipe/sort-by-likelihood/sort-by-likeliho
 import { SuggestionListComponent } from './component/suggestion-list/suggestion-list.component';
 import { LoadingIndicatorComponent } from './component/loading-indicator/loading-indicator.component';
 import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { LoginComponent } from './component/login/login.component';
     SortByLikelihoodPipe,
     LoadingIndicatorComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

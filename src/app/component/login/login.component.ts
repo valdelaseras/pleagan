@@ -11,8 +11,6 @@ export class LoginComponent {
     username: new FormControl('', Validators.required ),
     password: new FormControl('', Validators.required )
   });
-  ngOnInit(): void {
-  }
   submit(): void {
     console.log('login');
   }

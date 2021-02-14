@@ -17,9 +17,11 @@ import { CardListComponent } from './component/hall-of-fame/children/card-list/c
 import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
 import { NewsListComponent } from './component/news/children/news-list/news-list.component';
 import {LoginComponent} from './component/login/login.component';
+import {RegisterComponent} from './component/register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '', component: HomeComponent, pathMatch: 'full' },
   {
     path: 'plea',

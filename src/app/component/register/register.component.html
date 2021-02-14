@@ -1,0 +1,33 @@
+<h1>Create an account</h1>
+<p>
+  In order to create or support pleas, you must create an account.
+</p>
+<div class="clr-row">
+  <form clrForm (ngSubmit)="submit()" [formGroup]="registerForm">
+    <clr-input-container>
+      <label for="email">Your email address</label>
+      <input id="email" clrInput type="text" formControlName="email" required/>
+      <clr-control-error>Email already in use</clr-control-error>
+    </clr-input-container>
+
+    <clr-input-container>
+      <label for="username">A username</label>
+      <input id="username" clrInput type="text" formControlName="username" required/>
+      <clr-control-error>Sorry! This username is already taken</clr-control-error>
+    </clr-input-container>
+
+    <clr-password-container>
+      <label for="password">Password</label>
+      <input id="password" clrPassword formControlName="password" required/>
+      <clr-control-error>A password must include beans</clr-control-error>
+    </clr-password-container>
+
+    <clr-password-container>
+      <label for="confirm-password">Confirm password</label>
+      <input id="confirm-password" clrPassword formControlName="confirm-password" required/>
+      <clr-control-error>Password must match</clr-control-error>
+    </clr-password-container>
+
+    <button class="btn btn-primary" id="login-btn" type="submit">Create account</button>
+  </form>
+</div>
