@@ -42,6 +42,7 @@ import { MyProfileComponent } from './component/profile/my-profile.component';
 import { MyPleasComponent } from './component/profile/children/my-pleas/my-pleas.component';
 import { MySupportComponent } from './component/profile/children/my-support/my-support.component';
 import { MyNewsComponent } from './component/profile/children/my-news/my-news.component';
+import { MySettingsComponent } from './component/profile/children/my-settings/my-settings.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { MyNewsComponent } from './component/profile/children/my-news/my-news.co
     MyPleasComponent,
     MySupportComponent,
     MyNewsComponent,
+    MySettingsComponent,
   ],
   imports: [
     BrowserModule,
