@@ -36,6 +36,7 @@ import { SearchPipe } from './pipe/search/search.pipe';
 import { SortByLikelihoodPipe } from './pipe/sort-by-likelihood/sort-by-likelihood.pipe';
 import { SuggestionListComponent } from './component/suggestion-list/suggestion-list.component';
 import { LoadingIndicatorComponent } from './component/loading-indicator/loading-indicator.component';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { LoadingIndicatorComponent } from './component/loading-indicator/loading
     SearchPipe,
     SortByLikelihoodPipe,
     LoadingIndicatorComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

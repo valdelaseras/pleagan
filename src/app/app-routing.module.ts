@@ -16,8 +16,10 @@ import { SpecialThanksComponent } from './component/special-thanks/special-thank
 import { CardListComponent } from './component/hall-of-fame/children/card-list/card-list.component';
 import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
 import { NewsListComponent } from './component/news/children/news-list/news-list.component';
+import {LoginComponent} from './component/login/login.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent, pathMatch: 'full' },
   {
     path: 'plea',

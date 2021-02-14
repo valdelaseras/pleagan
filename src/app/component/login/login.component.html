@@ -1,0 +1,20 @@
+<section class="section">
+  <h1>Login</h1>
+  <div class="clr-row">
+    <div class="clr-col-lg-4">
+      <form clrForm (ngSubmit)="submit()" [formGroup]="loginForm">
+        <clr-input-container>
+          <label for="username">Username or email</label>
+          <input id="username" clrInput type="text" formControlName="username" required/>
+        </clr-input-container>
+        <clr-password-container>
+          <label for="password">Password</label>
+          <input id="password" clrPassword formControlName="password" required/>
+          <clr-control-error>Credentials incorrect</clr-control-error>
+        </clr-password-container>
+        <button class="btn btn-primary" type="submit">Login</button>
+        <button class="btn btn-primary" type="">Create an account</button>
+      </form>
+    </div>
+  </div>
+</section>
