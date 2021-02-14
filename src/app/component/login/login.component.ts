@@ -14,6 +14,6 @@ export class LoginComponent {
   ngOnInit(): void {
   }
   submit(): void {
-    console.log('login')
+    console.log('login');
   }
 }
