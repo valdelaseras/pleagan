@@ -22,7 +22,8 @@ import { MyProfileComponent } from './component/profile/my-profile.component';
 import { MyPleasComponent } from './component/profile/children/my-pleas/my-pleas.component';
 import { MySupportComponent } from './component/profile/children/my-support/my-support.component';
 import { MyNewsComponent } from './component/profile/children/my-news/my-news.component';
-import {MySettingsComponent} from './component/profile/children/my-settings/my-settings.component';
+import { MySettingsComponent } from './component/profile/children/my-settings/my-settings.component';
+import { IsLoggedInGuard } from './service/guards/is-logged-in/is-logged-in.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: MyProfileComponent,
+    canActivate: [IsLoggedInGuard],
     children: [
       { path: 'settings', component: MySettingsComponent },
       { path: 'my-pleas', component: MyPleasComponent },
