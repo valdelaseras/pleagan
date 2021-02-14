@@ -44,10 +44,10 @@ const routes: Routes = [
     path: 'plea',
     component: PleaComponent,
     children: [
-      { path: 'new', component: NewPleaComponent },
+      { path: 'new', component: NewPleaComponent, canActivate: [IsLoggedInGuard] },
       { path: 'all', component: PleasListComponent },
       { path: 'details/:id', component: PleaDetailsComponent },
-      { path: 'support/:id', component: SupportPleaComponent },
+      { path: 'support/:id', component: SupportPleaComponent, canActivate: [IsLoggedInGuard] },
     ],
   },
   { path: 'leaderboard', component: LeaderboardComponent },

@@ -11,6 +11,6 @@ export class IsLoggedInGuard implements CanActivate {
     state: RouterStateSnapshot,
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     console.log('guarding the route');
-    return true;
+    return false;
   }
 }
