@@ -1,16 +1,17 @@
 <h2>Initiate a plea</h2>
 
 <form clrForm (ngSubmit)="submit()" [formGroup]="newPleaForm">
-
   <clr-input-container>
     <label for="company">Company name*</label>
-    <input id="company"
-           clrInput
-           autocomplete="off"
-           type="text"
-           formControlName="company"
-           (keyup)="searchSimilarPleas()"
-           required/>
+    <input
+      id="company"
+      clrInput
+      autocomplete="off"
+      type="text"
+      formControlName="company"
+      (keyup)="searchSimilarPleas()"
+      required
+    />
 
     <clr-control-helper>Please enter the company name</clr-control-helper>
     <clr-control-error>This field is required</clr-control-error>
@@ -18,13 +19,15 @@
 
   <clr-input-container>
     <label for="product">Product name*</label>
-    <input id="product"
-           clrInput
-           autocomplete="off"
-           type="text"
-           formControlName="product"
-           (keyup)="searchSimilarPleas()"
-           required/>
+    <input
+      id="product"
+      clrInput
+      autocomplete="off"
+      type="text"
+      formControlName="product"
+      (keyup)="searchSimilarPleas()"
+      required
+    />
 
     <clr-control-helper>Please enter the product name</clr-control-helper>
     <clr-control-error>This field is required</clr-control-error>
@@ -69,7 +72,7 @@
       <clr-control-error *clrIfError="'requiredFieldError'">This field is required</clr-control-error>
       <clr-control-error *clrIfError="'fileSizeError'">File must not exceed 2mb</clr-control-error>
       <clr-control-error *clrIfError="'extensionError'"
-      >Allowed file extensions are .jpg, .png or .webp</clr-control-error
+        >Allowed file extensions are .jpg, .png or .webp</clr-control-error
       >
     </clr-input-container>
 
@@ -78,14 +81,15 @@
       <input clrInput type="text" formControlName="ingredient" (keyup)="createTag($event)" />
 
       <clr-control-helper>
-      <span class="tag" *ngFor="let ingredient of addedIngredients; index as index"
-      >{{ ingredient }}
-        <clr-icon shape="times" size="14" (click)="removeTag(index)"></clr-icon>
-      </span>
+        <span class="tag" *ngFor="let ingredient of addedIngredients; index as index"
+          >{{ ingredient }}
+          <clr-icon shape="times" size="14" (click)="removeTag(index)"></clr-icon>
+        </span>
       </clr-control-helper>
 
       <clr-control-helper>
-        Which ingredients of this product will need to be removed or replaced? Type the ingredient(s) separated by commas
+        Which ingredients of this product will need to be removed or replaced? Type the ingredient(s) separated by
+        commas
       </clr-control-helper>
     </clr-input-container>
 
@@ -120,38 +124,35 @@
 
 <ng-template #pleaSuggestions>
   <div *ngIf="newPleaForm.get('product').value && newPleaForm.get('company').value" [@swipeInFromBelow]>
-      <ng-container>
-        <div class="card suggested-pleas">
-          <div class="card-header">
-            It looks like a plea for this product may already exist
-          </div>
-          <div class="card-block">
-              <div class="card-text">
-                <p>
-                  Please take a moment to verify. If it does, support the existing plea
-                  instead of initiating a new one. Duplicate pleas decrease efficiency!
-                </p>
+    <ng-container>
+      <div class="card suggested-pleas">
+        <div class="card-header">It looks like a plea for this product may already exist</div>
+        <div class="card-block">
+          <div class="card-text">
+            <p>
+              Please take a moment to verify. If it does, support the existing plea instead of initiating a new one.
+              Duplicate pleas decrease efficiency!
+            </p>
 
-                <ng-container *ngIf="!loading; else loadingIndicator">
-                  <clr-stack-view>
-                    <clr-stack-block *ngFor="let plea of similarPleas" [routerLink]="['/', 'plea', 'details', plea.id]">
-                      <clr-stack-label>{{ plea.company.name }}</clr-stack-label>
-                      <clr-stack-content>
-                        {{ plea.nonVeganProduct.name }}
-                      </clr-stack-content>
-                    </clr-stack-block>
-                  </clr-stack-view>
-                </ng-container>
-
-              </div>
-          </div>
-          <div class="card-footer">
-            <button type="button" class="btn btn-primary" (click)="pleaInSuggestions = false">
-              This is a different product
-            </button>
+            <ng-container *ngIf="!loading; else loadingIndicator">
+              <clr-stack-view>
+                <clr-stack-block *ngFor="let plea of similarPleas" [routerLink]="['/', 'plea', 'details', plea.id]">
+                  <clr-stack-label>{{ plea.company.name }}</clr-stack-label>
+                  <clr-stack-content>
+                    {{ plea.nonVeganProduct.name }}
+                  </clr-stack-content>
+                </clr-stack-block>
+              </clr-stack-view>
+            </ng-container>
           </div>
         </div>
-      </ng-container>
+        <div class="card-footer">
+          <button type="button" class="btn btn-primary" (click)="pleaInSuggestions = false">
+            This is a different product
+          </button>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </ng-template>
 

@@ -38,6 +38,10 @@ import { SuggestionListComponent } from './component/suggestion-list/suggestion-
 import { LoadingIndicatorComponent } from './component/loading-indicator/loading-indicator.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
+import { MyProfileComponent } from './component/profile/my-profile.component';
+import { MyPleasComponent } from './component/profile/children/my-pleas/my-pleas.component';
+import { MySupportComponent } from './component/profile/children/my-support/my-support.component';
+import { MyNewsComponent } from './component/profile/children/my-news/my-news.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +76,10 @@ import { RegisterComponent } from './component/register/register.component';
     LoadingIndicatorComponent,
     LoginComponent,
     RegisterComponent,
+    MyProfileComponent,
+    MyPleasComponent,
+    MySupportComponent,
+    MyNewsComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +88,7 @@ import { RegisterComponent } from './component/register/register.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [PleaService],
   bootstrap: [AppComponent],

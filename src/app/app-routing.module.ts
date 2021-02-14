@@ -16,13 +16,26 @@ import { SpecialThanksComponent } from './component/special-thanks/special-thank
 import { CardListComponent } from './component/hall-of-fame/children/card-list/card-list.component';
 import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
 import { NewsListComponent } from './component/news/children/news-list/news-list.component';
-import {LoginComponent} from './component/login/login.component';
-import {RegisterComponent} from './component/register/register.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
+import { MyProfileComponent } from './component/profile/my-profile.component';
+import { MyPleasComponent } from './component/profile/children/my-pleas/my-pleas.component';
+import { MySupportComponent } from './component/profile/children/my-support/my-support.component';
+import { MyNewsComponent } from './component/profile/children/my-news/my-news.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '', component: HomeComponent, pathMatch: 'full' },
+  {
+    path: 'profile',
+    component: MyProfileComponent,
+    children: [
+      { path: 'my-pleas', component: MyPleasComponent },
+      { path: 'my-support', component: MySupportComponent },
+      { path: 'my-news', component: MyNewsComponent },
+    ],
+  },
   {
     path: 'plea',
     component: PleaComponent,

@@ -8,11 +8,10 @@ import { ICompany, IPlea } from 'pleagan-model';
 import { Company } from '../../model/company';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CompanyService {
-
-  constructor( private http: HttpClient, private convertService: JsonConvertService ) { }
+  constructor(private http: HttpClient, private convertService: JsonConvertService) {}
 
   getCompanies(): Observable<Company[]> {
     return this.http.get<Company[]>(`${environment.apiBaseUrl}/company/all`).pipe(
@@ -31,7 +30,7 @@ export class CompanyService {
     return this.http.get<string[]>(`${environment.apiBaseUrl}/company/all`, {
       params: {
         namesOnly: 'true',
-      }
+      },
     });
   }
 }

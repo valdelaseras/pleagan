@@ -1,4 +1,4 @@
-import {Component, HostListener} from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -10,11 +10,10 @@ export class NavComponent {
   collapsed = true;
   constructor() {}
   @HostListener('window:resize', ['$event'])
-  handleResize( event: UIEvent ): void {
+  handleResize(event: UIEvent): void {
     this.largeScreen = this.isLargeScreen();
   }
   private isLargeScreen(): boolean {
     return window.innerWidth > 768;
   }
 }
-

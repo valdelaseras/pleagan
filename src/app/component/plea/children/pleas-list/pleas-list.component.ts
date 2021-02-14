@@ -10,21 +10,19 @@ import { FADE_IN_LIST } from '../../../../animations';
   selector: 'app-submissions',
   templateUrl: './pleas-list.component.html',
   styleUrls: ['./pleas-list.component.scss'],
-  animations: [
-    FADE_IN_LIST
-  ],
+  animations: [FADE_IN_LIST],
 })
 export class PleasListComponent {
   updateQuery$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   pleas$: Observable<Plea[]>;
   constructor(private pleaService: PleaService) {
     this.pleas$ = this.updateQuery$.pipe(
-      switchMap( ( query: string ) => query.length ? this.pleaService.searchPleas( query ) : this.pleaService.getPleas() ),
-      map((pleas: Plea[]) => pleas.filter((plea: Plea) => plea.status !== PLEA_STATUS.COMPLIED))
+      switchMap((query: string) => (query.length ? this.pleaService.searchPleas(query) : this.pleaService.getPleas())),
+      map((pleas: Plea[]) => pleas.filter((plea: Plea) => plea.status !== PLEA_STATUS.COMPLIED)),
     );
   }
 
-  updateQuery( query: string ): void {
-    this.updateQuery$.next( query );
+  updateQuery(query: string): void {
+    this.updateQuery$.next(query);
   }
 }

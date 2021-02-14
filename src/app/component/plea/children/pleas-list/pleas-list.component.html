@@ -1,10 +1,8 @@
-<app-search-box (queryUpdated)="updateQuery( $event )"></app-search-box>
+<app-search-box (queryUpdated)="updateQuery($event)"></app-search-box>
 
 <main class="all-pleas">
   <div class="clr-row" *ngIf="pleas$ | async as pleas" [@fadeInList]="pleas.length">
-        <app-plea-card *ngFor="let plea of pleas"
-                       [plea]="plea"
-                       class="clr-col-md-6 clr-col-12"></app-plea-card>
+    <app-plea-card *ngFor="let plea of pleas" [plea]="plea" class="clr-col-md-6 clr-col-12"></app-plea-card>
   </div>
 </main>
 

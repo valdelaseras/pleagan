@@ -20,12 +20,12 @@
 }
 
 .sidenav .nav-group label {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
   font-weight: bolder;
 }
 
 .sidenav .nav-group .nav-list > li a.nav-link {
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
 }
 
 .sidenav .nav-group .nav-list > li a.nav-link.active {
@@ -45,7 +45,7 @@
     height: 100%;
     width: 240px;
     margin-top: -12px;
-    border: none
+    border: none;
   }
 
   .clr-vertical-nav .nav-group-text,
@@ -74,5 +74,3 @@
     padding: 0.5rem;
   }
 }
-
-

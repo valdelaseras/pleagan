@@ -11,6 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 ### App
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### Service and database
@@ -18,7 +19,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Clone [pleagan-service](https://github.com/valdelaseras/pleagan-service)
 Run the following commands:
 
-npm: 
+npm:
+
 ```bash
 $ npm install
 $ docker-compose up -d  // run mysql 8 in docker container
@@ -26,6 +28,7 @@ $ npm start             // or npm run start:dev for live reload
 ```
 
 yarn:
+
 ```bash
 $ yarn
 $ docker-compose up -d  // run mysql 8 in docker container
