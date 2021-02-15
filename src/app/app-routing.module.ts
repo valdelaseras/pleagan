@@ -22,10 +22,8 @@ import { MyProfileComponent } from './component/profile/my-profile.component';
 import { MyPleasComponent } from './component/profile/children/my-pleas/my-pleas.component';
 import { MySupportComponent } from './component/profile/children/my-support/my-support.component';
 import { MyNewsComponent } from './component/profile/children/my-news/my-news.component';
-import {MySettingsComponent} from './component/profile/children/my-settings/my-settings.component';
+import { MySettingsComponent } from './component/profile/children/my-settings/my-settings.component';
 import { IsLoggedIn } from './guard/is-logged-in';
-
-
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -46,10 +44,10 @@ const routes: Routes = [
     path: 'plea',
     component: PleaComponent,
     children: [
-      { path: 'new', component: NewPleaComponent },
+      { path: 'new', component: NewPleaComponent, canActivate: [ IsLoggedIn ] },
       { path: 'all', component: PleasListComponent },
       { path: 'details/:id', component: PleaDetailsComponent },
-      { path: 'support/:id', component: SupportPleaComponent },
+      { path: 'support/:id', component: SupportPleaComponent, canActivate: [ IsLoggedIn ] },
     ],
   },
   { path: 'leaderboard', component: LeaderboardComponent },
