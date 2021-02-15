@@ -9,14 +9,14 @@ export class Pleagan implements IPleagan {
   @JsonProperty( 'emailVerified', Boolean )
   emailVerified: boolean = false;
 
-  @JsonProperty( 'photoUrl', String )
-  photoUrl: string = '';
-
   @JsonProperty('displayName', String)
   displayName: string = '';
 
   @JsonProperty('email', String)
   email: string = '';
+
+  @JsonProperty( 'photoUrl', String )
+  photoUrl?: string = '';
 
   @JsonProperty('country', String)
   country?: string = '';
