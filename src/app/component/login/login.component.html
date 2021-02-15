@@ -1,20 +1,42 @@
-<h1>Log in</h1>
-<div class="clr-row">
-  <form clrForm (ngSubmit)="submit()" [formGroup]="loginForm">
-    <clr-input-container>
-      <label for="username">Username or email</label>
-      <input id="username" clrInput type="text" formControlName="username" required />
-    </clr-input-container>
+<ng-container *ngIf="!(authService.user$ | async) else loggedIn">
+  <h1>Log in</h1>
+  <ng-container *ngIf="!loading else loadingIndicator">
+    <div class="clr-row">
+      <form clrForm (ngSubmit)="login$.next( loginForm )" [formGroup]="loginForm" *ngIf="!(authService.user$ | async)">
+        <clr-input-container>
+          <label for="email">Email</label>
+          <input id="email" clrInput type="text" formControlName="email" required />
+        </clr-input-container>
 
-    <clr-password-container>
-      <label for="password">Password</label>
-      <input id="password" clrPassword formControlName="password" required />
-      <clr-control-error>Credentials incorrect</clr-control-error>
-    </clr-password-container>
+        <clr-password-container>
+          <label for="password">Password</label>
+          <input id="password" clrPassword formControlName="password" required />
+          <clr-control-error>Credentials incorrect</clr-control-error>
+        </clr-password-container>
 
-    <button class="btn btn-primary" id="login-btn" type="submit">Log in</button>
-    <button class="btn btn-secondary-outline" id="create-account-btn" [routerLink]="['/register']" type="button">
-      Create an account
-    </button>
-  </form>
-</div>
+        <button class="btn btn-primary" id="login-btn" type="submit">Log in</button>
+        <button class="btn btn-secondary-outline" id="create-account-btn" [routerLink]="['/register']" type="button">
+          Create an account
+        </button>
+      </form>
+
+    </div>
+  </ng-container>
+
+</ng-container>
+
+<ng-template #loadingIndicator>
+  <div class="loading-indicator-container">
+    <app-loading-indicator></app-loading-indicator>
+  </div>
+</ng-template>
+
+<ng-template #loggedIn>
+  <h1>You are logged in.</h1>
+  <div class="clr-row">
+    <div class="col">
+      <sub>Welcome back {{ (authService.user$ | async)?.email }}!</sub>
+      <button type="button" class="btn btn-primary" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</ng-template>

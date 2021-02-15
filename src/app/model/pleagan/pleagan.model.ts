@@ -3,18 +3,21 @@ import { JsonObject, JsonProperty } from 'json2typescript';
 
 @JsonObject('Pleagan')
 export class Pleagan implements IPleagan {
-  @JsonProperty('id', Number)
-  id = 0;
+  @JsonProperty('uid', String)
+  uid: string = '';
 
-  @JsonProperty('name', String)
-  name: string = '';
+  @JsonProperty( 'emailVerified', Boolean )
+  emailVerified: boolean = false;
+
+  @JsonProperty( 'photoUrl', String )
+  photoUrl: string = '';
+
+  @JsonProperty('displayName', String)
+  displayName: string = '';
 
   @JsonProperty('email', String)
   email: string = '';
 
-  @JsonProperty('message', String)
-  message?: string = undefined;
-
-  @JsonProperty('location', String)
-  location?: string = undefined;
+  @JsonProperty('country', String)
+  country?: string = '';
 }

@@ -5,6 +5,13 @@
 export const environment = {
   production: false,
   apiBaseUrl: 'http://localhost:3000',
+  firebase: {
+    apiKey: 'AIzaSyDWt1_1vmDfwxR6jCP1XI5V19DLbntiGXc',
+    // authDomain: 'YOUR_AUTH_DOMAIN',
+    // databaseURL: 'YOUR_DATABASE_URL',
+    projectId: 'pleagan-c27f2',
+    // messagingSenderId: 'YOUR_SENDER_ID'
+  }
 };
 
 /*
