@@ -10,12 +10,18 @@
 
 <ng-template #nav>
   <nav id="sidenav" class="sidenav" [clr-nav-level]="1">
-    <section class="sidenav-content">
-      <!--      if logged in-->
-      <section class="nav-group collapsible"
-               *ngIf="authService.user$ | async as user">
+    <section class="sidenav-content"
+      <section class="nav-group user-state">
+        <small appOnLoggedIn [onLoggedIn]="false">
+          Please <a class="underlined" [routerLink]="['/', 'login']">login</a> or <a class="underlined" [routerLink]="['/', 'register']">create an account</a> to initiate and support pleas
+        </small>
+        <p appOnLoggedIn [onLoggedIn]="true">
+          <a class="underlined">logout</a>
+        </p>
+      </section>
+      <section appOnLoggedIn [onLoggedIn]="true" class="nav-group collapsible">
         <input id="nav-profile-section" type="checkbox" />
-        <label for="nav-profile-section">{{ user.displayName || 'No display name'}}</label>
+        <label for="nav-profile-section">Username</label>
         <ul class="nav-list">
           <!--          <li class="nav-item">-->
           <!--            <div class="nav-item nav-button">-->
@@ -98,5 +104,6 @@
         </ul>
       </section>
     </section>
+
   </nav>
 </ng-template>

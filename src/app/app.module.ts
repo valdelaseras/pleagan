@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Directive, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './component/app/app.component';
@@ -48,6 +48,7 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './service/auth/auth.service';
 import { IsLoggedIn } from './guard/is-logged-in';
+import { onLoggedInDirective } from './directives/on-logged-in.directive';
 import { IsNotLoggedIn } from './guard/is-not-logged-in';
 
 const routeGuards = [
@@ -92,6 +93,7 @@ const components = [
   MySupportComponent,
   MyNewsComponent,
   MySettingsComponent,
+  onLoggedInDirective,
 ];
 const imports = [
   BrowserModule,
