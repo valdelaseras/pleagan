@@ -28,11 +28,11 @@
   font-weight: bolder;
 }
 
-.sidenav .nav-group .nav-list > li a.nav-link {
+.sidenav .nav-group .nav-list > li *.nav-link {
   padding: 0.5rem 2rem;
 }
 
-.sidenav .nav-group .nav-list > li a.nav-link.active {
+.sidenav .nav-group .nav-list > li *.nav-link.active {
   border-bottom: 1px solid var(--line-color);
   font-weight: bolder;
 }

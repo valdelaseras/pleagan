@@ -49,6 +49,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './service/auth/auth.service';
 import { IsLoggedIn } from './guard/is-logged-in';
 import { onLoggedInDirective } from './directives/on-logged-in.directive';
+import { IsNotLoggedIn } from './guard/is-not-logged-in';
+
+const routeGuards = [
+  IsLoggedIn,
+  IsNotLoggedIn
+];
 
 const components = [
   AppComponent,
@@ -104,7 +110,7 @@ const imports = [
 @NgModule({
   declarations: components,
   imports: imports,
-  providers: [PleaService, AuthService, IsLoggedIn],
+  providers: [PleaService, AuthService, ...routeGuards],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

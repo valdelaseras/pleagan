@@ -1,6 +1,6 @@
 <ng-container *ngIf="largeScreen; else sidenav">
   <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
-    <ng-container *ngTemplateOutlet="nav"></ng-container>
+    <ng-container *ngTemplateOutlet="nav; context: {user: user}"></ng-container>
   </clr-vertical-nav>
 </ng-container>
 
@@ -10,7 +10,7 @@
 
 <ng-template #nav>
   <nav id="sidenav" class="sidenav" [clr-nav-level]="1">
-    <section class="sidenav-content">
+    <section class="sidenav-content"
       <section class="nav-group user-state">
         <small appOnLoggedIn [onLoggedIn]="false">
           Please <a class="underlined" [routerLink]="['/', 'login']">login</a> or <a class="underlined" [routerLink]="['/', 'register']">create an account</a> to initiate and support pleas
@@ -51,6 +51,10 @@
 
           <li class="nav-item">
             <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['profile', 'my-news']">My news</a>
+          </li>
+
+          <li class="nav-item" (click)="logout()">
+            <span class="nav-link">Logout</span>
           </li>
         </ul>
       </section>
