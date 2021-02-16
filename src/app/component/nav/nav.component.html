@@ -1,6 +1,6 @@
 <ng-container *ngIf="largeScreen; else sidenav">
   <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
-    <ng-container *ngTemplateOutlet="nav"></ng-container>
+    <ng-container *ngTemplateOutlet="nav; context: {user: user}"></ng-container>
   </clr-vertical-nav>
 </ng-container>
 
@@ -12,9 +12,10 @@
   <nav id="sidenav" class="sidenav" [clr-nav-level]="1">
     <section class="sidenav-content">
       <!--      if logged in-->
-      <section class="nav-group collapsible">
+      <section class="nav-group collapsible"
+               *ngIf="authService.user$ | async as user">
         <input id="nav-profile-section" type="checkbox" />
-        <label for="nav-profile-section">Username</label>
+        <label for="nav-profile-section">{{ user.displayName || 'No display name'}}</label>
         <ul class="nav-list">
           <!--          <li class="nav-item">-->
           <!--            <div class="nav-item nav-button">-->
@@ -44,6 +45,10 @@
 
           <li class="nav-item">
             <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['profile', 'my-news']">My news</a>
+          </li>
+
+          <li class="nav-item" (click)="logout()">
+            <span class="nav-link">Logout</span>
           </li>
         </ul>
       </section>

@@ -24,10 +24,11 @@ import { MySupportComponent } from './component/profile/children/my-support/my-s
 import { MyNewsComponent } from './component/profile/children/my-news/my-news.component';
 import { MySettingsComponent } from './component/profile/children/my-settings/my-settings.component';
 import { IsLoggedIn } from './guard/is-logged-in';
+import { IsNotLoggedIn } from './guard/is-not-logged-in';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate: [ IsNotLoggedIn ] },
+  { path: 'register', component: RegisterComponent, canActivate: [ IsNotLoggedIn ] },
   { path: '', component: HomeComponent, pathMatch: 'full' },
   {
     path: 'profile',

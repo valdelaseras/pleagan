@@ -15,9 +15,9 @@ export class Pleagan implements IPleagan {
   @JsonProperty('email', String)
   email: string = '';
 
-  @JsonProperty( 'photoUrl', String )
+  @JsonProperty( 'photoUrl', String, true )
   photoUrl?: string = '';
 
-  @JsonProperty('country', String)
+  @JsonProperty('country', String, true)
   country?: string = '';
 }

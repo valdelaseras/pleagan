@@ -8,7 +8,9 @@ import { from, Observable, of } from 'rxjs';
 import firebase from 'firebase/app';
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
-import { catchError } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
+import { JsonConvertService } from '../json-convert/json-convert.service';
+import { Pleagan } from '../../model/pleagan';
 
 @Injectable({
   providedIn: 'root'
@@ -19,14 +21,17 @@ export class AuthService {
   constructor(
     private fireAuth: AngularFireAuth,
     private firestore: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private convertService: JsonConvertService
   ) {
     this.user$ = fireAuth.authState;
   }
 
-  signup(email: string, password: string): Observable<UserCredential> {
+  signUp(email: string, password: string): Observable<Pleagan> {
     return from(
       this.fireAuth.createUserWithEmailAndPassword(email, password)
+    ).pipe(
+      map( ( userCredential: UserCredential ) => this.convertService.parse( userCredential.user, Pleagan ) )
     )
   }
 
