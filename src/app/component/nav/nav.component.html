@@ -11,8 +11,7 @@
 <ng-template #nav>
   <nav id="sidenav" class="sidenav" [clr-nav-level]="1">
     <section class="sidenav-content">
-      <!--      if logged in-->
-      <section class="nav-group collapsible">
+      <section appOnLoggedIn [onLoggedIn]="true" class="nav-group collapsible">
         <input id="nav-profile-section" type="checkbox" />
         <label for="nav-profile-section">Username</label>
         <ul class="nav-list">
