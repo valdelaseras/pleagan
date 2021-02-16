@@ -23,16 +23,17 @@ import { MyPleasComponent } from './component/profile/children/my-pleas/my-pleas
 import { MySupportComponent } from './component/profile/children/my-support/my-support.component';
 import { MyNewsComponent } from './component/profile/children/my-news/my-news.component';
 import { MySettingsComponent } from './component/profile/children/my-settings/my-settings.component';
-import { IsLoggedInGuard } from './service/guards/is-logged-in/is-logged-in.guard';
+import { IsLoggedIn } from './guard/is-logged-in';
+import { IsNotLoggedIn } from './guard/is-not-logged-in';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate: [ IsNotLoggedIn ] },
+  { path: 'register', component: RegisterComponent, canActivate: [ IsNotLoggedIn ] },
   { path: '', component: HomeComponent, pathMatch: 'full' },
   {
     path: 'profile',
     component: MyProfileComponent,
-    canActivate: [IsLoggedInGuard],
+    canActivate: [ IsLoggedIn ],
     children: [
       { path: 'settings', component: MySettingsComponent },
       { path: 'my-pleas', component: MyPleasComponent },
@@ -44,10 +45,10 @@ const routes: Routes = [
     path: 'plea',
     component: PleaComponent,
     children: [
-      { path: 'new', component: NewPleaComponent, canActivate: [IsLoggedInGuard] },
+      { path: 'new', component: NewPleaComponent, canActivate: [ IsLoggedIn ] },
       { path: 'all', component: PleasListComponent },
       { path: 'details/:id', component: PleaDetailsComponent },
-      { path: 'support/:id', component: SupportPleaComponent, canActivate: [IsLoggedInGuard] },
+      { path: 'support/:id', component: SupportPleaComponent, canActivate: [ IsLoggedIn ] },
     ],
   },
   { path: 'leaderboard', component: LeaderboardComponent },
