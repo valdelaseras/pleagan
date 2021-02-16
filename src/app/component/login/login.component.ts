@@ -3,8 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth/auth.service';
 import { merge, Observable, Subject } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
-import firebase from 'firebase';
-import UserCredential = firebase.auth.UserCredential;
+import { Pleagan } from '../../model/pleagan';
 
 @Component({
   selector: 'app-login',
@@ -40,6 +39,14 @@ export class LoginComponent {
     actions.subscribe();
   }
 
+  login = ( form: FormGroup ): Observable<Pleagan> => {
+    return this.authService.login( form.value.email, form.value.password );
+  };
+
+  logout = (): Observable<void> => {
+    return this.authService.logout();
+  };
+
   private setLoading = ( state: boolean ): void => {
     this.loading = state;
   };
@@ -48,16 +55,4 @@ export class LoginComponent {
     this.loginForm.get('email')?.setValue('');
     this.loginForm.get('password')?.setValue('');
   };
-
-  // signup( form: FormGroup ): Observable<UserCredential> {
-  //   return this.authService.signup( form.value.email, form.value.password );
-  // }
-
-  login = ( form: FormGroup ): Observable<UserCredential> => {
-    return this.authService.login( form.value.email, form.value.password );
-  };
-
-  logout = (): Observable<void> => {
-    return this.authService.logout();
-  }
 }
