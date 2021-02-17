@@ -1,6 +1,6 @@
 <ng-container *ngIf="largeScreen; else sidenav">
   <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
-    <ng-container *ngTemplateOutlet="nav; context: {user: user}"></ng-container>
+    <ng-container *ngTemplateOutlet="nav"></ng-container>
   </clr-vertical-nav>
 </ng-container>
 
