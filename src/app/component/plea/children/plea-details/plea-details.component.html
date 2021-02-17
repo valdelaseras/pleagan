@@ -53,12 +53,12 @@
           <p>
             Initiated on <span class="bold">{{ plea.createdAt | date: 'dd-MM-yyyy' }}</span
             ><br />
-            By <span class="bold">{{ plea.initiator.name }}</span>
+            By <span class="bold">{{ plea.initiator.displayName }}</span>
           </p>
 
           <div class="msg-cloud">
             <div class="msg-shape"></div>
-            <span class="italic">"{{ plea.initiator.message }}"</span>
+            <span class="italic">"Lorem ipsum"</span>
           </div>
         </div>
 
@@ -75,6 +75,7 @@
 
       <div>
         <h3>Supporters</h3>
+        <app-supporters-list></app-supporters-list>
       </div>
     </div>
   </div>

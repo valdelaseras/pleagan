@@ -1,6 +1,5 @@
 import { Component, HostListener } from '@angular/core';
 import { AuthService } from '../../service/auth/auth.service';
-import {onLoggedInDirective} from '../../directives/on-logged-in.directive';
 
 @Component({
   selector: 'app-nav',

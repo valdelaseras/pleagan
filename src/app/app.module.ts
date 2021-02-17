@@ -27,7 +27,6 @@ import { SearchBoxComponent } from './component/search-box/search-box.component'
 import { HafCardComponent } from './component/hall-of-fame/haf-card/haf-card.component';
 import { NewsCardComponent } from './component/news/news-card/news-card.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SpecialThanksComponent } from './component/special-thanks/special-thanks.component';
 import { CardListComponent } from './component/hall-of-fame/children/card-list/card-list.component';
 import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
 import { NewsListComponent } from './component/news/children/news-list/news-list.component';
@@ -50,6 +49,8 @@ import { AuthService } from './service/auth/auth.service';
 import { IsLoggedIn } from './guard/is-logged-in';
 import { onLoggedInDirective } from './directives/on-logged-in.directive';
 import { IsNotLoggedIn } from './guard/is-not-logged-in';
+import { SupportersListComponent } from './component/plea/children/supporters-list/supporters-list.component';
+import {CommentCardComponent} from './component/comment-card/comment-card.component';
 
 const routeGuards = [
   IsLoggedIn,
@@ -77,7 +78,6 @@ const components = [
   SearchBoxComponent,
   HafCardComponent,
   NewsCardComponent,
-  SpecialThanksComponent,
   CardListComponent,
   DetailsComponent,
   NewsListComponent,
@@ -94,6 +94,7 @@ const components = [
   MyNewsComponent,
   MySettingsComponent,
   onLoggedInDirective,
+  SupportersListComponent,
 ];
 const imports = [
   BrowserModule,
@@ -108,7 +109,10 @@ const imports = [
 ];
 
 @NgModule({
-  declarations: components,
+  declarations: [
+    components,
+    CommentCardComponent
+  ],
   imports: imports,
   providers: [PleaService, AuthService, ...routeGuards],
   bootstrap: [AppComponent],
