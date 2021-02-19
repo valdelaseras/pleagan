@@ -48,8 +48,8 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './service/auth/auth.service';
 import { IsLoggedIn } from './guard/is-logged-in';
-import { onLoggedInDirective } from './directives/on-logged-in.directive';
 import { IsNotLoggedIn } from './guard/is-not-logged-in';
+import { AuthorizationInterceptorProvider } from './interceptor/authorization/authorization.interceptor';
 
 const routeGuards = [
   IsLoggedIn,
@@ -93,7 +93,6 @@ const components = [
   MySupportComponent,
   MyNewsComponent,
   MySettingsComponent,
-  onLoggedInDirective,
 ];
 const imports = [
   BrowserModule,
@@ -110,7 +109,7 @@ const imports = [
 @NgModule({
   declarations: components,
   imports: imports,
-  providers: [PleaService, AuthService, ...routeGuards],
+  providers: [PleaService, AuthService, ...routeGuards, AuthorizationInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

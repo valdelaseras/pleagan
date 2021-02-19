@@ -12,16 +12,16 @@
   <nav id="sidenav" class="sidenav" [clr-nav-level]="1">
     <section class="sidenav-content">
       <section class="nav-group user-state">
-        <small appOnLoggedIn [onLoggedIn]="false">
+        <small *ngIf="!(authService.user$ | async)">
           Please <a class="underlined" [routerLink]="['/', 'login']">login</a> or <a class="underlined" [routerLink]="['/', 'register']">create an account</a> to initiate and support pleas
         </small>
-        <p appOnLoggedIn [onLoggedIn]="true">
-          <a class="underlined">logout</a>
+        <p *ngIf="authService.user$ | async">
+          <a class="underlined" (click)="logout()">logout</a>
         </p>
       </section>
-      <section appOnLoggedIn [onLoggedIn]="true" class="nav-group collapsible">
+      <section *ngIf="authService.user$ | async as user" class="nav-group collapsible">
         <input id="nav-profile-section" type="checkbox" />
-        <label for="nav-profile-section">Username</label>
+        <label for="nav-profile-section">{{ user.displayName }}</label>
         <ul class="nav-list">
           <!--          <li class="nav-item">-->
           <!--            <div class="nav-item nav-button">-->
@@ -51,10 +51,6 @@
 
           <li class="nav-item">
             <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['profile', 'my-news']">My news</a>
-          </li>
-
-          <li class="nav-item" (click)="logout()">
-            <span class="nav-link">Logout</span>
           </li>
         </ul>
       </section>

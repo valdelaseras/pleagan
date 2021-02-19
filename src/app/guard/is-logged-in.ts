@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { AuthService } from '../service/auth/auth.service';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import firebase from 'firebase';
+import { Pleagan } from '../model/pleagan';
 
 @Injectable()
 export class IsLoggedIn implements CanActivate {
@@ -11,7 +11,7 @@ export class IsLoggedIn implements CanActivate {
 
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.authService.user$.pipe(
-      map( ( user: firebase.User | null ) => user !== null  ),
+      map( ( user: Pleagan | null ) => user !== null  ),
       tap( ( loggedIn: boolean ) => !loggedIn && this.router.navigate(['/', 'login']) )
     )
   }

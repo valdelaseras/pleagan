@@ -22,6 +22,6 @@ export class NavComponent {
   }
 
   logout(): void {
-    this.authService.logout();
+    this.authService.logout().subscribe();
   }
 }

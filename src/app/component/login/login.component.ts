@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth/auth.service';
-import { merge, Observable, Subject } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { EMPTY, Observable, Subject } from 'rxjs';
+import { catchError, mergeMap, tap } from 'rxjs/operators';
 import { Pleagan } from '../../model/pleagan';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,40 +12,35 @@ import { Pleagan } from '../../model/pleagan';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  error?: string;
   loading = false;
   loginForm = new FormGroup( {
     email: new FormControl('', Validators.required ),
     password: new FormControl('', Validators.required )
   });
 
-  login$: Subject<FormGroup> = new Subject<FormGroup>();
-  logout$: Subject<void> = new Subject<void>();
+  loginClick$: Subject<FormGroup> = new Subject<FormGroup>();
 
-  constructor( public authService: AuthService ) {
-    const actions = merge(
-      this.login$.pipe(
-        tap( () => this.setLoading( true ) ),
-        switchMap( this.login ),
-      ),
-      this.logout$.pipe(
-        tap( () => this.setLoading( true ) ),
-        switchMap( this.logout ),
-      )
-    ).pipe(
+  constructor( public authService: AuthService, private router: Router ) {
+    this.loginClick$.pipe(
+      tap( () => this.setLoading( true ) ),
+      mergeMap( this.login ),
       tap( () => {
         this.setLoading( false );
-        this.resetForm()
-      })
-    );
-    actions.subscribe();
+        this.resetForm();
+        this.router.navigate(['/']);
+      } ),
+    ).subscribe();
   }
 
   login = ( form: FormGroup ): Observable<Pleagan> => {
-    return this.authService.login( form.value.email, form.value.password );
-  };
-
-  logout = (): Observable<void> => {
-    return this.authService.logout();
+    return this.authService.login( form.value.email, form.value.password ).pipe(
+      catchError( ( error: Error ) => {
+        this.error = error.message;
+        this.setLoading( false );
+        return EMPTY;
+      } ),
+    );
   };
 
   private setLoading = ( state: boolean ): void => {
@@ -52,7 +48,7 @@ export class LoginComponent {
   };
 
   private resetForm = (): void => {
-    this.loginForm.get('email')?.setValue('');
-    this.loginForm.get('password')?.setValue('');
+    this.error = undefined;
+    this.loginForm.reset();
   };
 }
