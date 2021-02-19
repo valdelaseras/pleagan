@@ -24,6 +24,6 @@ export class RegisterComponent {
 
   submit( form: FormGroup ): void {
     const { email, password, displayName } = form.value;
-    this.authService.signUp( email, password ).subscribe( this.redirect );
+    this.authService.signUp( email, password, displayName ).subscribe( this.redirect );
   }
 }

@@ -23,6 +23,6 @@ export class NavComponent {
 
   // TODO: onLoggedInDirective needs to be triggered again right after logout
   logout(): void {
-    this.authService.logout();
+    this.authService.logout().subscribe();
   }
 }

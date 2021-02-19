@@ -47,10 +47,10 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './service/auth/auth.service';
 import { IsLoggedIn } from './guard/is-logged-in';
-import { onLoggedInDirective } from './directives/on-logged-in.directive';
 import { IsNotLoggedIn } from './guard/is-not-logged-in';
 import { SupportersListComponent } from './component/plea/children/supporters-list/supporters-list.component';
 import {CommentCardComponent} from './component/comment-card/comment-card.component';
+import { AuthorizationInterceptorProvider } from './interceptor/authorization/authorization.interceptor';
 
 const routeGuards = [
   IsLoggedIn,
@@ -93,7 +93,6 @@ const components = [
   MySupportComponent,
   MyNewsComponent,
   MySettingsComponent,
-  onLoggedInDirective,
   SupportersListComponent,
 ];
 const imports = [
@@ -114,7 +113,7 @@ const imports = [
     CommentCardComponent
   ],
   imports: imports,
-  providers: [PleaService, AuthService, ...routeGuards],
+  providers: [PleaService, AuthService, ...routeGuards, AuthorizationInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
