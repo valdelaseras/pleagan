@@ -21,6 +21,7 @@ export class NavComponent {
     return window.innerWidth > 768;
   }
 
+  // TODO: onLoggedInDirective needs to be triggered again right after logout
   logout(): void {
     this.authService.logout().subscribe();
   }

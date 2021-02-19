@@ -18,6 +18,10 @@
         Create an account
       </button>
 
+      <a>
+        I forgot my password
+      </a>
+
       <ng-container *ngIf="error">
         <div class="alert alert-danger" role="alert">
           <div class="alert-items">
@@ -32,11 +36,10 @@
           </div>
         </div>
       </ng-container>
+
     </form>
-
-  </div>
-</ng-container>
-
+    </div>
+  </ng-container>
 
 <ng-template #loadingIndicator>
   <div class="loading-indicator-container">

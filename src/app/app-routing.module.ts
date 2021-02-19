@@ -12,7 +12,6 @@ import { NewsComponent } from './component/news/news.component';
 import { HallOfFameComponent } from './component/hall-of-fame/hall-of-fame.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { SupportPleaComponent } from './component/plea/children/support-plea/support-plea.component';
-import { SpecialThanksComponent } from './component/special-thanks/special-thanks.component';
 import { CardListComponent } from './component/hall-of-fame/children/card-list/card-list.component';
 import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
 import { NewsListComponent } from './component/news/children/news-list/news-list.component';
@@ -51,7 +50,6 @@ const routes: Routes = [
     ],
   },
   { path: 'leaderboard', component: LeaderboardComponent },
-  { path: 'special-thanks', component: SpecialThanksComponent },
   { path: 'news', component: NewsComponent, children: [{ path: 'all', component: NewsListComponent }] },
   {
     path: 'hall-of-fame',
