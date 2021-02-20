@@ -58,7 +58,7 @@
 
           <div class="msg-cloud">
             <div class="msg-shape"></div>
-            <span class="italic">"Lorem ipsum"</span>
+            <span class="italic">"{{ plea.description }}"</span>
           </div>
         </div>
 
@@ -75,7 +75,7 @@
 
       <div>
         <h3>Supporters</h3>
-        <app-supporters-list></app-supporters-list>
+        <app-supporters-list [supporters]="plea.supporters"></app-supporters-list>
       </div>
     </div>
   </div>

@@ -45,8 +45,8 @@ const routes: Routes = [
     children: [
       { path: 'new', component: NewPleaComponent, canActivate: [ IsLoggedIn ] },
       { path: 'all', component: AllPleasComponent },
-      { path: 'details/:id', component: PleaDetailsComponent },
-      { path: 'support/:id', component: SupportPleaComponent, canActivate: [ IsLoggedIn ] },
+      { path: ':id/details', component: PleaDetailsComponent },
+      { path: ':id/support', component: SupportPleaComponent, canActivate: [ IsLoggedIn ] },
     ],
   },
   { path: 'leaderboard', component: LeaderboardComponent },

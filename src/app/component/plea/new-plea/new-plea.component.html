@@ -1,6 +1,6 @@
 <h2>Initiate a plea</h2>
 
-<form clrForm (ngSubmit)="submit()" [formGroup]="newPleaForm">
+<form clrForm (ngSubmit)="submit( newPleaForm )" [formGroup]="newPleaForm">
   <clr-input-container>
     <label for="company">Company name*</label>
     <input
@@ -81,7 +81,7 @@
     <!--  TODO: max chars-->
     <clr-textarea-container>
       <label>Your message *</label>
-      <textarea clrTextarea formControlName="pleaMsg"></textarea>
+      <textarea clrTextarea formControlName="description"></textarea>
 
       <clr-control-helper>
         Write your plea to the producer or call for support of other pleagans here!
@@ -104,7 +104,6 @@
 <app-modal-success
   *ngIf="displayModal"
   [message]="'Success! You will be redirected to your plea shortly'"
-  [redirect]="'/plea/details/:id'"
 ></app-modal-success>
 
 <ng-template #pleaSuggestions>

@@ -12,6 +12,9 @@ export class Plea implements IPlea {
   @JsonProperty('status', String)
   status: PLEA_STATUS = PLEA_STATUS.UNNOTIFIED;
 
+  @JsonProperty('description', String)
+  description: string = '';
+
   @JsonProperty('createdAt', String)
   createdAt = new Date();
 

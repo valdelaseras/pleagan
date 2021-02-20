@@ -12,7 +12,7 @@ export class PleaService {
   constructor(private http: HttpClient, private convertService: JsonConvertService) {}
 
   getPleas(): Observable<Plea[]> {
-    return this.http.get<Plea[]>(`${environment.apiBaseUrl}/plea/all`).pipe(
+    return this.http.get<IPlea[]>(`${environment.apiBaseUrl}/plea/all`).pipe(
       map((pleas: IPlea[]) => {
         try {
           return this.convertService.parseArray(pleas, Plea);
@@ -36,9 +36,13 @@ export class PleaService {
     );
   }
 
+  createPlea( plea: Plea ): Observable<{id: number}> {
+    return this.http.post<{id: number}>( `${environment.apiBaseUrl}/plea`, plea );
+  }
+
   searchPleas = (query: string): Observable<Plea[]> => {
     return this.http
-      .get<Plea[]>(`${environment.apiBaseUrl}/plea`, {
+      .get<IPlea[]>(`${environment.apiBaseUrl}/plea`, {
         params: { query },
       })
       .pipe(map((pleas: IPlea[]) => this.convertService.parseArray(pleas, Plea)));

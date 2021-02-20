@@ -7,6 +7,9 @@ import { Plea } from '../../../model/plea';
 import { PleaService } from '../../../service/plea/plea.service';
 import { debounce, switchMap, tap } from 'rxjs/operators';
 import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../animations';
+import { Product } from '../../../model/product';
+import { Company } from '../../../model/company';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-plea',
@@ -24,7 +27,7 @@ export class NewPleaComponent {
   newPleaForm = new FormGroup({
     company: new FormControl('', Validators.required),
     product: new FormControl('', Validators.required),
-    pleaMsg: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
     productImage: new FormControl('', [Validators.required]),
     ingredient: new FormControl(),
   });
@@ -34,6 +37,7 @@ export class NewPleaComponent {
     private productService: ProductService,
     private companyService: CompanyService,
     private pleaService: PleaService,
+    private router: Router
   ) {
     this.similarPleas$ = this.querySource$.pipe(
       debounce(() => interval(500)),
@@ -48,9 +52,28 @@ export class NewPleaComponent {
     });
   }
 
-  submit(): void {
-    this.displayModal = true;
+  submit( form: FormGroup ): void {
+    const product = new Product();
+    product.name = form.value.product;
+
+    const company = new Company();
+    company.name = form.value.company;
+
+    const plea = new Plea();
+    plea.description = form.value.description;
+    plea.company = company;
+    plea.nonVeganProduct = product;
+
+    this.pleaService.createPlea( plea ).subscribe(
+      ( { id }: { id: number } ) => {
+        this.displayModal = true;
+        setTimeout(() => {
+          this.router.navigate([ '/', 'plea', id, 'details' ]);
+        }, 3000)
+      }
+    )
   }
+
   createTag(event: KeyboardEvent): void {
     if (event.code === 'Comma') {
       this.addedIngredients.push(this.newPleaForm.value.ingredient.replace(',', ''));

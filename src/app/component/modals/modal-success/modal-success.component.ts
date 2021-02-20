@@ -8,11 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ModalSuccessComponent implements OnInit {
   @Input() message = '';
-  @Input() redirect = '';
-  constructor(private router: Router) {}
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.router.navigate([this.redirect]);
-    }, 3000);
-  }
+
+  constructor() {}
+  ngOnInit(): void {}
 }
