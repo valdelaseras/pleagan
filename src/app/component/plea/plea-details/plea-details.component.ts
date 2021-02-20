@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Plea } from '../../../../model/plea';
+import { Plea } from '../../../model/plea';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { PleaService } from '../../../../service/plea/plea.service';
+import { PleaService } from '../../../service/plea/plea.service';
 @Component({
   selector: 'app-submission-details',
   templateUrl: './plea-details.component.html',

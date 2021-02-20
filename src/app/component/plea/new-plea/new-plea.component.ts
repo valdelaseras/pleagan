@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { interval, Observable, Subject } from 'rxjs';
-import { ProductService } from '../../../../service/product/product.service';
-import { CompanyService } from '../../../../service/company/company.service';
-import { Plea } from '../../../../model/plea';
-import { PleaService } from '../../../../service/plea/plea.service';
+import { ProductService } from '../../../service/product/product.service';
+import { CompanyService } from '../../../service/company/company.service';
+import { Plea } from '../../../model/plea';
+import { PleaService } from '../../../service/plea/plea.service';
 import { debounce, switchMap, tap } from 'rxjs/operators';
-import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../../animations';
+import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../animations';
 
 @Component({
   selector: 'app-new-plea',
