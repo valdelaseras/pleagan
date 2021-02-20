@@ -22,11 +22,8 @@ export class NewPleaComponent {
   displayModal = false;
   addedIngredients: string[] = [];
   newPleaForm = new FormGroup({
-    pleaganName: new FormControl('', Validators.required),
-    pleaganLocation: new FormControl('', Validators.required),
     company: new FormControl('', Validators.required),
     product: new FormControl('', Validators.required),
-    companyContact: new FormControl('', Validators.required),
     pleaMsg: new FormControl('', Validators.required),
     productImage: new FormControl('', [Validators.required]),
     ingredient: new FormControl(),

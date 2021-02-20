@@ -15,6 +15,12 @@ button[type='submit'] {
 .btn {
   transition: all 200ms;
 }
+.btn.btn-compact {
+  height: 1rem;
+  padding: 0 .25rem;
+  line-height: normal;
+  margin: 1.2rem 0 0;
+}
 
 //TODO: put some cool style here so menu trigger is more obvious
 //@media only screen and (min-width: 1024px) {
