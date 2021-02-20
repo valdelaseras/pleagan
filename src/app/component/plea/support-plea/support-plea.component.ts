@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PleaService } from '../../../service/plea/plea.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import { Plea } from '../../../model/plea/plea.model';
 
@@ -12,15 +12,18 @@ import { Plea } from '../../../model/plea/plea.model';
 })
 // TODO: scroll to top on init but window.scrollTo doesn't work
 export class SupportPleaComponent {
+  pleaId: string;
   plea$: Observable<Plea>;
   displayModal = false;
   supportPleaForm = new FormGroup({
     pleaMsg: new FormControl('', Validators.required),
   });
-  constructor(private route: ActivatedRoute, private pleaService: PleaService) {
-    this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
+  constructor(private route: ActivatedRoute, private pleaService: PleaService, private router: Router) {
+    this.pleaId = this.route.snapshot.paramMap.get('id') || '';
+    this.plea$ = this.pleaService.getPleaById( this.pleaId );
   }
   submit(): void {
     this.displayModal = true;
   }
 }
+
