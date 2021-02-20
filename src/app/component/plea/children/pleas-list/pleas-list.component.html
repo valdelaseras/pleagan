@@ -1,20 +1,11 @@
-<app-search-box (queryUpdated)="updateQuery($event)"></app-search-box>
+<div class="clr-row" [@fadeInList]="pleas.length">
+  <ng-container *ngFor="let plea of pleas">
+    <ng-container *ngIf="plea.status !== PLEA_STATUS.COMPLIED">
+      <app-plea-card [plea]="plea" class="clr-col-md-6 clr-col-12"></app-plea-card>
+    </ng-container>
 
-<main class="all-pleas">
-  <div class="clr-row" *ngIf="pleas$ | async as pleas" [@fadeInList]="pleas.length">
-    <app-plea-card *ngFor="let plea of pleas" [plea]="plea" class="clr-col-md-6 clr-col-12"></app-plea-card>
-  </div>
-</main>
-
-<footer class="mobile-only">
-  <a
-    id="initiate-plea-btn"
-    [routerLinkActive]="'active'"
-    [routerLink]="['/', 'plea', 'new']"
-    class="btn btn-primary btn-icon"
-    aria-label="Initiate a plea"
-  >
-    <clr-icon shape="plus" size="16"></clr-icon>
-    Initiate
-  </a>
-</footer>
+    <ng-container *ngIf="plea.status === PLEA_STATUS.COMPLIED">
+      <app-haf-card [plea]="plea" class="clr-col-md-6 clr-col-12"></app-haf-card>
+    </ng-container>
+  </ng-container>
+</div>

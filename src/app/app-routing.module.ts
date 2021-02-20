@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
 import { PleaComponent } from './component/plea/plea.component';
 import { NewPleaComponent } from './component/plea/children/new-plea/new-plea.component';
-import { PleasListComponent } from './component/plea/children/pleas-list/pleas-list.component';
+import { AllPleasComponent } from './component/plea/all-pleas/all-pleas.component';
 import { PleaDetailsComponent } from './component/plea/children/plea-details/plea-details.component';
 import { AboutComponent } from './component/about/about.component';
 import { FaqComponent } from './component/faq/faq.component';
@@ -12,7 +12,7 @@ import { NewsComponent } from './component/news/news.component';
 import { HallOfFameComponent } from './component/hall-of-fame/hall-of-fame.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { SupportPleaComponent } from './component/plea/children/support-plea/support-plea.component';
-import { CardListComponent } from './component/hall-of-fame/children/card-list/card-list.component';
+import { CompliedPleasComponent } from './component/hall-of-fame/children/complied-pleas/complied-pleas.component';
 import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
 import { NewsListComponent } from './component/news/children/news-list/news-list.component';
 import { LoginComponent } from './component/login/login.component';
@@ -44,7 +44,7 @@ const routes: Routes = [
     component: PleaComponent,
     children: [
       { path: 'new', component: NewPleaComponent, canActivate: [ IsLoggedIn ] },
-      { path: 'all', component: PleasListComponent },
+      { path: 'all', component: AllPleasComponent },
       { path: 'details/:id', component: PleaDetailsComponent },
       { path: 'support/:id', component: SupportPleaComponent, canActivate: [ IsLoggedIn ] },
     ],
@@ -55,7 +55,7 @@ const routes: Routes = [
     path: 'hall-of-fame',
     component: HallOfFameComponent,
     children: [
-      { path: 'all', component: CardListComponent },
+      { path: 'all', component: CompliedPleasComponent },
       { path: 'details/:id', component: DetailsComponent },
     ],
   },

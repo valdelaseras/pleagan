@@ -7,14 +7,14 @@ import { HomeComponent } from './component/home/home.component';
 import { PleaComponent } from './component/plea/plea.component';
 import { AboutComponent } from './component/about/about.component';
 import { NewPleaComponent } from './component/plea/children/new-plea/new-plea.component';
-import { PleasListComponent } from './component/plea/children/pleas-list/pleas-list.component';
+import { AllPleasComponent } from './component/plea/all-pleas/all-pleas.component';
 import { PleaDetailsComponent } from './component/plea/children/plea-details/plea-details.component';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './component/nav/nav.component';
 import { ModalSuccessComponent } from './component/modals/modal-success/modal-success.component';
-import { PleaCardComponent } from './component/plea/plea-card/plea-card.component';
+import { PleaCardComponent } from './component/plea/children/plea-card/plea-card.component';
 import { PleaService } from './service/plea/plea.service';
 import { ModalComponent } from './component/modals/modal/modal.component';
 import { FaqComponent } from './component/faq/faq.component';
@@ -24,10 +24,10 @@ import { HallOfFameComponent } from './component/hall-of-fame/hall-of-fame.compo
 import { ContactComponent } from './component/contact/contact.component';
 import { SupportPleaComponent } from './component/plea/children/support-plea/support-plea.component';
 import { SearchBoxComponent } from './component/search-box/search-box.component';
-import { HafCardComponent } from './component/hall-of-fame/haf-card/haf-card.component';
+import { HafCardComponent } from './component/plea/children/haf-card/haf-card.component';
 import { NewsCardComponent } from './component/news/news-card/news-card.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CardListComponent } from './component/hall-of-fame/children/card-list/card-list.component';
+import { CompliedPleasComponent } from './component/hall-of-fame/children/complied-pleas/complied-pleas.component';
 import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
 import { NewsListComponent } from './component/news/children/news-list/news-list.component';
 import { HeaderComponent } from './component/header/header.component';
@@ -51,6 +51,8 @@ import { IsNotLoggedIn } from './guard/is-not-logged-in';
 import { SupportersListComponent } from './component/plea/children/supporters-list/supporters-list.component';
 import {CommentCardComponent} from './component/comment-card/comment-card.component';
 import { AuthorizationInterceptorProvider } from './interceptor/authorization/authorization.interceptor';
+import { FabButtonComponent } from './component/fab-button/fab-button.component';
+import { PleasListComponent } from './component/plea/children/pleas-list/pleas-list.component';
 
 const routeGuards = [
   IsLoggedIn,
@@ -63,7 +65,7 @@ const components = [
   PleaComponent,
   AboutComponent,
   NewPleaComponent,
-  PleasListComponent,
+  AllPleasComponent,
   PleaDetailsComponent,
   NavComponent,
   ModalSuccessComponent,
@@ -78,7 +80,7 @@ const components = [
   SearchBoxComponent,
   HafCardComponent,
   NewsCardComponent,
-  CardListComponent,
+  CompliedPleasComponent,
   DetailsComponent,
   NewsListComponent,
   HeaderComponent,
@@ -110,7 +112,10 @@ const imports = [
 @NgModule({
   declarations: [
     components,
-    CommentCardComponent
+    CommentCardComponent,
+    FabButtonComponent,
+    PleasListComponent,
+    PleasListComponent
   ],
   imports: imports,
   providers: [PleaService, AuthService, ...routeGuards, AuthorizationInterceptorProvider],

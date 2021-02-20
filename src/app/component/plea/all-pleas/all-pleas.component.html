@@ -1,0 +1,12 @@
+<app-search-box (queryUpdated)="updateQuery($event)"></app-search-box>
+
+<main class="all-pleas">
+  <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>
+</main>
+
+<app-fab-button [mobileOnly]="true"
+                ariaLabel="Initiate a plea"
+                [routerLink]="['/', 'plea', 'new']">
+  <clr-icon shape="plus" size="16"></clr-icon>
+  Initiate
+</app-fab-button>
