@@ -1,18 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PleaService } from '../../../../service/plea/plea.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Plea } from '../../../../model/plea';
 import { map, switchMap } from 'rxjs/operators';
 import { PLEA_STATUS } from 'pleagan-model';
-import { FADE_IN_LIST } from '../../../../animations';
 
 @Component({
   selector: 'app-card-list',
-  templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.scss'],
-  animations: [FADE_IN_LIST],
+  templateUrl: './complied-pleas.component.html',
+  styleUrls: ['./complied-pleas.component.scss'],
 })
-export class CardListComponent {
+export class CompliedPleasComponent {
   updateQuery$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   pleas$: Observable<Plea[]>;
   constructor(private pleaService: PleaService) {

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Plea } from '../../../model/plea';
+import { Plea } from '../../../../model/plea';
 import { PLEA_TARGET } from 'pleagan-model';
 
 @Component({

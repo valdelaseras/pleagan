@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PleasListComponent } from './pleas-list.component';
+import { FabButtonComponent } from './fab-button.component';
 
-describe('PleasListComponent', () => {
-  let component: PleasListComponent;
-  let fixture: ComponentFixture<PleasListComponent>;
+describe('FabButtonComponent', () => {
+  let component: FabButtonComponent;
+  let fixture: ComponentFixture<FabButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PleasListComponent ]
+      declarations: [ FabButtonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PleasListComponent);
+    fixture = TestBed.createComponent(FabButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
