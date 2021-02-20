@@ -5,36 +5,6 @@
 </p>
 
 <form clrForm (ngSubmit)="submit()" [formGroup]="supportPleaForm">
-  <clr-input-container>
-    <label>A display name *</label>
-    <input clrInput type="text" formControlName="pleaganName" />
-
-    <clr-control-helper>Please enter a name, it doesn't have to be your full or real name.</clr-control-helper>
-    <clr-control-error>This field is required</clr-control-error>
-  </clr-input-container>
-
-  <clr-input-container>
-    <label>Your email *</label>
-    <input clrInput type="text" formControlName="pleaganEmail" />
-
-    <clr-control-helper
-      >Please enter your email address. You will receive a code to verify your email and to post your support. We
-      understand it's a bit of an inconvenience but we can't have people or bots spam our pleas.
-    </clr-control-helper>
-    <clr-control-error>This field is required</clr-control-error>
-  </clr-input-container>
-
-  <clr-input-container>
-    <label>Location *</label>
-    <input clrInput type="text" formControlName="pleaganLocation" />
-
-    <clr-control-helper>
-      Please let us know your general location (a country or even continent is fine). We will use this information in
-      stats and graphs to find out where demand is the highest
-    </clr-control-helper>
-    <clr-control-error>This field is required</clr-control-error>
-  </clr-input-container>
-
   <clr-textarea-container>
     <label>Your message *</label>
     <textarea clrTextarea formControlName="pleaMsg"></textarea>

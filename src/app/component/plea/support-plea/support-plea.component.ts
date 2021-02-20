@@ -15,9 +15,6 @@ export class SupportPleaComponent {
   plea$: Observable<Plea>;
   displayModal = false;
   supportPleaForm = new FormGroup({
-    pleaganName: new FormControl('', Validators.required),
-    pleaganEmail: new FormControl('', Validators.required),
-    pleaganLocation: new FormControl('', Validators.required),
     pleaMsg: new FormControl('', Validators.required),
   });
   constructor(private route: ActivatedRoute, private pleaService: PleaService) {
