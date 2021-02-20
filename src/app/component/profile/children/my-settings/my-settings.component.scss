@@ -1,3 +1,4 @@
+clr-accordion-content div.clr-row,
 li.clr-row {
   display: flex;
   flex-direction: row;
@@ -5,16 +6,13 @@ li.clr-row {
   justify-content: space-between;
 }
 
-.settings-list > li h5 {
-  font-weight: bolder;
-}
-
+// First list that holds Accounts, Notification and Theme lists
 .settings-list > li {
   padding-bottom: 1rem;
 }
 
-ul ul {
-  margin-left: 1em;
+.settings-sublist > li:last-child {
+  padding-bottom: 1rem;
 }
 
 

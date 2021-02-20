@@ -8012,10 +8012,10 @@ pkg-dir@^4.1.0, pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-pleagan-model@^0.0.25:
-  version "0.0.25"
-  resolved "https://registry.yarnpkg.com/pleagan-model/-/pleagan-model-0.0.25.tgz#219adf46aeea8f3bd1ef6e009686630daa57df56"
-  integrity sha512-bWVzOrtohhe0da9UPu0ZvP6QmmBjQLiSvFYRAZHemDXV15mxQiDpNxzLnwEAKPRbhbb1uVUGPuHPQ49TguZJ/w==
+pleagan-model@^0.0.30:
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/pleagan-model/-/pleagan-model-0.0.30.tgz#33646780719b334f51a03736f748ae2da460cfeb"
+  integrity sha512-6kdbMbUsnpK7RPp7HD10hu4HL8szZ6gESVo41I3s1yZcKIKJ+qktu3Vn0qCkhrlrrYe917zRL9b6OdXZ1/3ypQ==
   dependencies:
     tslint "^6.1.3"
     tslint-config-prettier "^1.18.0"
