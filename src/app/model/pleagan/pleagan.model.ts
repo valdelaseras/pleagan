@@ -1,5 +1,6 @@
 import { IPleagan } from 'pleagan-model';
 import { JsonObject, JsonProperty } from 'json2typescript';
+import {IUserSettings} from 'pleagan-model/dist/model/pleagan/settings/user-settings.interface';
 
 @JsonObject('Pleagan')
 export class Pleagan implements IPleagan {
@@ -20,4 +21,6 @@ export class Pleagan implements IPleagan {
 
   @JsonProperty('country', String, true)
   country?: string = '';
+
+  settings: IUserSettings;
 }

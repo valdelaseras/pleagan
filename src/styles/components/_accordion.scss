@@ -1,0 +1,22 @@
+clr-accordion-panel .clr-accordion-header {
+  background-color: transparent;
+  border: none!important;
+}
+
+button.clr-accordion-header-button {
+  padding-left: 0!important;
+  transition: all 200ms;
+}
+
+button.clr-accordion-header-button:hover,
+button.clr-accordion-header-button:focus,
+button.clr-accordion-header-button:focus-within {
+  padding-left: .5rem!important;
+}
+
+.clr-accordion-content {
+  background-color: var(--primary-color);
+  border: none!important;
+  padding-bottom: .8rem!important;
+}
+
