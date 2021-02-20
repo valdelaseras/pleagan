@@ -1,6 +1,57 @@
-<!--// TODO: Using 'karma' might be a good name here-->
-
 <h1>Leaderboards</h1>
-<h2>Most compliant</h2>
-<h2>Fastest compliance</h2>
-<h2>Most requested</h2>
+
+<div class="leaderboard-tools">
+  <div class="clr-flex-lg-column">
+    <h5>Sort by</h5>
+    <div class="flex-row">
+      <clr-select-container>
+        <label>Compliance rate</label>
+        <select clrSelect name="options" [(ngModel)]="options">
+          <option value="one">Highest to lowest</option>
+          <option value="two">Lowest to highest</option>
+        </select>
+      </clr-select-container>
+
+      <clr-select-container>
+        <label>Compliance speed</label>
+        <select clrSelect name="options" [(ngModel)]="options">
+          <option value="one">Fastest to slowest</option>
+          <option value="two">Slowest to fastest</option>
+        </select>
+      </clr-select-container>
+    </div>
+  </div>
+
+  <div class="clr-flex-lg-column">
+    <h5>Filters</h5>
+    <div class="flex-row">
+      <clr-select-container>
+        <label>Location</label>
+        <select clrSelect name="options" [(ngModel)]="options">
+          <option value="one">Worldwide</option>
+          <option value="two">Country a</option>
+          <option value="three">Country b</option>
+          <option value="four">Country c</option>
+          <option value="five">Country d</option>
+        </select>
+      </clr-select-container>
+
+      <clr-select-container>
+        <label>Timeframe</label>
+        <select clrSelect name="options" [(ngModel)]="options">
+          <option value="one">All time</option>
+          <option value="two">This year</option>
+          <option value="two">Previous year</option>
+        </select>
+      </clr-select-container>
+    </div>
+  </div>
+</div>
+
+<ol *ngIf="pleas$ | async as pleas">
+  <li *ngFor="let plea of pleas">
+    <span>{{ plea.company.name }}</span>
+  </li>
+</ol>
+
+
