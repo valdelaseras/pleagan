@@ -12,9 +12,7 @@ import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../../animations';
   selector: 'app-new-plea',
   templateUrl: './new-plea.component.html',
   styleUrls: ['./new-plea.component.scss'],
-  animations: [
-    SWIPE_IN_BELOW_SWIPE_OUT_TOP
-  ]
+  animations: [SWIPE_IN_BELOW_SWIPE_OUT_TOP],
 })
 export class NewPleaComponent {
   querySource$: Subject<string> = new Subject<string>();
@@ -24,29 +22,28 @@ export class NewPleaComponent {
   displayModal = false;
   addedIngredients: string[] = [];
   newPleaForm = new FormGroup({
-    pleaganName: new FormControl('', Validators.required),
-    pleaganLocation: new FormControl('', Validators.required),
     company: new FormControl('', Validators.required),
     product: new FormControl('', Validators.required),
-    companyContact: new FormControl('', Validators.required),
     pleaMsg: new FormControl('', Validators.required),
     productImage: new FormControl('', [Validators.required]),
     ingredient: new FormControl(),
   });
   loading: boolean = true;
 
-  constructor( private productService: ProductService,
-               private companyService: CompanyService,
-               private pleaService: PleaService) {
+  constructor(
+    private productService: ProductService,
+    private companyService: CompanyService,
+    private pleaService: PleaService,
+  ) {
     this.similarPleas$ = this.querySource$.pipe(
-      debounce( () => interval( 500 )),
-      tap( _ => this.loading = true),
-      switchMap( this.pleaService.searchPleas ),
-      tap( console.log ),
-      tap( _ => this.loading = false),
+      debounce(() => interval(500)),
+      tap((_) => (this.loading = true)),
+      switchMap(this.pleaService.searchPleas),
+      tap(console.log),
+      tap((_) => (this.loading = false)),
     );
 
-    this.similarPleas$.subscribe( ( pleas: Plea[] ) => {
+    this.similarPleas$.subscribe((pleas: Plea[]) => {
       this.similarPleas = pleas;
     });
   }
@@ -71,8 +68,8 @@ export class NewPleaComponent {
 
     console.log(companyName && productName);
 
-    if ( companyName && productName ) {
-      this.querySource$.next( this.getSearchQuery() );
+    if (companyName && productName) {
+      this.querySource$.next(this.getSearchQuery());
     }
   }
 

@@ -1,6 +1,7 @@
 .tag {
-  background-color: lavender;
-  padding: 5px 10px;
+  background-color: var(--quaternary-color);
+  color: var(--primary-text-color-inverted);
+  padding: 0.25rem 0.5rem;
   display: inline-block;
-  margin: 10px 10px 5px 0;
+  margin: 0.5rem 0.5rem 0.25rem 0;
 }

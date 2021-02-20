@@ -7,15 +7,17 @@
 
     <div class="plea-text">
       <p>
-        We the pleagans are pleading you to please veganize your <span class="highlighted-txt">{{ plea.nonVeganProduct.name }}</span
+        We the pleagans are pleading you to please veganize your
+        <span class="highlighted-txt">{{ plea.nonVeganProduct.name }}</span
         >.
       </p>
 
       <p>
-        <span class="highlighted-txt bold">{{ plea.supporters.length }}</span> of us {{ plea.supporters.length > 1 ? 'have' : 'has'}}
-        supported this plea since its initiation on <span class="highlighted-txt">{{ plea.createdAt | date: 'dd-MM-yyyy' }} </span>.
-        We are longing for your product and want to support your business! As you know we can only do that once your product is
-        100% plant-based.
+        <span class="highlighted-txt bold">{{ plea.supporters.length }}</span> of us
+        {{ plea.supporters.length > 1 ? 'have' : 'has' }} supported this plea since its initiation on
+        <span class="highlighted-txt">{{ plea.createdAt | date: 'dd-MM-yyyy' }} </span>. We are longing for your product
+        and want to support your business! As you know, we will and can only do that once your product is 100%
+        plant-based.
       </p>
     </div>
 
@@ -26,7 +28,8 @@
           (click)="$event.preventDefault()"
           [routerLink]="['/plea', 'support', plea.id]"
           class="btn btn-primary btn-icon"
-          aria-label="Support this plea">
+          aria-label="Support this plea"
+        >
           <clr-icon shape="heart" size="16"></clr-icon>
           Support this plea
         </a>
@@ -36,22 +39,27 @@
         <h3>
           Presenting the plea for a plant-based <span class="bold">{{ plea.nonVeganProduct.name }}</span>
         </h3>
-        <span>by {{ plea.company.name }}</span><br>
-        <div class="tag"><span class="bolder">{{ plea.supporters.length }}</span> supporter{{ plea.supporters.length > 1 ? 's' : null }}</div>
+        <span>by {{ plea.company.name }}</span
+        ><br />
+        <div class="tag">
+          <span class="bolder">{{ plea.supporters.length }}</span> supporter{{
+            plea.supporters.length > 1 ? 's' : null
+          }}
+        </div>
       </div>
 
       <div class="clr-row clr-flex-lg-row-reverse">
         <div class="plea-details clr-col-xl-6 clr-col-12">
           <p>
-            Initiated on <span class="bold">{{ plea.createdAt | date: 'dd-MM-yyyy' }}</span><br/>
-            By <span class="bold">{{ plea.initiator.name }}</span>
+            Initiated on <span class="bold">{{ plea.createdAt | date: 'dd-MM-yyyy' }}</span
+            ><br />
+            By <span class="bold">{{ plea.initiator.displayName }}</span>
           </p>
 
           <div class="msg-cloud">
             <div class="msg-shape"></div>
-            <span class="italic">"{{ plea.initiator.message }}"</span>
+            <span class="italic">"Lorem ipsum"</span>
           </div>
-
         </div>
 
         <div class="plea-product-img clr-col-xl-6 clr-col-12">
@@ -67,6 +75,7 @@
 
       <div>
         <h3>Supporters</h3>
+        <app-supporters-list></app-supporters-list>
       </div>
     </div>
   </div>

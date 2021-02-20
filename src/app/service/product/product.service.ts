@@ -9,11 +9,10 @@ import { ICompany, IProduct } from 'pleagan-model';
 import { Product } from '../../model/product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-
-  constructor( private http: HttpClient, private convertService: JsonConvertService ) { }
+  constructor(private http: HttpClient, private convertService: JsonConvertService) {}
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${environment.apiBaseUrl}/product/all`).pipe(
@@ -32,7 +31,7 @@ export class ProductService {
     return this.http.get<string[]>(`${environment.apiBaseUrl}/product/all`, {
       params: {
         namesOnly: 'true',
-      }
+      },
     });
   }
 }

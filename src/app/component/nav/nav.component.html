@@ -1,6 +1,6 @@
 <ng-container *ngIf="largeScreen; else sidenav">
   <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
-      <ng-container *ngTemplateOutlet="nav"></ng-container>
+    <ng-container *ngTemplateOutlet="nav"></ng-container>
   </clr-vertical-nav>
 </ng-container>
 
@@ -11,14 +11,49 @@
 <ng-template #nav>
   <nav id="sidenav" class="sidenav" [clr-nav-level]="1">
     <section class="sidenav-content">
-      <div class="nav-item nav-button">
-        <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'new']">
-          <span id="initiate-plea-btn" class="btn btn-primary btn-icon" aria-label="Initiate a plea">
-            <clr-icon shape="plus" size="14"></clr-icon>
-            Initiate plea
-          </span>
-        </a>
-      </div>
+      <section class="nav-group user-state">
+        <small *ngIf="!(authService.user$ | async)">
+          Please <a class="underlined" [routerLink]="['/', 'login']">login</a> or <a class="underlined" [routerLink]="['/', 'register']">create an account</a> to initiate and support pleas
+        </small>
+        <p *ngIf="authService.user$ | async">
+          <a class="underlined" (click)="logout()">logout</a>
+        </p>
+      </section>
+      <section *ngIf="authService.user$ | async as user" class="nav-group collapsible">
+        <input id="nav-profile-section" type="checkbox" />
+        <label for="nav-profile-section">{{ user.displayName }}</label>
+        <ul class="nav-list">
+          <!--          <li class="nav-item">-->
+          <!--            <div class="nav-item nav-button">-->
+          <!--              <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'new']">-->
+          <!--                <span id="initiate-plea-btn" class="btn btn-primary btn-icon" aria-label="Initiate a plea">-->
+          <!--                  <clr-icon shape="plus" size="14"></clr-icon>-->
+          <!--                  Initiate plea-->
+          <!--                </span>-->
+          <!--              </a>-->
+          <!--            </div>-->
+          <!--          </li>-->
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['profile', 'settings']">Settings</a>
+            <!--            email settings etc go here. I guess maybe also user pic, password reset, delete account, sign out-->
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['profile', 'my-pleas']">My pleas</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['profile', 'my-support']"
+              >My supported pleas</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['profile', 'my-news']">My news</a>
+          </li>
+        </ul>
+      </section>
 
       <section class="nav-group collapsible">
         <input id="nav-pleas-section" type="checkbox" />
@@ -30,21 +65,21 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['news', 'all']">News</a>
-          </li>
-
-          <li class="nav-item">
             <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['hall-of-fame', 'all']">Hall of Fame</a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['leaderboard']">Leaderboards</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['news', 'all']">News</a>
+          </li>
         </ul>
       </section>
 
       <section class="nav-group collapsible">
-        <input id="nav-about-section" type="checkbox" />
+        <input id="nav-about-section" type="checkbox" checked />
         <label for="nav-about-section">Pleagan</label>
         <ul class="nav-list">
           <li class="nav-item">
@@ -58,14 +93,9 @@
           <li class="nav-item">
             <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['contact']">Contact</a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['special-thanks']">Special thanks</a>
-          </li>
         </ul>
       </section>
     </section>
+
   </nav>
 </ng-template>
-
-

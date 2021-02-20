@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class ContactComponent {
   icons = [
     { imageUrl: 'assets/icons/instagram.svg', socialUrl: '/', socialAlt: 'Instagram logo' },
-    { imageUrl: 'assets/icons/facebook.svg', socialUrl: '/', socialAlt: 'Facebook logo' }
-  ]
+    { imageUrl: 'assets/icons/facebook.svg', socialUrl: '/', socialAlt: 'Facebook logo' },
+  ];
 
   constructor() {}
 }

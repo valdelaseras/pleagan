@@ -20,3 +20,23 @@ form clr-combobox-container .clr-combobox-wrapper,
 form clr-combobox-container .clr-combobox-wrapper .clr-input {
   width: 100%;
 }
+
+form .clr-input-group {
+  width: 100%;
+}
+
+form .clr-input-group .clr-input-group-icon-action {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  form clr-textarea-container label,
+  form clr-textarea-container textarea,
+  form clr-password-container label,
+  form clr-password-container input,
+  form clr-input-container input,
+  form clr-input-container label {
+    display: block;
+    min-width: 100%;
+  }
+}
