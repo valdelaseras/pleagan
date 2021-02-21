@@ -1,9 +1,21 @@
 <app-search-box (queryUpdated)="updateQuery($event)"></app-search-box>
+<section id="hall-of-fame-section">
+  <h1>Hall of Fame</h1>
+  <div class="clr-row">
+    <div class="clr-col-lg-12">
+      <p>
+        Our eternal Hall of Fame for all businesses who listened to our pleas and did the
+        right thing
+      </p>
+    </div>
+    <div class="clr-col-lg-12">
+      <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas" id="complied-pleas"></app-pleas-list>
+    </div>
+  </div>
+</section>
 
-<h2>Hall of Fame</h2>
-<p class="larger">Our eternal Hall of Fame for all businesses who listened to our pleas and did the
-right thing</p>
 
-<main class="complied-pleas">
-  <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>
-</main>
+
+
+
+
