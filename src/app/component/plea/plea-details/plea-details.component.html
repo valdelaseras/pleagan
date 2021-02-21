@@ -13,8 +13,8 @@
       </p>
 
       <p>
-        <span class="highlighted-txt bold">{{ plea.supporters.length }}</span> of us
-        {{ plea.supporters.length > 1 ? 'have' : 'has' }} supported this plea since its initiation on
+        <span class="highlighted-txt bold">{{ plea.supports.length }}</span> of us
+        {{ plea.supports.length > 1 ? 'have' : 'has' }} supported this plea since its initiation on
         <span class="highlighted-txt">{{ plea.createdAt | date: 'dd-MM-yyyy' }} </span>. We are longing for your product
         and want to support your business! As you know, we will and can only do that once your product is 100%
         plant-based.
@@ -42,8 +42,8 @@
         <span>by {{ plea.company.name }}</span
         ><br />
         <div class="tag">
-          <span class="bolder">{{ plea.supporters.length }}</span> supporter{{
-            plea.supporters.length > 1 ? 's' : null
+          <span class="bolder">{{ plea.supports.length }}</span> supporter{{
+            plea.supports.length > 1 ? 's' : null
           }}
         </div>
       </div>
@@ -75,7 +75,7 @@
 
       <div>
         <h3>Supporters</h3>
-        <app-supporters-list [supporters]="plea.supporters"></app-supporters-list>
+        <app-supporters-list [supports]="plea.supports"></app-supporters-list>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Pleagan } from '../../../../model/pleagan';
+import { Support } from '../../../../model/plea/support.model';
 
 @Component({
   selector: 'app-supporters-list',
@@ -7,7 +7,7 @@ import { Pleagan } from '../../../../model/pleagan';
   styleUrls: ['./supporters-list.component.scss']
 })
 export class SupportersListComponent implements OnInit {
-  @Input() supporters: Pleagan[];
+  @Input() supports: Support[];
 
   constructor() { }
 
