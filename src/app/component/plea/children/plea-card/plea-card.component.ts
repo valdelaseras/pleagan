@@ -12,9 +12,9 @@ export class PleaCardComponent {
   constructor() {}
 
   getTarget(): number {
-    if (this.plea.supporters.length < PLEA_TARGET.FIRST) {
+    if (this.plea.supports.length < PLEA_TARGET.FIRST) {
       return PLEA_TARGET.FIRST;
-    } else if (this.plea.supporters.length >= PLEA_TARGET.FIRST && this.plea.supporters.length < PLEA_TARGET.SECOND) {
+    } else if (this.plea.supports.length >= PLEA_TARGET.FIRST && this.plea.supports.length < PLEA_TARGET.SECOND) {
       return PLEA_TARGET.SECOND;
     } else {
       return PLEA_TARGET.THIRD;

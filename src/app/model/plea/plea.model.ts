@@ -3,6 +3,7 @@ import { Pleagan } from '../pleagan';
 import { IPlea, PLEA_STATUS } from 'pleagan-model';
 import { JsonObject, JsonProperty } from 'json2typescript';
 import { Product } from '../product';
+import { Support } from './support.model';
 
 @JsonObject('Plea')
 export class Plea implements IPlea {
@@ -24,8 +25,8 @@ export class Plea implements IPlea {
   @JsonProperty('initiator', Pleagan)
   initiator: Pleagan = new Pleagan();
 
-  @JsonProperty('supporters', [Pleagan])
-  supporters: Pleagan[] = [];
+  @JsonProperty('supports', [Support])
+  supports: Support[] = [];
 
   @JsonProperty('nonVeganProduct', Product)
   nonVeganProduct: Product = new Product();

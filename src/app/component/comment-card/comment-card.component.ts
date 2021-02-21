@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Pleagan } from '../../model/pleagan';
+import { Support } from '../../model/plea/support.model';
 
 @Component({
   selector: 'app-comment-card',
@@ -7,7 +7,7 @@ import { Pleagan } from '../../model/pleagan';
   styleUrls: ['./comment-card.component.scss']
 })
 export class CommentCardComponent implements OnInit {
-  @Input() supporter: Pleagan;
+  @Input() support: Support;
 
   constructor() { }
 

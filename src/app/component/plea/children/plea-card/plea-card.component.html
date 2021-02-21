@@ -10,11 +10,11 @@
 
   <div class="card-block c-footer">
     <div class="progress">
-      <progress value="{{ plea.supporters.length }}" [max]="getTarget()"></progress>
+      <progress value="{{ plea.supports.length }}" [max]="getTarget()"></progress>
     </div>
     <p class="card-text">
-      <span class="bold">{{ plea.supporters.length }}</span> current supporter{{
-        plea.supporters.length > 1 ? 's' : null
+      <span class="bold">{{ plea.supports.length }}</span> current supporter{{
+        plea.supports.length > 1 ? 's' : null
       }}
     </p>
 
