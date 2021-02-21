@@ -7,7 +7,7 @@ import { AllPleasComponent } from './component/plea/all-pleas/all-pleas.componen
 import { PleaDetailsComponent } from './component/plea/plea-details/plea-details.component';
 import { AboutComponent } from './component/about/about.component';
 import { FaqComponent } from './component/faq/faq.component';
-import { LeaderboardComponent } from './component/leaderboard/leaderboard.component';
+import { StatisticsComponent } from './component/statistics/statistics.component';
 import { NewsComponent } from './component/news/news.component';
 import { HallOfFameComponent } from './component/hall-of-fame/hall-of-fame.component';
 import { ContactComponent } from './component/contact/contact.component';
@@ -49,7 +49,7 @@ const routes: Routes = [
       { path: ':id/support', component: SupportPleaComponent, canActivate: [ IsLoggedIn ] },
     ],
   },
-  { path: 'leaderboard', component: LeaderboardComponent },
+  { path: 'statistics', component: StatisticsComponent },
   { path: 'news', component: NewsComponent, children: [{ path: 'all', component: NewsListComponent }] },
   {
     path: 'hall-of-fame',

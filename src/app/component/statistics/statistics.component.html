@@ -1,0 +1,80 @@
+<div class="clr-row">
+  <div class="clr-col-lg-6">
+    <h1>Statistics</h1>
+    <p>
+      Maecenas a commodo velit, sed mattis ex. Sed dapibus velit vitae est faucibus dictum.
+      In vitae magna sed nisl tempor blandit. Cras justo tellus, feugiat eget mi eu, mollis
+      pulvinar massa. Maecenas hendrerit dapibus sollicitudin.
+    </p>
+
+    <div class="stat-tools">
+      <h2>Tools</h2>
+      <clr-accordion>
+        <clr-accordion-panel>
+          <clr-accordion-title>Sorting</clr-accordion-title>
+          <clr-accordion-content>
+
+            <div class="clr-row">
+              <p>Compliance rate</p>
+              <clr-select-container>
+                <!--        [(ngModel)]-->
+                <select clrSelect name="options">
+                  <option value="one">Highest to lowest</option>
+                  <option value="two">Lowest to highest</option>
+                </select>
+              </clr-select-container>
+            </div>
+
+            <div class="clr-row">
+              <p>Compliance speed</p>
+              <clr-select-container>
+                <select clrSelect name="options">
+                  <option value="one">Fastest to slowest</option>
+                  <option value="two">Slowest to fastest</option>
+                </select>
+              </clr-select-container>
+            </div>
+
+          </clr-accordion-content>
+        </clr-accordion-panel>
+      </clr-accordion>
+
+      <clr-accordion>
+        <clr-accordion-panel>
+          <clr-accordion-title>Filters</clr-accordion-title>
+          <clr-accordion-content>
+
+            <div class="clr-row">
+              <p>Location</p>
+              <clr-select-container>
+                <select clrSelect name="options">
+                  <option value="one">Worldwide</option>
+                  <option value="two">Country a</option>
+                  <option value="three">Country b</option>
+                  <option value="four">Country c</option>
+                  <option value="five">Country d</option>
+                </select>
+              </clr-select-container>
+            </div>
+
+            <div class="clr-row">
+              <p>Timeframe</p>
+              <clr-select-container>
+                <select clrSelect name="options">
+                  <option value="one">All time</option>
+                  <option value="two">This year</option>
+                  <option value="two">Previous year</option>
+                </select>
+              </clr-select-container>
+            </div>
+
+          </clr-accordion-content>
+        </clr-accordion-panel>
+      </clr-accordion>
+    </div>
+  </div>
+
+  <div class="clr-col-lg-6">
+    <p>Graph goes here</p>
+  </div>
+</div>

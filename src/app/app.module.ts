@@ -19,7 +19,7 @@ import { PleaService } from './service/plea/plea.service';
 import { ModalComponent } from './component/modals/modal/modal.component';
 import { FaqComponent } from './component/faq/faq.component';
 import { NewsComponent } from './component/news/news.component';
-import { LeaderboardComponent } from './component/leaderboard/leaderboard.component';
+import { StatisticsComponent } from './component/statistics/statistics.component';
 import { HallOfFameComponent } from './component/hall-of-fame/hall-of-fame.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { SupportPleaComponent } from './component/plea/support-plea/support-plea.component';
@@ -73,7 +73,7 @@ const components = [
   ModalComponent,
   FaqComponent,
   NewsComponent,
-  LeaderboardComponent,
+  StatisticsComponent,
   HallOfFameComponent,
   ContactComponent,
   SupportPleaComponent,
