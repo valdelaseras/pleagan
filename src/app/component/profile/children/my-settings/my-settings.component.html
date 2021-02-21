@@ -1,9 +1,7 @@
-<!--<section class="section">-->
+<section id="my-settings-section">
+  <h1>Settings</h1>
   <div class="clr-row">
-    <div class="clr-col-lg-4">
-      <h1>Settings</h1>
-    </div>
-    <div class="clr-col-lg-8">
+    <div class="clr-col-lg-6">
       <div *ngIf="user$ | async as user" class="user-preferences">
         <ul class="settings-list">
           <li>
@@ -240,7 +238,6 @@
                   Your theme preference
                 </p>
                 <select clrSelect name="themes" [(ngModel)]="user.settings.theme">
-<!--                  [(ngModel)]="themeSelection"-->
                   <option [value]="theme.DEFAULT">Default</option>
                   <option [value]="theme.BEAN">Bean</option>
                   <option [value]="theme.OCEAN">Ocean</option>
@@ -252,7 +249,7 @@
       </div>
     </div>
   </div>
-<!--</section>-->
+</section>
 
 
 

@@ -1,12 +1,22 @@
+<!--TODO: fix searchbox-->
 <app-search-box (update)="updateQuery($event)"></app-search-box>
-<h2>News</h2>
-
-<div class="all-news">
+<section id="news-section">
+  <h1>News</h1>
   <div class="clr-row">
-    <!--  ngif news, as news etc. then implement search query, animation -->
-    <!-- first card ( latest news ) is highlighted on desktop, as full width item-->
-    <app-news-card class="clr-col-12"></app-news-card>
-    <app-news-card class="clr-col-md-6 clr-col-12"></app-news-card>
-    <app-news-card class="clr-col-md-6 clr-col-12"></app-news-card>
+    <div class="clr-col-lg-12">
+
+<!--      TODO: this must be turned into a proper component still-->
+      <div class="all-news">
+        <div class="clr-row">
+          <app-news-card class="clr-col-12"></app-news-card>
+          <app-news-card class="clr-col-md-6 clr-col-12"></app-news-card>
+          <app-news-card class="clr-col-md-6 clr-col-12"></app-news-card>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
+</section>
+
+
+

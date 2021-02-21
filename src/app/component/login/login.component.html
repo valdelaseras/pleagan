@@ -1,45 +1,49 @@
-<h1>Log in</h1>
-<ng-container *ngIf="!loading else loadingIndicator">
-  <div class="clr-row">
-    <form clrForm (ngSubmit)="loginClick$.next( loginForm )" [formGroup]="loginForm" *ngIf="!(authService.user$ | async)">
-      <clr-input-container>
-        <label for="email">Email</label>
-        <input id="email" clrInput type="text" formControlName="email" required />
-      </clr-input-container>
+<section id="login-section">
+  <h1>Log in</h1>
+  <ng-container *ngIf="!loading else loadingIndicator">
+    <div class="clr-row">
+      <div class="clr-col-lg-6">
+        <form clrForm (ngSubmit)="loginClick$.next( loginForm )" [formGroup]="loginForm" *ngIf="!(authService.user$ | async)">
+          <clr-input-container>
+            <label for="email">Email</label>
+            <input id="email" clrInput type="text" formControlName="email" required />
+          </clr-input-container>
 
-      <clr-password-container>
-        <label for="password">Password</label>
-        <input id="password" clrPassword formControlName="password" required />
-        <clr-control-error>Credentials incorrect</clr-control-error>
-      </clr-password-container>
+          <clr-password-container>
+            <label for="password">Password</label>
+            <input id="password" clrPassword formControlName="password" required />
+            <clr-control-error>Credentials incorrect</clr-control-error>
+          </clr-password-container>
 
-      <button class="btn btn-primary" id="login-btn" type="submit">Log in</button>
-      <button class="btn btn-secondary-outline" id="create-account-btn" [routerLink]="['/register']" type="button">
-        Create an account
-      </button>
+          <button class="btn btn-primary" id="login-btn" type="submit">Log in</button>
+          <button class="btn btn-secondary-outline" id="create-account-btn" [routerLink]="['/register']" type="button">
+            Create an account
+          </button>
 
-      <a>
-        I forgot my password
-      </a>
+          <a class="underlined">
+            I forgot my password
+          </a>
 
-      <ng-container *ngIf="error">
-        <div class="alert alert-danger" role="alert">
-          <div class="alert-items">
-            <div class="alert-item static">
-              <div class="alert-icon-wrapper">
-                <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
-              </div>
-              <span class="alert-text">
+          <ng-container *ngIf="error">
+            <div class="alert alert-danger" role="alert">
+              <div class="alert-items">
+                <div class="alert-item static">
+                  <div class="alert-icon-wrapper">
+                    <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                  </div>
+                  <span class="alert-text">
                 <strong>Oops...</strong> {{ error }}
               </span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </ng-container>
+          </ng-container>
 
-    </form>
+        </form>
+      </div>
     </div>
   </ng-container>
+</section>
 
 <ng-template #loadingIndicator>
   <div class="loading-indicator-container">
