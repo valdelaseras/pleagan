@@ -18,6 +18,26 @@ export class HeaderComponent {
         return 'all pleas';
         break;
       }
+      case '/hall-of-fame/all': {
+        return 'hall of fame';
+        break;
+      }
+      case '/statistics': {
+        return 'statistics';
+        break;
+      }
+      case '/news/all': {
+        return 'news';
+        break;
+      }
+      case '/faq': {
+        return 'faq';
+        break;
+      }
+      case '/contact': {
+        return 'contact';
+        break;
+      }
       case '/plea/new': {
         return 'initiate plea';
         break;
