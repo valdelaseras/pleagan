@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
 import { PleaComponent } from './component/plea/plea.component';
-import { NewPleaComponent } from './component/plea/children/new-plea/new-plea.component';
+import { NewPleaComponent } from './component/plea/new-plea/new-plea.component';
 import { AllPleasComponent } from './component/plea/all-pleas/all-pleas.component';
-import { PleaDetailsComponent } from './component/plea/children/plea-details/plea-details.component';
+import { PleaDetailsComponent } from './component/plea/plea-details/plea-details.component';
 import { AboutComponent } from './component/about/about.component';
 import { FaqComponent } from './component/faq/faq.component';
-import { LeaderboardComponent } from './component/leaderboard/leaderboard.component';
+import { StatisticsComponent } from './component/statistics/statistics.component';
 import { NewsComponent } from './component/news/news.component';
 import { HallOfFameComponent } from './component/hall-of-fame/hall-of-fame.component';
 import { ContactComponent } from './component/contact/contact.component';
-import { SupportPleaComponent } from './component/plea/children/support-plea/support-plea.component';
+import { SupportPleaComponent } from './component/plea/support-plea/support-plea.component';
 import { CompliedPleasComponent } from './component/hall-of-fame/children/complied-pleas/complied-pleas.component';
 import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
 import { NewsListComponent } from './component/news/children/news-list/news-list.component';
@@ -45,11 +45,11 @@ const routes: Routes = [
     children: [
       { path: 'new', component: NewPleaComponent, canActivate: [ IsLoggedIn ] },
       { path: 'all', component: AllPleasComponent },
-      { path: 'details/:id', component: PleaDetailsComponent },
-      { path: 'support/:id', component: SupportPleaComponent, canActivate: [ IsLoggedIn ] },
+      { path: ':id/details', component: PleaDetailsComponent },
+      { path: ':id/support', component: SupportPleaComponent, canActivate: [ IsLoggedIn ] },
     ],
   },
-  { path: 'leaderboard', component: LeaderboardComponent },
+  { path: 'statistics', component: StatisticsComponent },
   { path: 'news', component: NewsComponent, children: [{ path: 'all', component: NewsListComponent }] },
   {
     path: 'hall-of-fame',

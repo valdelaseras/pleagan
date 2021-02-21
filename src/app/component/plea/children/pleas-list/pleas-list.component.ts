@@ -14,8 +14,3 @@ export class PleasListComponent {
   PLEA_STATUS = PLEA_STATUS;
   constructor() { }
 }
-
-export enum PLEA_CARD_TYPE {
-  OPEN,
-  COMPLETED
-}

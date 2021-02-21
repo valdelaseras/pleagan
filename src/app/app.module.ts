@@ -6,9 +6,9 @@ import { AppComponent } from './component/app/app.component';
 import { HomeComponent } from './component/home/home.component';
 import { PleaComponent } from './component/plea/plea.component';
 import { AboutComponent } from './component/about/about.component';
-import { NewPleaComponent } from './component/plea/children/new-plea/new-plea.component';
+import { NewPleaComponent } from './component/plea/new-plea/new-plea.component';
 import { AllPleasComponent } from './component/plea/all-pleas/all-pleas.component';
-import { PleaDetailsComponent } from './component/plea/children/plea-details/plea-details.component';
+import { PleaDetailsComponent } from './component/plea/plea-details/plea-details.component';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,10 +19,10 @@ import { PleaService } from './service/plea/plea.service';
 import { ModalComponent } from './component/modals/modal/modal.component';
 import { FaqComponent } from './component/faq/faq.component';
 import { NewsComponent } from './component/news/news.component';
-import { LeaderboardComponent } from './component/leaderboard/leaderboard.component';
+import { StatisticsComponent } from './component/statistics/statistics.component';
 import { HallOfFameComponent } from './component/hall-of-fame/hall-of-fame.component';
 import { ContactComponent } from './component/contact/contact.component';
-import { SupportPleaComponent } from './component/plea/children/support-plea/support-plea.component';
+import { SupportPleaComponent } from './component/plea/support-plea/support-plea.component';
 import { SearchBoxComponent } from './component/search-box/search-box.component';
 import { HafCardComponent } from './component/plea/children/haf-card/haf-card.component';
 import { NewsCardComponent } from './component/news/news-card/news-card.component';
@@ -73,7 +73,7 @@ const components = [
   ModalComponent,
   FaqComponent,
   NewsComponent,
-  LeaderboardComponent,
+  StatisticsComponent,
   HallOfFameComponent,
   ContactComponent,
   SupportPleaComponent,

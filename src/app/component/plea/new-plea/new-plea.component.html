@@ -1,0 +1,152 @@
+<section id="initiate-plea-section">
+  <h1 class="desktop-only">Initiate a plea</h1>
+  <div class="clr-row">
+    <div class="clr-col-lg-6">
+      <form clrForm (ngSubmit)="submit( newPleaForm )" [formGroup]="newPleaForm">
+        <clr-input-container>
+          <label for="company">Company name*</label>
+          <input
+            id="company"
+            clrInput
+            autocomplete="off"
+            type="text"
+            formControlName="company"
+            (keyup)="searchSimilarPleas()"
+            required
+          />
+
+          <clr-control-helper>Please enter the company name</clr-control-helper>
+          <clr-control-error>This field is required</clr-control-error>
+        </clr-input-container>
+
+        <clr-input-container>
+          <label for="product">Product name*</label>
+          <input
+            id="product"
+            clrInput
+            autocomplete="off"
+            type="text"
+            formControlName="product"
+            (keyup)="searchSimilarPleas()"
+            required
+          />
+
+          <clr-control-helper>Please enter the product name</clr-control-helper>
+          <clr-control-error>This field is required</clr-control-error>
+        </clr-input-container>
+
+        <ng-container *ngIf="this.pleaInSuggestions === false; else pleaSuggestions">
+          <clr-input-container>
+            <label>Company email</label>
+            <input clrInput type="mail" formControlName="companyContact" />
+
+            <clr-control-helper>
+              Please help us out if you can and provide the companies customer service email, so we can notify them of the plea
+            </clr-control-helper>
+            <clr-control-error>This field is required</clr-control-error>
+          </clr-input-container>
+
+          <clr-input-container class="file-upload-container">
+            <label>Product image *</label>
+            <label class="custom-file-upload">
+              <clr-icon shape="upload" size="16"></clr-icon>
+            </label>
+            <input clrInput type="file" accept=".jpg,.png,.webp" data-max-size="2048" formControlName="productImage" />
+
+            <clr-control-helper>Please upload an image of the current product</clr-control-helper>
+
+            <!--TODO: these don't work yet-->
+            <clr-control-error *clrIfError="'requiredFieldError'">This field is required</clr-control-error>
+            <clr-control-error *clrIfError="'fileSizeError'">File must not exceed 2mb</clr-control-error>
+            <clr-control-error *clrIfError="'extensionError'"
+            >Allowed file extensions are .jpg, .png or .webp</clr-control-error
+            >
+          </clr-input-container>
+
+          <clr-input-container>
+            <label>Ingredients to be taken out</label>
+            <input clrInput type="text" formControlName="ingredient" (keyup)="createTag($event)" />
+
+            <clr-control-helper>
+        <span class="tag" *ngFor="let ingredient of addedIngredients; index as index"
+        >{{ ingredient }}
+          <clr-icon shape="times" size="14" (click)="removeTag(index)"></clr-icon>
+        </span>
+            </clr-control-helper>
+
+            <clr-control-helper>
+              Which ingredients of this product will need to be removed or replaced? Type the ingredient(s) separated by
+              commas
+            </clr-control-helper>
+          </clr-input-container>
+
+          <!--  TODO: max chars-->
+          <clr-textarea-container>
+            <label>Your message *</label>
+            <textarea clrTextarea formControlName="description"></textarea>
+
+            <clr-control-helper>
+              Write your plea to the producer or call for support of other pleagans here!
+            </clr-control-helper>
+          </clr-textarea-container>
+
+          <clr-checkbox-container>
+            <clr-checkbox-wrapper>
+              <input type="checkbox" clrCheckbox value="receiveUpdates" name="permissions" />
+              <label>Keep me updated regarding this plea</label>
+            </clr-checkbox-wrapper>
+          </clr-checkbox-container>
+
+          <!--  TODO: add optional ingredient list textarea, like how you can add tags when uploading a YT video separated by commas-->
+          <!--  TODO: then let user$ tap and highlight the animal products in these tags-->
+          <button class="btn btn-primary" type="submit" [disabled]="!newPleaForm.valid">Submit</button>
+        </ng-container>
+      </form>
+
+      <app-modal-success
+        *ngIf="displayModal"
+        [message]="'Success! You will be redirected to your plea shortly'"
+      ></app-modal-success>
+
+      <ng-template #pleaSuggestions>
+        <div *ngIf="newPleaForm.get('product').value && newPleaForm.get('company').value" [@swipeInFromBelow]>
+          <ng-container>
+            <div class="card suggested-pleas">
+              <div class="card-header">It looks like a plea for this product may already exist</div>
+              <div class="card-block">
+                <div class="card-text">
+                  <p>
+                    Please take a moment to verify. If it does, support the existing plea instead of initiating a new one.
+                    Duplicate pleas decrease efficiency!
+                  </p>
+
+                  <ng-container *ngIf="!loading; else loadingIndicator">
+                    <clr-stack-view>
+                      <clr-stack-block *ngFor="let plea of similarPleas" [routerLink]="['/', 'plea', 'details', plea.id]">
+                        <clr-stack-label>{{ plea.company.name }}</clr-stack-label>
+                        <clr-stack-content>
+                          {{ plea.nonVeganProduct.name }}
+                        </clr-stack-content>
+                      </clr-stack-block>
+                    </clr-stack-view>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-primary" (click)="pleaInSuggestions = false">
+                  This is a different product
+                </button>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </ng-template>
+
+      <ng-template #loadingIndicator>
+        <div class="loading-indicator-container">
+          <app-loading-indicator></app-loading-indicator>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>

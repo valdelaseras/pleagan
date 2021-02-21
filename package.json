@@ -31,7 +31,7 @@
     "firebase": "^8.2.7",
     "jest": "^26.6.3",
     "json2typescript": "^1.4.1",
-    "pleagan-model": "^0.0.30",
+    "pleagan-model": "^0.0.39",
     "prettier": "^2.2.1",
     "rxjs": "~6.6.0",
     "string-similarity": "^4.0.4",

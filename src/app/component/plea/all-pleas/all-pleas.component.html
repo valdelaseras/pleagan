@@ -1,8 +1,12 @@
 <app-search-box (queryUpdated)="updateQuery($event)"></app-search-box>
-
-<main class="all-pleas">
-  <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>
-</main>
+<section id="all-pleas-section">
+  <h1 class="desktop-only">All pleas</h1>
+  <div class="clr-row">
+    <div class="clr-col-lg-12">
+      <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>
+    </div>
+  </div>
+</section>
 
 <app-fab-button [mobileOnly]="true"
                 ariaLabel="Initiate a plea"
