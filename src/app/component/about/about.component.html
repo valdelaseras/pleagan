@@ -6,9 +6,10 @@
     </div>
     <div class="clr-col-lg-8">
       <p>
-        Pleagan aims to aggregate the collective pleas of vegans for more plant-based products into one place, so our voices
-        can be heard loud and clear. Businesses can then use the information to efficiently adjust their business
-        strategies accordingly.
+        Pleagan aims to aggregate the collective pleas of vegans for plant-based products into one platform, so our voices
+        can be heard loud and clear. <a class="underlined" [routerLink]="['/', 'statistics']">Our publicly available statistics</a>
+        help producers to efficiently adjust their business strategies while helping vegans determine which companies and
+        products to support.
       </p>
       <clr-accordion class="bg-transparent">
         <clr-accordion-panel>
@@ -31,6 +32,14 @@
         plant-based products are available on the market, the easier it will be for people to consume more animal free
         products.
       </p>
+      <clr-accordion class="bg-transparent">
+        <clr-accordion-panel>
+          <clr-accordion-title>Read more</clr-accordion-title>
+          <clr-accordion-content *clrIfExpanded>
+            Lorem ipsum
+          </clr-accordion-content>
+        </clr-accordion-panel>
+      </clr-accordion>
     </div>
   </div>
 </section>
@@ -45,14 +54,15 @@
 
     <div class="clr-col-lg-8">
       <p class="larger">
-        Find out the demand for your vegan product, where demand is concentrated and how you are doing compared to your
-        competitors. Find the relevant pleas and statistics by searching for your company name
-        <a [routerLinkActive]="'active'" [routerLink]="['/plea', 'all']" class="underlined">here</a> and don't forget to
-        check out our
-        <a [routerLinkActive]="'active'" [routerLink]="['/leaderboard']" class="underlined">leaderboards</a>.
+        Learn about the demand for your vegan product, where demand is concentrated and how you are doing compared to your
+        competitors. Find the relevant pleas by searching for your company name
+        <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="underlined">here</a> and
+        check out our statistics
+        <a [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="underlined">here</a>.
       </p>
       <p>
-        <span class="highlighted-txt larger">Quick tip: initiate a plea yourself to gauge demand for your product</span>
+        <span class="highlighted-txt larger">Quick tip: as a business you can initiate a plea yourself to gauge demand
+          for one of your potential vegan products</span>
       </p>
     </div>
   </div>
@@ -67,18 +77,18 @@
         <span class="highlighted-txt larger">Upon plea compliance...</span>
       </p>
       <ul class="reg-list">
-        <li>we notify pleagans by email if they have given permission to do so</li>
+        <li>we notify all pleagans who have subscribed to the plea and have given permission for us to do so</li>
         <li>a news update is posted on our platform</li>
-        <li>your product gets a permanent spot in our eternal Hall of Fame</li>
-        <li>you climb the rankings of our leaderboard</li>
+        <li>your veganized product gets a permanent spot in our Hall of Fame</li>
+        <li>you increase your visibility in our statistics</li>
       </ul>
     </div>
   </div>
 </section>
 
-<div id="herbivore" *ngIf="section !== 'business'">
+<div id="herbivore-section-only" *ngIf="section !== 'business'">
   <p>
-    Read how Pleagan helps businesses <a class="underlined">here</a>
+    Read about how Pleagan helps your business <a class="underlined">here</a>
     <!--      TODO: display about-business-->
   </p>
 </div>
