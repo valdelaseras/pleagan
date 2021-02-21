@@ -8,9 +8,11 @@ button.clr-accordion-header-button {
   transition: all 200ms;
 }
 
+// also add same element on expanded
 button.clr-accordion-header-button:hover,
 button.clr-accordion-header-button:focus,
-button.clr-accordion-header-button:focus-within {
+button.clr-accordion-header-button:focus-within,
+button.clr-accordion-header-button:active {
   padding-left: .5rem!important;
 }
 

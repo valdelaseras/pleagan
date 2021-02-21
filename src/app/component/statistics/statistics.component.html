@@ -9,72 +9,185 @@
 
     <div class="stat-tools">
       <h2>Tools</h2>
-      <clr-accordion>
-        <clr-accordion-panel>
-          <clr-accordion-title>Sorting</clr-accordion-title>
-          <clr-accordion-content>
 
-            <div class="clr-row">
-              <p>Compliance rate</p>
-              <clr-select-container>
-                <!--        [(ngModel)]-->
-                <select clrSelect name="options">
-                  <option value="one">Highest to lowest</option>
-                  <option value="two">Lowest to highest</option>
-                </select>
-              </clr-select-container>
-            </div>
-
-            <div class="clr-row">
-              <p>Compliance speed</p>
-              <clr-select-container>
-                <select clrSelect name="options">
-                  <option value="one">Fastest to slowest</option>
-                  <option value="two">Slowest to fastest</option>
-                </select>
-              </clr-select-container>
-            </div>
-
-          </clr-accordion-content>
-        </clr-accordion-panel>
-      </clr-accordion>
+      <div class="clr-row" id="dataset-selection">
+        <p>
+          Select dataset
+        </p>
+        <clr-select-container>
+          <select clrSelect name="dataset-options" [(ngModel)]="datasetOptions">
+            <option value="companies">Companies</option>
+            <option value="pleas">Pleas</option>
+            <option value="pleagans">Pleagans</option>
+<!--            TODO: only available if user is logged in-->
+            <option *ngIf="user$ | async as user" value="my-statistics">My statistics</option>
+          </select>
+        </clr-select-container>
+      </div>
 
       <clr-accordion>
         <clr-accordion-panel>
           <clr-accordion-title>Filters</clr-accordion-title>
-          <clr-accordion-content>
+          <clr-accordion-content *clrIfExpanded>
 
-            <div class="clr-row">
-              <p>Location</p>
-              <clr-select-container>
-                <select clrSelect name="options">
-                  <option value="one">Worldwide</option>
-                  <option value="two">Country a</option>
-                  <option value="three">Country b</option>
-                  <option value="four">Country c</option>
-                  <option value="five">Country d</option>
-                </select>
-              </clr-select-container>
-            </div>
+            <!--            Companies and pleas-->
+            <ng-container *ngIf="datasetOptions === 'companies' || datasetOptions === 'pleas'">
 
-            <div class="clr-row">
-              <p>Timeframe</p>
-              <clr-select-container>
-                <select clrSelect name="options">
-                  <option value="one">All time</option>
-                  <option value="two">This year</option>
-                  <option value="two">Previous year</option>
-                </select>
-              </clr-select-container>
-            </div>
+              <div class="clr-row">
+                <p>Compliance</p>
+                <div>
+                  <clr-radio-wrapper>
+                    <input type="radio" clrRadio value="option1" name="compliance-filter" />
+                    <label>All</label>
+                  </clr-radio-wrapper>
+                  <clr-radio-wrapper>
+                    <label>Complied only</label>
+                    <input type="radio" clrRadio value="option2" name="compliance-filter" />
+
+                  </clr-radio-wrapper>
+                  <clr-radio-wrapper>
+                    <label>Non compliance only</label>
+                    <input type="radio" clrRadio value="option2" name="compliance-filter" />
+                  </clr-radio-wrapper>
+                </div>
+              </div>
+
+              <div class="clr-row">
+                <p>Timeframe</p>
+                <clr-select-container>
+                  <select clrSelect name="timeframe-filter">
+                    <option value="one">All time</option>
+                    <option value="two">This year</option>
+                    <option value="two">Previous year</option>
+                  </select>
+                </clr-select-container>
+              </div>
+            </ng-container>
+
+            <!--            My statistics-->
+            <ng-container *ngIf="datasetOptions === 'my-statistics'">
+              <div class="clr-row">
+                <p>My contributions</p>
+                <div>
+                  <clr-radio-wrapper>
+                    <input type="radio" clrRadio value="option1" name="contributions-filter" />
+                    <label>All</label>
+                  </clr-radio-wrapper>
+                  <clr-radio-wrapper>
+                    <label>Initiated pleas</label>
+                    <input type="radio" clrRadio value="option2" name="contributions-filter" />
+
+                  </clr-radio-wrapper>
+                  <clr-radio-wrapper>
+                    <label>Supported pleas</label>
+                    <input type="radio" clrRadio value="option2" name="contributions-filter" />
+                  </clr-radio-wrapper>
+                </div>
+              </div>
+            </ng-container>
+
+            <!--All except My stats-->
+            <ng-container *ngIf="datasetOptions !== 'my-statistics'">
+              <div class="clr-row">
+                <p>Location</p>
+                <clr-select-container>
+                  <select clrSelect name="location-filter">
+                    <option value="one">Worldwide</option>
+                    <option value="two">Country a</option>
+                    <option value="three">Country b</option>
+                    <option value="four">Country c</option>
+                    <option value="five">Country d</option>
+                  </select>
+                </clr-select-container>
+              </div>
+            </ng-container>
 
           </clr-accordion-content>
         </clr-accordion-panel>
       </clr-accordion>
+
+      <ng-container *ngIf="datasetOptions === 'companies' || datasetOptions === 'pleas'">
+        <clr-accordion>
+          <clr-accordion-panel>
+            <clr-accordion-title>Sorting</clr-accordion-title>
+            <clr-accordion-content *clrIfExpanded>
+
+              <!--            Companies-->
+              <ng-container *ngIf="datasetOptions === 'companies'">
+                <div class="clr-row">
+                  <p>Compliance rate</p>
+                  <clr-select-container>
+                    <select clrSelect name="compliance-rate-sorting">
+                      <option value="one">Highest to lowest</option>
+                      <option value="two">Lowest to highest</option>
+                    </select>
+                  </clr-select-container>
+                </div>
+
+                <div class="clr-row">
+                  <p>Compliance speed</p>
+                  <clr-select-container>
+                    <select clrSelect name="compliance-speed-sorting">
+                      <option value="one">Fastest to slowest</option>
+                      <option value="two">Slowest to fastest</option>
+                    </select>
+                  </clr-select-container>
+                </div>
+
+                <div class="clr-row">
+                  <p>Pleas per company</p>
+                  <clr-select-container>
+                    <select clrSelect name="pleas-per-company-sorting">
+                      <option value="one">Most to least</option>
+                      <option value="two">Least to most</option>
+                    </select>
+                  </clr-select-container>
+                </div>
+              </ng-container>
+
+              <!--            Pleas-->
+              <ng-container *ngIf="datasetOptions === 'pleas'">
+
+                <div class="clr-row">
+                  <p>Support</p>
+                  <select clrSelect name="support-sorting">
+                    <option value="one">Most to least</option>
+                    <option value="two">Least to most</option>
+                  </select>
+                </div>
+
+              </ng-container>
+
+            </clr-accordion-content>
+          </clr-accordion-panel>
+        </clr-accordion>
+      </ng-container>
     </div>
   </div>
 
-  <div class="clr-col-lg-6">
-    <p>Graph goes here</p>
+  <div class="clr-col-lg-6 stat-visuals">
+    <ng-container *ngIf="datasetOptions === 'companies'">
+      <ul *ngIf="companies$ | async as companies">
+        <li *ngFor="let company of companies">{{ company.name }}</li>
+      </ul>
+    </ng-container>
+
+    <ng-container *ngIf="datasetOptions === 'pleas'">
+      <ul *ngIf="pleas$ | async as pleas">
+        <li *ngFor="let plea of pleas">
+          Plea for {{ plea.nonVeganProduct.name }} by {{ plea.company.name }}
+        </li>
+      </ul>
+    </ng-container>
+
+    <ng-container *ngIf="datasetOptions === 'pleagans'">
+      <p>pleagans.length</p>
+    </ng-container>
+
+    <ng-container *ngIf="datasetOptions === 'my-statistics'">
+      <div *ngIf="user$ | async as user">
+        <p>{{ user.displayName }}</p>
+      </div>
+    </ng-container>
   </div>
 </div>
