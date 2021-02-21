@@ -8,7 +8,7 @@ button.clr-accordion-header-button {
   transition: all 200ms;
 }
 
-// also add same element on expanded
+button.clr-accordion-header-button[aria-expanded="true"],
 button.clr-accordion-header-button:hover,
 button.clr-accordion-header-button:focus,
 button.clr-accordion-header-button:focus-within,
@@ -21,4 +21,10 @@ button.clr-accordion-header-button:active {
   border: none!important;
   padding-bottom: .8rem!important;
 }
+
+clr-accordion.bg-transparent .clr-accordion-panel,
+clr-accordion.bg-transparent .clr-accordion-content {
+  background-color: #e3e3e3!important;
+}
+
 

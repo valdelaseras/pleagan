@@ -1,7 +1,8 @@
 <app-search-box (queryUpdated)="updateQuery($event)"></app-search-box>
 
 <h2>Hall of Fame</h2>
-<p class="larger">Our eternal Hall of Fame for all businesses who were kind enough to listen to our pleas</p>
+<p class="larger">Our eternal Hall of Fame for all businesses who listened to our pleas and did the
+right thing</p>
 
 <main class="complied-pleas">
   <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>

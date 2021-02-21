@@ -66,6 +66,9 @@ body[cds-theme='light'] {
 
   // CARDS - PROGRESS
   --clr-progress-default-color: var(--secondary-accent-color);
+
+  // ACCORDION
+  --clr-accordion-active-background-color: var(--tertiary-color);
 }
 
 //body[cds-theme="light"] {
