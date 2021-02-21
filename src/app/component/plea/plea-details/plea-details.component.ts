@@ -13,9 +13,7 @@ export class PleaDetailsComponent {
   isVisible = false;
   plea$: Observable<Plea>;
   constructor(private route: ActivatedRoute, private pleaService: PleaService) {
-    this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '').pipe(
-      tap(console.log)
-    );
+    this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
   }
   scrollTo(id: string): void {
     const target = document.getElementById(id);
