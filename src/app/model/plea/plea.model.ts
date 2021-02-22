@@ -22,15 +22,15 @@ export class Plea implements IPlea {
   @JsonProperty('company', Company)
   company: Company = new Company();
 
-  @JsonProperty('initiator', Pleagan)
+  @JsonProperty('initiator', Pleagan, true)
   initiator: Pleagan = new Pleagan();
 
-  @JsonProperty('supports', [Support])
+  @JsonProperty('supports', [Support], true)
   supports: Support[] = [];
 
   @JsonProperty('nonVeganProduct', Product)
   nonVeganProduct: Product = new Product();
 
-  @JsonProperty('veganProduct', Product)
+  @JsonProperty('veganProduct', Product, true)
   veganProduct?: Product = new Product();
 }

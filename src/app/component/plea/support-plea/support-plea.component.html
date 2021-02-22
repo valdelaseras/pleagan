@@ -4,10 +4,10 @@
   <span class="highlighted-txt">{{ plea.company.name }}</span>
 </p>
 
-<form clrForm (ngSubmit)="submit()" [formGroup]="supportPleaForm">
+<form clrForm (ngSubmit)="submit( supportPleaForm )" [formGroup]="supportPleaForm">
   <clr-textarea-container>
     <label>Your message *</label>
-    <textarea clrTextarea formControlName="pleaMsg"></textarea>
+    <textarea clrTextarea formControlName="comment"></textarea>
 
     <clr-control-helper>
       Write a message to the company to let them know how much you want this product and why

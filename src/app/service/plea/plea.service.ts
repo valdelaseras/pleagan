@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 import { IPlea } from 'pleagan-model';
 import { map } from 'rxjs/operators';
 import { JsonConvertService } from '../json-convert/json-convert.service';
+import { Support } from '../../model/plea/support.model';
+import { ISupport } from 'pleagan-model/dist/model/plea/base/support.interfase';
 
 @Injectable()
 export class PleaService {
@@ -37,6 +39,19 @@ export class PleaService {
     );
   }
 
+  getMySupports(): Observable<Support[]> {
+    return this.http.get<ISupport[]>(`${environment.apiBaseUrl}/plea/my-supports`).pipe(
+      map((supports: ISupport[]) => {
+        try {
+          return this.convertService.parseArray(supports, Support);
+        } catch (e) {
+          console.log(e);
+          return [];
+        }
+      }),
+    );
+  }
+
   getPleaById(id: string): Observable<Plea> {
     return this.http.get<IPlea>(`${environment.apiBaseUrl}/plea/${id}`).pipe(
       map((plea: IPlea) => {
@@ -47,6 +62,11 @@ export class PleaService {
         }
       }),
     );
+  }
+
+  supportPlea( id: string, comment: string ): Observable<void> {
+    const body = { comment };
+    return this.http.post<void>(`${environment.apiBaseUrl}/plea/${id}/support`, body);
   }
 
   createPlea( plea: Plea ): Observable<{id: number}> {
