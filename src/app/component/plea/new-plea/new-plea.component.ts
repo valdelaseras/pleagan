@@ -28,6 +28,7 @@ export class NewPleaComponent {
     company: new FormControl('', Validators.required),
     product: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
+    companyContact: new FormControl(''),
     productImage: new FormControl('', [Validators.required]),
     ingredient: new FormControl(),
   });
