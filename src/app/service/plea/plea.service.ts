@@ -24,6 +24,19 @@ export class PleaService {
     );
   }
 
+  getMyPleas(): Observable<Plea[]> {
+    return this.http.get<IPlea[]>(`${environment.apiBaseUrl}/plea/my-pleas`).pipe(
+      map((pleas: IPlea[]) => {
+        try {
+          return this.convertService.parseArray(pleas, Plea);
+        } catch (e) {
+          console.log(e);
+          return [];
+        }
+      }),
+    );
+  }
+
   getPleaById(id: string): Observable<Plea> {
     return this.http.get<IPlea>(`${environment.apiBaseUrl}/plea/${id}`).pipe(
       map((plea: IPlea) => {
