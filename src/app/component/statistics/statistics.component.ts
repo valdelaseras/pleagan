@@ -6,21 +6,51 @@ import { CompanyService } from '../../service/company/company.service';
 import { Company } from '../../model/company';
 import { PleaganService } from '../../service/pleagan/pleagan.service';
 import { Pleagan } from '../../model/pleagan';
-import { mockData } from './mockdata/data';
+import { mockPleagans } from './mockdata/data';
+import { mockCompanies } from './mockdata/data';
 
 @Component({
-  selector: 'app-leaderboard',
+  selector: 'app-statistics',
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.scss'],
 })
 export class StatisticsComponent {
   // temporary
-  datasetOptions: string = 'pleagans';
+  datasetOptions: string = 'pleas';
   pleas$: Observable<Plea[]>;
   companies$: Observable<Company[]>;
   user$: Observable<Pleagan>;
 
-  options = {
+  // Some random options for graph and chart demos
+  optionsPleas = {
+    legend: {
+      data: ['Initiated pleas', 'Complied pleas'],
+      align: 'left',
+    },
+    xAxis: {
+      data: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      silent: false,
+      splitLine: {
+        show: false,
+      },
+    },
+    yAxis: {},
+    series: [
+      {
+        name: 'Initiated pleas',
+        type: 'bar',
+        data: [5, 10, 15, 30, 55, 60, 62, 53, 78, 89, 111, 243],
+      },
+      {
+        name: 'Complied pleas',
+        type: 'bar',
+        data: [0, 0, 3, 6, 4, 2, 7, 15, 5, 3, 9, 12],
+      },
+    ],
+    animationEasing: 'elasticOut',
+  };
+
+  optionsCompanies = {
     tooltip: {
       trigger: 'item',
       formatter: '{a} <br/>{b} : {c} ({d}%)',
@@ -28,7 +58,59 @@ export class StatisticsComponent {
     visualMap: {
       show: false,
       min: 0,
-      max: 10000,
+      max: 50,
+      inRange: {
+        colorLightness: [0, 1],
+      },
+    },
+    series: [
+      {
+        name: 'Initiated pleas per company',
+        type: 'pie',
+        radius: '80%',
+        center: ['50%', '50%'],
+        data: mockCompanies.sort((a, b) => a.value - b.value),
+        roseType: 'radius',
+        label: {
+          normal: {
+            textStyle: {
+              color: 'rgba(0, 0, 0, 0.6)',
+            },
+          },
+        },
+        labelLine: {
+          normal: {
+            lineStyle: {
+              color: 'rgba(0, 0, 0, 0.3)',
+            },
+            smooth: 0.2,
+            length: 10,
+            length2: 20,
+          },
+        },
+        itemStyle: {
+          normal: {
+            color: '#c2692c',
+            shadowBlur: 20,
+            shadowColor: 'rgba(0, 0, 0, 0.2)',
+          },
+        },
+
+        animationType: 'scale',
+        animationEasing: 'elasticOut',
+      },
+    ],
+  };
+
+  optionsPleagans = {
+    tooltip: {
+      trigger: 'item',
+      formatter: '{a} <br/>{b} : {c} ({d}%)',
+    },
+    visualMap: {
+      show: false,
+      min: 0,
+      max: 1000,
       inRange: {
         colorLightness: [0, 1],
       },
@@ -39,7 +121,7 @@ export class StatisticsComponent {
         type: 'pie',
         radius: '80%',
         center: ['50%', '50%'],
-        data: mockData.sort((a, b) => a.value - b.value),
+        data: mockPleagans.sort((a, b) => a.value - b.value),
         roseType: 'radius',
         label: {
           normal: {
@@ -75,10 +157,9 @@ export class StatisticsComponent {
   constructor(
     private pleaService: PleaService,
     private companyService: CompanyService,
-    private pleaganService: PleaganService,
-  ) {
-    this.pleas$ = pleaService.getPleas();
-    this.companies$ = companyService.getCompanies();
-    this.user$ = pleaganService.getCurrentPleagan();
+    private pleaganService: PleaganService ){
+      this.pleas$ = pleaService.getPleas();
+      this.companies$ = companyService.getCompanies();
+      this.user$ = pleaganService.getCurrentPleagan();
   }
 }

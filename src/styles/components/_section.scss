@@ -1,8 +1,9 @@
-//@media only screen and (min-width: 1024px) {
-//  section.section {
-//    height: 80%;
-//    display: flex;
-//    flex-direction: column;
-//    justify-content: space-around;
-//  }
-//}
+@media only screen and (min-width: 1024px) {
+  section.center-content {
+    height: 80%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

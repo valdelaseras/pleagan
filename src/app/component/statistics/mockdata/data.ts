@@ -1,26 +1,62 @@
-export var mockData = [
+export var mockPleagans = [
   {
     name: 'Germany',
-    value: 8900,
+    value: 230,
   },
   {
     name: 'USA',
-    value: 5070,
+    value: 507,
   },
   {
     name: 'France',
-    value: 8704,
+    value: 84,
   },
   {
     name: 'UK',
-    value: 2894
+    value: 284
   },
   {
     name: 'New Zealand',
-    value: 982
+    value: 382
   },
   {
     name: 'The Netherlands',
-    value: 1002
+    value: 721
   },
+  {
+    name: 'Canada',
+    value: 35
+  },
+  {
+    name: 'Brazil',
+    value: 486
+  },
+];
+
+// value should be total # of pleas ever initiated per company
+export var mockCompanies = [
+  {
+    name: 'Bottlenose Inc',
+    value: 12
+  },
+  {
+    name: 'Risso Corp',
+    value: 5
+  },
+  {
+    name: 'Hector Ltd.',
+    value: 2
+  },
+  {
+    name: 'Orca Corp',
+    value: 23
+  },
+  {
+    name: 'Pilot Whales United',
+    value: 8
+  },
+  {
+    name: 'Hectors Group',
+    value: 17
+  }
 ];
