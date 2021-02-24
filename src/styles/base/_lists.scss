@@ -1,0 +1,38 @@
+/*@start icon lists*/
+.icon-list {
+  list-style-type: none;
+}
+
+.icon-list.horizontal > li {
+  display: inline-block;
+  padding-right: 1rem;
+}
+
+.icon-list.horizontal > li:last-child {
+  padding-right: 0;
+}
+
+.icon-list img {
+  height: 2rem;
+}
+/*@end icon lists*/
+
+
+
+/*@start regular lists*/
+// TODO: get rid of important and find overriding selectors
+// TODO: then change default lists instead probably
+.reg-list {
+  margin: 1rem 0 !important;
+  list-style-position: outside !important;
+  list-style-type: disc;
+}
+
+.reg-list > li {
+  margin-inline-start: 1rem !important;
+}
+
+.reg-list > li:not(:last-child) {
+  padding-bottom: 1rem;
+}
+/*@end regular lists*/

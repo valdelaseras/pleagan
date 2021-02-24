@@ -1,56 +1,35 @@
+/*@start html*/
 html {
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
 }
+/*@end html*/
 
-//body {
-//  --clr-font: "Avenir", sans-serif;
-//
-//  h1,
-//  h2,
-//  h3,
-//  h4,
-//  h5 {
-//    font-family: var(--clr-font)!important;
-//  }
-//}
 
-.underlined {
-  text-decoration: underline !important;
-}
 
-.italic {
-  font-style: italic;
-}
+/*@start util typography classes*/
+.underlined { text-decoration: underline !important; }
+.italic { font-style: italic; }
+.bold { font-weight: bold; }
+.larger { font-size: larger; }
+.highlighted-txt { color: var(--text-accent-color); }
+/*@end util typography classes*/
 
-.bold {
-  font-weight: bold;
-}
 
+
+/*@start anchor states*/
 a:hover {
   cursor: pointer;
-}
-
-.larger {
-  font-size: larger;
-}
-
-.highlighted-div p,
-.highlighted-div a,
-.highlighted-div span {
-  color: var(--primary-text-color);
-  margin: 5px;
 }
 
 a:visited,
 a:link {
   color: var(--text-accent-color);
 }
+/*@end anchor states*/
 
-//a:visited {
-//  color: var(--primary-accent-darker-color);
-//}
 
-.highlighted-txt {
-  color: var(--text-accent-color);
-}
+
+
+
+

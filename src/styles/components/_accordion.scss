@@ -1,8 +1,13 @@
+/*@start clr-accordion-header*/
 clr-accordion-panel .clr-accordion-header {
   background-color: transparent;
   border: none !important;
 }
+/*@end clr-accordion-header*/
 
+
+
+/*@start clr-accordion-header-button*/
 button.clr-accordion-header-button {
   padding-left: 0 !important;
   transition: all 200ms;
@@ -15,7 +20,11 @@ button.clr-accordion-header-button:focus-within,
 button.clr-accordion-header-button:active {
   padding-left: 0.5rem !important;
 }
+/*@end clr-accordion-header-button*/
 
+
+
+/*@start clr-accordion-content and panel*/
 .clr-accordion-content {
   background-color: var(--primary-color);
   border: none !important;
@@ -26,3 +35,4 @@ clr-accordion.bg-transparent .clr-accordion-panel,
 clr-accordion.bg-transparent .clr-accordion-content {
   background-color: #e3e3e3 !important;
 }
+/*@end clr-accordion-content and panel*/

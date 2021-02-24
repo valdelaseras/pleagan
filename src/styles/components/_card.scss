@@ -1,7 +1,12 @@
+/*@start card*/
 .card {
   box-shadow: none;
 }
+/*@end card*/
 
+
+
+/*@start card-progress*/
 .card-block .progress,
 .card-block .progress-static,
 .card-footer .progress,
@@ -19,3 +24,4 @@
   height: 0.5rem;
   position: absolute;
 }
+/*@end card-progress*/
