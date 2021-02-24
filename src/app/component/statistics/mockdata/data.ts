@@ -1,4 +1,4 @@
-export var single = [
+export var mockData = [
   {
     name: 'Germany',
     value: 8900,
@@ -22,5 +22,5 @@ export var single = [
   {
     name: 'The Netherlands',
     value: 1002
-  }
+  },
 ];

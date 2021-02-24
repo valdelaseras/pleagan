@@ -54,6 +54,7 @@ import { CommentCardComponent } from './component/comment-card/comment-card.comp
 import { AuthorizationInterceptorProvider } from './interceptor/authorization/authorization.interceptor';
 import { FabButtonComponent } from './component/fab-button/fab-button.component';
 import { PleasListComponent } from './component/plea/children/pleas-list/pleas-list.component';
+import {NgxEchartsModule} from 'ngx-echarts';
 
 const routeGuards = [IsLoggedIn, IsNotLoggedIn];
 
@@ -105,6 +106,7 @@ const imports = [
   ReactiveFormsModule,
   HttpClientModule,
   FormsModule,
+  NgxEchartsModule.forRoot({echarts: () => import ('echarts')}),
 ];
 
 @NgModule({
