@@ -1,9 +1,12 @@
-/*@start input*/
+/*@start input file type*/
 input[type='file'] {
   display: none;
 }
 /*@end input*/
 
+
+
+/*@start custom-file-upload*/
 .custom-file-upload {
   display: inline-block;
   background-color: #f2f2f2;
@@ -12,11 +15,19 @@ input[type='file'] {
   cursor: pointer;
   text-align: center;
 }
+/*@end custom-file-upload*/
 
+
+
+/*@start textarea*/
 .clr-control-container textarea {
   width: 100%;
 }
+/*@end textarea*/
 
+
+
+/*@start input widths*/
 form clr-input-container input,
 form clr-combobox-container .clr-combobox-wrapper,
 form clr-combobox-container .clr-combobox-wrapper .clr-input {
@@ -42,3 +53,4 @@ form .clr-input-group .clr-input-group-icon-action {
     min-width: 100%;
   }
 }
+/*@end input widths*/
