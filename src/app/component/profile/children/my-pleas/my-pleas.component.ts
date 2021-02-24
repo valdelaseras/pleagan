@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {Observable} from 'rxjs';
-import {Plea} from '../../../../model/plea';
-import {PleaService} from '../../../../service/plea/plea.service';
+import { Observable } from 'rxjs';
+import { Plea } from '../../../../model/plea';
+import { PleaService } from '../../../../service/plea/plea.service';
 
 @Component({
   selector: 'app-my-pleas',
@@ -10,7 +10,7 @@ import {PleaService} from '../../../../service/plea/plea.service';
 })
 export class MyPleasComponent {
   pleas$: Observable<Plea[]>;
-  constructor( private pleaService: PleaService ) {
+  constructor(private pleaService: PleaService) {
     this.pleas$ = this.pleaService.getMyPleas();
   }
 }

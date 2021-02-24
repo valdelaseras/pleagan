@@ -3,19 +3,10 @@
   <h1 class="desktop-only">Hall of Fame</h1>
   <div class="clr-row">
     <div class="clr-col-lg-12">
-      <p>
-        Our eternal Hall of Fame for all businesses who listened to our pleas and did the
-        right thing
-      </p>
+      <p>Our eternal Hall of Fame for all businesses who listened to our pleas and did the right thing</p>
     </div>
     <div class="clr-col-lg-12">
       <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas" id="complied-pleas"></app-pleas-list>
     </div>
   </div>
 </section>
-
-
-
-
-
-

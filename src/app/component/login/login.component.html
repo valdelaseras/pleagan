@@ -1,9 +1,14 @@
 <section id="login-section">
   <h1>Log in</h1>
-  <ng-container *ngIf="!loading else loadingIndicator">
+  <ng-container *ngIf="!loading; else loadingIndicator">
     <div class="clr-row">
       <div class="clr-col-lg-6">
-        <form clrForm (ngSubmit)="loginClick$.next( loginForm )" [formGroup]="loginForm" *ngIf="!(authService.user$ | async)">
+        <form
+          clrForm
+          (ngSubmit)="loginClick$.next(loginForm)"
+          [formGroup]="loginForm"
+          *ngIf="!(authService.user$ | async)"
+        >
           <clr-input-container>
             <label for="email">Email</label>
             <input id="email" clrInput type="text" formControlName="email" required />
@@ -20,9 +25,7 @@
             Create an account
           </button>
 
-          <a class="underlined">
-            I forgot my password
-          </a>
+          <a class="underlined"> I forgot my password </a>
 
           <ng-container *ngIf="error">
             <div class="alert alert-danger" role="alert">
@@ -31,14 +34,11 @@
                   <div class="alert-icon-wrapper">
                     <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
                   </div>
-                  <span class="alert-text">
-                <strong>Oops...</strong> {{ error }}
-              </span>
+                  <span class="alert-text"> <strong>Oops...</strong> {{ error }} </span>
                 </div>
               </div>
             </div>
           </ng-container>
-
         </form>
       </div>
     </div>

@@ -4,7 +4,7 @@
   <span class="highlighted-txt">{{ plea.company.name }}</span>
 </p>
 
-<form clrForm (ngSubmit)="submit( supportPleaForm )" [formGroup]="supportPleaForm">
+<form clrForm (ngSubmit)="submit(supportPleaForm)" [formGroup]="supportPleaForm">
   <clr-textarea-container>
     <label>Your message *</label>
     <textarea clrTextarea formControlName="comment"></textarea>
@@ -17,7 +17,4 @@
   <button class="btn btn-primary" type="submit" [disabled]="!supportPleaForm.valid">Submit</button>
 </form>
 
-<app-modal-success
-  *ngIf="displayModal"
-  [message]="' Thank you! Your support has been added '"
-></app-modal-success>
+<app-modal-success *ngIf="displayModal" [message]="' Thank you! Your support has been added '"></app-modal-success>

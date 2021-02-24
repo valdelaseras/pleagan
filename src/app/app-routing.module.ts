@@ -31,7 +31,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: MyProfileComponent,
-    canActivate: [ IsLoggedIn ],
+    canActivate: [IsLoggedIn],
     children: [
       { path: 'settings', component: MySettingsComponent },
       { path: 'my-pleas', component: MyPleasComponent },
@@ -43,10 +43,10 @@ const routes: Routes = [
     path: 'plea',
     component: PleaComponent,
     children: [
-      { path: 'new', component: NewPleaComponent, canActivate: [ IsLoggedIn ] },
+      { path: 'new', component: NewPleaComponent, canActivate: [IsLoggedIn] },
       { path: 'all', component: AllPleasComponent },
       { path: ':id/details', component: PleaDetailsComponent },
-      { path: ':id/support', component: SupportPleaComponent, canActivate: [ IsLoggedIn ] },
+      { path: ':id/support', component: SupportPleaComponent, canActivate: [IsLoggedIn] },
     ],
   },
   { path: 'statistics', component: StatisticsComponent },

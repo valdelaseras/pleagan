@@ -2,7 +2,7 @@
   <h1 class="desktop-only">Initiate a plea</h1>
   <div class="clr-row">
     <div class="clr-col-lg-6">
-      <form clrForm (ngSubmit)="submit( newPleaForm )" [formGroup]="newPleaForm">
+      <form clrForm (ngSubmit)="submit(newPleaForm)" [formGroup]="newPleaForm">
         <clr-input-container>
           <label for="company">Company name*</label>
           <input
@@ -35,13 +35,21 @@
           <clr-control-error>This field is required</clr-control-error>
         </clr-input-container>
 
+        <!--        <clr-input-container>-->
+        <!--          <clr-checkbox-wrapper>-->
+        <!--            <input type="checkbox" clrCheckbox id="hospitality-sector"/>-->
+        <!--            <label for="hospitality-sector">This is a product in the hospitality sector</label>-->
+        <!--          </clr-checkbox-wrapper>-->
+        <!--        </clr-input-container> if true, display extra select field with countries and input field for city since cafes etc are very local -->
+
         <ng-container *ngIf="this.pleaInSuggestions === false; else pleaSuggestions">
           <clr-input-container>
             <label>Company email</label>
             <input clrInput type="mail" formControlName="companyContact" />
 
             <clr-control-helper>
-              Please help us out if you can and provide the companies customer service email, so we can notify them of the plea
+              Please help us out if you can and provide the companies customer service email, so we can notify them of
+              the plea
             </clr-control-helper>
             <clr-control-error>This field is required</clr-control-error>
           </clr-input-container>
@@ -59,7 +67,7 @@
             <clr-control-error *clrIfError="'requiredFieldError'">This field is required</clr-control-error>
             <clr-control-error *clrIfError="'fileSizeError'">File must not exceed 2mb</clr-control-error>
             <clr-control-error *clrIfError="'extensionError'"
-            >Allowed file extensions are .jpg, .png or .webp</clr-control-error
+              >Allowed file extensions are .jpg, .png or .webp</clr-control-error
             >
           </clr-input-container>
 
@@ -68,10 +76,10 @@
             <input clrInput type="text" formControlName="ingredient" (keyup)="createTag($event)" />
 
             <clr-control-helper>
-        <span class="tag" *ngFor="let ingredient of addedIngredients; index as index"
-        >{{ ingredient }}
-          <clr-icon shape="times" size="14" (click)="removeTag(index)"></clr-icon>
-        </span>
+              <span class="tag" *ngFor="let ingredient of addedIngredients; index as index"
+                >{{ ingredient }}
+                <clr-icon shape="times" size="14" (click)="removeTag(index)"></clr-icon>
+              </span>
             </clr-control-helper>
 
             <clr-control-helper>
@@ -116,13 +124,16 @@
               <div class="card-block">
                 <div class="card-text">
                   <p>
-                    Please take a moment to verify. If it does, support the existing plea instead of initiating a new one.
-                    Duplicate pleas decrease efficiency!
+                    Please take a moment to verify. If it does, support the existing plea instead of initiating a new
+                    one. Duplicate pleas decrease efficiency!
                   </p>
 
                   <ng-container *ngIf="!loading; else loadingIndicator">
                     <clr-stack-view>
-                      <clr-stack-block *ngFor="let plea of similarPleas" [routerLink]="['/', 'plea', 'details', plea.id]">
+                      <clr-stack-block
+                        *ngFor="let plea of similarPleas"
+                        [routerLink]="['/', 'plea', 'details', plea.id]"
+                      >
                         <clr-stack-label>{{ plea.company.name }}</clr-stack-label>
                         <clr-stack-content>
                           {{ plea.nonVeganProduct.name }}

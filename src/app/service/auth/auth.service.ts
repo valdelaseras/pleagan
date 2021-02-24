@@ -10,7 +10,7 @@ import { Pleagan } from '../../model/pleagan';
 import { PleaganService } from '../pleagan/pleagan.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   user$: Observable<Pleagan | null>;
@@ -25,42 +25,36 @@ export class AuthService {
     private pleaganService: PleaganService,
   ) {
     this.user$ = this.fireAuth.authState.pipe(
-      switchMap( ( user: firebase.User | null ) => {
-        if ( user !== null ) {
+      switchMap((user: firebase.User | null) => {
+        if (user !== null) {
           return this.pleaganService.getCurrentPleagan();
         } else {
-          return of( null );
+          return of(null);
         }
       }),
-      shareReplay()
+      shareReplay(),
     );
   }
 
-  signUp( email: string, password: string, displayName: string ): Observable<Pleagan> {
-    return from(
-      this.fireAuth.createUserWithEmailAndPassword(email, password)
-    ).pipe(
-      map( ( userCredential: UserCredential ) => this.convertService.parse( userCredential.user, Pleagan ) ),
-      mergeMap( ( pleagan: Pleagan ) => this.pleaganService.createPleagan( pleagan, displayName ) )
+  signUp(email: string, password: string, displayName: string): Observable<Pleagan> {
+    return from(this.fireAuth.createUserWithEmailAndPassword(email, password)).pipe(
+      map((userCredential: UserCredential) => this.convertService.parse(userCredential.user, Pleagan)),
+      mergeMap((pleagan: Pleagan) => this.pleaganService.createPleagan(pleagan, displayName)),
     );
   }
 
-  login( email: string, password: string ): Observable<Pleagan> {
-    return from(
-      this.fireAuth.signInWithEmailAndPassword(email, password)
-    ).pipe(
-      map( ( userCredential: UserCredential ) => this.convertService.parse( userCredential.user, Pleagan ) )
+  login(email: string, password: string): Observable<Pleagan> {
+    return from(this.fireAuth.signInWithEmailAndPassword(email, password)).pipe(
+      map((userCredential: UserCredential) => this.convertService.parse(userCredential.user, Pleagan)),
     );
   }
 
   logout(): Observable<boolean> {
-    return from(
-      this.fireAuth.signOut()
-    ).pipe(
-      delay( 100 ),
-      mergeMap( _ => {
-        return this.router.navigate([ '/', 'login' ] );
-      } )
+    return from(this.fireAuth.signOut()).pipe(
+      delay(100),
+      mergeMap((_) => {
+        return this.router.navigate(['/', 'login']);
+      }),
     );
   }
 }

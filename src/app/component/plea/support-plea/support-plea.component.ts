@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PleaService } from '../../../service/plea/plea.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Plea } from '../../../model/plea';
 
@@ -20,15 +20,14 @@ export class SupportPleaComponent {
   });
   constructor(private route: ActivatedRoute, private pleaService: PleaService, private router: Router) {
     this.pleaId = this.route.snapshot.paramMap.get('id') || '';
-    this.plea$ = this.pleaService.getPleaById( this.pleaId );
+    this.plea$ = this.pleaService.getPleaById(this.pleaId);
   }
-  submit( form: FormGroup ): void {
+  submit(form: FormGroup): void {
     this.displayModal = true;
-    this.pleaService.supportPlea( this.pleaId, form.value.comment ).subscribe(() => {
-      setTimeout( () => {
+    this.pleaService.supportPlea(this.pleaId, form.value.comment).subscribe(() => {
+      setTimeout(() => {
         window.history.back();
-      }, 3000)
+      }, 3000);
     });
   }
 }
-

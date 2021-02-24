@@ -1,5 +1,5 @@
 .nav-button {
-  margin: 1rem 0;
+  margin: 1rem 1rem 2rem 1rem;
 }
 
 #initiate-plea-btn {
@@ -33,8 +33,7 @@
 }
 
 .sidenav .nav-group .nav-list > li *.nav-link.active {
-  border-bottom: 1px solid var(--line-color);
-  font-weight: bolder;
+  background-color: var(--primary-color);
 }
 
 //TODO: take another look at this mq later
