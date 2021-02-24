@@ -3,7 +3,7 @@
   <div class="clr-row">
     <div class="clr-col-xl-6">
       <p>
-        All activity on our platform gathered in handy graphs and charts. Sort and filter through our data to learn
+        All activity on our platform is gathered in graphs and charts. Sort and filter through our data to learn
         about demand and goals that have been achieved. If you have a Pleagan account, you can also check out your own
         private stats.
       </p>
@@ -101,7 +101,7 @@
       </ng-container>
 
       <ng-container *ngIf="datasetOptions === 'pleas'">
-        <h2>2021</h2>
+        <h2>All time</h2>
         <div echarts [options]="optionsPleas"></div>
       </ng-container>
 
@@ -111,9 +111,9 @@
       </ng-container>
 
       <ng-container *ngIf="datasetOptions === 'my-statistics'">
-        <div *ngIf="user$ | async as user">
-          <p>{{ user.displayName }}</p>
-        </div>
+        <p>
+          No data to generate charts yet
+        </p>
       </ng-container>
     </div>
   </div>

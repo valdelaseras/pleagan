@@ -5,7 +5,7 @@ export var mockPleagans = [
   },
   {
     name: 'USA',
-    value: 507,
+    value: 107,
   },
   {
     name: 'France',
@@ -21,7 +21,7 @@ export var mockPleagans = [
   },
   {
     name: 'The Netherlands',
-    value: 721
+    value: 221
   },
   {
     name: 'Canada',
@@ -29,7 +29,7 @@ export var mockPleagans = [
   },
   {
     name: 'Brazil',
-    value: 486
+    value: 286
   },
 ];
 
@@ -48,6 +48,10 @@ export var mockCompanies = [
     value: 2
   },
   {
+    name: 'Who Needs Gills',
+    value: 9
+  },
+  {
     name: 'Orca Corp',
     value: 23
   },
@@ -58,5 +62,33 @@ export var mockCompanies = [
   {
     name: 'Hectors Group',
     value: 17
+  },
+  {
+    name: 'Fins and Dorsals',
+    value: 6
+  },
+  {
+    name: 'Apex Mammals',
+    value: 16
+  },
+  {
+    name: 'Maui Corp',
+    value: 22
+  },
+  {
+    name: 'E.E Inc',
+    value: 15
+  },
+  {
+    name: 'United Dorsals',
+    value: 18
+  },
+  {
+    name: 'Heaviside Industries',
+    value: 4
+  },
+  {
+    name: 'SharksRDumb',
+    value: 12
   }
 ];
