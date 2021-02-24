@@ -7,29 +7,26 @@ import { catchError, map, retry, shareReplay } from 'rxjs/operators';
 import { delayedRetry } from '../../operator/delayed-retry.operator';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PleaganService {
+  constructor(private http: HttpClient) {}
 
-  constructor( private http: HttpClient ) { }
-
-  createPleagan( pleagan: Pleagan, displayName: string ): Observable<Pleagan> {
-    const _pleagan = Object.assign( new Pleagan(), pleagan );
+  createPleagan(pleagan: Pleagan, displayName: string): Observable<Pleagan> {
+    const _pleagan = Object.assign(new Pleagan(), pleagan);
     _pleagan.displayName = displayName;
 
-    return this.http.post<void>(`${environment.apiBaseUrl}/pleagan`, _pleagan).pipe(
-      map( _ => _pleagan )
-    );
+    return this.http.post<void>(`${environment.apiBaseUrl}/pleagan`, _pleagan).pipe(map((_) => _pleagan));
   }
 
   getCurrentPleagan(): Observable<Pleagan> {
-    return this.http.get<Pleagan>( `${environment.apiBaseUrl}/pleagan` ).pipe(
-      delayedRetry( 200, 3 ),
-      catchError( error => {
-        console.log( error );
+    return this.http.get<Pleagan>(`${environment.apiBaseUrl}/pleagan`).pipe(
+      delayedRetry(200, 3),
+      catchError((error) => {
+        console.log(error);
         return EMPTY;
       }),
-      shareReplay()
+      shareReplay(),
     );
   }
 }

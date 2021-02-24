@@ -1,20 +1,18 @@
 <section id="statistics-section">
   <h1 class="desktop-only">Statistics</h1>
   <div class="clr-row">
-    <div class="clr-col-lg-6">
+    <div class="clr-col-lg-4">
       <p>
         All activity on our platform gathered in handy graphs and charts. Sort and filter through our data to learn
         about demand and goals that have been achieved. If you have a Pleagan account, you can also check out your own
-        private statistics.
+        private statistics (for fun).
       </p>
 
       <div class="stat-tools">
         <h2>Tools</h2>
 
         <div class="clr-row" id="dataset-selection">
-          <p>
-            Select dataset
-          </p>
+          <p>Select dataset</p>
           <clr-select-container>
             <select clrSelect name="dataset-options" [(ngModel)]="datasetOptions">
               <option value="companies">Companies</option>
@@ -30,10 +28,8 @@
           <clr-accordion-panel>
             <clr-accordion-title>Filters</clr-accordion-title>
             <clr-accordion-content *clrIfExpanded>
-
               <!--            Companies and pleas-->
               <ng-container *ngIf="datasetOptions === 'companies' || datasetOptions === 'pleas'">
-
                 <div class="clr-row">
                   <p>Compliance</p>
                   <div>
@@ -44,7 +40,6 @@
                     <clr-radio-wrapper>
                       <label>Complied only</label>
                       <input type="radio" clrRadio value="option2" name="compliance-filter" />
-
                     </clr-radio-wrapper>
                     <clr-radio-wrapper>
                       <label>Non compliance only</label>
@@ -77,7 +72,6 @@
                     <clr-radio-wrapper>
                       <label>Initiated pleas</label>
                       <input type="radio" clrRadio value="option2" name="contributions-filter" />
-
                     </clr-radio-wrapper>
                     <clr-radio-wrapper>
                       <label>Supported pleas</label>
@@ -102,7 +96,6 @@
                   </clr-select-container>
                 </div>
               </ng-container>
-
             </clr-accordion-content>
           </clr-accordion-panel>
         </clr-accordion>
@@ -112,7 +105,6 @@
             <clr-accordion-panel>
               <clr-accordion-title>Sorting</clr-accordion-title>
               <clr-accordion-content *clrIfExpanded>
-
                 <!--            Companies-->
                 <ng-container *ngIf="datasetOptions === 'companies'">
                   <div class="clr-row">
@@ -148,7 +140,6 @@
 
                 <!--            Pleas-->
                 <ng-container *ngIf="datasetOptions === 'pleas'">
-
                   <div class="clr-row">
                     <p>Support</p>
                     <select clrSelect name="support-sorting">
@@ -156,9 +147,7 @@
                       <option value="two">Least to most</option>
                     </select>
                   </div>
-
                 </ng-container>
-
               </clr-accordion-content>
             </clr-accordion-panel>
           </clr-accordion>
@@ -166,7 +155,7 @@
       </div>
     </div>
 
-    <div class="clr-col-lg-6 stat-visuals">
+    <div class="clr-col-lg-8 stat-visuals">
       <ng-container *ngIf="datasetOptions === 'companies'">
         <ul *ngIf="companies$ | async as companies">
           <li *ngFor="let company of companies">{{ company.name }}</li>
@@ -175,14 +164,12 @@
 
       <ng-container *ngIf="datasetOptions === 'pleas'">
         <ul *ngIf="pleas$ | async as pleas">
-          <li *ngFor="let plea of pleas">
-            Plea for {{ plea.nonVeganProduct.name }} by {{ plea.company.name }}
-          </li>
+          <li *ngFor="let plea of pleas">Plea for {{ plea.nonVeganProduct.name }} by {{ plea.company.name }}</li>
         </ul>
       </ng-container>
 
       <ng-container *ngIf="datasetOptions === 'pleagans'">
-        <p>pleagans.length</p>
+
       </ng-container>
 
       <ng-container *ngIf="datasetOptions === 'my-statistics'">

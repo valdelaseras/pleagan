@@ -12,5 +12,5 @@ import { PLEA_STATUS } from 'pleagan-model';
 export class PleasListComponent {
   @Input() pleas: Plea[];
   PLEA_STATUS = PLEA_STATUS;
-  constructor() { }
+  constructor() {}
 }

@@ -38,7 +38,7 @@ export class NewPleaComponent {
     private productService: ProductService,
     private companyService: CompanyService,
     private pleaService: PleaService,
-    private router: Router
+    private router: Router,
   ) {
     this.similarPleas$ = this.querySource$.pipe(
       debounce(() => interval(500)),
@@ -53,7 +53,7 @@ export class NewPleaComponent {
     });
   }
 
-  submit( form: FormGroup ): void {
+  submit(form: FormGroup): void {
     const product = new Product();
     product.name = form.value.product;
 
@@ -65,14 +65,12 @@ export class NewPleaComponent {
     plea.company = company;
     plea.nonVeganProduct = product;
 
-    this.pleaService.createPlea( plea ).subscribe(
-      ( { id }: { id: number } ) => {
-        this.displayModal = true;
-        setTimeout(() => {
-          this.router.navigate([ '/', 'plea', id, 'details' ]);
-        }, 3000)
-      }
-    )
+    this.pleaService.createPlea(plea).subscribe(({ id }: { id: number }) => {
+      this.displayModal = true;
+      setTimeout(() => {
+        this.router.navigate(['/', 'plea', id, 'details']);
+      }, 3000);
+    });
   }
 
   createTag(event: KeyboardEvent): void {

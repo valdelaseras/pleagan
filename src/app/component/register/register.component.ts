@@ -13,17 +13,17 @@ import { Pleagan } from '../../model/pleagan';
 export class RegisterComponent {
   form = new FormGroup({
     email: new FormControl('', Validators.required),
-    displayName: new FormControl( '', Validators.required ),
+    displayName: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     confirmPassword: new FormControl('', Validators.required),
   });
 
-  redirect = () => setTimeout( () => this.router.navigate(['/']), 5000 );
+  redirect = () => setTimeout(() => this.router.navigate(['/']), 5000);
 
-  constructor( public authService: AuthService, private router: Router ) {}
+  constructor(public authService: AuthService, private router: Router) {}
 
-  submit( form: FormGroup ): void {
+  submit(form: FormGroup): void {
     const { email, password, displayName } = form.value;
-    this.authService.signUp( email, password, displayName ).subscribe( this.redirect );
+    this.authService.signUp(email, password, displayName).subscribe(this.redirect);
   }
 }

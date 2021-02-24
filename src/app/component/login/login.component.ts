@@ -14,36 +14,38 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   error?: string;
   loading = false;
-  loginForm = new FormGroup( {
-    email: new FormControl('', Validators.required ),
-    password: new FormControl('', Validators.required )
+  loginForm = new FormGroup({
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
   });
 
   loginClick$: Subject<FormGroup> = new Subject<FormGroup>();
 
-  constructor( public authService: AuthService, private router: Router ) {
-    this.loginClick$.pipe(
-      tap( () => this.setLoading( true ) ),
-      mergeMap( this.login ),
-      tap( () => {
-        this.setLoading( false );
-        this.resetForm();
-        this.router.navigate(['/']);
-      } ),
-    ).subscribe();
+  constructor(public authService: AuthService, private router: Router) {
+    this.loginClick$
+      .pipe(
+        tap(() => this.setLoading(true)),
+        mergeMap(this.login),
+        tap(() => {
+          this.setLoading(false);
+          this.resetForm();
+          this.router.navigate(['/']);
+        }),
+      )
+      .subscribe();
   }
 
-  login = ( form: FormGroup ): Observable<Pleagan> => {
-    return this.authService.login( form.value.email, form.value.password ).pipe(
-      catchError( ( error: Error ) => {
+  login = (form: FormGroup): Observable<Pleagan> => {
+    return this.authService.login(form.value.email, form.value.password).pipe(
+      catchError((error: Error) => {
         this.error = error.message;
-        this.setLoading( false );
+        this.setLoading(false);
         return EMPTY;
-      } ),
+      }),
     );
   };
 
-  private setLoading = ( state: boolean ): void => {
+  private setLoading = (state: boolean): void => {
     this.loading = state;
   };
 

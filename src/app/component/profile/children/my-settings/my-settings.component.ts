@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../../../service/auth/auth.service';
-import {EMPTY, Observable} from 'rxjs';
-import {Pleagan} from '../../../../model/pleagan';
-import {filter, map} from 'rxjs/operators';
-import {THEME} from 'pleagan-model/dist/model/pleagan/settings/user-settings.interface';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../../service/auth/auth.service';
+import { EMPTY, Observable } from 'rxjs';
+import { Pleagan } from '../../../../model/pleagan';
+import { filter, map } from 'rxjs/operators';
+import { THEME } from 'pleagan-model/dist/model/pleagan/settings/user-settings.interface';
 
 @Component({
   selector: 'app-my-settings',
@@ -14,14 +14,14 @@ export class MySettingsComponent implements OnInit {
   user$: Observable<Pleagan | undefined>;
   theme = THEME;
 
-  constructor( public authService: AuthService ) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
     // TODO: temporary
     this.user$ = this.authService.user$.pipe(
-      filter( ( user: Pleagan | null ) => user !== null ),
-      map( ( user: Pleagan | null ) => {
-        if ( user ) {
+      filter((user: Pleagan | null) => user !== null),
+      map((user: Pleagan | null) => {
+        if (user) {
           user.settings = {
             theme: THEME.DEFAULT,
             notifications: {
@@ -56,19 +56,17 @@ export class MySettingsComponent implements OnInit {
                   onLocation: false,
                 },
                 news: false,
-              }
-            }
+              },
+            },
           };
           return user;
         }
         return undefined;
-      })
+      }),
     );
   }
 
   confirmDeletion(): void {
-    alert(
-      'Are you sure you want to delete your account?'
-    );
+    alert('Are you sure you want to delete your account?');
   }
 }

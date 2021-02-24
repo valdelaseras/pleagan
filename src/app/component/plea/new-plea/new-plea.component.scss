@@ -16,7 +16,7 @@
 .clr-form {
   display: flex;
   flex-direction: column;
-  min-height: calc(100% - 72px);
+  //min-height: calc(100% - 72px);
   padding-bottom: 1rem;
 }
 
@@ -52,6 +52,12 @@
 
   .card-footer .btn {
     width: 100%;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .card-footer .btn {
+      min-width: 100%;
+    }
   }
 }
 

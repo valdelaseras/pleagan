@@ -11,36 +11,26 @@
 <ng-template #nav>
   <nav id="sidenav" class="sidenav" [clr-nav-level]="1">
     <section class="sidenav-content">
-      <section class="nav-group user-state">
-        <small *ngIf="!(authService.user$ | async)">
-          Please <a class="underlined" [routerLink]="['/', 'login']">login</a> or <a class="underlined" [routerLink]="['/', 'register']">create an account</a> to initiate and support pleas
-        </small>
-        <p *ngIf="authService.user$ | async">
-          <a class="underlined" (click)="logout()">logout</a>
-        </p>
-      </section>
       <section *ngIf="authService.user$ | async as user" class="nav-group collapsible">
-        <input id="nav-profile-section" type="checkbox" />
-        <label for="nav-profile-section">{{ user.displayName }}</label>
-        <ul class="nav-list">
-          <!--          <li class="nav-item">-->
-          <!--            <div class="nav-item nav-button">-->
-          <!--              <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['plea', 'new']">-->
-          <!--                <span id="initiate-plea-btn" class="btn btn-primary btn-icon" aria-label="Initiate a plea">-->
-          <!--                  <clr-icon shape="plus" size="14"></clr-icon>-->
-          <!--                  Initiate plea-->
-          <!--                </span>-->
-          <!--              </a>-->
-          <!--            </div>-->
-          <!--          </li>-->
+        <div class="nav-button">
+          <a [routerLinkActive]="'active'" [routerLink]="['plea', 'new']">
+            <span id="initiate-plea-btn" class="btn btn-primary btn-icon" aria-label="Initiate a plea">
+              <clr-icon shape="plus" size="14"></clr-icon>
+              Initiate plea
+            </span>
+          </a>
+        </div>
 
+        <input id="nav-profile-section" type="checkbox" />
+        <label for="nav-profile-section">{{ user.displayName || 'Profile' }}</label>
+        <ul class="nav-list">
           <li class="nav-item">
             <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['profile', 'settings']">Settings</a>
             <!--            email settings etc go here. I guess maybe also user pic, password reset, delete account, sign out-->
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['profile', 'my-pleas']">My pleas</a>
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['profile', 'my-pleas']"> My pleas </a>
           </li>
 
           <li class="nav-item">
@@ -95,7 +85,16 @@
           </li>
         </ul>
       </section>
-    </section>
 
+      <section class="nav-group user-state">
+        <small *ngIf="!(authService.user$ | async)">
+          Please <a class="underlined" [routerLink]="['/', 'login']">login</a> or
+          <a class="underlined" [routerLink]="['/', 'register']">create an account</a> to initiate and support pleas
+        </small>
+        <p *ngIf="authService.user$ | async">
+          <a class="underlined" (click)="logout()">logout</a>
+        </p>
+      </section>
+    </section>
   </nav>
 </ng-template>

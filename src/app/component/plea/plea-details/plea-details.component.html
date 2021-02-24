@@ -26,7 +26,7 @@
         <a
           type="button"
           (click)="$event.preventDefault()"
-          [routerLink]="['/plea', plea.id, 'support' ]"
+          [routerLink]="['/plea', plea.id, 'support']"
           class="btn btn-primary btn-icon"
           aria-label="Support this plea"
         >
@@ -42,9 +42,7 @@
         <span>by {{ plea.company.name }}</span
         ><br />
         <div class="tag">
-          <span class="bolder">{{ plea.supports.length }}</span> supporter{{
-            plea.supports.length > 1 ? 's' : null
-          }}
+          <span class="bolder">{{ plea.supports.length }}</span> supporter{{ plea.supports.length > 1 ? 's' : null }}
         </div>
       </div>
 

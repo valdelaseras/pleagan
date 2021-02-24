@@ -64,13 +64,13 @@ export class PleaService {
     );
   }
 
-  supportPlea( id: string, comment: string ): Observable<void> {
+  supportPlea(id: string, comment: string): Observable<void> {
     const body = { comment };
     return this.http.post<void>(`${environment.apiBaseUrl}/plea/${id}/support`, body);
   }
 
-  createPlea( plea: Plea ): Observable<{id: number}> {
-    return this.http.post<{id: number}>( `${environment.apiBaseUrl}/plea`, plea );
+  createPlea(plea: Plea): Observable<{ id: number }> {
+    return this.http.post<{ id: number }>(`${environment.apiBaseUrl}/plea`, plea);
   }
 
   searchPleas = (query: string): Observable<Plea[]> => {

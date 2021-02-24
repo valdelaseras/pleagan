@@ -1,6 +1,8 @@
+// TODO: order and group all this nicely
 import { BrowserModule } from '@angular/platform-browser';
 import { Directive, NgModule } from '@angular/core';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './component/app/app.component';
 import { HomeComponent } from './component/home/home.component';
@@ -10,7 +12,6 @@ import { NewPleaComponent } from './component/plea/new-plea/new-plea.component';
 import { AllPleasComponent } from './component/plea/all-pleas/all-pleas.component';
 import { PleaDetailsComponent } from './component/plea/plea-details/plea-details.component';
 import { ClarityModule } from '@clr/angular';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './component/nav/nav.component';
 import { ModalSuccessComponent } from './component/modals/modal-success/modal-success.component';
@@ -49,15 +50,12 @@ import { AuthService } from './service/auth/auth.service';
 import { IsLoggedIn } from './guard/is-logged-in';
 import { IsNotLoggedIn } from './guard/is-not-logged-in';
 import { SupportersListComponent } from './component/plea/children/supporters-list/supporters-list.component';
-import {CommentCardComponent} from './component/comment-card/comment-card.component';
+import { CommentCardComponent } from './component/comment-card/comment-card.component';
 import { AuthorizationInterceptorProvider } from './interceptor/authorization/authorization.interceptor';
 import { FabButtonComponent } from './component/fab-button/fab-button.component';
 import { PleasListComponent } from './component/plea/children/pleas-list/pleas-list.component';
 
-const routeGuards = [
-  IsLoggedIn,
-  IsNotLoggedIn
-];
+const routeGuards = [IsLoggedIn, IsNotLoggedIn];
 
 const components = [
   AppComponent,
@@ -99,7 +97,7 @@ const components = [
 ];
 const imports = [
   BrowserModule,
-  AngularFireModule.initializeApp( environment.firebase ),
+  AngularFireModule.initializeApp(environment.firebase),
   AngularFireAuthModule,
   AppRoutingModule,
   ClarityModule,
@@ -110,13 +108,7 @@ const imports = [
 ];
 
 @NgModule({
-  declarations: [
-    components,
-    CommentCardComponent,
-    FabButtonComponent,
-    PleasListComponent,
-    PleasListComponent
-  ],
+  declarations: [components, CommentCardComponent, FabButtonComponent, PleasListComponent, PleasListComponent],
   imports: imports,
   providers: [PleaService, AuthService, ...routeGuards, AuthorizationInterceptorProvider],
   bootstrap: [AppComponent],

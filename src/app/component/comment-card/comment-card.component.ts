@@ -4,14 +4,12 @@ import { Support } from '../../model/plea/support.model';
 @Component({
   selector: 'app-comment-card',
   templateUrl: './comment-card.component.html',
-  styleUrls: ['./comment-card.component.scss']
+  styleUrls: ['./comment-card.component.scss'],
 })
 export class CommentCardComponent implements OnInit {
   @Input() support: Support;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

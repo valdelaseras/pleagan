@@ -7,12 +7,15 @@ import { Pleagan } from '../model/pleagan';
 
 @Injectable()
 export class IsNotLoggedIn implements CanActivate {
-  constructor( private authService: AuthService, private router: Router ) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot,
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.authService.user$.pipe(
-      map( ( user: Pleagan | null ) => user === null ),
-      tap( ( loggedOut: boolean ) => !loggedOut && this.router.navigate(['/']) )
-    )
+      map((user: Pleagan | null) => user === null),
+      tap((loggedOut: boolean) => !loggedOut && this.router.navigate(['/'])),
+    );
   }
 }

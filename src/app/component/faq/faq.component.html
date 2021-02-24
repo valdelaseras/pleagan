@@ -14,21 +14,22 @@
           <clr-accordion-content *clrIfExpanded>
             <h3>Email</h3>
             <p>
-              When you support or initiate a plea, you are asked for an email for verification purpose. We verify by email
-              because we don't want ill intended people or bots to spam and diminish the integrity of our pleas.
+              When you support or initiate a plea, you are asked for an email for verification purpose. We verify by
+              email because we don't want ill intended people or bots to spam and diminish the integrity of our pleas.
             </p>
             <p>
-              In the forms you will find an option to receive updates regarding the plea. If you check this box, we will use
-              the email for that purpose. Other than that, your email isn't shared with anybody else. We keep the email in
-              our databases only to prevent users from supporting the same plea with the same email address multiple times.
+              In the forms you will find an option to receive updates regarding the plea. If you check this box, we will
+              use the email for that purpose. Other than that, your email isn't shared with anybody else. We keep the
+              email in our databases only to prevent users from supporting the same plea with the same email address
+              multiple times.
             </p>
 
             <h3>Location</h3>
             <p>
-              In the forms we also ask for your country. The purpose of gathering these locations is so the companies know
-              where demand is concentrated. In an ideal world they would do so for a worldwide market. However, they may not
-              always have the resources for this. We want all businesses, large or small, to launch vegan products
-              successfully, so they will happily and naturally invest more efforts into similar products.
+              In the forms we also ask for your country. The purpose of gathering these locations is so the companies
+              know where demand is concentrated. In an ideal world they would do so for a worldwide market. However,
+              they may not always have the resources for this. We want all businesses, large or small, to launch vegan
+              products successfully, so they will happily and naturally invest more efforts into similar products.
             </p>
           </clr-accordion-content>
         </clr-accordion-panel>
@@ -38,8 +39,8 @@
           <clr-accordion-content *clrIfExpanded>
             <p>
               Currently each plea has 3 supporter targets: {{ PLEA_TARGET.FIRST }}, {{ PLEA_TARGET.SECOND }} and
-              {{ PLEA_TARGET.THIRD }}. We may adjust these targets over time. Whenever a target is hit, we will send out an
-              email to the company in question with the plea included.
+              {{ PLEA_TARGET.THIRD }}. We may adjust these targets over time. Whenever a target is hit, we will send out
+              an email to the company in question with the plea included.
             </p>
           </clr-accordion-content>
         </clr-accordion-panel>
@@ -47,13 +48,15 @@
         <clr-accordion-panel>
           <clr-accordion-title>Where can I find the fruits of our efforts?</clr-accordion-title>
           <clr-accordion-content *clrIfExpanded>
-            <p>We have a couple of pages where we focus on successfully achieved results and plea-compliant companies:</p>
+            <p>
+              We have a couple of pages where we focus on successfully achieved results and plea-compliant companies:
+            </p>
 
             <ul class="reg-list">
               <li><a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/', 'news', 'all']">News</a></li>
               <li>
                 <a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/', 'hall-of-fame', 'all']"
-                >Hall of Fame</a
+                  >Hall of Fame</a
                 >
               </li>
               <li>
@@ -63,8 +66,8 @@
 
             <p>
               <!--          TODO: also add appreciation msg feed (send some love thingy)-->
-              We like to put a spotlight on the success stories in order to promote the products and show our appreciation.
-              This way it will be easier for you in turn to support these businesses and their products.
+              We like to put a spotlight on the success stories in order to promote the products and show our
+              appreciation. This way it will be easier for you in turn to support these businesses and their products.
             </p>
 
             <h3>Stay updated</h3>
@@ -75,39 +78,38 @@
           </clr-accordion-content>
         </clr-accordion-panel>
 
-          <!--    <clr-accordion-panel>-->
-          <!--      <clr-accordion-title>Can I contribute to Pleagan?</clr-accordion-title>-->
-          <!--      <clr-accordion-content *clrIfExpanded>-->
-          <!--        <h3>Yes!</h3>-->
+        <!--    <clr-accordion-panel>-->
+        <!--      <clr-accordion-title>Can I contribute to Pleagan?</clr-accordion-title>-->
+        <!--      <clr-accordion-content *clrIfExpanded>-->
+        <!--        <h3>Yes!</h3>-->
 
-          <!--        <h4>Will I be paid?</h4>-->
-          <!--        <h5>No</h5>-->
-          <!--        <p>It's not because we are stingy, we just don't generate any money with Pleagan ;)</p>-->
-          <!--        <p>-->
-          <!--          All work on Pleagan has been done on voluntary basis and personal investments. We are however really excited-->
-          <!--          and grateful if anyone is willing to contribute any work to Pleagan. We love the idea of Pleagan being a community-->
-          <!--          project.-->
-          <!--        </p>-->
-          <!--        <p>-->
-          <!--          Contributions can include all sorts of help, from sending in new ideas, copywrite improvements,-->
-          <!--          contributing visual work, code, you name it. We have a-->
-          <!--          <a class="underlined" [routerLinkActive]="'active'" [routerLink]="'special-thanks'">special thanks</a> page-->
-          <!--          dedicated to all those who have made Pleagan possible in some way.-->
-          <!--        </p>-->
+        <!--        <h4>Will I be paid?</h4>-->
+        <!--        <h5>No</h5>-->
+        <!--        <p>It's not because we are stingy, we just don't generate any money with Pleagan ;)</p>-->
+        <!--        <p>-->
+        <!--          All work on Pleagan has been done on voluntary basis and personal investments. We are however really excited-->
+        <!--          and grateful if anyone is willing to contribute any work to Pleagan. We love the idea of Pleagan being a community-->
+        <!--          project.-->
+        <!--        </p>-->
+        <!--        <p>-->
+        <!--          Contributions can include all sorts of help, from sending in new ideas, copywrite improvements,-->
+        <!--          contributing visual work, code, you name it. We have a-->
+        <!--          <a class="underlined" [routerLinkActive]="'active'" [routerLink]="'special-thanks'">special thanks</a> page-->
+        <!--          dedicated to all those who have made Pleagan possible in some way.-->
+        <!--        </p>-->
 
-          <!--        <h4>Developers</h4>-->
-          <!--        <p>Pleagan is open source. Please help.</p>-->
+        <!--        <h4>Developers</h4>-->
+        <!--        <p>Pleagan is open source. Please help.</p>-->
 
-          <!--        <h4>UX, UI and Visual Artists</h4>-->
-          <!--        <p>-->
-          <!--          Besides code contributions, we also love to change up our theme and styles from time to time. Pleagan is built-->
-          <!--          without UX or visual design professionals and we did our best to make it look decent ;). If you are and have some-->
-          <!--          cool ideas for Pleagans, you are most welcome to get in touch with us and have a chat!-->
-          <!--        </p>-->
-          <!--      </clr-accordion-content>-->
-          <!--    </clr-accordion-panel>-->
-        </clr-accordion>
-      </div>
+        <!--        <h4>UX, UI and Visual Artists</h4>-->
+        <!--        <p>-->
+        <!--          Besides code contributions, we also love to change up our theme and styles from time to time. Pleagan is built-->
+        <!--          without UX or visual design professionals and we did our best to make it look decent ;). If you are and have some-->
+        <!--          cool ideas for Pleagans, you are most welcome to get in touch with us and have a chat!-->
+        <!--        </p>-->
+        <!--      </clr-accordion-content>-->
+        <!--    </clr-accordion-panel>-->
+      </clr-accordion>
     </div>
+  </div>
 </section>
-

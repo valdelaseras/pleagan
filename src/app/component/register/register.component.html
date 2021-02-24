@@ -4,7 +4,6 @@
 
     <div class="clr-row">
       <div class="clr-col-lg-6">
-
         <div class="card plea-card clickable">
           <div class="card-block c-header">
             <h4 class="card-title">Registration successful!</h4>
@@ -17,7 +16,6 @@
             </p>
           </div>
         </div>
-
       </div>
     </div>
   </ng-container>
@@ -28,9 +26,7 @@
     <div class="clr-row">
       <div class="clr-col-lg-6">
         <form clrForm (ngSubmit)="submit(form)" [formGroup]="form">
-          <p>
-            In order to create or support pleas, you must create an account
-          </p>
+          <p>In order to create or support pleas, you must create an account</p>
 
           <clr-input-container>
             <label for="email">Your email address</label>
@@ -56,12 +52,15 @@
             <clr-control-error>Password must match</clr-control-error>
           </clr-password-container>
 
-          <button class="btn btn-primary"
-                  id="login-btn"
-                  [disabled]="!form.valid || form.value.password !== form.value.confirmPassword"
-                  type="submit">Create account</button>
+          <button
+            class="btn btn-primary"
+            id="login-btn"
+            [disabled]="!form.valid || form.value.password !== form.value.confirmPassword"
+            type="submit"
+          >
+            Create account
+          </button>
         </form>
-
       </div>
     </div>
   </ng-template>

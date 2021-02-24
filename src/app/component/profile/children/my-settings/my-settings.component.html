@@ -8,9 +8,7 @@
             <h2>Account</h2>
             <ul>
               <li class="clr-row">
-                <p>
-                  Email address
-                </p>
+                <p>Email address</p>
                 <p>
                   {{ user.email }}
                   <a title="Change email address">
@@ -19,9 +17,7 @@
                 </p>
               </li>
               <li class="clr-row">
-                <p>
-                  Display name
-                </p>
+                <p>Display name</p>
                 <p>
                   {{ user.displayName }}
                   <a title="Change display name">
@@ -44,12 +40,16 @@
                 <clr-accordion-title>Push notifications</clr-accordion-title>
                 <clr-accordion-content *clrIfExpanded>
                   <div class="clr-row">
-                    <p>
-                      Enable
-                    </p>
+                    <p>Enable</p>
                     <clr-toggle-container>
                       <clr-toggle-wrapper>
-                        <input type="checkbox" clrToggle name="all-push-notifications" value="all-push-notifications" [(ngModel)]="user.settings.notifications.push.enabled" />
+                        <input
+                          type="checkbox"
+                          clrToggle
+                          name="all-push-notifications"
+                          value="all-push-notifications"
+                          [(ngModel)]="user.settings.notifications.push.enabled"
+                        />
                       </clr-toggle-wrapper>
                     </clr-toggle-container>
                   </div>
@@ -59,22 +59,26 @@
                         <h3>My pleas</h3>
                         <ul class="settings-sublist">
                           <li class="clr-row">
-                            <p>
-                              On threshold
-                            </p>
+                            <p>On threshold</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.push.myPleas.onThreshold" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.push.myPleas.onThreshold"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
                           <li class="clr-row">
-                            <p>
-                              On compliance
-                            </p>
+                            <p>On compliance</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.push.myPleas.onCompliance" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.push.myPleas.onCompliance"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -84,22 +88,26 @@
                         <h3>Supported pleas</h3>
                         <ul class="settings-sublist">
                           <li class="clr-row">
-                            <p>
-                              On threshold
-                            </p>
+                            <p>On threshold</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.push.supportedPleas.onThreshold" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.push.supportedPleas.onThreshold"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
                           <li class="clr-row">
-                            <p>
-                              On compliance
-                            </p>
+                            <p>On compliance</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.push.supportedPleas.onCompliance" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.push.supportedPleas.onCompliance"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -109,22 +117,26 @@
                         <h3>Other pleas</h3>
                         <ul class="settings-sublist">
                           <li class="clr-row">
-                            <p>
-                              All new pleas
-                            </p>
+                            <p>All new pleas</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.push.otherPleas.onNew" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.push.otherPleas.onNew"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
                           <li class="clr-row">
-                            <p>
-                              On location
-                            </p>
+                            <p>On location</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.push.otherPleas.onLocation" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.push.otherPleas.onLocation"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -139,11 +151,16 @@
                 <clr-accordion-title>Email notifications</clr-accordion-title>
                 <clr-accordion-content>
                   <div class="clr-row">
-                    <p>Enable
-                    </p>
+                    <p>Enable</p>
                     <clr-toggle-container>
                       <clr-toggle-wrapper>
-                        <input type="checkbox" clrToggle name="all-mail-notifications" value="all-mail-notifications" [(ngModel)]="user.settings.notifications.email.enabled" />
+                        <input
+                          type="checkbox"
+                          clrToggle
+                          name="all-mail-notifications"
+                          value="all-mail-notifications"
+                          [(ngModel)]="user.settings.notifications.email.enabled"
+                        />
                       </clr-toggle-wrapper>
                     </clr-toggle-container>
                   </div>
@@ -153,22 +170,26 @@
                         <h3>My pleas</h3>
                         <ul class="settings-sublist">
                           <li class="clr-row">
-                            <p>
-                              On threshold
-                            </p>
+                            <p>On threshold</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.email.myPleas.onThreshold" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.email.myPleas.onThreshold"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
                           <li class="clr-row">
-                            <p>
-                              On compliance
-                            </p>
+                            <p>On compliance</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.email.myPleas.onCompliance" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.email.myPleas.onCompliance"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -178,22 +199,26 @@
                         <h3>Supported pleas</h3>
                         <ul class="settings-sublist">
                           <li class="clr-row">
-                            <p>
-                              On threshold
-                            </p>
+                            <p>On threshold</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.email.supportedPleas.onThreshold" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.email.supportedPleas.onThreshold"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
                           <li class="clr-row">
-                            <p>
-                              On compliance
-                            </p>
+                            <p>On compliance</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.email.supportedPleas.onCompliance" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.email.supportedPleas.onCompliance"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -203,22 +228,26 @@
                         <h3>Other pleas</h3>
                         <ul class="settings-sublist">
                           <li class="clr-row">
-                            <p>
-                              All new pleas
-                            </p>
+                            <p>All new pleas</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.email.otherPleas.onNew" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.email.otherPleas.onNew"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
                           <li class="clr-row">
-                            <p>
-                              On location
-                            </p>
+                            <p>On location</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="user.settings.notifications.email.otherPleas.onLocation" />
+                                <input
+                                  type="checkbox"
+                                  clrToggle
+                                  [(ngModel)]="user.settings.notifications.email.otherPleas.onLocation"
+                                />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -234,9 +263,7 @@
             <h2>Theme</h2>
             <ul>
               <li class="clr-row">
-                <p>
-                  Your theme preference
-                </p>
+                <p>Your theme preference</p>
                 <select clrSelect name="themes" [(ngModel)]="user.settings.theme">
                   <option [value]="theme.DEFAULT">Default</option>
                   <option [value]="theme.BEAN">Bean</option>
@@ -250,10 +277,3 @@
     </div>
   </div>
 </section>
-
-
-
-
-
-
-

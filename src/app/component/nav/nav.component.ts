@@ -10,7 +10,7 @@ export class NavComponent {
   largeScreen = this.isLargeScreen();
   collapsed = true;
 
-  constructor( public authService: AuthService ) {}
+  constructor(public authService: AuthService) {}
 
   @HostListener('window:resize', ['$event'])
   handleResize(event: UIEvent): void {
