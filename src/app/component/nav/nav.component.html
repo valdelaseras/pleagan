@@ -12,16 +12,7 @@
   <nav id="sidenav" class="sidenav" [clr-nav-level]="1">
     <section class="sidenav-content">
       <section *ngIf="authService.user$ | async as user" class="nav-group collapsible">
-        <div class="nav-button">
-          <a [routerLinkActive]="'active'" [routerLink]="['plea', 'new']">
-            <span id="initiate-plea-btn" class="btn btn-primary btn-icon" aria-label="Initiate a plea">
-              <clr-icon shape="plus" size="14"></clr-icon>
-              Initiate plea
-            </span>
-          </a>
-        </div>
-
-        <input id="nav-profile-section" type="checkbox" />
+        <input id="nav-profile-section" type="checkbox" checked/>
         <label for="nav-profile-section">{{ user.displayName || 'Profile' }}</label>
         <ul class="nav-list">
           <li class="nav-item">
