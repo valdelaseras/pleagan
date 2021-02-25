@@ -1,6 +1,8 @@
 /*@start btn*/
 //TODO: a nice transition
 .btn {
+  -webkit-transition: all 200ms;
+  -o-transition: all 200ms;
   transition: all 200ms;
 }
 /*@end btn*/

@@ -10,6 +10,8 @@ clr-accordion-panel .clr-accordion-header {
 /*@start clr-accordion-header-button*/
 button.clr-accordion-header-button {
   padding-left: 0 !important;
+  -webkit-transition: all 200ms;
+  -o-transition: all 200ms;
   transition: all 200ms;
 }
 

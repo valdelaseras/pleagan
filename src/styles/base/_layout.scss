@@ -31,8 +31,15 @@
 
 @media only screen and (min-width: 1024px) {
   .main-container .content-container .content-area {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     overflow-y: scroll;
   }

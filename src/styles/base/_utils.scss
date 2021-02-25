@@ -5,17 +5,10 @@
 
 
 /*@start screen size exclusions*/
-.desktop-only {
-  display: none;
-}
+.desktop-only { display: none; }
 
 @media only screen and (min-width: 1024px) {
-  .mobile-only {
-    display: none;
-  }
-
-  .desktop-only {
-    display: initial;
-  }
+  .mobile-only { display: none; }
+  .desktop-only { display: initial;}
 }
 /*@end screen size exclusions*/
