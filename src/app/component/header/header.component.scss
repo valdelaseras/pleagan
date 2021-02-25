@@ -1,3 +1,4 @@
+/*@start header title*/
 .header .branding .title,
 header .branding .title,
 .page-title span {
@@ -6,8 +7,11 @@ header .branding .title,
   line-height: 3rem;
   text-decoration: none;
 }
+/*@end header title*/
 
+/*@start header page title*/
 clr-header .page-title {
   position: fixed;
   right: 1rem;
 }
+/*@end header page title*/

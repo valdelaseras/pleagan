@@ -5,17 +5,23 @@ html {
 }
 /*@end html*/
 
-
-
 /*@start util typography classes*/
-.underlined { text-decoration: underline !important; }
-.italic { font-style: italic; }
-.bold { font-weight: bold; }
-.larger { font-size: larger; }
-.highlighted-txt { color: var(--text-accent-color); }
+.underlined {
+  text-decoration: underline !important;
+}
+.italic {
+  font-style: italic;
+}
+.bold {
+  font-weight: bold;
+}
+.larger {
+  font-size: larger;
+}
+.highlighted-txt {
+  color: var(--text-accent-color);
+}
 /*@end util typography classes*/
-
-
 
 /*@start anchor states*/
 a:hover {
@@ -27,9 +33,3 @@ a:link {
   color: var(--text-accent-color);
 }
 /*@end anchor states*/
-
-
-
-
-
-

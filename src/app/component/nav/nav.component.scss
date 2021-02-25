@@ -1,3 +1,4 @@
+/*@start nav-button ( initiate plea button )*/
 .nav-button {
   margin: 1rem 1rem 2rem 1rem;
 }
@@ -9,25 +10,39 @@
 #initiate-plea-btn clr-icon {
   margin-top: -3px;
 }
+/*@end nav-button ( initiate plea button )*/
 
+/*@start user-state (logged in or out)*/
 .user-state {
   padding: 0 1.5rem;
 }
+/*@end user-state (logged in or out)*/
 
+/*@start nav group label*/
 .nav-group label {
   color: var(--tertiary-accent-color);
-}
-
-.sidenav .nav-group .nav-list {
-  padding: 0;
-  margin: 0;
 }
 
 .sidenav .nav-group label {
   margin-bottom: 0.25rem;
   font-weight: bolder;
 }
+/*@end nav group label*/
 
+/*@start nav-list*/
+.sidenav .nav-group .nav-list {
+  padding: 0;
+  margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .sidenav .nav-group .nav-list {
+    margin: 0;
+  }
+}
+/*@end nav-list*/
+
+/*@start nav-link*/
 .sidenav .nav-group .nav-list > li *.nav-link {
   padding: 0.5rem 2rem;
 }
@@ -36,40 +51,14 @@
   background-color: var(--primary-color);
 }
 
-//TODO: take another look at this mq later
 @media only screen and (min-width: 768px) {
-  clr-vertical-nav {
-    width: 260px;
-    --clr-vertical-nav-trigger-divider-border-color: transparent;
-  }
-
-  #sidenav {
-    //height: calc(100vh - 98px);
-    height: 100%;
-    width: 240px;
-    margin-top: -12px;
-    border: none;
-  }
-
   .clr-vertical-nav .nav-group-text,
   .clr-vertical-nav .nav-link {
     padding-left: 0;
   }
 
-  //.nav-button {
-  //  height: 80px;
-  //}
-  //
-  //.nav-button a {
-  //  height: 80px;
-  //}
-
   .sidenav .sidenav-content .nav-link {
     border-radius: 0;
-  }
-
-  .sidenav .nav-group .nav-list {
-    margin: 0;
   }
 
   .sidenav .nav-group .nav-list .nav-link {
@@ -77,3 +66,19 @@
     padding: 0.5rem;
   }
 }
+/*@end nav-link*/
+
+/*@start side nav*/
+@media only screen and (min-width: 768px) {
+  clr-vertical-nav {
+    width: 260px;
+    --clr-vertical-nav-trigger-divider-border-color: transparent;
+  }
+
+  #sidenav {
+    height: 100%;
+    width: 240px;
+    border: none;
+  }
+}
+/*@end side nav*/
