@@ -1,15 +1,51 @@
+/*@start header*/
 clr-header.header {
   background-color: transparent;
   color: var(--primary-text-color);
 }
+/*@end header*/
 
+/*@start header title*/
 clr-header.header .branding a .title {
   color: var(--primary-text-color);
 }
+/*@end header title*/
 
+/*@start header-hamburger-trigger span*/
 //TODO: X no longer visible on mobile when menu is open
 clr-header .header-hamburger-trigger span,
 clr-header .header-hamburger-trigger span::before,
 clr-header .header-hamburger-trigger span::after {
   background-color: var(--primary-text-color);
 }
+/*@end header-hamburger-trigger span*/
+
+/*@start header title*/
+.header .branding .title,
+header .branding .title,
+.page-title span {
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  line-height: 3rem;
+  text-decoration: none;
+}
+/*@end header title*/
+
+/*@start header page title*/
+clr-header .page-title {
+  position: fixed;
+  right: 1rem;
+}
+/*@end header page title*/
+
+/*@start clr-header*/
+clr-header {
+  box-shadow: 0 -8px 10px 5px rgba(0,0,0,.5);
+}
+
+@media only screen and (min-width: 1024px){
+  clr-header {
+    box-shadow: none;
+  }
+}
+/*@end clr-header*/

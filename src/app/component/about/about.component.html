@@ -1,4 +1,4 @@
-<section id="about-section">
+<section id="about-section" class="section">
   <h1>What is Pleagan?</h1>
   <div class="clr-row">
     <div class="clr-col-lg-5">
@@ -39,17 +39,24 @@
       </clr-accordion>
     </div>
   </div>
+
+  <div id="herbivore-section-only" *ngIf="section !== 'business'">
+    <p>
+      Read about how Pleagan helps your business <a class="underlined">here</a>
+      <!--      TODO: display about-business-->
+    </p>
+  </div>
 </section>
 
 <section class="section" id="business" *ngIf="section === 'business'">
   <h1>How pleagan helps your business</h1>
 
   <div class="clr-row">
-    <div class="clr-col-lg-4">
+    <div class="clr-col-lg-5">
       <h2>Stats</h2>
     </div>
 
-    <div class="clr-col-lg-8">
+    <div class="clr-col-lg-7">
       <p class="larger">
         Learn about the demand for your vegan product, where demand is concentrated and how you are doing compared to
         your competitors. Find the relevant pleas by searching for your company name
@@ -66,11 +73,11 @@
   </div>
 
   <div class="clr-row">
-    <div class="clr-col-lg-4">
+    <div class="clr-col-lg-5">
       <h2>Exposure</h2>
     </div>
 
-    <div class="clr-col-lg-8">
+    <div class="clr-col-lg-7">
       <p>
         <span class="highlighted-txt larger">Upon plea compliance...</span>
       </p>
@@ -84,9 +91,4 @@
   </div>
 </section>
 
-<div id="herbivore-section-only" *ngIf="section !== 'business'">
-  <p>
-    Read about how Pleagan helps your business <a class="underlined">here</a>
-    <!--      TODO: display about-business-->
-  </p>
-</div>
+

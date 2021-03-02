@@ -13,23 +13,23 @@ export var mockPleagans = [
   },
   {
     name: 'UK',
-    value: 284
+    value: 284,
   },
   {
     name: 'New Zealand',
-    value: 382
+    value: 382,
   },
   {
     name: 'The Netherlands',
-    value: 221
+    value: 221,
   },
   {
     name: 'Canada',
-    value: 35
+    value: 35,
   },
   {
     name: 'Brazil',
-    value: 286
+    value: 286,
   },
 ];
 
@@ -37,58 +37,58 @@ export var mockPleagans = [
 export var mockCompanies = [
   {
     name: 'Bottlenose Inc',
-    value: 12
+    value: 12,
   },
   {
     name: 'Risso Corp',
-    value: 5
+    value: 5,
   },
   {
     name: 'Hector Ltd.',
-    value: 2
+    value: 2,
   },
   {
     name: 'Who Needs Gills',
-    value: 9
+    value: 9,
   },
   {
     name: 'Orca Corp',
-    value: 23
+    value: 23,
   },
   {
     name: 'Pilot Whales United',
-    value: 8
+    value: 8,
   },
   {
     name: 'Hectors Group',
-    value: 17
+    value: 17,
   },
   {
     name: 'Fins and Dorsals',
-    value: 6
+    value: 6,
   },
   {
     name: 'Apex Mammals',
-    value: 16
+    value: 16,
   },
   {
     name: 'Maui Corp',
-    value: 22
+    value: 22,
   },
   {
     name: 'E.E Inc',
-    value: 15
+    value: 15,
   },
   {
     name: 'United Dorsals',
-    value: 18
+    value: 18,
   },
   {
     name: 'Heaviside Industries',
-    value: 4
+    value: 4,
   },
   {
     name: 'SharksRDumb',
-    value: 12
-  }
+    value: 12,
+  },
 ];

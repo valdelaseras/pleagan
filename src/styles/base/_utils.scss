@@ -1,43 +1,10 @@
+/*@start text alignments*/
 .align-center {
   text-align: center;
 }
+/*@end text alignments*/
 
-.icon-list {
-  list-style-type: none;
-}
-
-.icon-list.horizontal > li {
-  display: inline-block;
-  padding-right: 1rem;
-}
-
-.icon-list.horizontal > li:last-child {
-  padding-right: 0;
-}
-
-.icon-list img {
-  height: 2rem;
-}
-
-// also get rid of important and find overriding selectors
-.reg-list {
-  margin: 1rem 0 !important;
-  list-style-position: outside !important;
-  list-style-type: disc;
-}
-
-.reg-list > li {
-  margin-inline-start: 1rem !important;
-}
-
-.reg-list > li:not(:last-child) {
-  padding-bottom: 1rem;
-}
-
-ul {
-  list-style-type: none;
-}
-
+/*@start screen size exclusions*/
 .desktop-only {
   display: none;
 }
@@ -46,8 +13,8 @@ ul {
   .mobile-only {
     display: none;
   }
-
   .desktop-only {
     display: initial;
   }
 }
+/*@end screen size exclusions*/

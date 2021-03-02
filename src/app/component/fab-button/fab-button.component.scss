@@ -1,5 +1,4 @@
 footer {
-  background-color: var(--primary-color);
   padding: 0.5rem;
   position: fixed;
   bottom: 0;
@@ -8,3 +7,11 @@ footer {
   z-index: 20;
   text-align: right;
 }
+
+.fill-background {
+  background-color: var(--primary-color);
+}
+
+//clr-icon {
+//  margin-top: -3px;
+//}

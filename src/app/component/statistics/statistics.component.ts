@@ -28,7 +28,32 @@ export class StatisticsComponent {
       align: 'left',
     },
     xAxis: {
-      data: ['January 21', 'February 21', 'March 21', 'April 21', 'May 21', 'June 21', 'July 21', 'August 21', 'September 21', 'October 21', 'November 21', 'December 21', 'January 22', 'February 22', 'March 22', 'April 22', 'May 22', 'June 22', 'July 22', 'August 22', 'September 22', 'October 22', 'November 22', 'December 22'],
+      data: [
+        'January 21',
+        'February 21',
+        'March 21',
+        'April 21',
+        'May 21',
+        'June 21',
+        'July 21',
+        'August 21',
+        'September 21',
+        'October 21',
+        'November 21',
+        'December 21',
+        'January 22',
+        'February 22',
+        'March 22',
+        'April 22',
+        'May 22',
+        'June 22',
+        'July 22',
+        'August 22',
+        'September 22',
+        'October 22',
+        'November 22',
+        'December 22',
+      ],
       silent: false,
       splitLine: {
         show: false,
@@ -39,7 +64,32 @@ export class StatisticsComponent {
       {
         name: 'Initiated pleas',
         type: 'bar',
-        data: [5, 10, 15, 30, 55, 60, 62, 53, 78, 89, 111, 243, 225, 210, 215, 330, 355, 360, 262, 253, 278, 389, 111, 243],
+        data: [
+          5,
+          10,
+          15,
+          30,
+          55,
+          60,
+          62,
+          53,
+          78,
+          89,
+          111,
+          243,
+          225,
+          210,
+          215,
+          330,
+          355,
+          360,
+          262,
+          253,
+          278,
+          389,
+          111,
+          243,
+        ],
       },
       {
         name: 'Complied pleas',
@@ -157,9 +207,10 @@ export class StatisticsComponent {
   constructor(
     private pleaService: PleaService,
     private companyService: CompanyService,
-    private pleaganService: PleaganService ){
-      this.pleas$ = pleaService.getPleas();
-      this.companies$ = companyService.getCompanies();
-      this.user$ = pleaganService.getCurrentPleagan();
+    private pleaganService: PleaganService,
+  ) {
+    this.pleas$ = pleaService.getPleas();
+    this.companies$ = companyService.getCompanies();
+    this.user$ = pleaganService.getCurrentPleagan();
   }
 }

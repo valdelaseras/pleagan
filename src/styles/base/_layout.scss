@@ -1,19 +1,11 @@
-.main-container .content-container .content-area {
-  padding: 0 1rem;
-}
-
+/*@start main-container*/
 .main-container {
   width: 100%;
 }
+/*@end main-container*/
 
+/*@start grid*/
 @media only screen and (min-width: 1024px) {
-  .main-container .content-container .content-area {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    overflow-y: scroll;
-  }
-
   .grid {
     width: 70vw;
     max-width: 70vw;
@@ -26,3 +18,26 @@
     max-width: 50vw;
   }
 }
+/*@end grid*/
+
+/*@start content-area*/
+.main-container .content-container .content-area {
+  padding: 0 1rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .main-container .content-container .content-area {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow-y: scroll;
+  }
+}
+/*@end content-area*/

@@ -1,19 +1,32 @@
+/*@start comment-card*/
 .comment-card {
   width: 100%;
   margin: 0.25rem 0;
   padding: 0.25rem 0;
 }
+/*@end comment-card*/
 
+/*@start comment-card-header*/
 .comment-card-header {
   margin-top: -0.25rem;
 }
+/*@end comment-card-header*/
 
+/*@start comment-card-body*/
 .comment-card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+/*@end comment-card-body*/
 
+/*@start comment-img*/
 .comment-img {
   height: 3rem;
   min-width: 3rem;
@@ -21,8 +34,11 @@
   background-color: red;
   border-radius: 3px;
 }
+/*@end comment-img*/
 
+/*@start comment-msg*/
 .comment-msg {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding-left: 0.5rem;
   width: 100%;
@@ -31,3 +47,4 @@
 .comment-msg p {
   margin-top: 0.25rem;
 }
+/*@end comment-msg*/

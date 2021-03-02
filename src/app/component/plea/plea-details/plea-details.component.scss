@@ -1,19 +1,30 @@
-.plea-page {
-  padding-top: 1rem;
-}
-
+/*@start plea text*/
 .plea-text {
   padding-bottom: 0.5rem;
 }
 
+.plea-text > p:first-child {
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+/*@end plea text*/
+
+/*@start plea header*/
 .plea-header {
   margin-bottom: 1rem;
 }
+/*@end plea header*/
 
-.plea-details > p:first-child {
-  margin-top: 0;
+/*@start plea details p*/
+// TODO: this may be redundant once I restructure the HTML to clr rows like the rest of the pages
+@media only screen and (min-width: 1440px) {
+  .plea-details > p:first-child {
+    margin-top: 0;
+  }
 }
+/*@end plea details p*/
 
+/*@start tag*/
 .tag {
   padding: 0.25rem 1rem;
   background-color: var(--tertiary-accent-color);
@@ -30,7 +41,9 @@
     margin: 1rem 0 0.5rem -1rem;
   }
 }
+/*@end tag*/
 
+/*@start original plea*/
 #original-plea {
   margin: 2rem -1rem -1rem;
   background-color: var(--quinary-color);
@@ -43,7 +56,9 @@
 #original-plea h3 {
   color: var(--primary-text-color);
 }
+/*@end original plea*/
 
+/*@start plea support button*/
 .plea-support-btn {
   text-align: center;
   margin-top: -3rem;
@@ -54,19 +69,23 @@
 }
 
 .plea-support-btn a.btn {
+  -webkit-box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
 }
 
 .plea-support-btn a.btn clr-icon {
   margin-top: -3px;
 }
+/*@end plea support button*/
 
+/*@start plea image*/
 .plea-img {
   width: 100vw;
   max-width: 100vw;
   height: auto;
   margin-left: -1rem;
   margin-bottom: 0.5rem;
+  margin-top: 0.8rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -86,12 +105,4 @@
     margin-top: 0;
   }
 }
-
-.plea-text > p:first-child {
-  font-size: 1.25rem;
-  line-height: 2rem;
-}
-
-.plea-details img {
-  margin-top: 0.75rem;
-}
+/*@end plea image*/

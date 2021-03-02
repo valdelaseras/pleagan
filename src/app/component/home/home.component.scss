@@ -1,19 +1,40 @@
+/*@start landing*/
 .landing {
   height: calc(100vh - 5rem);
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
 }
+/*@end landing*/
 
+/*@start landing-branding*/
 .landing-branding {
   width: 100%;
   height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -27,9 +48,12 @@
 
 .landing-branding img {
   height: 180px;
+  -webkit-filter: opacity(0.65);
   filter: opacity(0.65);
 }
+/*@end landing-branding*/
 
+/*@start landing cta*/
 .landing-cta {
   height: 35%;
   text-align: left;
@@ -42,36 +66,48 @@
 .landing-cta button {
   margin-top: 15px;
 }
+/*@end landing cta*/
 
-// Setting initial visibility of these elements to 0
+/*@start landing elements initial visibility*/
 .landing-cta p,
 .landing-cta button,
 .branding-image {
   opacity: 0;
 }
+/*@end landing elements initial visibility*/
 
+/*@start p positioning*/
 .landing-cta p.animate-third {
   margin-top: 30px;
 }
+/*@end p positioning*/
 
+/*@start animation sequence*/
 // Animations for page init
 .branding-image {
+  -webkit-animation: entryFromRight 3.5s ease-out 1s forwards;
   animation: entryFromRight 3.5s ease-out 1s forwards;
 }
 
 .animate-first {
+  -webkit-animation: entryFromRight 1.25s ease-out 1s forwards;
   animation: entryFromRight 1.25s ease-out 1s forwards;
 }
 .animate-second {
+  -webkit-animation: entryFromRight 1.25s ease-out 1.5s forwards;
   animation: entryFromRight 1.25s ease-out 1.5s forwards;
 }
 .animate-third {
+  -webkit-animation: entryFromRight 1.25s ease-out 2s forwards;
   animation: entryFromRight 1.25s ease-out 2s forwards;
 }
 
 #vegan-visitor-btn {
+  -webkit-animation: fadeIn 1s ease 3.25s forwards;
   animation: fadeIn 1s ease 3.25s forwards;
 }
 #company-visitor-btn {
+  -webkit-animation: fadeIn 1s ease 3.5s forwards;
   animation: fadeIn 1s ease 3.5s forwards;
 }
+/*@end animation sequence*/

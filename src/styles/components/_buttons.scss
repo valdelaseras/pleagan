@@ -1,7 +1,19 @@
+/*@start btn*/
+//TODO: a nice transition
+.btn {
+  -webkit-transition: all 200ms;
+  -o-transition: all 200ms;
+  transition: all 200ms;
+}
+/*@end btn*/
+
+/*@start button*/
 button[type='submit'] {
   margin: 1.5rem 0;
 }
+/*@end button*/
 
+/*@start btn-primary*/
 .btn.btn-primary {
   border: none !important;
 }
@@ -10,25 +22,13 @@ button[type='submit'] {
   border: none !important;
   color: white !important;
 }
+/*@end btn-primary*/
 
-//TODO: some fun transition
-.btn {
-  transition: all 200ms;
-}
+/*@start btn-compact*/
 .btn.btn-compact {
   height: 1rem;
   padding: 0 0.25rem;
   line-height: normal;
   margin: 1.2rem 0 0;
 }
-
-//TODO: put some cool style here so menu trigger is more obvious
-//@media only screen and (min-width: 1024px) {
-//  button.nav-trigger {
-//    transition: all 500ms;
-//  }
-//
-//  button.nav-trigger.on-collapse {
-//    background-color: white!important;
-//  }
-//}
+/*@end btn-compact*/

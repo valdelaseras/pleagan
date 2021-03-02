@@ -1,3 +1,4 @@
+/*@start msg-cloud*/
 .msg-cloud {
   background-color: var(--primary-color);
   padding: 1rem;
@@ -6,7 +7,9 @@
   margin-top: 1.25rem;
   z-index: 20;
 }
+/*@end msg-cloud*/
 
+/*@start msg-cloud-shape ( little triangle )*/
 .msg-shape {
   position: absolute;
   top: -1rem;
@@ -14,6 +17,7 @@
   background-color: var(--primary-color);
   height: 25px;
   width: 50px;
+  -webkit-clip-path: polygon(0 0, 0% 100%, 50% 100%);
   clip-path: polygon(0 0, 0% 100%, 50% 100%);
   border-radius: 3px;
   z-index: 10;
@@ -24,5 +28,8 @@
   left: -0.9rem;
   height: 30px;
   width: 60px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
+/*@end msg-cloud-shape ( little triangle )*/

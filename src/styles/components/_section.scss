@@ -1,9 +1,38 @@
+/*@start section*/
+section.section {
+  padding-bottom: 2rem;
+}
+
+@media only screen and (min-width: 768px){
+  section.section {
+    padding-top: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1024px){
+  section.section{
+    padding-top: 0;
+  }
+}
+/*@end section*/
+
+
+
+/*@start section center-content*/
 @media only screen and (min-width: 1024px) {
   section.center-content {
     height: 80%;
     overflow-y: scroll;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
   }
 }
+/*@end section center-content*/
