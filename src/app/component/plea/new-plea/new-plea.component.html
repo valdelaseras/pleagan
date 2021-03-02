@@ -59,7 +59,12 @@
             <label class="custom-file-upload">
               <clr-icon shape="upload" size="16"></clr-icon>
             </label>
-            <input clrInput type="file" accept=".jpg,.png,.webp" data-max-size="2048" formControlName="productImage" />
+            <input clrInput
+                   type="file"
+                   (change)="onFileChange( $event.target['files'] )"
+                   accept=".jpg,.png,.webp"
+                   data-max-size="2048"
+                   formControlName="productImage" />
 
             <clr-control-helper>Please upload an image of the current product</clr-control-helper>
 
@@ -70,6 +75,8 @@
               >Allowed file extensions are .jpg, .png or .webp</clr-control-error
             >
           </clr-input-container>
+
+          <img *ngIf="imagePreview" src="{{ imagePreview }}"/>
 
           <clr-input-container>
             <label>Ingredients to be taken out</label>
