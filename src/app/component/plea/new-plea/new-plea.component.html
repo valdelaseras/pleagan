@@ -111,10 +111,27 @@
         </ng-container>
       </form>
 
-      <app-modal-success
-        *ngIf="displayModal"
-        [message]="'Success! You will be redirected to your plea shortly'"
-      ></app-modal-success>
+      <clr-modal
+        [(clrModalOpen)]="isOpen"
+        [clrModalClosable]="true"
+        [clrModalStaticBackdrop]="false" [clrModalSize]="'l'">
+        <h3 class="modal-title">Plea submitted successfully</h3>
+        <div class="modal-body">
+          <p>
+            Thank you for your submission! Your plea is now available to be supported. Once your plea has reached the
+            first support threshold we will notify the business of your plea.
+          </p>
+          <p>
+            You can always check on the status of your plea <a class="underlined" routerLink="/profile/my-pleas">here</a>.
+            Don't forget to <a class="underlined" routerLink>share your plea</a> on social media if you use any to increase
+            the visibility of your plea.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="handleModal()">Got it, take me to my plea</button>
+        </div>
+        <div class="modal-backdrop" aria-hidden="true"></div>
+      </clr-modal>
 
       <ng-template #pleaSuggestions>
         <div *ngIf="newPleaForm.get('product').value && newPleaForm.get('company').value" [@swipeInBelowSwipeOutTop]>

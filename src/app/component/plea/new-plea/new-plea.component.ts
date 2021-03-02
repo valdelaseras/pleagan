@@ -18,11 +18,12 @@ import { Router } from '@angular/router';
   animations: [SWIPE_IN_BELOW_SWIPE_OUT_TOP, FADE_IN_OUT_LIST, FADE_IN_OUT_SINGLE],
 })
 export class NewPleaComponent {
+  pleaId: number;
   querySource$: Subject<string> = new Subject<string>();
   similarPleas$: Observable<Plea[]>;
   similarPleas: Plea[];
   pleaInSuggestions: boolean;
-  displayModal = false;
+  isOpen = false;
   addedIngredients: string[] = [];
   newPleaForm = new FormGroup({
     company: new FormControl('', Validators.required),
@@ -65,11 +66,14 @@ export class NewPleaComponent {
     plea.nonVeganProduct = product;
 
     this.pleaService.createPlea(plea).subscribe(({ id }: { id: number }) => {
-      this.displayModal = true;
-      setTimeout(() => {
-        this.router.navigate(['/', 'plea', id, 'details']);
-      }, 3000);
+      this.isOpen = true;
+      this.pleaId = id;
     });
+  }
+
+  handleModal(): void{
+    this.isOpen = false;
+    this.router.navigate(['/', 'plea', this.pleaId, 'details']);
   }
 
   createTag(event: KeyboardEvent): void {
