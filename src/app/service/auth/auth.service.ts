@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { from, Observable, of } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import firebase from 'firebase/app';
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
 import { delay, map, mergeMap, shareReplay, switchMap } from 'rxjs/operators';
-import { JsonConvertService } from '../json-convert/json-convert.service';
-import { Pleagan } from '../../model/pleagan';
 import { PleaganService } from '../pleagan/pleagan.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  user$: Observable<Pleagan | null>;
+  user$: Observable<firebase.User | null>;
+
   get idToken$() {
     return this.fireAuth.idToken;
   }
@@ -21,31 +20,32 @@ export class AuthService {
   constructor(
     private fireAuth: AngularFireAuth,
     private router: Router,
-    private convertService: JsonConvertService,
-    private pleaganService: PleaganService,
+    private pleaganService: PleaganService
   ) {
-    this.user$ = this.fireAuth.authState.pipe(
-      switchMap((user: firebase.User | null) => {
-        if (user !== null) {
-          return this.pleaganService.getCurrentPleagan();
-        } else {
-          return of(null);
-        }
+    this.user$ = this.fireAuth.authState;
+  }
+
+  signUp( email: string, password: string, displayName: string ): Observable<void> {
+    return from(
+      this.fireAuth.createUserWithEmailAndPassword( email, password )
+    ).pipe(
+      switchMap( ( userCredential: UserCredential ) => {
+        return from(this.fireAuth.currentUser.then( async ( user: firebase.User | null ) => {
+          const photoURL = '/assets/images/default-user.png';
+          if ( user ) {
+            await user.updateProfile({ displayName, photoURL });
+          }
+        }))
       }),
-      shareReplay(),
+      switchMap( () => this.pleaganService.createPleagan() )
     );
   }
 
-  signUp(email: string, password: string, displayName: string): Observable<Pleagan> {
-    return from(this.fireAuth.createUserWithEmailAndPassword(email, password)).pipe(
-      map((userCredential: UserCredential) => this.convertService.parse(userCredential.user, Pleagan)),
-      mergeMap((pleagan: Pleagan) => this.pleaganService.createPleagan(pleagan, displayName)),
-    );
-  }
-
-  login(email: string, password: string): Observable<Pleagan> {
-    return from(this.fireAuth.signInWithEmailAndPassword(email, password)).pipe(
-      map((userCredential: UserCredential) => this.convertService.parse(userCredential.user, Pleagan)),
+  login( email: string, password: string ): Observable<firebase.User> {
+    return from(
+      this.fireAuth.signInWithEmailAndPassword( email, password )
+    ).pipe(
+      map( ( userCredential: UserCredential ) => userCredential.user! )
     );
   }
 

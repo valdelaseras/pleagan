@@ -10,8 +10,8 @@ export class Support implements ISupport {
   @JsonProperty('comment', String)
   comment = '';
 
-  @JsonProperty('supporter', Pleagan)
-  supporter = new Pleagan();
+  @JsonProperty('pleagan', Pleagan, true)
+  pleagan = new Pleagan();
 
   @JsonProperty('createdAt', String)
   createdAt = new Date();

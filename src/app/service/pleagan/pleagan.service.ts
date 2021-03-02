@@ -12,11 +12,8 @@ import { delayedRetry } from '../../operator/delayed-retry.operator';
 export class PleaganService {
   constructor(private http: HttpClient) {}
 
-  createPleagan(pleagan: Pleagan, displayName: string): Observable<Pleagan> {
-    const _pleagan = Object.assign(new Pleagan(), pleagan);
-    _pleagan.displayName = displayName;
-
-    return this.http.post<void>(`${environment.apiBaseUrl}/pleagan`, _pleagan).pipe(map((_) => _pleagan));
+  createPleagan(): Observable<void> {
+    return this.http.post<void>(`${environment.apiBaseUrl}/pleagan`, null );
   }
 
   getCurrentPleagan(): Observable<Pleagan> {

@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth/auth.service';
 import { EMPTY, Observable, Subject } from 'rxjs';
 import { catchError, mergeMap, tap } from 'rxjs/operators';
-import { Pleagan } from '../../model/pleagan';
+import firebase from 'firebase/app';
 import { Router } from '@angular/router';
 
 @Component({
@@ -35,9 +35,9 @@ export class LoginComponent {
       .subscribe();
   }
 
-  login = (form: FormGroup): Observable<Pleagan> => {
-    return this.authService.login(form.value.email, form.value.password).pipe(
-      catchError((error: Error) => {
+  login = ( form: FormGroup ): Observable<firebase.User> => {
+    return this.authService.login( form.value.email, form.value.password ).pipe(
+      catchError( ( error: Error ) => {
         this.error = error.message;
         this.setLoading(false);
         return EMPTY;

@@ -39,6 +39,19 @@ export class PleaService {
     );
   }
 
+  getPleasISupport(): Observable<Plea[]> {
+    return this.http.get<IPlea[]>(`${environment.apiBaseUrl}/plea/my-supported-pleas`).pipe(
+      map((pleas: IPlea[]) => {
+        try {
+          return this.convertService.parseArray(pleas, Plea);
+        } catch (e) {
+          console.log(e);
+          return [];
+        }
+      }),
+    );
+  }
+
   getMySupports(): Observable<Support[]> {
     return this.http.get<ISupport[]>(`${environment.apiBaseUrl}/plea/my-supports`).pipe(
       map((supports: ISupport[]) => {

@@ -7,16 +7,10 @@ export class Pleagan implements IPleagan {
   @JsonProperty('uid', String)
   uid: string = '';
 
-  @JsonProperty('emailVerified', Boolean)
-  emailVerified: boolean = false;
-
   @JsonProperty('displayName', String)
   displayName: string = '';
 
-  @JsonProperty('email', String, true)
-  email?: string = '';
-
-  @JsonProperty('photoUrl', String, true)
+  @JsonProperty( 'photoUrl', String, true )
   photoUrl?: string = '';
 
   @JsonProperty('country', String, true)

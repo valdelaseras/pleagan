@@ -1,6 +1,6 @@
 // TODO: order and group all this nicely
 import { BrowserModule } from '@angular/platform-browser';
-import { Directive, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';

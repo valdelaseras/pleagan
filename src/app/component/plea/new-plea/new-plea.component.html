@@ -117,40 +117,43 @@
       ></app-modal-success>
 
       <ng-template #pleaSuggestions>
-        <div *ngIf="newPleaForm.get('product').value && newPleaForm.get('company').value" [@swipeInFromBelow]>
+        <div *ngIf="newPleaForm.get('product').value && newPleaForm.get('company').value" [@swipeInBelowSwipeOutTop]>
           <ng-container>
             <div class="card suggested-pleas">
-              <div class="card-header">It looks like a plea for this product may already exist</div>
+              <div class="card-header">Make sure a plea for this product doesn't already exist</div>
               <div class="card-block">
-                <div class="card-text">
-                  <p>
-                    Please take a moment to verify. If it does, support the existing plea instead of initiating a new
-                    one. Duplicate pleas decrease efficiency!
-                  </p>
-
-                  <ng-container *ngIf="!loading; else loadingIndicator">
-                    <clr-stack-view>
-                      <clr-stack-block
-                        *ngFor="let plea of similarPleas"
-                        [routerLink]="['/', 'plea', 'details', plea.id]"
-                      >
-                        <clr-stack-label>{{ plea.company.name }}</clr-stack-label>
-                        <clr-stack-content>
-                          {{ plea.nonVeganProduct.name }}
-                        </clr-stack-content>
-                      </clr-stack-block>
-                    </clr-stack-view>
-                  </ng-container>
-                </div>
+                <ng-container *ngIf="!loading; else loadingIndicator">
+                  <div class="card-text">
+                    <ng-container *ngIf="similarPleas.length; else noSimilarPleas">
+                      <p>
+                        Please take a moment to verify. If it doesn't, support the existing plea instead of initiating a new one.
+                        Duplicate pleas decrease Pleagan's effectiveness!
+                      </p>
+                      <clr-stack-view [@swipeInBelowSwipeOutTop]>
+                        <clr-stack-block *ngFor="let plea of similarPleas" [routerLink]="['/', 'plea', 'details', plea.id]">
+                          <clr-stack-label>{{ plea.company.name }}</clr-stack-label>
+                          <clr-stack-content>
+                            {{ plea.nonVeganProduct.name }}
+                          </clr-stack-content>
+                        </clr-stack-block>
+                      </clr-stack-view>
+                    </ng-container>
+                  </div>
+                </ng-container>
               </div>
               <div class="card-footer">
                 <button type="button" class="btn btn-primary" (click)="pleaInSuggestions = false">
-                  This is a different product
+                  Continue
                 </button>
               </div>
             </div>
           </ng-container>
         </div>
+      </ng-template>
+
+      <ng-template #noSimilarPleas>
+        <h2>You're good!</h2>
+        <p>No other pleas matching the given information exists! You can go ahead and create it.</p>
       </ng-template>
 
       <ng-template #loadingIndicator>

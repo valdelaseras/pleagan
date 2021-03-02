@@ -6,7 +6,7 @@ import { CompanyService } from '../../../service/company/company.service';
 import { Plea } from '../../../model/plea';
 import { PleaService } from '../../../service/plea/plea.service';
 import { debounce, switchMap, tap } from 'rxjs/operators';
-import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../animations';
+import { FADE_IN_OUT_LIST, FADE_IN_OUT_SINGLE, SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../animations';
 import { Product } from '../../../model/product';
 import { Company } from '../../../model/company';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   selector: 'app-new-plea',
   templateUrl: './new-plea.component.html',
   styleUrls: ['./new-plea.component.scss'],
-  animations: [SWIPE_IN_BELOW_SWIPE_OUT_TOP],
+  animations: [SWIPE_IN_BELOW_SWIPE_OUT_TOP, FADE_IN_OUT_LIST, FADE_IN_OUT_SINGLE],
 })
 export class NewPleaComponent {
   querySource$: Subject<string> = new Subject<string>();
@@ -44,7 +44,6 @@ export class NewPleaComponent {
       debounce(() => interval(500)),
       tap((_) => (this.loading = true)),
       switchMap(this.pleaService.searchPleas),
-      tap(console.log),
       tap((_) => (this.loading = false)),
     );
 
@@ -87,8 +86,6 @@ export class NewPleaComponent {
   searchSimilarPleas(): void {
     const companyName = this.newPleaForm.get('company')?.value;
     const productName = this.newPleaForm.get('product')?.value;
-
-    console.log(companyName && productName);
 
     if (companyName && productName) {
       this.querySource$.next(this.getSearchQuery());
