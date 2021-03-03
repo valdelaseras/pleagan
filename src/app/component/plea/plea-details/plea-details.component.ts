@@ -8,9 +8,7 @@ import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../animations';
   selector: 'app-submission-details',
   templateUrl: './plea-details.component.html',
   styleUrls: ['./plea-details.component.scss'],
-  animations: [
-    SWIPE_IN_BELOW_SWIPE_OUT_TOP
-  ]
+  animations: [SWIPE_IN_BELOW_SWIPE_OUT_TOP],
 })
 export class PleaDetailsComponent {
   isOpen = false;
@@ -19,7 +17,7 @@ export class PleaDetailsComponent {
   constructor(private route: ActivatedRoute, private pleaService: PleaService) {
     this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
   }
-  submitReport(){
+  submitReport() {
     console.log('submit');
     // TODO: submit with reason value and plea id
     this.isOpen = false;

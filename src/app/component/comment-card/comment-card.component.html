@@ -1,15 +1,14 @@
 <div class="comment-card">
   <div class="comment-card-body">
     <div class="comment-user-avatar">
-      <img class="fluid"
-           alt="avatar of {{ support.pleagan.displayName }}"
-           src="{{ support.pleagan.photoURL }}"/>
+      <img class="fluid" alt="avatar of {{ support.pleagan.displayName }}" src="{{ support.pleagan.photoURL }}" />
     </div>
     <div class="comment-msg">
       <div class="msg-cloud">
         <div class="msg-shape left"></div>
         <h4 class="comment-card-header">{{ support.pleagan.displayName }}</h4>
-        <span>{{ support.createdAt | date: 'hh:mm dd-MM-YYYY'}}</span>, <span> {{ support.pleagan.country }}</span>
+        <span>{{ support.createdAt | date: 'hh:mm dd-MM-YYYY' }}</span
+        >, <span> {{ support.pleagan.country }}</span>
         <p class="italic">"{{ support.comment }}"</p>
       </div>
     </div>

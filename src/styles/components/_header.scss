@@ -12,7 +12,7 @@ clr-header.header .branding a .title {
 /*@end header title*/
 
 /*@start header-hamburger-trigger span*/
-//TODO: X no longer visible on mobile when menu is open
+//TODO: X no longer visible on mobileScreen when menu is open
 clr-header .header-hamburger-trigger span,
 clr-header .header-hamburger-trigger span::before,
 clr-header .header-hamburger-trigger span::after {
@@ -40,10 +40,10 @@ clr-header .page-title {
 
 /*@start clr-header*/
 clr-header {
-  box-shadow: 0 -8px 10px 5px rgba(0,0,0,.5);
+  box-shadow: 0 -8px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 1024px) {
   clr-header {
     box-shadow: none;
   }

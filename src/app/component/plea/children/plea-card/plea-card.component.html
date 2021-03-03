@@ -13,7 +13,9 @@
       <progress value="{{ plea.numberOfSupports }}" [max]="getTarget()"></progress>
     </div>
     <p class="card-text">
-      <span class="bold">{{ plea.numberOfSupports }}</span> current supporter{{ plea.numberOfSupports > 1 ? 's' : null }}
+      <span class="bold">{{ plea.numberOfSupports }}</span> current supporter{{
+        plea.numberOfSupports > 1 ? 's' : null
+      }}
     </p>
 
     <div class="footer-actions">
@@ -28,6 +30,5 @@
         Support
       </a>
     </div>
-
   </div>
 </a>

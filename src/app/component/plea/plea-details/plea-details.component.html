@@ -68,47 +68,36 @@
 
       <div class="clr-row util-bar">
         <ul class="btn-list horizontal">
-<!--          TODO: only visible if not owner of this plea-->
-<!--          TODO: if user has reported, this should change to 'reported' and disabled so no user can report a plea twice-->
+          <!--          TODO: only visible if not owner of this plea-->
+          <!--          TODO: if user has reported, this should change to 'reported' and disabled so no user can report a plea twice-->
           <li>
-            <button class="btn btn-primary btn-compact"
-                    aria-label="Report a problem"
-                    (click)="isOpen = true">
+            <button class="btn btn-primary btn-compact" aria-label="Report a problem" (click)="isOpen = true">
               Report issue
             </button>
           </li>
-<!--          TODO: only visible if owner of plea-->
+          <!--          TODO: only visible if owner of plea-->
           <li>
-            <button class="btn btn-secondary-outline btn-compact" aria-label="Delete plea">
-              Delete this plea
-            </button>
+            <button class="btn btn-secondary-outline btn-compact" aria-label="Delete plea">Delete this plea</button>
           </li>
           <li>
-            <button class="btn btn-primary btn-compact" aria-label="Share plea">
-              Share
-            </button>
+            <button class="btn btn-primary btn-compact" aria-label="Share plea">Share</button>
           </li>
           <li>
-            <button class="btn btn-primary btn-compact" aria-label="Plea statistics">
-              Statistics
-            </button>
+            <button class="btn btn-primary btn-compact" aria-label="Plea statistics">Statistics</button>
           </li>
         </ul>
       </div>
 
       <div>
         <h3>Supporters</h3>
-<!--        TODO: report other comments, delete own comment options-->
+        <!--        TODO: report other comments, delete own comment options-->
         <app-supporters-list [supports]="plea.supports"></app-supporters-list>
       </div>
     </div>
   </div>
 </div>
 
-<clr-modal
-  [(clrModalOpen)]="isOpen"
-  [clrModalClosable]="true"
-  [clrModalStaticBackdrop]="false" [clrModalSize]="'l'">
+<clr-modal [(clrModalOpen)]="isOpen" [clrModalClosable]="true" [clrModalStaticBackdrop]="false" [clrModalSize]="'l'">
   <h3 class="modal-title">Report this plea</h3>
   <div class="modal-body">
     <p>

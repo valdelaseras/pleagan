@@ -14,8 +14,8 @@ export class IsNotLoggedIn implements CanActivate {
     state: RouterStateSnapshot,
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.authService.user$.pipe(
-      map( ( user: firebase.User | null ) => user === null ),
-      tap( ( loggedOut: boolean ) => !loggedOut && this.router.navigate(['/']) )
-    )
+      map((user: firebase.User | null) => user === null),
+      tap((loggedOut: boolean) => !loggedOut && this.router.navigate(['/'])),
+    );
   }
 }

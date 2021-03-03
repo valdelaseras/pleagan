@@ -87,11 +87,10 @@
 }
 /*@end side nav*/
 
-
 /*@start nav trigger*/
 @media only screen and (min-width: 768px) {
   clr-vertical-nav.clr-vertical-nav .nav-trigger {
-    margin-top: 0!important;
+    margin-top: 0 !important;
   }
 
   //clr-vertical-nav.clr-vertical-nav .nav-trigger .nav-trigger-icon {

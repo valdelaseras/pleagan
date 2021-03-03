@@ -1,11 +1,42 @@
-<div class="clr-row" [@fadeInList]="pleas.length">
-  <ng-container *ngFor="let plea of pleas">
-    <ng-container *ngIf="plea.status !== PLEA_STATUS.COMPLIED">
-      <app-plea-card [plea]="plea" class="clr-col-md-6 clr-col-12"></app-plea-card>
-    </ng-container>
-
-    <ng-container *ngIf="plea.status === PLEA_STATUS.COMPLIED">
-      <app-haf-card [plea]="plea" class="clr-col-md-6 clr-col-12"></app-haf-card>
-    </ng-container>
+<div class="clr-row plea-list" [@fadeInList]="pleas.length">
+  <ng-container *ngIf="mobileScreen">
+    <ng-container *ngTemplateOutlet="mobile; context: { pleas: pleas }"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="!mobileScreen">
+    <ng-container *ngTemplateOutlet="desktop; context: { pleas: pleas }"></ng-container>
   </ng-container>
 </div>
+
+<ng-template #mobile let-pleas="pleas">
+  <ng-container *ngFor="let plea of pleas">
+    <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #desktop let-pleas="pleas">
+  <div class="clr-col-6">
+    <ng-container *ngFor="let plea of pleas; let i = index">
+      <ng-container *ngIf="i % 2 == 0">
+        <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <div class="clr-col-6">
+    <ng-container *ngFor="let plea of pleas; let i = index">
+      <ng-container *ngIf="i % 2 > 0">
+        <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #card let-plea="plea">
+  <ng-container *ngIf="plea.status !== PLEA_STATUS.COMPLIED">
+    <app-plea-card [plea]="plea" class="clr-col-md-6 clr-col-12"></app-plea-card>
+  </ng-container>
+
+  <ng-container *ngIf="plea.status === PLEA_STATUS.COMPLIED">
+    <app-haf-card [plea]="plea" class="clr-col-md-6 clr-col-12"></app-haf-card>
+  </ng-container>
+</ng-template>

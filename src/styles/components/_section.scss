@@ -3,20 +3,18 @@ section.section {
   padding-bottom: 2rem;
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
   section.section {
     padding-top: 1rem;
   }
 }
 
-@media only screen and (min-width: 1024px){
-  section.section{
+@media only screen and (min-width: 1024px) {
+  section.section {
     padding-top: 0;
   }
 }
 /*@end section*/
-
-
 
 /*@start section center-content*/
 @media only screen and (min-width: 1024px) {

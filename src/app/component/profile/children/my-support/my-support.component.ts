@@ -10,7 +10,7 @@ import { Plea } from '../../../../model/plea';
 })
 export class MySupportComponent {
   pleas$: Observable<Plea[]>;
-  constructor( private pleaService: PleaService ) {
+  constructor(private pleaService: PleaService) {
     this.pleas$ = this.pleaService.getPleasISupport();
   }
 }
