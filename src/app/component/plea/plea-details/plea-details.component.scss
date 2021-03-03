@@ -78,6 +78,18 @@
 }
 /*@end plea support button*/
 
+/*@Start btn-list*/
+.util-bar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-list {
+  padding: 0 10px;
+}
+/*@end btn-list*/
+/*@end util-bar*/
+
 /*@start plea image*/
 .plea-img {
   width: 100vw;

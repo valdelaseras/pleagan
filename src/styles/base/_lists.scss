@@ -1,13 +1,22 @@
-/*@start icon lists*/
+/*@start icon lists, list horizontal*/
 .icon-list {
   list-style-type: none;
 }
 
+ul.horizontal > li,
 .icon-list.horizontal > li {
   display: inline-block;
+}
+
+ul.horizontal > li {
+  padding-right: .5rem;
+}
+
+.icon-list.horizontal > li {
   padding-right: 1rem;
 }
 
+ul.horizontal > li:last-child,
 .icon-list.horizontal > li:last-child {
   padding-right: 0;
 }
