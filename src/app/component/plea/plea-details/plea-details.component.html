@@ -68,8 +68,10 @@
       <div class="clr-row util-bar">
         <ul class="btn-list horizontal">
           <li>
-            <button class="btn btn-primary btn-compact" aria-label="Report a problem">
-              Report
+            <button class="btn btn-primary btn-compact"
+                    aria-label="Report a problem"
+                    (click)="isOpen = true">
+              Report issue
             </button>
           </li>
           <li>
@@ -92,3 +94,25 @@
     </div>
   </div>
 </div>
+
+<clr-modal
+  [(clrModalOpen)]="isOpen"
+  [clrModalClosable]="true"
+  [clrModalStaticBackdrop]="false" [clrModalSize]="'l'">
+  <h3 class="modal-title">Report this plea</h3>
+  <div class="modal-body">
+    <p>
+      Thank you for your vigilance. Please let us know what the problem is and we will evaluate it as soon as possible.
+    </p>
+    <select clrSelect name="report-reason" [(ngModel)]="reportReason">
+      <option value="inappropriate-content">This plea contains inappropriate content</option>
+      <option value="already-exists">This product already has a vegan version</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary-outline" (click)="isOpen = false">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="submitReport()">Submit report</button>
+  </div>
+  <div class="modal-backdrop" aria-hidden="true"></div>
+</clr-modal>
