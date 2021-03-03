@@ -18,7 +18,7 @@ export class PleaDetailsComponent {
   }
   submitReport(){
     console.log('submit');
-    // todo: submit with reason value and plea id
+    // TODO: submit with reason value and plea id
     this.isOpen = false;
   }
 }
