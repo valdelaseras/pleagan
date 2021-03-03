@@ -5,15 +5,15 @@
   </div>
 
   <div class="card-img">
-    <img src="/assets/images/{{ plea.nonVeganProduct.imageUrl }}" />
+    <img src="{{ plea.nonVeganProduct.imageUrl }}" />
   </div>
 
   <div class="card-block c-footer">
     <div class="progress">
-      <progress value="{{ plea.supports.length }}" [max]="getTarget()"></progress>
+      <progress value="{{ plea.numberOfSupports }}" [max]="getTarget()"></progress>
     </div>
     <p class="card-text">
-      <span class="bold">{{ plea.supports.length }}</span> current supporter{{ plea.supports.length > 1 ? 's' : null }}
+      <span class="bold">{{ plea.numberOfSupports }}</span> current supporter{{ plea.numberOfSupports > 1 ? 's' : null }}
     </p>
 
     <a

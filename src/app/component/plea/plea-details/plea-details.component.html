@@ -13,15 +13,15 @@
       </p>
 
       <p>
-        <span class="highlighted-txt bold">{{ plea.supports.length }}</span> of us
-        {{ plea.supports.length > 1 ? 'have' : 'has' }} supported this plea since its initiation on
+        <span class="highlighted-txt bold">{{ plea.numberOfSupports }}</span> of us
+        {{ plea.numberOfSupports > 1 ? 'have' : 'has' }} supported this plea since its initiation on
         <span class="highlighted-txt">{{ plea.createdAt | date: 'dd-MM-yyyy' }} </span>. We are longing for your product
         and want to support your business! As you know, we will and can only do that once your product is 100%
         plant-based.
       </p>
     </div>
 
-    <div id="original-plea">
+    <div id="original-plea" [@swipeInBelowSwipeOutTop]>
       <div class="plea-support-btn">
         <a
           type="button"
@@ -42,7 +42,7 @@
         <span>by {{ plea.company.name }}</span
         ><br />
         <div class="tag">
-          <span class="bolder">{{ plea.supports.length }}</span> supporter{{ plea.supports.length > 1 ? 's' : null }}
+          <span class="bolder">{{ plea.numberOfSupports }}</span> supporter{{ plea.numberOfSupports > 1 ? 's' : null }}
         </div>
       </div>
 
@@ -51,7 +51,7 @@
           <p>
             Initiated on <span class="bold">{{ plea.createdAt | date: 'dd-MM-yyyy' }}</span
             ><br />
-            By <span class="bold">{{ plea.initiator.displayName }}</span>
+            By <span class="bold">{{ plea.pleagan.displayName }}</span>
           </p>
 
           <div class="msg-cloud">

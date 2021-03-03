@@ -10,7 +10,7 @@ export class Plea implements IPlea {
   @JsonProperty('id', Number)
   id = 0;
 
-  @JsonProperty('numberOfSupports', Number, true)
+  @JsonProperty('numberOfSupports', Number )
   numberOfSupports = 0;
 
   @JsonProperty('status', String)
@@ -25,14 +25,14 @@ export class Plea implements IPlea {
   @JsonProperty('company', Company)
   company: Company = new Company();
 
-  @JsonProperty('initiator', Pleagan, true)
-  initiator: Pleagan = new Pleagan();
-
-  @JsonProperty('supports', [Support], true)
-  supports: Support[] = [];
-
   @JsonProperty('nonVeganProduct', Product)
   nonVeganProduct: Product = new Product();
+
+  @JsonProperty('pleagan', Pleagan, true)
+  pleagan?: Pleagan = new Pleagan();
+
+  @JsonProperty('supports', [Support], true)
+  supports?: Support[] = [];
 
   @JsonProperty('veganProduct', Product, true)
   veganProduct?: Product = new Product();

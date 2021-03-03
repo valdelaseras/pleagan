@@ -3,11 +3,14 @@ import { Plea } from '../../../model/plea';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PleaService } from '../../../service/plea/plea.service';
-import { tap } from 'rxjs/operators';
+import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../animations';
 @Component({
   selector: 'app-submission-details',
   templateUrl: './plea-details.component.html',
   styleUrls: ['./plea-details.component.scss'],
+  animations: [
+    SWIPE_IN_BELOW_SWIPE_OUT_TOP
+  ]
 })
 export class PleaDetailsComponent {
   isVisible = false;
