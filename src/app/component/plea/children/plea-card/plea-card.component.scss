@@ -56,3 +56,10 @@
   margin-top: 0;
   margin-bottom: 1.2rem;
 }
+
+.footer-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+

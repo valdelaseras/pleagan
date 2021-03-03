@@ -14,10 +14,8 @@ import { PleaDetailsComponent } from './component/plea/plea-details/plea-details
 import { ClarityModule } from '@clr/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './component/nav/nav.component';
-import { ModalSuccessComponent } from './component/modals/modal-success/modal-success.component';
 import { PleaCardComponent } from './component/plea/children/plea-card/plea-card.component';
 import { PleaService } from './service/plea/plea.service';
-import { ModalComponent } from './component/modals/modal/modal.component';
 import { FaqComponent } from './component/faq/faq.component';
 import { NewsComponent } from './component/news/news.component';
 import { StatisticsComponent } from './component/statistics/statistics.component';
@@ -67,9 +65,7 @@ const components = [
   AllPleasComponent,
   PleaDetailsComponent,
   NavComponent,
-  ModalSuccessComponent,
   PleaCardComponent,
-  ModalComponent,
   FaqComponent,
   NewsComponent,
   StatisticsComponent,

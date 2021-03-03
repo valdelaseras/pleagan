@@ -20,11 +20,12 @@ import { v4 as uuidV4 } from 'uuid';
   animations: [SWIPE_IN_BELOW_SWIPE_OUT_TOP, FADE_IN_OUT_LIST, FADE_IN_OUT_SINGLE],
 })
 export class NewPleaComponent {
+  pleaId: number;
   querySource$: Subject<string> = new Subject<string>();
   similarPleas$: Observable<Plea[]>;
   similarPleas: Plea[];
   pleaInSuggestions: boolean;
-  displayModal = false;
+  isOpen = false;
   addedIngredients: string[] = [];
   newPleaForm = new FormGroup({
     company: new FormControl('', Validators.required),
@@ -78,12 +79,15 @@ export class NewPleaComponent {
         return this.pleaService.createPlea(plea);
       }),
       map( ({ id }: { id: number }) => {
-        this.displayModal = true;
-        setTimeout(() => {
-          this.router.navigate(['/', 'plea', id, 'details']);
-        }, 3000);
-      } )
+        this.isOpen = true;
+        this.pleaId = id;
+      })
     ).subscribe();
+  }
+
+  handleModal(): void{
+    this.isOpen = false;
+    this.router.navigate(['/', 'plea', this.pleaId, 'details']);
   }
 
   createTag(event: KeyboardEvent): void {

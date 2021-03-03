@@ -13,18 +13,15 @@ import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../animations';
   ]
 })
 export class PleaDetailsComponent {
-  isVisible = false;
+  isOpen = false;
+  reportReason: string = 'inappropriate-content';
   plea$: Observable<Plea>;
   constructor(private route: ActivatedRoute, private pleaService: PleaService) {
     this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
   }
-  scrollTo(id: string): void {
-    const target = document.getElementById(id);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-    }
-  }
-  showModal(): void {
-    this.isVisible = true;
+  submitReport(){
+    console.log('submit');
+    // TODO: submit with reason value and plea id
+    this.isOpen = false;
   }
 }

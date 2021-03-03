@@ -16,15 +16,18 @@
       <span class="bold">{{ plea.numberOfSupports }}</span> current supporter{{ plea.numberOfSupports > 1 ? 's' : null }}
     </p>
 
-    <a
-      (click)="$event.preventDefault()"
-      [routerLink]="['/plea', plea.id, 'support']"
-      type="button"
-      class="btn btn-primary btn-icon"
-      aria-label="Support this plea"
-    >
-      <clr-icon shape="heart" size="16"></clr-icon>
-      Support
-    </a>
+    <div class="footer-actions">
+      <a
+        (click)="$event.preventDefault()"
+        [routerLink]="['/plea', plea.id, 'support']"
+        type="button"
+        class="btn btn-primary btn-icon"
+        aria-label="Support this plea"
+      >
+        <clr-icon shape="heart" size="16"></clr-icon>
+        Support
+      </a>
+    </div>
+
   </div>
 </a>
