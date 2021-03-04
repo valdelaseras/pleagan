@@ -6,14 +6,13 @@ export const environment = {
   production: false,
   apiBaseUrl: 'http://localhost:3000',
   firebase: {
-    apiKey: 'AIzaSyDWt1_1vmDfwxR6jCP1XI5V19DLbntiGXc',
-    authDomain: 'pleagan-c27f2.firebaseapp.com',
-    databaseURL: 'https://pleagan-c27f2-default-rtdb.firebaseio.com',
-    projectId: 'pleagan-c27f2',
-    storageBucket: 'pleagan-c27f2.appspot.com',
-    messagingSenderId: '557713832714',
-    appId: '1:557713832714:web:beefb0a7add043db4998f3',
-    measurementId: 'G-TLHR7KHTN8',
+    apiKey: "AIzaSyDf8yKIQEuiWhovIlZm7wBQhvAt88tktQs",
+    authDomain: "pleagan-dev.firebaseapp.com",
+    projectId: "pleagan-dev",
+    storageBucket: "pleagan-dev.appspot.com",
+    messagingSenderId: "968548444336",
+    appId: "1:968548444336:web:6cb3d971dc8984a44d3375",
+    measurementId: "G-4DHGLG82YP"
   },
 };
 
