@@ -2,15 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JsonConvertService } from '../json-convert/json-convert.service';
 import { Observable } from 'rxjs';
-import { Company } from '../../model/company';
 import { environment } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
-import { ICompany, IProduct } from 'pleagan-model';
+import { IProduct } from 'pleagan-model';
 import { Product } from '../../model/product';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ProductService {
   constructor(private http: HttpClient, private convertService: JsonConvertService) {}
 

@@ -8,9 +8,7 @@ import firebase from 'firebase';
 import UploadTaskSnapshot = firebase.storage.UploadTaskSnapshot;
 import { filter, switchMap } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FirebaseStorageService {
   private basePath = '/uploads';
 
