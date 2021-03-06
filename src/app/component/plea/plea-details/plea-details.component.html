@@ -1,4 +1,6 @@
 <!--TODO: a user should be able to retract support I suppose-->
+<!--TODO: a user should also be able to retract their plea. But instead of deleting the plea and all support for it, -->
+<!--a default pleagan account should become the owner of the plea ( aka DolphinOnWheels for example )-->
 <div id="plea-details-page" *ngIf="plea$ | async as plea">
   <div>
     <h1>
@@ -22,18 +24,10 @@
       </p>
     </div>
 
-    <div id="original-plea" [@swipeInBelowSwipeOutTop]>
+    <div id="original-plea">
+      <!--    TODO: not visible to owner of plea-->
       <div class="plea-support-btn">
-        <a
-          type="button"
-          (click)="$event.preventDefault()"
-          [routerLink]="['/plea', plea.id, 'support']"
-          class="btn btn-primary btn-icon"
-          aria-label="Support this plea"
-        >
-          <clr-icon shape="heart" size="16"></clr-icon>
-          Support this plea
-        </a>
+        <app-plea-support-button [plea]="plea"></app-plea-support-button>
       </div>
 
       <div class="plea-header">
@@ -66,24 +60,52 @@
         </div>
       </div>
 
+<!--      // TODO: these buttons are secondary but styling is wrong. Should be filled with a bg color-->
       <div class="clr-row util-bar">
         <ul class="btn-list horizontal">
           <!--          TODO: only visible if not owner of this plea-->
           <!--          TODO: if user has reported, this should change to 'reported' and disabled so no user can report a plea twice-->
           <li>
-            <button class="btn btn-primary btn-compact" aria-label="Report a problem" (click)="isOpen = true">
-              Report issue
+            <button class="btn btn-secondary" aria-label="Report a problem" (click)="reportModalIsOpen = true">
+              <clr-icon shape="warning-standard" size="14"></clr-icon>
+              Report
+            </button>
+          </li>
+<!--          TODO: only if not owner of this plea and already supported-->
+          <li>
+            <button class="btn btn-secondary" aria-label="Retract support" (click)="retractSupportModalIsOpen = true">
+              <clr-icon shape="heart-broken"></clr-icon>
+              Retract support
             </button>
           </li>
           <!--          TODO: only visible if owner of plea-->
           <li>
-            <button class="btn btn-secondary-outline btn-compact" aria-label="Delete plea">Delete this plea</button>
+            <button class="btn btn-secondary" aria-label="Edit plea">
+              <clr-icon shape="note"></clr-icon>
+              Edit
+            </button>
           </li>
           <li>
-            <button class="btn btn-primary btn-compact" aria-label="Share plea">Share</button>
+            <button class="btn btn-secondary" aria-label="Plea statistics">
+              <clr-icon shape="align-bottom" size="14"></clr-icon>
+              Stats
+            </button>
           </li>
           <li>
-            <button class="btn btn-primary btn-compact" aria-label="Plea statistics">Statistics</button>
+            <clr-dropdown [clrCloseMenuOnItemClick]="false">
+              <button clrDropdownTrigger
+                      class="btn btn-secondary"
+                      aria-label="Share plea">
+                <clr-icon shape="share" size="14"></clr-icon>
+                Share
+              </button>
+              <clr-dropdown-menu *clrIfOpen clrPosition="top-left">
+                <div clrDropdownItem>
+                  <clr-icon shape="copy"></clr-icon>
+                  Copy url
+                </div>
+              </clr-dropdown-menu>
+            </clr-dropdown>
           </li>
         </ul>
       </div>
@@ -95,23 +117,41 @@
       </div>
     </div>
   </div>
+
+  <clr-modal [(clrModalOpen)]="reportModalIsOpen" [clrModalClosable]="true" [clrModalStaticBackdrop]="true" [clrModalSize]="'l'">
+    <h3 class="modal-title">Report this plea</h3>
+    <div class="modal-body">
+      <p>
+        Thank you for your vigilance. Please let us know what the problem is and we will evaluate it as soon as possible.
+      </p>
+      <select clrSelect name="report-reason" [(ngModel)]="reportReason">
+        <option value="inappropriate-content">This plea contains inappropriate content</option>
+        <option value="already-exists">This product already has a vegan version</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary-outline" (click)="reportModalIsOpen = false">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="submitReport()">Submit report</button>
+    </div>
+  </clr-modal>
+
+  <clr-modal [(clrModalOpen)]="retractSupportModalIsOpen" [clrModalClosable]="true" [clrModalStaticBackdrop]="true" [clrModalSize]="'l'">
+    <h3 class="modal-title">Retract your support</h3>
+    <div class="modal-body">
+      <p>
+        Please tell us why you'd like retract your support for this plea
+      </p>
+      <select clrSelect name="retract-reason" [(ngModel)]="retractReason">
+        <option value="already-exists">This product already has a vegan version</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary-outline" (click)="retractSupportModalIsOpen = false">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="retractSupport()">Confirm</button>
+    </div>
+  </clr-modal>
 </div>
 
-<clr-modal [(clrModalOpen)]="isOpen" [clrModalClosable]="true" [clrModalStaticBackdrop]="false" [clrModalSize]="'l'">
-  <h3 class="modal-title">Report this plea</h3>
-  <div class="modal-body">
-    <p>
-      Thank you for your vigilance. Please let us know what the problem is and we will evaluate it as soon as possible.
-    </p>
-    <select clrSelect name="report-reason" [(ngModel)]="reportReason">
-      <option value="inappropriate-content">This plea contains inappropriate content</option>
-      <option value="already-exists">This product already has a vegan version</option>
-      <option value="other">Other</option>
-    </select>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary-outline" (click)="isOpen = false">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="submitReport()">Submit report</button>
-  </div>
-  <div class="modal-backdrop" aria-hidden="true"></div>
-</clr-modal>
+

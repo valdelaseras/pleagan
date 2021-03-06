@@ -18,17 +18,19 @@
       }}
     </p>
 
+<!--    TODO: not visible to owners of plea -->
     <div class="footer-actions">
-      <a
-        (click)="$event.preventDefault()"
-        [routerLink]="['/plea', plea.id, 'support']"
-        type="button"
-        class="btn btn-primary btn-icon"
-        aria-label="Support this plea"
-      >
-        <clr-icon shape="heart" size="16"></clr-icon>
-        Support
-      </a>
+      <app-plea-support-button [plea]="plea"></app-plea-support-button>
+<!--      <a-->
+<!--        (click)="$event.preventDefault()"-->
+<!--        [routerLink]="['/plea', plea.id, 'details']"-->
+<!--        type="button"-->
+<!--        class="btn btn-primary btn-icon"-->
+<!--        aria-label="Support this plea"-->
+<!--      >-->
+<!--        <clr-icon shape="heart" size="16"></clr-icon>-->
+<!--        Support-->
+<!--      </a>-->
     </div>
   </div>
 </a>

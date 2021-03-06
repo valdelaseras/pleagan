@@ -11,7 +11,6 @@ import { StatisticsComponent } from './component/statistics/statistics.component
 import { NewsComponent } from './component/news/news.component';
 import { HallOfFameComponent } from './component/hall-of-fame/hall-of-fame.component';
 import { ContactComponent } from './component/contact/contact.component';
-import { SupportPleaComponent } from './component/plea/support-plea/support-plea.component';
 import { CompliedPleasComponent } from './component/hall-of-fame/children/complied-pleas/complied-pleas.component';
 import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
 import { NewsListComponent } from './component/news/children/news-list/news-list.component';
@@ -46,7 +45,6 @@ const routes: Routes = [
       { path: 'new', component: NewPleaComponent, canActivate: [IsLoggedIn] },
       { path: 'all', component: AllPleasComponent },
       { path: ':id/details', component: PleaDetailsComponent },
-      { path: ':id/support', component: SupportPleaComponent, canActivate: [IsLoggedIn] },
     ],
   },
   { path: 'statistics', component: StatisticsComponent },
