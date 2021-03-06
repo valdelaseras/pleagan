@@ -9,18 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-  form: FormGroup;
+  form = new FormGroup({
+    email: new FormControl('', Validators.required),
+    displayName: new FormControl('', Validators.required),
+    password: new FormControl('', [Validators.required, Validators.minLength( 6 )]),
+    confirmPassword: new FormControl('', Validators.compose( [ Validators.required, Validators.minLength( 6 ), this.passwordsMatch.bind( this ) ] ) ),
+  });
 
   redirect = () => setTimeout(() => this.router.navigate(['/']), 5000);
 
-  constructor(public authService: AuthService, private router: Router) {
-    this.form = new FormGroup({
-      email: new FormControl('', Validators.required),
-      displayName: new FormControl('', Validators.required),
-      password: new FormControl('', [Validators.required, Validators.minLength( 6 )]),
-      confirmPassword: new FormControl('', Validators.compose( [ Validators.required, Validators.minLength( 6 ), this.passwordsMatch.bind( this ) ] ) ),
-    });
-  }
+  constructor(public authService: AuthService, private router: Router) {}
 
   private passwordsMatch( fieldControl: FormControl ): null | { nomatch: boolean } {
 
