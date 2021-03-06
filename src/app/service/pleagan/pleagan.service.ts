@@ -11,7 +11,7 @@ export class PleaganService {
   constructor(private http: HttpClient) {}
 
   createPleagan(): Observable<void> {
-    return this.http.post<void>(`${environment.apiBaseUrl}/pleagan`, null );
+    return this.http.post<void>(`${environment.apiBaseUrl}/pleagan`, null);
   }
 
   getCurrentPleagan(): Observable<Pleagan> {

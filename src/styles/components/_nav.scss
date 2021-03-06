@@ -80,22 +80,16 @@
 
   #sidenav {
     height: 100%;
-    width: 240px;
     border: none;
     margin-top: -1rem;
   }
 }
 /*@end side nav*/
 
-
 /*@start nav trigger*/
 @media only screen and (min-width: 768px) {
   clr-vertical-nav.clr-vertical-nav .nav-trigger {
-    margin-top: 0!important;
+    margin-top: 0 !important;
   }
-
-  //clr-vertical-nav.clr-vertical-nav .nav-trigger .nav-trigger-icon {
-  //  transform: scale(1.25) rotate(90deg);
-  //}
 }
 /*@end nav trigger*/

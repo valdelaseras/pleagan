@@ -42,9 +42,19 @@
   box-sizing: border-box;
   padding-left: 0.5rem;
   width: 100%;
+  position: relative;
 }
 
 .comment-msg p {
   margin-top: 0.25rem;
 }
 /*@end comment-msg*/
+
+/*@start comment-menu*/
+.comment-menu {
+  position: absolute;
+  right: 0;
+  top: 2rem;
+  z-index: 50;
+}
+/*@end comment-menu*/

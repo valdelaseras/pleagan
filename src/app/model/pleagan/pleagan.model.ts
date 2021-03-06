@@ -10,7 +10,7 @@ export class Pleagan implements IPleagan {
   @JsonProperty('displayName', String)
   displayName: string = '';
 
-  @JsonProperty( 'photoURL', String, true )
+  @JsonProperty('photoURL', String, true)
   photoURL?: string = '';
 
   @JsonProperty('country', String, true)

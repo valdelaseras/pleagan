@@ -1,113 +1,142 @@
 /*@start landing*/
 .landing {
-  height: calc(100vh - 5rem);
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .landing {
+    margin-top: 0;
+  }
 }
 /*@end landing*/
 
-/*@start landing-branding*/
-.landing-branding {
-  width: 100%;
-  height: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
+/*@start desktop row*/
+@media only screen and (min-width: 1440px) {
+  .desktop-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .desktop-row div.clr-col {
+    width: 33.33%;
+  }
+}
+/*@end desktop row*/
+
+/*@start landing p*/
+.landing p {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+/*@end landing p*/
+
+/*@start headings*/
+h1 {
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+h5 {
+  margin-top: 0;
+}
+
+@media only screen and (min-width: 768px){
+  h1 {
+    margin-bottom: 2rem;
+  }
+}
+/*@end headings*/
+
+/*@start intro text*/
+@media only screen and (min-width: 768px){
+  .intro-text {
+    width: 350px;
+  }
+}
+/*@end intro text*/
+
+/*@start clr-col*/
+.clr-col {
+  box-sizing: border-box;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
+  padding: 1rem;
+}
+/*@end clr-col*/
+
+/*@start cta buttons*/
+.cta-buttons {
+  margin-top: 1rem;
+}
+/*@end cta buttons*/
+
+/*@start rows by id*/
+// heights
+#l-top-row {
+  height: calc( 100vh - 5.23rem );
+}
+
+#l-mid-row { height: 10vh; }
+
+#l-bot-col-a,
+#l-bot-col-b,
+#l-bot-col-c {
+  height: 70vh;
+}
+
+// flex positions
+#l-top-row {
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.landing-branding h1 {
-  position: absolute;
-  font-size: 2.5rem;
-  letter-spacing: 0.07em;
-  z-index: 20;
-  color: var(--primary-text-color);
+#l-mid-row {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
-.landing-branding img {
-  height: 180px;
-  -webkit-filter: opacity(0.65);
-  filter: opacity(0.65);
-}
-/*@end landing-branding*/
-
-/*@start landing cta*/
-.landing-cta {
-  height: 35%;
-  text-align: left;
+#l-bot-col-a,
+#l-bot-col-b,
+#l-bot-col-c {
+  flex-direction: column;
 }
 
-.landing-cta p {
-  margin: 5px 0;
+// temporary
+#l-top-row { background-color: pink; }
+#l-bot-col-a,
+#l-bot-col-c {
+  background-color: rgba(255, 208, 220, 0.45)
 }
+#l-bot-col-b { background-color: lightpink }
 
-.landing-cta button {
-  margin-top: 15px;
-}
-/*@end landing cta*/
+@media only screen and (min-width: 768px) {
+  #l-top-row {
+    height: 40vh;
+  }
 
-/*@start landing elements initial visibility*/
-.landing-cta p,
-.landing-cta button,
-.branding-image {
-  opacity: 0;
-}
-/*@end landing elements initial visibility*/
+  #l-mid-row {
+    height: 5vh;
+  }
 
-/*@start p positioning*/
-.landing-cta p.animate-third {
-  margin-top: 30px;
+  #l-bot-col-a,
+  #l-bot-col-b,
+  #l-bot-col-c {
+    height: 45vh;
+  }
 }
-/*@end p positioning*/
+/*@end rows by id*/
 
-/*@start animation sequence*/
-// Animations for page init
-.branding-image {
-  -webkit-animation: entryFromRight 3.5s ease-out 1s forwards;
-  animation: entryFromRight 3.5s ease-out 1s forwards;
+/*@start col header*/
+.col-header {
+  min-height: 180px;
 }
+/*@end col header*/
 
-.animate-first {
-  -webkit-animation: entryFromRight 1.25s ease-out 1s forwards;
-  animation: entryFromRight 1.25s ease-out 1s forwards;
-}
-.animate-second {
-  -webkit-animation: entryFromRight 1.25s ease-out 1.5s forwards;
-  animation: entryFromRight 1.25s ease-out 1.5s forwards;
-}
-.animate-third {
-  -webkit-animation: entryFromRight 1.25s ease-out 2s forwards;
-  animation: entryFromRight 1.25s ease-out 2s forwards;
-}
 
-#vegan-visitor-btn {
-  -webkit-animation: fadeIn 1s ease 3.25s forwards;
-  animation: fadeIn 1s ease 3.25s forwards;
-}
-#company-visitor-btn {
-  -webkit-animation: fadeIn 1s ease 3.5s forwards;
-  animation: fadeIn 1s ease 3.5s forwards;
-}
-/*@end animation sequence*/

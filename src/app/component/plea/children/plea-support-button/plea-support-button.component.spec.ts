@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SupportPleaComponent } from './support-plea.component';
+import { PleaSupportButtonComponent } from './plea-support-button.component';
 
-describe('SupportPleaComponent', () => {
-  let component: SupportPleaComponent;
-  let fixture: ComponentFixture<SupportPleaComponent>;
+describe('PleaSupportButtonComponent', () => {
+  let component: PleaSupportButtonComponent;
+  let fixture: ComponentFixture<PleaSupportButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SupportPleaComponent],
+      declarations: [PleaSupportButtonComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SupportPleaComponent);
+    fixture = TestBed.createComponent(PleaSupportButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import firebase from 'firebase/app';
 
-
 @Injectable()
 export class IsLoggedIn implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
@@ -15,8 +14,8 @@ export class IsLoggedIn implements CanActivate {
     state: RouterStateSnapshot,
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.authService.user$.pipe(
-      map( ( user: firebase.User | null ) => user !== null  ),
-      tap( ( loggedIn: boolean ) => !loggedIn && this.router.navigate(['/', 'login']) )
-    )
+      map((user: firebase.User | null) => user !== null),
+      tap((loggedIn: boolean) => !loggedIn && this.router.navigate(['/', 'login'])),
+    );
   }
 }

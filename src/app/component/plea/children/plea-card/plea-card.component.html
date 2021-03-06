@@ -13,21 +13,24 @@
       <progress value="{{ plea.numberOfSupports }}" [max]="getTarget()"></progress>
     </div>
     <p class="card-text">
-      <span class="bold">{{ plea.numberOfSupports }}</span> current supporter{{ plea.numberOfSupports > 1 ? 's' : null }}
+      <span class="bold">{{ plea.numberOfSupports }}</span> current supporter{{
+        plea.numberOfSupports > 1 ? 's' : null
+      }}
     </p>
 
+    <!--    TODO: not visible to owners of plea -->
     <div class="footer-actions">
-      <a
-        (click)="$event.preventDefault()"
-        [routerLink]="['/plea', plea.id, 'support']"
-        type="button"
-        class="btn btn-primary btn-icon"
-        aria-label="Support this plea"
-      >
-        <clr-icon shape="heart" size="16"></clr-icon>
-        Support
-      </a>
+      <app-plea-support-button [plea]="plea"></app-plea-support-button>
+      <!--      <a-->
+      <!--        (click)="$event.preventDefault()"-->
+      <!--        [routerLink]="['/plea', plea.id, 'details']"-->
+      <!--        type="button"-->
+      <!--        class="btn btn-primary btn-icon"-->
+      <!--        aria-label="Support this plea"-->
+      <!--      >-->
+      <!--        <clr-icon shape="heart" size="16"></clr-icon>-->
+      <!--        Support-->
+      <!--      </a>-->
     </div>
-
   </div>
 </a>

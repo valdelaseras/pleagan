@@ -35,9 +35,9 @@ export class LoginComponent {
       .subscribe();
   }
 
-  login = ( form: FormGroup ): Observable<firebase.User> => {
-    return this.authService.login( form.value.email, form.value.password ).pipe(
-      catchError( ( error: Error ) => {
+  login = (form: FormGroup): Observable<firebase.User> => {
+    return this.authService.login(form.value.email, form.value.password).pipe(
+      catchError((error: Error) => {
         this.error = error.message;
         this.setLoading(false);
         return EMPTY;

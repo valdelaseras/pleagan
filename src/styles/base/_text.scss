@@ -23,6 +23,18 @@ html {
 }
 /*@end util typography classes*/
 
+/*@start title-xl*/
+h1.title-xl {
+  font-size: 4rem;
+}
+
+@media only screen and (min-width: 768px){
+  h1.title-xl {
+    font-size: 6rem;
+  }
+}
+/*@end title-xl*/
+
 /*@start anchor states*/
 a:hover {
   cursor: pointer;
