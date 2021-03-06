@@ -17,7 +17,7 @@ export class PleaDetailsComponent {
   reportReason: string = 'inappropriate-content';
   plea$: Observable<Plea>;
   constructor(private route: ActivatedRoute, private pleaService: PleaService) {
-    this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
+    this.plea$ = this.pleaService.getPleaById( parseInt( this.route.snapshot.paramMap.get('pleaId')! ) );
   }
   submitReport(){
     console.log('submit');

@@ -52,20 +52,32 @@ export class PleaService {
     );
   }
 
-  getMySupports(): Observable<Support[]> {
-    return this.http.get<ISupport[]>(`${environment.apiBaseUrl}/plea/my-supports`).pipe(
-      map((supports: ISupport[]) => {
+  getSupportById( id: number ): Observable<Support> {
+    return this.http.get<ISupport>( `${environment.apiBaseUrl}/support/${id}` ).pipe(
+      map((support: ISupport) => {
         try {
-          return this.convertService.parseArray(supports, Support);
+          return this.convertService.parse(support, Support);
         } catch (e) {
-          console.log(e);
-          return [];
+          throw e;
         }
       }),
-    );
+    )
   }
 
-  getPleaById(id: string): Observable<Plea> {
+  // getMySupports(): Observable<Support[]> {
+  //   return this.http.get<ISupport[]>(`${environment.apiBaseUrl}/plea/my-supports`).pipe(
+  //     map((supports: ISupport[]) => {
+  //       try {
+  //         return this.convertService.parseArray(supports, Support);
+  //       } catch (e) {
+  //         console.log(e);
+  //         return [];
+  //       }
+  //     }),
+  //   );
+  // }
+
+  getPleaById(id: number): Observable<Plea> {
     return this.http.get<IPlea>(`${environment.apiBaseUrl}/plea/${id}`).pipe(
       map((plea: IPlea) => {
         try {
@@ -77,13 +89,30 @@ export class PleaService {
     );
   }
 
-  supportPlea(id: string, comment: string): Observable<void> {
+  supportPlea(id: number, comment: string): Observable<void> {
     const body = { comment };
     return this.http.post<void>(`${environment.apiBaseUrl}/plea/${id}/support`, body);
   }
 
+  updateComment(id: number, comment: string): Observable<void> {
+    const body = { comment };
+    return this.http.put<void>(`${environment.apiBaseUrl}/plea/${id}/support`, body);
+  }
+
+  removeComment(id: number): Observable<void> {
+    return this.http.delete<void>(`${environment.apiBaseUrl}/plea/${id}/support`);
+  }
+
   createPlea(plea: Plea): Observable<{ id: number }> {
     return this.http.post<{ id: number }>(`${environment.apiBaseUrl}/plea`, plea);
+  }
+
+  updatePlea(plea: Plea): Observable<void> {
+    return this.http.put<void>(`${environment.apiBaseUrl}/plea/${plea.id}`, plea);
+  }
+
+  removePlea(id: number): Observable<void> {
+    return this.http.delete<void>(`${environment.apiBaseUrl}/plea/${id}`);
   }
 
   searchPleas = (query: string): Observable<Plea[]> => {
