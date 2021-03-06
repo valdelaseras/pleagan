@@ -21,7 +21,6 @@ import { NewsComponent } from './component/news/news.component';
 import { StatisticsComponent } from './component/statistics/statistics.component';
 import { HallOfFameComponent } from './component/hall-of-fame/hall-of-fame.component';
 import { ContactComponent } from './component/contact/contact.component';
-import { SupportPleaComponent } from './component/plea/support-plea/support-plea.component';
 import { SearchBoxComponent } from './component/search-box/search-box.component';
 import { HafCardComponent } from './component/plea/children/haf-card/haf-card.component';
 import { NewsCardComponent } from './component/news/news-card/news-card.component';
@@ -53,6 +52,7 @@ import { AuthorizationInterceptorProvider } from './interceptor/authorization/au
 import { FabButtonComponent } from './component/fab-button/fab-button.component';
 import { PleasListComponent } from './component/plea/children/pleas-list/pleas-list.component';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { PleaSupportButtonComponent } from './component/plea/children/plea-support-button/plea-support-button.component';
 import { HttpErrorInterceptorProvider } from './interceptor/http-error/http-error.interceptor';
 import { CompanyService } from './service/company/company.service';
 import { DisplayMessageService } from './service/display-message/display-message.service';
@@ -77,7 +77,6 @@ const declarations = [
   StatisticsComponent,
   HallOfFameComponent,
   ContactComponent,
-  SupportPleaComponent,
   SearchBoxComponent,
   HafCardComponent,
   NewsCardComponent,
@@ -100,7 +99,8 @@ const declarations = [
   CommentCardComponent,
   FabButtonComponent,
   PleasListComponent,
-  MessageDisplayComponent
+  MessageDisplayComponent,
+  PleaSupportButtonComponent,
 ];
 
 const imports = [

@@ -46,7 +46,7 @@ export class AuthService {
           }
         }))
       }),
-      switchMap( () => this.pleaganService.createPleagan() )
+      switchMap(() => this.pleaganService.createPleagan()),
     );
   }
 

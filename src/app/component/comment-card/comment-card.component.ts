@@ -6,10 +6,8 @@ import { Support } from '../../model/plea/support.model';
   templateUrl: './comment-card.component.html',
   styleUrls: ['./comment-card.component.scss'],
 })
-export class CommentCardComponent implements OnInit {
+export class CommentCardComponent {
   @Input() support: Support;
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

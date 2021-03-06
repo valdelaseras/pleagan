@@ -3,9 +3,7 @@
   <app-search-box (queryUpdated)="updateQuery($event)"></app-search-box>
   <div class="clr-row">
     <div class="clr-col-lg-12">
-      <p>
-        ...
-      </p>
+      <p>...</p>
     </div>
     <div class="clr-col-lg-12">
       <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas" id="complied-pleas"></app-pleas-list>

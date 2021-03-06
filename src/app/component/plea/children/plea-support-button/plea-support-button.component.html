@@ -1,0 +1,40 @@
+<a type="button" (click)="displayModal($event)" class="btn btn-primary btn-icon" aria-label="Support this plea">
+  <div *ngIf="userHasSupported">
+    <clr-icon shape="heart" size="16"></clr-icon>
+    Supported
+  </div>
+  <div *ngIf="userHasSupported == false">
+    <clr-icon shape="heart" size="16"></clr-icon>
+    Support this plea
+  </div>
+</a>
+
+<clr-modal
+  [(clrModalOpen)]="supportModalIsOpen"
+  [clrModalClosable]="true"
+  [clrModalStaticBackdrop]="true"
+  [clrModalSize]="'l'"
+>
+  <h3 class="modal-title">Support the plea for...</h3>
+  <p class="larger">
+    ...a veganised <span class="highlighted-txt">{{ plea.nonVeganProduct.name }}</span> by
+    <span class="highlighted-txt">{{ plea.company.name }}</span>
+  </p>
+
+  <div class="modal-body">
+    <form clrForm (ngSubmit)="submitSupport()" [formGroup]="supportPleaForm">
+      <clr-textarea-container>
+        <label>Your message *</label>
+        <textarea clrTextarea formControlName="comment"></textarea>
+        <clr-control-helper>
+          Write a message to the company to let them know how much you want this product and why
+        </clr-control-helper>
+      </clr-textarea-container>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary-outline" (click)="supportModalIsOpen = false">Cancel</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!supportPleaForm.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+</clr-modal>

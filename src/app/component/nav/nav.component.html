@@ -12,7 +12,7 @@
   <nav id="sidenav" class="sidenav" [clr-nav-level]="1">
     <section class="sidenav-content">
       <section *ngIf="authService.user$ | async as user" class="nav-group collapsible">
-        <input id="nav-profile-section" type="checkbox" checked/>
+        <input id="nav-profile-section" type="checkbox" checked />
         <label for="nav-profile-section">{{ user.displayName || 'Profile' }}</label>
         <ul class="nav-list">
           <li class="nav-item">

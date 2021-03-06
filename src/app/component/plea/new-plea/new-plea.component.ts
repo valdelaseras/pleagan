@@ -46,7 +46,7 @@ export class NewPleaComponent {
     private pleaService: PleaService,
     private router: Router,
     private firebaseStorageService: FirebaseStorageService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
   ) {
     this.similarPleas$ = this.querySource$.pipe(
       debounce(() => interval(500)),
@@ -72,20 +72,23 @@ export class NewPleaComponent {
     plea.company = company;
     plea.nonVeganProduct = product;
 
-    this.firebaseStorageService.uploadFile( this.imageFile ).pipe(
-      switchMap( ( imageUrl: string ) => {
-        product.imageUrl = imageUrl;
+    this.firebaseStorageService
+      .uploadFile(this.imageFile)
+      .pipe(
+        switchMap((imageUrl: string) => {
+          product.imageUrl = imageUrl;
 
-        return this.pleaService.createPlea(plea);
-      }),
-      map( ({ id }: { id: number }) => {
-        this.isOpen = true;
-        this.pleaId = id;
-      })
-    ).subscribe();
+          return this.pleaService.createPlea(plea);
+        }),
+        map(({ id }: { id: number }) => {
+          this.isOpen = true;
+          this.pleaId = id;
+        }),
+      )
+      .subscribe();
   }
 
-  handleModal(): void{
+  handleModal(): void {
     this.isOpen = false;
     this.router.navigate(['/', 'plea', this.pleaId, 'details']);
   }
@@ -110,10 +113,10 @@ export class NewPleaComponent {
     }
   }
 
-  onFileChange( files: File[] ): void {
+  onFileChange(files: File[]): void {
     const reader = new FileReader();
 
-    if(files && files.length) {
+    if (files && files.length) {
       const [file] = files;
       this.imageFile = file;
       reader.readAsDataURL(file);

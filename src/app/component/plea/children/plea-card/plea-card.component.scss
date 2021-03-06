@@ -57,9 +57,14 @@
   margin-bottom: 1.2rem;
 }
 
+@media only screen and (min-width: 768px) {
+  .card {
+    margin-bottom: 0;
+  }
+}
+
 .footer-actions {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-

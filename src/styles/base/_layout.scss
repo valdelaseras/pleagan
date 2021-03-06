@@ -12,12 +12,12 @@
   }
 }
 
-@media only screen and (min-width: 1440px) {
-  .grid {
-    width: 50vw;
-    max-width: 50vw;
-  }
-}
+//@media only screen and (min-width: 1440px) {
+//  .grid {
+//    width: 50vw;
+//    max-width: 50vw;
+//  }
+//}
 /*@end grid*/
 
 /*@start content-area*/
@@ -37,6 +37,7 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    text-align: left;
     overflow-y: scroll;
   }
 }

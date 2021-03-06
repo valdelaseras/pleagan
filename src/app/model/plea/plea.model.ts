@@ -10,7 +10,7 @@ export class Plea implements IPlea {
   @JsonProperty('id', Number)
   id = 0;
 
-  @JsonProperty('numberOfSupports', Number )
+  @JsonProperty('numberOfSupports', Number)
   numberOfSupports = 0;
 
   @JsonProperty('status', String)
