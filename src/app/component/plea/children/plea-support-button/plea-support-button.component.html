@@ -1,9 +1,4 @@
-<a
-  type="button"
-  (click)="displayModal($event)"
-  class="btn btn-primary btn-icon"
-  aria-label="Support this plea"
->
+<a type="button" (click)="displayModal($event)" class="btn btn-primary btn-icon" aria-label="Support this plea">
   <div *ngIf="userHasSupported">
     <clr-icon shape="heart" size="16"></clr-icon>
     Supported
@@ -14,7 +9,12 @@
   </div>
 </a>
 
-<clr-modal [(clrModalOpen)]="supportModalIsOpen" [clrModalClosable]="true" [clrModalStaticBackdrop]="true" [clrModalSize]="'l'">
+<clr-modal
+  [(clrModalOpen)]="supportModalIsOpen"
+  [clrModalClosable]="true"
+  [clrModalStaticBackdrop]="true"
+  [clrModalSize]="'l'"
+>
   <h3 class="modal-title">Support the plea for...</h3>
   <p class="larger">
     ...a veganised <span class="highlighted-txt">{{ plea.nonVeganProduct.name }}</span> by
@@ -38,4 +38,3 @@
     </form>
   </div>
 </clr-modal>
-

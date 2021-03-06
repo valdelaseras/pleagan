@@ -33,7 +33,7 @@ export class PleaDetailsComponent {
     // TODO: submit with reason value and plea id
     this.reportModalIsOpen = false;
   }
-  retractSupport():void{
+  retractSupport(): void {
     console.log('retract support');
     // remove comment
     // adjust count

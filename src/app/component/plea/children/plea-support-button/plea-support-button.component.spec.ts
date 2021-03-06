@@ -8,9 +8,8 @@ describe('PleaSupportButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PleaSupportButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [PleaSupportButtonComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

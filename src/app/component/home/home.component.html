@@ -1,19 +1,49 @@
 <div class="landing">
-  <div class="landing-branding">
-    <div class="branding-image">
-      <img src="{{ imgUrl }}" alt="icon of soybeans smiling" />
+  <div class="clr-col" id="l-top-row">
+    <h1 class="title-xl">pleagan</h1>
+    <div class="intro-text">
+      <p>
+        Hello friend. Find out below what Pleagan can do for you.
+      </p>
+
+      <div class="cta-buttons">
+        <button class="btn btn-primary-outline" id="vegan-visitor-btn" [routerLink]="['/about']">for vegans</button>
+        <button class="btn btn-primary-outline" id="company-visitor-btn" [routerLink]="['/about']" [queryParams]="{ section: 'business' }">
+          for businesses
+        </button>
+      </div>
     </div>
-    <h1>pleagan</h1>
   </div>
+  <div class="clr-col" id="l-mid-row">
 
-  <div class="landing-cta">
-    <p class="animate-first bold larger">Hello friend,</p>
-    <p class="animate-second">Find out below what pleagan can do for you!</p>
-    <p class="animate-third">I'm visiting as a...</p>
-
-    <button class="btn" id="vegan-visitor-btn" [routerLink]="['/about']">herbivore</button>
-    <button class="btn" id="company-visitor-btn" [routerLink]="['/about']" [queryParams]="{ section: 'business' }">
-      business
-    </button>
+  </div>
+  <div class="desktop-row">
+    <div class="clr-col" id="l-bot-col-a">
+      <div class="col-header">
+        <h3>Initiate pleas</h3>
+        <p>
+          Initiate a plea to a business to veganise a product of theirs
+        </p>
+      </div>
+      <clr-icon shape="plus" size="160"></clr-icon>
+    </div>
+    <div class="clr-col" id="l-bot-col-b">
+      <div class="col-header">
+        <h3>Support pleas</h3>
+        <p>
+          Support other pleas to empower the call for vegan products
+        </p>
+      </div>
+      <clr-icon shape="heart" size="160"></clr-icon>
+    </div>
+    <div class="clr-col" id="l-bot-col-c">
+      <div class="col-header">
+        <h3>View stats</h3>
+        <p>
+          View our data in graphs and charts and get to know the vegan market potential
+        </p>
+      </div>
+      <clr-icon shape="align-bottom" size="160"></clr-icon>
+    </div>
   </div>
 </div>

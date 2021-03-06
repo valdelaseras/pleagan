@@ -34,8 +34,8 @@
         <h3>
           Presenting the plea for a plant-based <span class="bold">{{ plea.nonVeganProduct.name }}</span>
         </h3>
-        <span>by {{ plea.company.name }}</span
-        ><br />
+        <span>by {{ plea.company.name }}</span>
+        <br />
         <div class="tag">
           <span class="bolder">{{ plea.numberOfSupports }}</span> supporter{{ plea.numberOfSupports > 1 ? 's' : null }}
         </div>
@@ -60,7 +60,7 @@
         </div>
       </div>
 
-<!--      // TODO: these buttons are secondary but styling is wrong. Should be filled with a bg color-->
+      <!--      // TODO: these buttons are secondary but styling is wrong. Should be filled with a bg color-->
       <div class="clr-row util-bar">
         <ul class="btn-list horizontal">
           <!--          TODO: only visible if not owner of this plea-->
@@ -71,7 +71,7 @@
               Report
             </button>
           </li>
-<!--          TODO: only if not owner of this plea and already supported-->
+          <!--          TODO: only if not owner of this plea and already supported-->
           <li>
             <button class="btn btn-secondary" aria-label="Retract support" (click)="retractSupportModalIsOpen = true">
               <clr-icon shape="heart-broken"></clr-icon>
@@ -93,9 +93,7 @@
           </li>
           <li>
             <clr-dropdown [clrCloseMenuOnItemClick]="false">
-              <button clrDropdownTrigger
-                      class="btn btn-secondary"
-                      aria-label="Share plea">
+              <button clrDropdownTrigger class="btn btn-secondary" aria-label="Share plea">
                 <clr-icon shape="share" size="14"></clr-icon>
                 Share
               </button>
@@ -118,11 +116,17 @@
     </div>
   </div>
 
-  <clr-modal [(clrModalOpen)]="reportModalIsOpen" [clrModalClosable]="true" [clrModalStaticBackdrop]="true" [clrModalSize]="'l'">
+  <clr-modal
+    [(clrModalOpen)]="reportModalIsOpen"
+    [clrModalClosable]="true"
+    [clrModalStaticBackdrop]="true"
+    [clrModalSize]="'l'"
+  >
     <h3 class="modal-title">Report this plea</h3>
     <div class="modal-body">
       <p>
-        Thank you for your vigilance. Please let us know what the problem is and we will evaluate it as soon as possible.
+        Thank you for your vigilance. Please let us know what the problem is and we will evaluate it as soon as
+        possible.
       </p>
       <select clrSelect name="report-reason" [(ngModel)]="reportReason">
         <option value="inappropriate-content">This plea contains inappropriate content</option>
@@ -136,22 +140,25 @@
     </div>
   </clr-modal>
 
-  <clr-modal [(clrModalOpen)]="retractSupportModalIsOpen" [clrModalClosable]="true" [clrModalStaticBackdrop]="true" [clrModalSize]="'l'">
+  <clr-modal
+    [(clrModalOpen)]="retractSupportModalIsOpen"
+    [clrModalClosable]="true"
+    [clrModalStaticBackdrop]="true"
+    [clrModalSize]="'l'"
+  >
     <h3 class="modal-title">Retract your support</h3>
     <div class="modal-body">
-      <p>
-        Please tell us why you'd like retract your support for this plea
-      </p>
+      <p>Please tell us why you'd like retract your support for this plea</p>
       <select clrSelect name="retract-reason" [(ngModel)]="retractReason">
         <option value="already-exists">This product already has a vegan version</option>
         <option value="other">Other</option>
       </select>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary-outline" (click)="retractSupportModalIsOpen = false">Cancel</button>
+      <button type="button" class="btn btn-secondary-outline" (click)="retractSupportModalIsOpen = false">
+        Cancel
+      </button>
       <button type="button" class="btn btn-primary" (click)="retractSupport()">Confirm</button>
     </div>
   </clr-modal>
 </div>
-
-

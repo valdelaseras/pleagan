@@ -1,11 +1,11 @@
-import {Component, Input} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Plea} from '../../../../model/plea';
+import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Plea } from '../../../../model/plea';
 
 @Component({
   selector: 'app-plea-support-button',
   templateUrl: './plea-support-button.component.html',
-  styleUrls: ['./plea-support-button.component.scss']
+  styleUrls: ['./plea-support-button.component.scss'],
 })
 export class PleaSupportButtonComponent {
   @Input() plea: Plea;
@@ -27,7 +27,7 @@ export class PleaSupportButtonComponent {
     this.supportModalIsOpen = false;
   }
 
-  displayModal( event: MouseEvent ): void {
+  displayModal(event: MouseEvent): void {
     event.stopPropagation();
     event.preventDefault();
     this.supportModalIsOpen = true;

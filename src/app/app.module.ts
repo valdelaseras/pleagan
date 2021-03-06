@@ -105,7 +105,14 @@ const imports = [
 ];
 
 @NgModule({
-  declarations: [components, CommentCardComponent, FabButtonComponent, PleasListComponent, PleasListComponent, PleaSupportButtonComponent],
+  declarations: [
+    components,
+    CommentCardComponent,
+    FabButtonComponent,
+    PleasListComponent,
+    PleasListComponent,
+    PleaSupportButtonComponent,
+  ],
   imports: imports,
   providers: [PleaService, AuthService, ...routeGuards, AuthorizationInterceptorProvider],
   bootstrap: [AppComponent],
