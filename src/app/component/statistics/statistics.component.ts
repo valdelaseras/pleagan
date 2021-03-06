@@ -8,6 +8,8 @@ import { PleaganService } from '../../service/pleagan/pleagan.service';
 import { Pleagan } from '../../model/pleagan';
 import { mockPleagans } from './mockdata/data';
 import { mockCompanies } from './mockdata/data';
+import { AuthService } from '../../service/auth/auth.service';
+import firebase from 'firebase';
 
 @Component({
   selector: 'app-statistics',
@@ -19,7 +21,7 @@ export class StatisticsComponent {
   datasetOptions: string = 'pleas';
   pleas$: Observable<Plea[]>;
   companies$: Observable<Company[]>;
-  user$: Observable<Pleagan>;
+  user$: Observable<firebase.User | null>;
 
   // Some random options for graph and chart demos
   optionsPleas = {
@@ -207,10 +209,10 @@ export class StatisticsComponent {
   constructor(
     private pleaService: PleaService,
     private companyService: CompanyService,
-    private pleaganService: PleaganService,
+    private authService: AuthService,
   ) {
     this.pleas$ = pleaService.getPleas();
     this.companies$ = companyService.getCompanies();
-    this.user$ = pleaganService.getCurrentPleagan();
+    this.user$ = authService.user$;
   }
 }

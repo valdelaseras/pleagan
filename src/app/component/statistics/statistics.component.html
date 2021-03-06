@@ -91,7 +91,7 @@
     <!--        &lt;!&ndash;        </clr-accordion>&ndash;&gt;-->
     <!--      </div>-->
     <!--    </div>-->
-    <div class="clr-col-12 stat-visuals">
+    <div class="clr-col-12 stat-visuals" *ngIf="companies$ | async">
       <ng-container *ngIf="datasetOptions === 'companies'">
         <!--        <ul *ngIf="companies$ | async as companies">-->
         <!--          <li *ngFor="let company of companies">{{ company.name }}</li>-->
