@@ -1,6 +1,12 @@
 /*@start loading indicator*/
+.loading-indicator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .loading-indicator {
-  display: inline-block;
   position: relative;
   width: 80px;
   height: 80px;
