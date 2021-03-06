@@ -4,12 +4,10 @@ import { JsonConvertService } from '../json-convert/json-convert.service';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
-import { ICompany, IPlea } from 'pleagan-model';
+import { ICompany } from 'pleagan-model';
 import { Company } from '../../model/company';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class CompanyService {
   constructor(private http: HttpClient, private convertService: JsonConvertService) {}
 

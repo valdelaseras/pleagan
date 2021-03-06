@@ -7,12 +7,12 @@ const FADE_IN_OUT_SINGLE = trigger('fadeInOutSingle', [
 
 const FADE_IN_OUT_LIST = trigger('fadeInOutList', [
   transition('* => *', [
-    query(':enter', [style({ opacity: 0 }), stagger(150, [animate('0.8s', style({ opacity: 1 }))])], {
+    query(':enter', [style({ opacity: 0 }), stagger(150, [animate('.3s', style({ opacity: 1 }))])], {
       optional: true,
     }),
   ]),
   transition('* => *', [
-    query(':leave', [style({ opacity: 1 }), stagger(150, [animate('0.8s', style({ opacity: 0 }))])], {
+    query(':leave', [style({ opacity: 1 }), stagger(150, [animate('.3s', style({ opacity: 0 }))])], {
       optional: true,
     }),
   ]),
@@ -20,7 +20,7 @@ const FADE_IN_OUT_LIST = trigger('fadeInOutList', [
 
 const FADE_IN_LIST = trigger('fadeInList', [
   transition('* => *', [
-    query(':enter', [style({ opacity: 0 }), stagger(150, [animate('0.8s', style({ opacity: 1 }))])], {
+    query(':enter', [style({ opacity: 0 }), stagger(150, [animate('.3s', style({ opacity: 1 }))])], {
       optional: true,
     }),
   ]),

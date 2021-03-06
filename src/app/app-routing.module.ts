@@ -44,7 +44,7 @@ const routes: Routes = [
     children: [
       { path: 'new', component: NewPleaComponent, canActivate: [IsLoggedIn] },
       { path: 'all', component: AllPleasComponent },
-      { path: ':id/details', component: PleaDetailsComponent },
+      { path: ':pleaId/details', component: PleaDetailsComponent },
     ],
   },
   { path: 'statistics', component: StatisticsComponent },

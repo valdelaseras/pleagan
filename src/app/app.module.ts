@@ -53,10 +53,16 @@ import { FabButtonComponent } from './component/fab-button/fab-button.component'
 import { PleasListComponent } from './component/plea/children/pleas-list/pleas-list.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { PleaSupportButtonComponent } from './component/plea/children/plea-support-button/plea-support-button.component';
+import { HttpErrorInterceptorProvider } from './interceptor/http-error/http-error.interceptor';
+import { CompanyService } from './service/company/company.service';
+import { DisplayMessageService } from './service/display-message/display-message.service';
+import { FirebaseStorageService } from './service/firebase-storage/firebase-storage.service';
+import { PleaganService } from './service/pleagan/pleagan.service';
+import { ProductService } from './service/product/product.service';
+import { MessageDisplayComponent } from './component/message-display/message-display.component';
+import { DismissMessagesInterceptorProvider } from './interceptor/http-success/dismiss-messages.interceptor';
 
-const routeGuards = [IsLoggedIn, IsNotLoggedIn];
-
-const components = [
+const declarations = [
   AppComponent,
   HomeComponent,
   PleaComponent,
@@ -90,7 +96,13 @@ const components = [
   MyNewsComponent,
   MySettingsComponent,
   SupportersListComponent,
+  CommentCardComponent,
+  FabButtonComponent,
+  PleasListComponent,
+  MessageDisplayComponent,
+  PleaSupportButtonComponent,
 ];
+
 const imports = [
   BrowserModule,
   AngularFireModule.initializeApp(environment.firebase),
@@ -104,17 +116,37 @@ const imports = [
   NgxEchartsModule.forRoot({ echarts: () => import('echarts') }),
 ];
 
+const services = [
+  AuthService,
+  CompanyService,
+  DisplayMessageService,
+  FirebaseStorageService,
+  PleaService,
+  PleaganService,
+  ProductService,
+];
+
+const routeGuards = [
+  IsLoggedIn,
+  IsNotLoggedIn
+];
+
+const interceptorsProviders = [
+  AuthorizationInterceptorProvider,
+  HttpErrorInterceptorProvider,
+  DismissMessagesInterceptorProvider,
+];
+
+const providers = [
+  ...services,
+  ...routeGuards,
+  ...interceptorsProviders
+];
+
 @NgModule({
-  declarations: [
-    components,
-    CommentCardComponent,
-    FabButtonComponent,
-    PleasListComponent,
-    PleasListComponent,
-    PleaSupportButtonComponent,
-  ],
-  imports: imports,
-  providers: [PleaService, AuthService, ...routeGuards, AuthorizationInterceptorProvider],
+  declarations,
+  imports,
+  providers,
   bootstrap: [AppComponent],
 })
 export class AppModule {}

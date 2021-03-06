@@ -52,12 +52,12 @@
             <clr-control-error>Password must match</clr-control-error>
           </clr-password-container>
 
-          <button
-            class="btn btn-primary"
-            id="login-btn"
-            [disabled]="!form.valid || form.value.password !== form.value.confirmPassword"
-            type="submit"
-          >
+          <app-message-display [messageLevels]="['warning', 'danger']"></app-message-display>
+
+          <button class="btn btn-primary"
+                  id="login-btn"
+                  [disabled]="!form.valid || form.value.password !== form.value.confirmPassword"
+                  type="submit">
             Create account
           </button>
         </form>

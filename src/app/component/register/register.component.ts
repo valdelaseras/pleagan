@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth/auth.service';
 import { Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { Pleagan } from '../../model/pleagan';
 
 @Component({
   selector: 'app-register',
@@ -24,6 +22,6 @@ export class RegisterComponent {
 
   submit(form: FormGroup): void {
     const { email, password, displayName } = form.value;
-    this.authService.signUp(email, password, displayName).subscribe(this.redirect);
+    this.authService.signUp(email, password, displayName).subscribe( this.redirect );
   }
 }

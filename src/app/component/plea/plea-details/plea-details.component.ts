@@ -26,7 +26,7 @@ export class PleaDetailsComponent {
   // Select elements in modals
   reportReason: string = 'inappropriate-content';
   constructor(private route: ActivatedRoute, private pleaService: PleaService) {
-    this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
+    this.plea$ = this.pleaService.getPleaById( parseInt( this.route.snapshot.paramMap.get('pleaId')! ) );
   }
   submitReport() {
     console.log('submit');
