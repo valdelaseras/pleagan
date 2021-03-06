@@ -79,8 +79,8 @@
 
       <section class="nav-group user-state">
         <small *ngIf="!(authService.user$ | async)">
-          Please <a class="underlined" [routerLink]="['/', 'login']">login</a> or
-          <a class="underlined" [routerLink]="['/', 'register']">create an account</a> to initiate and support pleas
+          Please <a class="underlined" [routerLink]="['/', 'login']">log in</a> or
+          <a class="underlined" [routerLink]="['/', 'sign-up']">sign up</a> to initiate and support pleas
         </small>
         <p *ngIf="authService.user$ | async">
           <a class="underlined" (click)="logout()">logout</a>

@@ -3,14 +3,15 @@ import { DisplayMessageService } from '../../service/display-message/display-mes
 import { Observable } from 'rxjs';
 import { DisplayMessageLevel, DisplayMessage } from '../../model/display-message/display-message.model';
 import { map } from 'rxjs/operators';
-import { FADE_IN_LIST } from '../../animations';
+import { FADE_IN_OUT_SHRINK_SINGLE, FADE_IN_OUT_SINGLE } from '../../animations';
 
 @Component({
   selector: 'app-message-display',
   templateUrl: './message-display.component.html',
   styleUrls: ['./message-display.component.scss'],
   animations: [
-    FADE_IN_LIST
+    FADE_IN_OUT_SINGLE,
+    FADE_IN_OUT_SHRINK_SINGLE
   ]
 })
 export class MessageDisplayComponent {
@@ -28,11 +29,18 @@ export class MessageDisplayComponent {
     );
   }
 
+  numberOfVisibleMessages( messages: DisplayMessage[] ): number {
+    return messages.map( ( displayMessage: DisplayMessage ) => !displayMessage.dismissed ).length
+  }
+
   filterDisplayMessages = ( displayMessages: DisplayMessage[] ): DisplayMessage[] => {
     return displayMessages.filter( ( displayMessage: DisplayMessage ) => this.messageLevels.includes( displayMessage.level ) )
   };
 
   dismiss( displayMessage: DisplayMessage ): void {
-    this.displayMessageService.dismissDisplayMessage( displayMessage );
+    displayMessage.dismissed = true;
+    setTimeout(() => {
+      this.displayMessageService.dismissDisplayMessage( displayMessage );
+    }, 1000);
   }
 }

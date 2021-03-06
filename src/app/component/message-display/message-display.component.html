@@ -1,5 +1,7 @@
-<div *ngIf="displayMessages$ | async as displayMessages" [@fadeInList]="displayMessages.length">
-  <div class="alert alert-{{ displayMessage.level }}" *ngFor="let displayMessage of displayMessages">
+<ng-container *ngFor="let displayMessage of (displayMessages$ | async)">
+  <div *ngIf="!displayMessage.dismissed"
+       [@fadeInOutSingle]
+       class="alert alert-{{ displayMessage.level }}" >
     <div class="alert-items">
       <div class="alert-item static">
         <div class="alert-icon-wrapper" [ngSwitch]="displayMessage.level">
@@ -20,4 +22,4 @@
       <clr-icon aria-hidden="true" shape="close"></clr-icon>
     </button>
   </div>
-</div>
+</ng-container>

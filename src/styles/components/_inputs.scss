@@ -28,12 +28,19 @@ form clr-combobox-container .clr-combobox-wrapper .clr-input {
   width: 100%;
 }
 
-form .clr-input-group {
+form .clr-input-group,
+form .clr-form-control .clr-control-container,
+form .clr-form-control .clr-control-container input:not([type="password"]) {
   width: 100%;
+  transition: width 100ms ease-in-out;
 }
 
-form .clr-input-group .clr-input-group-icon-action {
-  width: 100%;
+.clr-error .clr-validate-icon {
+  display: none;
+}
+
+form .clr-form-control .clr-control-container input[type="password"] {
+  width: calc(100% - 36px);
 }
 
 @media only screen and (min-width: 768px) {
@@ -45,6 +52,13 @@ form .clr-input-group .clr-input-group-icon-action {
   form clr-input-container label {
     display: block;
     min-width: 100%;
+  }
+
+  .clr-error {
+    .clr-validate-icon {
+      margin-left: 1.5rem;
+      display: inline-block;
+    }
   }
 }
 /*@end input widths*/

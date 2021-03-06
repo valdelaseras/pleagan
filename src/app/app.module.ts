@@ -35,7 +35,7 @@ import { SortByLikelihoodPipe } from './pipe/sort-by-likelihood/sort-by-likeliho
 import { SuggestionListComponent } from './component/suggestion-list/suggestion-list.component';
 import { LoadingIndicatorComponent } from './component/loading-indicator/loading-indicator.component';
 import { LoginComponent } from './component/login/login.component';
-import { RegisterComponent } from './component/register/register.component';
+import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { MyProfileComponent } from './component/profile/my-profile.component';
 import { MyPleasComponent } from './component/profile/children/my-pleas/my-pleas.component';
 import { MySupportComponent } from './component/profile/children/my-support/my-support.component';
@@ -90,7 +90,7 @@ const declarations = [
   SortByLikelihoodPipe,
   LoadingIndicatorComponent,
   LoginComponent,
-  RegisterComponent,
+  SignUpComponent,
   MyProfileComponent,
   MyPleasComponent,
   MySupportComponent,

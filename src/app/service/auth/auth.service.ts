@@ -4,11 +4,12 @@ import { EMPTY, from, Observable } from 'rxjs';
 import firebase from 'firebase/app';
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
-import { catchError, delay, map, mergeMap, switchMap } from 'rxjs/operators';
+import { catchError, delay, map, mergeMap, switchMap, tap } from 'rxjs/operators';
 import { PleaganService } from '../pleagan/pleagan.service';
 import { DisplayMessageService } from '../display-message/display-message.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DisplayMessage } from '../../model/display-message/display-message.model';
+import { LoadingIndicatorService } from '../loading-indicator/loading-indicator.service';
 
 @Injectable()
 export class AuthService {
@@ -22,7 +23,8 @@ export class AuthService {
     private fireAuth: AngularFireAuth,
     private router: Router,
     private pleaganService: PleaganService,
-    private displayMessageService: DisplayMessageService
+    private displayMessageService: DisplayMessageService,
+    private loadingIndicatorService: LoadingIndicatorService
   ) {
     this.user$ = this.fireAuth.authState;
   }
@@ -50,9 +52,16 @@ export class AuthService {
 
   login( email: string, password: string ): Observable<firebase.User> {
     this.displayMessageService.dismissAllDisplayMessages();
+    this.loadingIndicatorService.showLoadingIndicator();
     return from(
       this.fireAuth.signInWithEmailAndPassword( email, password )
     ).pipe(
+      tap( () => this.loadingIndicatorService.hideLoadingIndicator()),
+      catchError( ( error: any ) => { // DIRTYYYY!!!
+        this.loadingIndicatorService.hideLoadingIndicator();
+        this.displayMessageService.addDisplayMessage( new DisplayMessage( this.formatErrorMessage( error['code'], error.message ), 'warning' ) );
+        return EMPTY;
+      }),
       map( ( userCredential: UserCredential ) => userCredential.user! )
     );
   }
@@ -64,5 +73,16 @@ export class AuthService {
         return this.router.navigate(['/', 'login']);
       }),
     );
+  }
+
+  private formatErrorMessage( code: String, message: string ): string {
+    switch( code ) {
+      case 'auth/user-not-found':
+        return 'There is no account corresponding to this email address. The account may have been deleted.';
+      case 'auth/invalid-email':
+        return 'Make sure you entered a valid email address.';
+      default:
+        return message;
+    }
   }
 }

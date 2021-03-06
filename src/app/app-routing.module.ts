@@ -16,7 +16,7 @@ import { CompliedPleasComponent } from './component/hall-of-fame/children/compli
 import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
 import { NewsListComponent } from './component/news/children/news-list/news-list.component';
 import { LoginComponent } from './component/login/login.component';
-import { RegisterComponent } from './component/register/register.component';
+import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { MyProfileComponent } from './component/profile/my-profile.component';
 import { MyPleasComponent } from './component/profile/children/my-pleas/my-pleas.component';
 import { MySupportComponent } from './component/profile/children/my-support/my-support.component';
@@ -26,7 +26,7 @@ import { IsLoggedIn } from './guard/is-logged-in';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'sign-up', component: SignUpComponent },
   { path: '', component: HomeComponent, pathMatch: 'full' },
   {
     path: 'profile',
