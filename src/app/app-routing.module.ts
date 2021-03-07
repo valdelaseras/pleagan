@@ -1,66 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './component/home/home.component';
-import { PleaComponent } from './component/plea/plea.component';
-import { NewPleaComponent } from './component/plea/new-plea/new-plea.component';
-import { AllPleasComponent } from './component/plea/all-pleas/all-pleas.component';
-import { PleaDetailsComponent } from './component/plea/plea-details/plea-details.component';
-import { AboutComponent } from './component/about/about.component';
-import { FaqComponent } from './component/faq/faq.component';
-import { StatisticsComponent } from './component/statistics/statistics.component';
-import { NewsComponent } from './component/news/news.component';
-import { HallOfFameComponent } from './component/hall-of-fame/hall-of-fame.component';
-import { ContactComponent } from './component/contact/contact.component';
-import { CompliedPleasComponent } from './component/hall-of-fame/children/complied-pleas/complied-pleas.component';
-import { DetailsComponent } from './component/hall-of-fame/children/details/details.component';
-import { NewsListComponent } from './component/news/children/news-list/news-list.component';
-import { LoginComponent } from './component/login/login.component';
-import { SignUpComponent } from './component/sign-up/sign-up.component';
-import { MyProfileComponent } from './component/profile/my-profile.component';
-import { MyPleasComponent } from './component/profile/children/my-pleas/my-pleas.component';
-import { MySupportComponent } from './component/profile/children/my-support/my-support.component';
-import { MyNewsComponent } from './component/profile/children/my-news/my-news.component';
-import { MySettingsComponent } from './component/profile/children/my-settings/my-settings.component';
-import { IsLoggedIn } from './guard/is-logged-in';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'sign-up', component: SignUpComponent },
-  { path: '', component: HomeComponent, pathMatch: 'full' },
   {
-    path: 'profile',
-    component: MyProfileComponent,
-    canActivate: [IsLoggedIn],
-    children: [
-      { path: 'settings', component: MySettingsComponent },
-      { path: 'my-pleas', component: MyPleasComponent },
-      { path: 'my-support', component: MySupportComponent },
-      { path: 'my-news', component: MyNewsComponent },
-    ],
+    path: '',
+    pathMatch: 'full',
+    loadChildren: () => import( './module/about/about.module' ).then( m => m.AboutModule )
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import( './module/auth/auth.module' ).then( m => m.AuthModule ),
   },
   {
     path: 'plea',
-    component: PleaComponent,
-    children: [
-      { path: 'new', component: NewPleaComponent, canActivate: [IsLoggedIn] },
-      { path: 'all', component: AllPleasComponent },
-      { path: ':pleaId/details', component: PleaDetailsComponent },
-    ],
+    loadChildren: () => import( './module/plea/plea.module' ).then( m => m.PleaModule ),
   },
-  { path: 'statistics', component: StatisticsComponent },
-  { path: 'news', component: NewsComponent, children: [{ path: 'all', component: NewsListComponent }] },
   {
-    path: 'hall-of-fame',
-    component: HallOfFameComponent,
-    children: [
-      { path: 'all', component: CompliedPleasComponent },
-      { path: 'details/:id', component: DetailsComponent },
-    ],
+    path: 'user',
+    loadChildren: () => import( './module/user/user.module' ).then( m => m.UserModule ),
   },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'faq', component: FaqComponent },
   { path: '**', redirectTo: '/' },
+  // { path: 'my-news', component: MyNewsComponent },
 ];
 
 @NgModule({
