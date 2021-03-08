@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Plea } from '../../../shared/model/plea';
-import { PLEA_TARGET } from '../../../shared/model/plea/plea-target.enum';
+import { Plea, PLEA_TARGET } from '@shared/model';
 
 @Component({
   selector: 'app-plea-card',

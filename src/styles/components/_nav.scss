@@ -12,6 +12,20 @@
 }
 /*@end nav-button ( initiate plea button )*/
 
+/*@start backdrop*/
+.header-backdrop {
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1038;
+  background: black;
+  transition: opacity 500ms ease-out;
+}
+/*@end backdrop*/
+
+
 /*@start user-state (logged in or out)*/
 .user-state {
   padding: 0 1.5rem;

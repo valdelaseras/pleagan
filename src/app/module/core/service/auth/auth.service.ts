@@ -2,20 +2,21 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { EMPTY, from, Observable } from 'rxjs';
 import firebase from 'firebase/app';
+import User = firebase.User;
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
 import { catchError, delay, map, mergeMap, switchMap, tap } from 'rxjs/operators';
-import { PleaganService } from '../pleagan/pleagan.service';
-import { DisplayMessageService } from '../display-message/display-message.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { DisplayMessage } from '../../../shared/model/display-message/display-message.model';
+import { DisplayMessageService } from '../display-message/display-message.service';
 import { LoadingIndicatorService } from '../loading-indicator/loading-indicator.service';
+import { PleaganService } from '../pleagan/pleagan.service';
+import { DisplayMessage } from '@shared/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user$: Observable<firebase.User | null>;
+  user$: Observable<User | null>;
 
   get idToken$() {
     return this.fireAuth.idToken;
@@ -41,7 +42,7 @@ export class AuthService {
         return EMPTY;
       }),
       switchMap( ( userCredential: UserCredential ) => {
-        return from(this.fireAuth.currentUser.then( async ( user: firebase.User | null ) => {
+        return from(this.fireAuth.currentUser.then( async ( user: User | null ) => {
           const photoURL = '/assets/images/default-user.png';
           if ( user ) {
             await user.updateProfile({ displayName, photoURL });
@@ -52,7 +53,7 @@ export class AuthService {
     );
   }
 
-  login( email: string, password: string ): Observable<firebase.User> {
+  login( email: string, password: string ): Observable<User> {
     this.displayMessageService.dismissAllDisplayMessages();
     this.loadingIndicatorService.showLoadingIndicator();
     return from(

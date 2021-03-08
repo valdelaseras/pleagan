@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JsonConvertService } from '../json-convert/json-convert.service';
 import { Observable } from 'rxjs';
-import { environment } from '../../../../../environments/environment';
 import { map } from 'rxjs/operators';
 import { IProduct } from 'pleagan-model';
-import { Product } from '../../../shared/model/product';
+import { Product } from '@shared/model';
+import { environment } from '@env/*';
 
 @Injectable({
   providedIn: 'root'

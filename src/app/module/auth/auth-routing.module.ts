@@ -3,8 +3,8 @@ import { LoginComponent, SignUpComponent } from './component';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'sign-up', component: SignUpComponent },
+  { path: 'login', component: LoginComponent, data: { animation: 'login' } },
+  { path: 'sign-up', component: SignUpComponent, data: { animation: 'signUp' } },
   { path: '**', redirectTo: 'login' },
 ];
 

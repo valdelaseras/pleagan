@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Plea } from '../../../shared/model/plea';
 import { Observable } from 'rxjs';
-import { environment } from '../../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { IPlea } from 'pleagan-model';
 import { map } from 'rxjs/operators';
 import { JsonConvertService } from '../json-convert/json-convert.service';
-import { Support } from '../../../shared/model/plea/support.model';
 import { ISupport } from 'pleagan-model/dist/model/plea/base/support.interfase';
+import { Plea, Support } from '@shared/model';
+import { environment } from '@env/*';
 
 @Injectable({
   providedIn: 'root'

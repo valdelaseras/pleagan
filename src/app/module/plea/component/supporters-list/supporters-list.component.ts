@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Support } from '../../../shared/model/plea/support.model';
+import { Support } from '@shared/model';
 
 @Component({
   selector: 'app-supporters-list',

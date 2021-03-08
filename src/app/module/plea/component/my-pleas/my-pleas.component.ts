@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Plea } from '../../../shared/model/plea';
-import { PleaService } from '../../../core/service/plea/plea.service';
+import { PleaService } from '@core/service';
+import { Plea } from '@shared/model';
 
 @Component({
   selector: 'app-my-pleas',

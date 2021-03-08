@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Plea } from '../../../shared/model/plea';
-import { PleaService } from '../../../core/service/plea/plea.service';
 import { map, switchMap } from 'rxjs/operators';
 import { PLEA_STATUS } from 'pleagan-model';
+import { Plea } from '@shared/model';
+import { PleaService } from '@core/service';
 
 @Component({
   selector: 'app-submissions',

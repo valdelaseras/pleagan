@@ -16,21 +16,22 @@
         <label for="nav-profile-section">{{ user.displayName || 'Profile' }}</label>
         <ul class="nav-list">
           <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'profile', 'settings']">Settings</a>
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'settings']">Settings</a>
             <!--            email settings etc go here. I guess maybe also user pic, password reset, delete account, sign out-->
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'pleas', 'my']">My pleas </a>
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiated']">My pleas </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'profile', 'my-support']">My supported pleas</a>
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'supported']">My supported pleas</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'profile', 'my-news']">My news</a>
-          </li>
+<!--     @TODO: fix     -->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'profile', 'my-news']">My news</a>-->
+<!--          </li>-->
         </ul>
       </section>
 
@@ -48,7 +49,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']">Statistics</a>
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'statistics']">Statistics</a>
           </li>
 
           <li class="nav-item">

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { DisplayMessage } from '../../../shared/model/display-message/display-message.model';
 import { map, shareReplay } from 'rxjs/operators';
 import { Event, NavigationEnd, Router } from '@angular/router';
+import { DisplayMessage } from '@shared/model';
 
 @Injectable({
   providedIn: 'root'

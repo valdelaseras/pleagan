@@ -13,14 +13,14 @@ import {
 } from './component';
 
 const routes: Routes = [
-  { path: 'new', component: NewPleaComponent, canActivate: [IsLoggedIn] },
-  { path: 'initiated', component: MyPleasComponent, canActivate: [IsLoggedIn] },
-  { path: 'supported', component: MySupportComponent, canActivate: [IsLoggedIn] },
-  { path: 'all', component: AllPleasComponent },
-  { path: 'statistics', component: StatisticsComponent },
-  { path: 'complied', component: CompliedPleasComponent },
-  { path: 'complied/:pleaId/details', component: HafDetailsComponent },
-  { path: ':pleaId/details', component: PleaDetailsComponent },
+  { path: 'new', component: NewPleaComponent, canActivate: [IsLoggedIn], data: { animation: 'newPlea'} },
+  { path: 'initiated', component: MyPleasComponent, canActivate: [IsLoggedIn], data: { animation: 'initiatedPleas'} },
+  { path: 'supported', component: MySupportComponent, canActivate: [IsLoggedIn], data: { animation: 'supportedPleas'} },
+  { path: 'all', component: AllPleasComponent, data: { animation: 'allPleas'} },
+  { path: 'statistics', component: StatisticsComponent, data: { animation: 'statistics'} },
+  { path: 'complied', component: CompliedPleasComponent, data: { animation: 'compliedPleas'} },
+  { path: 'complied/:pleaId/details', component: HafDetailsComponent, data: { animation: 'compliedPleaDetails'} },
+  { path: ':pleaId/details', component: PleaDetailsComponent, data: { animation: 'pleaDetails'} },
   { path: '**', redirectTo: 'all' },
 ];
 

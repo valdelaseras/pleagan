@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../../../../environments/environment';
-import { Pleagan } from '../../../shared/model/pleagan';
 import { shareReplay } from 'rxjs/operators';
-import { delayedRetry } from '../../../shared/operator/delayed-retry.operator';
+import { Pleagan } from '@shared/model';
+import { delayedRetry } from '@shared/operator';
+import { environment } from '@env/*';
 
 @Injectable({
   providedIn: 'root'

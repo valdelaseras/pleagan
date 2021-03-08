@@ -1,6 +1,6 @@
 import { ISupport } from 'pleagan-model/dist/model/plea/base/support.interfase';
 import { JsonObject, JsonProperty } from 'json2typescript';
-import { Pleagan } from '../pleagan';
+import { Pleagan } from '../pleagan/pleagan.model';
 
 @JsonObject('Support')
 export class Support implements ISupport {

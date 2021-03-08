@@ -9,8 +9,8 @@ import {
 } from '@angular/common/http';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { DisplayMessageService } from '../../service/display-message/display-message.service';
-import { DisplayMessageLevel, DisplayMessage } from '../../../shared/model/display-message/display-message.model';
+import { DisplayMessageService } from '../../service';
+import { DisplayMessage, DisplayMessageLevel } from '@shared/model/display-message/display-message.model';
 
 @Injectable({
   providedIn: 'root'
