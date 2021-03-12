@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Plea } from '../../../shared/model/plea';
-import { PleaService } from '../../../core/service/plea/plea.service';
-import { CompanyService } from '../../../core/service/company/company.service';
-import { Company } from '../../../shared/model/company';
-import { PleaganService } from '../../../core/service/pleagan/pleagan.service';
-import { Pleagan } from '../../../shared/model/pleagan';
 import { mockPleagans } from './mockdata/data';
 import { mockCompanies } from './mockdata/data';
-import { AuthService } from '../../../core/service/auth/auth.service';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import User = firebase.User;
+import { Company, Plea } from '@shared/model';
+import { AuthService, CompanyService, PleaService } from '@core/service';
 
 @Component({
   selector: 'app-statistics',
@@ -21,7 +17,7 @@ export class StatisticsComponent {
   datasetOptions: string = 'pleas';
   pleas$: Observable<Plea[]>;
   companies$: Observable<Company[]>;
-  user$: Observable<firebase.User | null>;
+  user$: Observable<User | null>;
 
   // Some random options for graph and chart demos
   optionsPleas = {

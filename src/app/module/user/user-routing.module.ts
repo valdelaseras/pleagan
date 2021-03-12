@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SettingsComponent } from './component';
 
 const routes: Routes = [
-  { path: 'settings', component: SettingsComponent },
+  { path: 'settings', component: SettingsComponent, data: { animation: 'settings' } },
 
   // @TODO: build a UserProfile component
   // { path: ':userId', component: UserProfileComponent }

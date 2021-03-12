@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Plea } from '../../../shared/model/plea';
+import { Plea } from '@shared/model';
 
 // TODO:
 // cards broken, fix and then fix styles as well

@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -17,6 +17,11 @@
     "target": "es2015",
     "module": "es2020",
     "lib": ["es2018", "dom"],
+    "paths": {
+      "@env/*": [ "environments/environment" ],
+      "@shared/*": [ "app/module/shared/*" ],
+      "@core/*": [ "app/module/core/*" ]
+    },
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false
   }

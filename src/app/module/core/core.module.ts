@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
-import { environment } from '../../../environments/environment';
+import { environment } from '@env/*';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({

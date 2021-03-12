@@ -1,8 +1,8 @@
-import { Company } from '../company';
-import { Pleagan } from '../pleagan';
+import { Company } from '../company/company.model';
+import { Pleagan } from '../pleagan/pleagan.model';
 import { IPlea, PLEA_STATUS } from 'pleagan-model';
 import { JsonObject, JsonProperty } from 'json2typescript';
-import { Product } from '../product';
+import { Product } from '../product/product.model';
 import { Support } from './support.model';
 
 @JsonObject('Plea')

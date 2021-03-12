@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Plea } from '../../../shared/model/plea';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { PleaService } from '../../../core/service/plea/plea.service';
-import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../shared/animations';
+import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '@shared/animations';
+import { PleaService } from '@core/service';
+import { Plea } from '@shared/model';
 
 @Component({
   selector: 'app-submission-details',

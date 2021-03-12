@@ -3,10 +3,10 @@ import { from, Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { v4 as uuidV4} from 'uuid';
-import { filterNullOrUndefined } from '../../../shared/operator/filter-null-or-undefined.operator';
 import firebase from 'firebase';
 import UploadTaskSnapshot = firebase.storage.UploadTaskSnapshot;
 import { filter, switchMap } from 'rxjs/operators';
+import { filterNullOrUndefined } from '@shared/operator';
 
 @Injectable({
   providedIn: 'root'

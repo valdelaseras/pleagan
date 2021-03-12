@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Plea } from '../../../shared/model/plea';
+import { Plea } from '@shared/model';
 
 @Component({
   selector: 'app-plea-support-button',

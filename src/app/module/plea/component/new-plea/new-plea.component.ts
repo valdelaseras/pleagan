@@ -1,17 +1,11 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { interval, Observable, Subject } from 'rxjs';
-import { ProductService } from '../../../core/service/product/product.service';
-import { CompanyService } from '../../../core/service/company/company.service';
-import { Plea } from '../../../shared/model/plea';
-import { PleaService } from '../../../core/service/plea/plea.service';
-import { debounce, map, shareReplay, switchMap, tap } from 'rxjs/operators';
+import { debounce, map, switchMap, tap } from 'rxjs/operators';
 import { FADE_IN_OUT_LIST, FADE_IN_OUT_SINGLE, SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../shared/animations';
-import { Product } from '../../../shared/model/product';
-import { Company } from '../../../shared/model/company';
 import { Router } from '@angular/router';
-import { FirebaseStorageService } from '../../../core/service/firebase-storage/firebase-storage.service';
-import { v4 as uuidV4 } from 'uuid';
+import { Company, Plea, Product } from '@shared/model';
+import { CompanyService, FirebaseStorageService, PleaService, ProductService } from '@core/service';
 
 @Component({
   selector: 'app-new-plea',

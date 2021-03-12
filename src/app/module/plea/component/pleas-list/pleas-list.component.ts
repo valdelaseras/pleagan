@@ -1,7 +1,7 @@
 import { Component, HostListener, Input } from '@angular/core';
-import { Plea } from '../../../shared/model/plea';
-import { FADE_IN_LIST } from '../../../shared/animations';
 import { PLEA_STATUS } from 'pleagan-model';
+import { FADE_IN_LIST } from '@shared/animations';
+import { Plea } from '@shared/model';
 
 @Component({
   selector: 'app-pleas-list',
