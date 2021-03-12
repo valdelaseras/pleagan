@@ -13,17 +13,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Nodejs
+        uses: actions/setup-node@v1
         with:
           node-version: 15.x
-      - uses: borales/actions-yarn@v2.0.0
+      - name: Install dependencies
+        uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
-      - uses: borales/actions-yarn@v2.0.0
+      - name: Build artifact
+        uses: borales/actions-yarn@v2.0.0
         with:
           cmd: build
-      - name: deploy
+      - name: Deploy
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avzr --delete
