@@ -17,13 +17,17 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 15.x
-      - run: npm ci
-      - run: npm run build
-      - name: rsync deployments
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build
+      - name: deploy
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avzr --delete
-          path: dist/
+          path: dist/pleagan/
           remote_path: /var/www/pleagan-dev/
           remote_host: pleagan.vg
           remote_user: pleagan
