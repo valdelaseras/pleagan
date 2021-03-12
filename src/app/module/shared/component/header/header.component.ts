@@ -14,19 +14,24 @@ export class HeaderComponent {
         return '';
         break;
       }
-      case '/profile/settings': {
+      case '/user/profile': {
+        // displayName instead would be cooler
+        return 'profile';
+        break;
+      }
+      case '/user/settings': {
         return 'settings';
         break;
       }
-      case '/profile/my-pleas': {
+      case '/plea/initiated': {
         return 'my pleas';
         break;
       }
-      case '/profile/my-support': {
+      case '/plea/supported': {
         return 'my supported pleas';
         break;
       }
-      case '/profile/my-news': {
+      case '/user/my-news': {
         return 'my news';
         break;
       }

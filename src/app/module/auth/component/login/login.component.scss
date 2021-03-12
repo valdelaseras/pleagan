@@ -1,7 +1,9 @@
-#login-btn {
-  margin-right: 0.6rem;
-}
-
 a {
   display: block;
+}
+
+@media only screen and ( min-width: 1024px ) {
+  #login-btn {
+    margin-right: 0.6rem;
+  }
 }

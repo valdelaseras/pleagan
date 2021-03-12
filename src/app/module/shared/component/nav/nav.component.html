@@ -16,6 +16,11 @@
         <label for="nav-profile-section">{{ user.displayName || 'Profile' }}</label>
         <ul class="nav-list">
           <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'profile']">Profile</a>
+            <!--            email settings etc go here. I guess maybe also user pic, password reset, delete account, sign out-->
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'settings']">Settings</a>
             <!--            email settings etc go here. I guess maybe also user pic, password reset, delete account, sign out-->
           </li>
