@@ -18,24 +18,12 @@ jobs:
           node-version: 15.x
       - run: npm ci
       - run: npm run build -- --prod --build-optimizer --optimization
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2.2.2
-        with:
-          # Artifact name
-          name:
-          # A file, directory or wildcard pattern that describes what to upload
-          path:
-          # The desired behavior if no files are found using the provided path.
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
       - name: rsync deployments
-        uses: burnett01/rsync-deployments@4.1
-        with:
-          switches: -avzr --delete
-          path: dist/
-          remote_path: /var/www/pleagan/
-          remote_host: pleagan.vg
-          remote_user: pleagan
-          remote_key: ${{ secrets.PLEAGAN_DEPLOY_KEY }}
+          uses: burnett01/rsync-deployments@4.1
+          with:
+            switches: -avzr --delete
+            path: dist/
+            remote_path: /var/www/pleagan/
+            remote_host: pleagan.vg
+            remote_user: pleagan
+            remote_key: ${{ secrets.PLEAGAN_DEPLOY_KEY }}
