@@ -10,17 +10,24 @@ import { Plea } from '@shared/model';
   animations: [FADE_IN_LIST],
 })
 export class PleasListComponent {
-  mobileScreen = this.isMobileScreen();
+  screenSize: 'small' | 'large' | 'xl' = this.getScreenSize();
   @Input() pleas: Plea[];
   PLEA_STATUS = PLEA_STATUS;
   constructor() {}
 
   @HostListener('window:resize', ['$event'])
   handleResize(event: UIEvent): void {
-    this.mobileScreen = this.isMobileScreen();
+    this.screenSize = this.getScreenSize();
+    console.log( this.screenSize );
   }
 
-  private isMobileScreen(): boolean {
-    return window.innerWidth <= 768;
+  private getScreenSize(): 'small' | 'large' | 'xl' {
+    if ( window.innerWidth <= 768 ) {
+      return 'small';
+    } else if ( window.innerWidth > 768 && window.innerWidth < 1440 ) {
+      return 'large';
+    } else {
+      return 'xl';
+    }
   }
 }

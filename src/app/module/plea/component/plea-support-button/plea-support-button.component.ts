@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Plea } from '@shared/model';
+import {Plea, Support} from '@shared/model';
+import {PleaService} from '@core/service';
 
 @Component({
   selector: 'app-plea-support-button',
@@ -9,6 +10,8 @@ import { Plea } from '@shared/model';
 })
 export class PleaSupportButtonComponent {
   @Input() plea: Plea;
+  @Output() hasSupported: EventEmitter<void> = new EventEmitter<void>();
+
   // plea$: Observable<Plea>;
   // this shouldn't just be a FE boolean
   userHasSupported = false;
@@ -17,14 +20,16 @@ export class PleaSupportButtonComponent {
   supportPleaForm = new FormGroup({
     comment: new FormControl('', Validators.required),
   });
-  // constructor(private route: ActivatedRoute, private pleaService: PleaService) {
-  //   // this.plea$ = this.pleaService.getPleaById(this.route.snapshot.paramMap.get('id') || '');
-  // }
+  constructor(private pleaService: PleaService) {}
 
-  submitSupport(): void {
+  submitSupport( form: FormGroup ): void {
     // display success message first then:
-    this.userHasSupported = true;
-    this.supportModalIsOpen = false;
+    this.pleaService.supportPlea( this.plea.id, form.value.comment ).subscribe(() => {
+      this.userHasSupported = true;
+      this.supportModalIsOpen = false;
+      // trigger data refresh
+      this.hasSupported.emit();
+    });
   }
 
   displayModal(event: MouseEvent): void {

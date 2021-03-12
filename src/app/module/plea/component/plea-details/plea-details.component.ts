@@ -26,7 +26,7 @@ export class PleaDetailsComponent {
   // Select elements in modals
   reportReason: string = 'inappropriate-content';
   constructor(private route: ActivatedRoute, private pleaService: PleaService) {
-    this.plea$ = this.pleaService.getPleaById( parseInt( this.route.snapshot.paramMap.get('pleaId')! ) );
+    this.refreshPlea();
   }
   submitReport() {
     console.log('submit');
@@ -39,5 +39,9 @@ export class PleaDetailsComponent {
     // adjust count
     this.userHasSupported = false;
     this.retractSupportModalIsOpen = false;
+  }
+
+  refreshPlea(): void {
+    this.plea$ = this.pleaService.getPleaById( parseInt( this.route.snapshot.paramMap.get('pleaId')! ) );
   }
 }
