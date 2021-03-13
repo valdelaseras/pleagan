@@ -18,9 +18,26 @@ button[type='submit'] {
   border: none !important;
 }
 
+.btn.btn-primary:focus,
+.btn.btn-primary:focus-within,
+.btn.btn-primary:active,
 .btn.btn-primary:hover {
   border: none !important;
   color: white !important;
+  background-color: var(--quaternary-color);
+}
+
+.btn.btn-secondary:focus,
+.btn.btn-secondary:focus-within,
+.btn.btn-secondary:active,
+.btn.btn-secondary:hover,
+.btn.btn-secondary-outline:focus,
+.btn.btn-secondary-outline:focus-within,
+.btn.btn-secondary-outline:active,
+.btn.btn-secondary-outline:hover {
+  border-color: var(--quaternary-color);
+  color: var(--quaternary-color);
+  background-color: transparent;
 }
 /*@end btn-primary*/
 
