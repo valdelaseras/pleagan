@@ -30,7 +30,6 @@ export class NewPleaComponent {
     ingredient: new FormControl(),
   });
   loading: boolean = true;
-  imageUrl: Observable<string>;
   imagePreview: string;
   imageFile: File;
 
