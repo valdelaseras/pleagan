@@ -18,7 +18,6 @@ export class PleasListComponent {
   @HostListener('window:resize', ['$event'])
   handleResize(event: UIEvent): void {
     this.screenSize = this.getScreenSize();
-    console.log( this.screenSize );
   }
 
   private getScreenSize(): 'small' | 'large' | 'xl' {

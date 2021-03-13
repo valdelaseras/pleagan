@@ -12,8 +12,10 @@ export class SignUpComponent {
   form = new FormGroup({
     email: new FormControl('', Validators.required),
     displayName: new FormControl('', Validators.required),
+    countryName: new FormControl('', Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength( 6 )]),
-    confirmPassword: new FormControl('', Validators.compose( [ Validators.required, Validators.minLength( 6 ), this.passwordsMatch.bind( this ) ] ) ),
+    confirmPassword: new FormControl('', Validators.compose( [ Validators.required, Validators.minLength( 6 ),
+      this.passwordsMatch.bind( this ) ] ) ),
   });
 
   redirect = () => setTimeout(() => this.router.navigate(['/']), 2500);
