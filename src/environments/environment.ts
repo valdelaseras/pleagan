@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:3000',
+  apiBaseUrl: '/api',
   firebase: {
     apiKey: "AIzaSyDf8yKIQEuiWhovIlZm7wBQhvAt88tktQs",
     authDomain: "pleagan-dev.firebaseapp.com",
