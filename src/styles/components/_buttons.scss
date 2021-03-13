@@ -23,8 +23,12 @@ button[type='submit'] {
 .btn.btn-primary:active,
 .btn.btn-primary:hover {
   border: none !important;
-  color: white !important;
-  background-color: var(--quaternary-color);
+  color: var(--primary-color) !important;
+  background-color: var(--primary-text-color);
+
+  clr-icon {
+    color: var(--primary-color);
+  }
 }
 
 .btn.btn-secondary:focus,
@@ -35,9 +39,13 @@ button[type='submit'] {
 .btn.btn-secondary-outline:focus-within,
 .btn.btn-secondary-outline:active,
 .btn.btn-secondary-outline:hover {
-  border-color: var(--quaternary-color);
-  color: var(--quaternary-color);
+  border-color: var(--primary-text-color);
+  color: var(--primary-text-color);
   background-color: transparent;
+
+  clr-icon {
+    color: var(--primary-text-color);
+  }
 }
 /*@end btn-primary*/
 
