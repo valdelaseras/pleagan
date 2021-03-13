@@ -17,7 +17,7 @@ export class NewPleaComponent {
   pleaId: number;
   querySource$: Subject<string> = new Subject<string>();
   similarPleas$: Observable<Plea[]>;
-  similarPleas: Plea[];
+  // similarPleas: Plea[] = [];
   pleaInSuggestions: boolean;
   isOpen = false;
   addedIngredients: string[] = [];
@@ -29,7 +29,7 @@ export class NewPleaComponent {
     productImage: new FormControl(null, [Validators.required]),
     ingredient: new FormControl(),
   });
-  loading: boolean = true;
+  submitted: boolean = false;
   imagePreview: string;
   imageFile: File;
 
@@ -43,17 +43,16 @@ export class NewPleaComponent {
   ) {
     this.similarPleas$ = this.querySource$.pipe(
       debounce(() => interval(500)),
-      tap((_) => (this.loading = true)),
       switchMap(this.pleaService.searchPleas),
-      tap((_) => (this.loading = false)),
     );
 
-    this.similarPleas$.subscribe((pleas: Plea[]) => {
-      this.similarPleas = pleas;
-    });
+    // this.similarPleas$.subscribe((pleas: Plea[]) => {
+    //   this.similarPleas = pleas;
+    // });
   }
 
-  submit(form: FormGroup): void {
+  submit( form: FormGroup ): void {
+    this.submitted = true;
     const product = new Product();
     product.name = form.value.product;
 
@@ -78,7 +77,11 @@ export class NewPleaComponent {
           this.pleaId = id;
         }),
       )
-      .subscribe();
+      .subscribe( () => {
+
+      }, () => {
+        this.submitted = false;
+      });
   }
 
   handleModal(): void {

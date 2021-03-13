@@ -34,10 +34,12 @@ export class AuthService {
 
   signUp( email: string, password: string, displayName: string ): Observable<void> {
     this.displayMessageService.dismissAllDisplayMessages();
+    this.loadingIndicatorService.showLoadingIndicator();
     return from(
       this.fireAuth.createUserWithEmailAndPassword( email, password )
     ).pipe(
       catchError( ( error: HttpErrorResponse ) => {
+        this.loadingIndicatorService.hideLoadingIndicator();
         this.displayMessageService.addDisplayMessage( new DisplayMessage( error.message, 'warning' ) );
         return EMPTY;
       }),

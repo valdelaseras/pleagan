@@ -12,7 +12,7 @@ import { FADE_IN_SINGLE } from '../../animations';
   ]
 })
 export class LoadingIndicatorComponent implements OnInit {
-  @Input() height?: number;
+  @Input() height?: string;
 
   show$: Observable<boolean>;
 
