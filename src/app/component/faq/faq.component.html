@@ -14,22 +14,29 @@
           <clr-accordion-content *clrIfExpanded>
             <h3>Email</h3>
             <p>
-              When you support or initiate a plea, you are asked for an email for verification purpose. We verify by
-              email because we don't want ill intended people or bots to spam and diminish the integrity of our pleas.
+              When you create an account we need you to verify that you are indeed the owner of the email address.
+              We also use this mail address in order to let you reset your password for example. In your settings, you
+              can also opt to receive updates by mail ( or push notifications, or none at all ).
             </p>
             <p>
-              In the forms you will find an option to receive updates regarding the plea. If you check this box, we will
-              use the email for that purpose. Other than that, your email isn't shared with anybody else. We keep the
-              email in our databases only to prevent users from supporting the same plea with the same email address
-              multiple times.
+              Other than that, your email isn't used for anything or shared with anybody else.
             </p>
 
             <h3>Location</h3>
             <p>
-              In the forms we also ask for your country. The purpose of gathering these locations is so the companies
-              know where demand is concentrated. In an ideal world they would do so for a worldwide market. However,
-              they may not always have the resources for this. We want all businesses, large or small, to launch vegan
-              products successfully, so they will happily and naturally invest more efforts into similar products.
+              On registration we also ask you for your country. We gather this data of every Pleagan so we can create graphs
+              and charts for our <a class="underlined" [routerLinkActive] [routerLink]="['/', 'statistics']">statistics</a>. These stats are
+              available to everybody but it is of course anonymised. Additionally you can opt to hide your country
+              from everybody else in your settings.
+            </p>
+
+            <h3>What is the point of the statistics anyway?</h3>
+            <p>
+              We want to help companies along a bit from a business pov. With these stats they can gain some insight into the
+              demand of vegan products and where the demand is concentrated. In an ideal world, these products would be
+              produced and released for a worldwide market. However, not all companies have the resources for that.
+              We want all businesses, large or small, to launch vegan products successfully, so they will happily and
+              naturally invest more efforts into similar products.
             </p>
           </clr-accordion-content>
         </clr-accordion-panel>
@@ -39,8 +46,9 @@
           <clr-accordion-content *clrIfExpanded>
             <p>
               Currently each plea has 3 supporter targets: {{ PLEA_TARGET.FIRST }}, {{ PLEA_TARGET.SECOND }} and
-              {{ PLEA_TARGET.THIRD }}. We may adjust these targets over time. Whenever a target is hit, we will send out
-              an email to the company in question with the plea included.
+              {{ PLEA_TARGET.THIRD }}. We may adjust these targets over time. Whenever a target is hit, we will notify
+              the company in question with the plea included. We await their response and post updates on our
+              <a class="underlined" [routerLinkActive] [routerLink]="['/', 'news']">news page</a>.
             </p>
           </clr-accordion-content>
         </clr-accordion-panel>
@@ -49,7 +57,7 @@
           <clr-accordion-title>Where can I find the fruits of our efforts?</clr-accordion-title>
           <clr-accordion-content *clrIfExpanded>
             <p>
-              We have a couple of pages where we focus on successfully achieved results and plea-compliant companies:
+              We have a couple of pages where you can keep track of the successes and compliance rates of companies:
             </p>
 
             <ul class="reg-list">
@@ -60,55 +68,45 @@
                 >
               </li>
               <li>
-                <a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/', 'leaderboard']">Leaderboards</a>
+                <a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']">Statistics</a>
               </li>
             </ul>
 
             <p>
-              <!--          TODO: also add appreciation msg feed (send some love thingy)-->
               We like to put a spotlight on the success stories in order to promote the products and show our
-              appreciation. This way it will be easier for you in turn to support these businesses and their products.
+              appreciation. This way it will be easier for you, as a vegan, in turn to support these businesses and
+              their products. For companies it is just free promotion to their target market!
             </p>
 
             <h3>Stay updated</h3>
             <p>
-              If you check the box to receive updates when initiating or supporting a plea, you will also receive
-              notifications by mail when a target has been reached or when a business has launched the product.
+              You can opt to receive mail or push notifications regarding pleas you have initiated, supported or to receive
+              any and all news updates. We also hate an inbox full of stuff we never read anyway, so we've got you covered if you
+              don't feel too excited about that! We have a news page where we post all updates and you have your personal
+              news feed once you've registered an account. Any updates regarding your own pleas or your supported pleas
+              will be posted there.
             </p>
           </clr-accordion-content>
         </clr-accordion-panel>
 
-        <!--    <clr-accordion-panel>-->
-        <!--      <clr-accordion-title>Can I contribute to Pleagan?</clr-accordion-title>-->
-        <!--      <clr-accordion-content *clrIfExpanded>-->
-        <!--        <h3>Yes!</h3>-->
+        <clr-accordion-panel>
+          <clr-accordion-title>Can I contribute to Pleagan?</clr-accordion-title>
+          <clr-accordion-content *clrIfExpanded>
+            <h3>Yes!</h3>
+            <p>
+              All work on Pleagan has been done on voluntary basis and personal investments. We are really excited
+              and grateful if anyone wants to contribute any work to Pleagan. It is an open source project so developers
+              are welcome to assist and expand our platform.
+            </p>
 
-        <!--        <h4>Will I be paid?</h4>-->
-        <!--        <h5>No</h5>-->
-        <!--        <p>It's not because we are stingy, we just don't generate any money with Pleagan ;)</p>-->
-        <!--        <p>-->
-        <!--          All work on Pleagan has been done on voluntary basis and personal investments. We are however really excited-->
-        <!--          and grateful if anyone is willing to contribute any work to Pleagan. We love the idea of Pleagan being a community-->
-        <!--          project.-->
-        <!--        </p>-->
-        <!--        <p>-->
-        <!--          Contributions can include all sorts of help, from sending in new ideas, copywrite improvements,-->
-        <!--          contributing visual work, code, you name it. We have a-->
-        <!--          <a class="underlined" [routerLinkActive]="'active'" [routerLink]="'special-thanks'">special thanks</a> page-->
-        <!--          dedicated to all those who have made Pleagan possible in some way.-->
-        <!--        </p>-->
-
-        <!--        <h4>Developers</h4>-->
-        <!--        <p>Pleagan is open source. Please help.</p>-->
-
-        <!--        <h4>UX, UI and Visual Artists</h4>-->
-        <!--        <p>-->
-        <!--          Besides code contributions, we also love to change up our theme and styles from time to time. Pleagan is built-->
-        <!--          without UX or visual design professionals and we did our best to make it look decent ;). If you are and have some-->
-        <!--          cool ideas for Pleagans, you are most welcome to get in touch with us and have a chat!-->
-        <!--        </p>-->
-        <!--      </clr-accordion-content>-->
-        <!--    </clr-accordion-panel>-->
+            <p>
+              Other than code, contributions can include all sorts of things: suggestions, copywrite improvements,
+              contributing visual work, UI/UX advice, social media management, you name it. We have a
+              <a class="underlined" [routerLinkActive]="'active'" [routerLink]="['/', 'contributors']">special page</a>
+              dedicated to all those who have made Pleagan possible in one way or another.
+            </p>
+          </clr-accordion-content>
+        </clr-accordion-panel>
       </clr-accordion>
     </div>
   </div>

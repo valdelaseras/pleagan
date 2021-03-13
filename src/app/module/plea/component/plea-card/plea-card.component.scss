@@ -25,7 +25,7 @@
 }
 
 .card-block.c-footer {
-  height: 5.5rem;
+  height: auto;
 }
 
 .card-block a.btn {
@@ -62,9 +62,9 @@
     margin-bottom: 0;
   }
 }
-
-.footer-actions {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+//
+//.footer-actions {
+//  display: flex;
+//  flex-direction: row;
+//  justify-content: space-between;
+//}
