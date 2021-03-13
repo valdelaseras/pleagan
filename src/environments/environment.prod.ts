@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'http://pleagan.vg/api',
+  apiBaseUrl: '/api',
   firebase: {
     apiKey: "AIzaSyDWt1_1vmDfwxR6jCP1XI5V19DLbntiGXc",
     authDomain: "pleagan-c27f2.firebaseapp.com",

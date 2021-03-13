@@ -3,11 +3,11 @@ import { from, Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { v4 as uuidV4} from 'uuid';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import UploadTaskSnapshot = firebase.storage.UploadTaskSnapshot;
+import TaskState = firebase.storage.TaskState;
 import { filter, mergeMap } from 'rxjs/operators';
 import { filterNullOrUndefined } from '@shared/operator';
-import TaskState = firebase.storage.TaskState;
 
 @Injectable({
   providedIn: 'root'
