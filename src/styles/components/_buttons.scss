@@ -18,9 +18,34 @@ button[type='submit'] {
   border: none !important;
 }
 
+.btn.btn-primary:focus,
+.btn.btn-primary:focus-within,
+.btn.btn-primary:active,
 .btn.btn-primary:hover {
   border: none !important;
-  color: white !important;
+  color: var(--primary-color) !important;
+  background-color: var(--primary-text-color);
+
+  clr-icon {
+    color: var(--primary-color);
+  }
+}
+
+.btn.btn-secondary:focus,
+.btn.btn-secondary:focus-within,
+.btn.btn-secondary:active,
+.btn.btn-secondary:hover,
+.btn.btn-secondary-outline:focus,
+.btn.btn-secondary-outline:focus-within,
+.btn.btn-secondary-outline:active,
+.btn.btn-secondary-outline:hover {
+  border-color: var(--primary-text-color);
+  color: var(--primary-text-color);
+  background-color: transparent;
+
+  clr-icon {
+    color: var(--primary-text-color);
+  }
 }
 /*@end btn-primary*/
 

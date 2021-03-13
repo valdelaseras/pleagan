@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { interval, Observable, Subject } from 'rxjs';
-import { debounce, map, switchMap, tap } from 'rxjs/operators';
+import {debounce, map, mergeMap, switchMap, tap} from 'rxjs/operators';
 import { FADE_IN_OUT_LIST, FADE_IN_OUT_SINGLE, SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../shared/animations';
 import { Router } from '@angular/router';
 import { Company, Plea, Product } from '@shared/model';
@@ -68,7 +68,7 @@ export class NewPleaComponent {
     this.firebaseStorageService
       .uploadFile(this.imageFile)
       .pipe(
-        switchMap((imageUrl: string) => {
+        mergeMap((imageUrl: string) => {
           product.imageUrl = imageUrl;
 
           return this.pleaService.createPlea(plea);
