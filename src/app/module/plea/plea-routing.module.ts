@@ -13,7 +13,7 @@ import {
 } from './component';
 
 const routes: Routes = [
-  { path: 'new', component: NewPleaComponent, canActivate: [IsLoggedIn], data: { animation: 'newPlea'} },
+  { path: 'initiate', component: NewPleaComponent, canActivate: [IsLoggedIn], data: { animation: 'newPlea'} },
   { path: 'initiated', component: MyPleasComponent, canActivate: [IsLoggedIn], data: { animation: 'initiatedPleas'} },
   { path: 'supported', component: MySupportComponent, canActivate: [IsLoggedIn], data: { animation: 'supportedPleas'} },
   { path: 'all', component: AllPleasComponent, data: { animation: 'allPleas'} },
