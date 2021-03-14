@@ -28,8 +28,10 @@
     <div id="original-plea">
       <!--    TODO: not visible to owner of plea-->
       <ng-container *showOnAuth="true">
-        <div class="plea-support-btn" *ngIf="!(userHasSupported$ | async) && !(userIsInitiator$ | async)">
-          <app-plea-support-button [plea]="plea" (hasSupported)="refreshPlea()"></app-plea-support-button>
+        <div class="plea-support-btn" *ngIf="!(userIsInitiator$ | async)">
+          <app-plea-support-button [plea]="plea"
+                                   [userHasSupported]="(userHasSupported$ | async)"
+                                   (hasSupported)="refreshPlea()"></app-plea-support-button>
         </div>
       </ng-container>
 

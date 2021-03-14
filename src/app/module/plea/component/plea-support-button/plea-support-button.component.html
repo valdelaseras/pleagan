@@ -1,12 +1,6 @@
 <a type="button" (click)="displayModal($event)" class="btn btn-primary btn-icon" aria-label="Support this plea">
-  <div *ngIf="userHasSupported">
-    <clr-icon shape="heart" size="16"></clr-icon>
-    Supported
-  </div>
-  <div *ngIf="userHasSupported == false">
-    <clr-icon shape="heart" size="16"></clr-icon>
-    Support this plea
-  </div>
+  <clr-icon shape="heart" [ngClass]="{ 'is-solid': userHasSupported }" size="16"></clr-icon>
+  {{ userHasSupported ? 'Supported' : 'Support this plea'}}
 </a>
 
 <clr-modal
