@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, interval, Observable } from 'rxjs';
+import { debounce, map, switchMap } from 'rxjs/operators';
 import { PLEA_STATUS } from 'pleagan-model';
 import { Plea } from '@shared/model';
 import { PleaService } from '@core/service';
@@ -15,6 +15,7 @@ export class AllPleasComponent {
   pleas$: Observable<Plea[]>;
   constructor(private pleaService: PleaService) {
     this.pleas$ = this.updateQuery$.pipe(
+      debounce(() => interval(500)),
       switchMap((query: string) => (query.length ? this.pleaService.searchPleas(query) : this.pleaService.getPleas())),
       map((pleas: Plea[]) => pleas.filter((plea: Plea) => plea.status !== PLEA_STATUS.COMPLIED)),
     );
