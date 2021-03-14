@@ -23,6 +23,8 @@ import {
 import {
   CanvasRenderer
 } from 'echarts/renderers';
+import * as fromDirectives from '@shared/directive';
+import { ShowOnAuthDirective } from '@shared/directive';
 
 echarts.use(
   [TitleComponent, TooltipComponent, GridComponent, BarChart, CanvasRenderer]
@@ -33,6 +35,7 @@ echarts.use(
   declarations: [
     ...fromComponents.components,
     ...fromPipes.pipes,
+    ...fromDirectives.directives
   ],
   imports: [
     ClarityModule,
@@ -49,7 +52,8 @@ echarts.use(
     FormsModule,
     NgxEchartsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    ShowOnAuthDirective
   ]
 })
 export class SharedModule { }

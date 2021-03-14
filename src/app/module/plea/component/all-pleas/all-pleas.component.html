@@ -3,7 +3,9 @@
   <app-search-box (queryUpdated)="updateQuery($event)"></app-search-box>
   <div class="clr-row">
     <div class="clr-col-lg-12">
-      <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>
+      <app-loading-indicator [height]="'66vh'">
+        <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>
+      </app-loading-indicator>
     </div>
   </div>
 </section>
@@ -12,7 +14,7 @@
   [mobileOnly]="true"
   [fillBackground]="true"
   ariaLabel="Initiate a plea"
-  [routerLink]="['/', 'plea', 'new']"
+  [routerLink]="['/', 'plea', 'initiate']"
 >
   <clr-icon shape="plus" size="16"></clr-icon>
   Initiate

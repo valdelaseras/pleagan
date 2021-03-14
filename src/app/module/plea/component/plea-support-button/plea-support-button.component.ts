@@ -10,11 +10,8 @@ import {PleaService} from '@core/service';
 })
 export class PleaSupportButtonComponent {
   @Input() plea: Plea;
+  @Input() userHasSupported: boolean = false;
   @Output() hasSupported: EventEmitter<void> = new EventEmitter<void>();
-
-  // plea$: Observable<Plea>;
-  // this shouldn't just be a FE boolean
-  userHasSupported = false;
   supportModalIsOpen = false;
 
   supportPleaForm = new FormGroup({
@@ -33,6 +30,7 @@ export class PleaSupportButtonComponent {
   }
 
   displayModal(event: MouseEvent): void {
+    if ( this.userHasSupported ) return;
     event.stopPropagation();
     event.preventDefault();
     this.supportModalIsOpen = true;

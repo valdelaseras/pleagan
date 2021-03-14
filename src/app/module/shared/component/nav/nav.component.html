@@ -82,11 +82,11 @@
       </section>
 
       <section class="nav-group user-state">
-        <small *ngIf="!(authService.user$ | async)">
+        <small *showOnAuth="false">
           Please <a class="underlined" [routerLink]="['/', 'auth', 'login']">log in</a> or
           <a class="underlined" [routerLink]="['/', 'auth', 'sign-up']">sign up</a> to initiate and support pleas
         </small>
-        <p *ngIf="authService.user$ | async">
+        <p *showOnAuth="true">
           <a class="underlined" (click)="logout()">logout</a>
         </p>
       </section>

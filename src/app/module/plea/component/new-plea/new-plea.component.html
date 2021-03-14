@@ -74,28 +74,11 @@
             <clr-control-error *clrIfError="'requiredFieldError'">This field is required</clr-control-error>
             <clr-control-error *clrIfError="'fileSizeError'">File must not exceed 2mb</clr-control-error>
             <clr-control-error *clrIfError="'extensionError'"
-              >Allowed file extensions are .jpg, .png or .webp</clr-control-error
+            >Allowed file extensions are .jpg, .png or .webp</clr-control-error
             >
           </clr-input-container>
 
-          <img *ngIf="imagePreview" src="{{ imagePreview }}" />
-
-          <clr-input-container>
-            <label>Ingredients to be taken out</label>
-            <input clrInput type="text" formControlName="ingredient" (keyup)="createTag($event)" />
-
-            <clr-control-helper>
-              <span class="tag" *ngFor="let ingredient of addedIngredients; index as index"
-                >{{ ingredient }}
-                <clr-icon shape="times" size="14" (click)="removeTag(index)"></clr-icon>
-              </span>
-            </clr-control-helper>
-
-            <clr-control-helper>
-              Which ingredients of this product will need to be removed or replaced? Type the ingredient(s) separated by
-              commas
-            </clr-control-helper>
-          </clr-input-container>
+          <img *ngIf="imagePreview" src="{{ imagePreview }}" alt="product-image"/>
 
           <!--  TODO: max chars-->
           <clr-textarea-container>
@@ -107,90 +90,60 @@
             </clr-control-helper>
           </clr-textarea-container>
 
-          <clr-checkbox-container>
-            <clr-checkbox-wrapper>
-              <input type="checkbox" clrCheckbox value="receiveUpdates" name="permissions" />
-              <label>Keep me updated regarding this plea</label>
-            </clr-checkbox-wrapper>
-          </clr-checkbox-container>
-
           <!--  TODO: add optional ingredient list textarea, like how you can add tags when uploading a YT video separated by commas-->
           <!--  TODO: then let user$ tap and highlight the animal products in these tags-->
-          <button class="btn btn-primary" type="submit" [disabled]="!newPleaForm.valid">Submit</button>
+<!--          <app-loading-indicator height="100px">-->
+            <button class="btn btn-primary"
+                    type="submit"
+                    [disabled]="!newPleaForm.valid || submitted">
+              Submit
+            </button>
+<!--          </app-loading-indicator>-->
         </ng-container>
       </form>
-
-      <clr-modal
-        [(clrModalOpen)]="isOpen"
-        [clrModalClosable]="true"
-        [clrModalStaticBackdrop]="false"
-        [clrModalSize]="'l'"
-      >
-        <h3 class="modal-title">Plea submitted successfully</h3>
-        <div class="modal-body">
-          <p>
-            Thank you for your submission! Your plea is now available to be supported. Once your plea has reached the
-            first support threshold we will notify the business of your plea.
-          </p>
-          <p>
-            You can always check on the status of your plea
-            <a class="underlined" routerLink="/profile/my-pleas">here</a>. Don't forget to
-            <a class="underlined" routerLink>share your plea</a> on social media if you use any to increase the
-            visibility of your plea.
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="handleModal()">Got it, take me to my plea</button>
-        </div>
-        <div class="modal-backdrop" aria-hidden="true"></div>
-      </clr-modal>
-
-      <ng-template #pleaSuggestions>
-        <div *ngIf="newPleaForm.get('product').value && newPleaForm.get('company').value" [@swipeInBelowSwipeOutTop]>
-          <ng-container>
-            <div class="card suggested-pleas">
-              <div class="card-header">Make sure a plea for this product doesn't already exist</div>
-              <div class="card-block">
-                <ng-container *ngIf="!loading; else loadingIndicator">
-                  <div class="card-text">
-                    <ng-container *ngIf="similarPleas.length; else noSimilarPleas">
-                      <p>
-                        Please take a moment to verify. If it doesn't, support the existing plea instead of initiating a
-                        new one. Duplicate pleas decrease Pleagan's effectiveness!
-                      </p>
-                      <clr-stack-view [@swipeInBelowSwipeOutTop]>
-                        <clr-stack-block
-                          *ngFor="let plea of similarPleas"
-                          [routerLink]="['/', 'plea', 'details', plea.id]"
-                        >
-                          <clr-stack-label>{{ plea.company.name }}</clr-stack-label>
-                          <clr-stack-content>
-                            {{ plea.nonVeganProduct.name }}
-                          </clr-stack-content>
-                        </clr-stack-block>
-                      </clr-stack-view>
-                    </ng-container>
-                  </div>
-                </ng-container>
-              </div>
-              <div class="card-footer">
-                <button type="button" class="btn btn-primary" (click)="pleaInSuggestions = false">Continue</button>
-              </div>
-            </div>
-          </ng-container>
-        </div>
-      </ng-template>
-
-      <ng-template #noSimilarPleas>
-        <h2>You're good!</h2>
-        <p>No other pleas matching the given information exists! You can go ahead and create it.</p>
-      </ng-template>
-
-      <ng-template #loadingIndicator>
-        <div class="loading-indicator-container">
-          <app-loading-indicator></app-loading-indicator>
-        </div>
-      </ng-template>
     </div>
   </div>
 </section>
+
+<ng-template #pleaSuggestions>
+  <div *ngIf="newPleaForm.get('product').value && newPleaForm.get('company').value" [@swipeInBelowSwipeOutTop]>
+    <ng-container>
+      <div class="card suggested-pleas">
+        <div class="card-header">Make sure a plea for this product doesn't already exist</div>
+        <div class="card-block">
+          <app-loading-indicator [height]="'200px'">
+            <div class="card-text">
+              <ng-container *ngIf="similarPleas$ | async as similarPleas">
+                <ng-container *ngIf="similarPleas.length; else noSimilarPleas">
+                  <p>
+                    Please take a moment to verify. If it doesn't, support the existing plea instead of initiating a
+                    new one. Duplicate pleas decrease Pleagan's effectiveness!
+                  </p>
+                  <clr-stack-view>
+                    <clr-stack-block
+                      *ngFor="let plea of similarPleas"
+                      [routerLink]="['/', 'plea', 'details', plea.id]"
+                    >
+                      <clr-stack-label>{{ plea.company.name }}</clr-stack-label>
+                      <clr-stack-content>
+                        {{ plea.nonVeganProduct.name }}
+                      </clr-stack-content>
+                    </clr-stack-block>
+                  </clr-stack-view>
+                </ng-container>
+              </ng-container>
+            </div>
+          </app-loading-indicator>
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn btn-primary" (click)="pleaInSuggestions = false">This is a different product</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #noSimilarPleas>
+  <h2>You're good!</h2>
+  <p>No other pleas matching the given information exists! You can go ahead and create it.</p>
+</ng-template>

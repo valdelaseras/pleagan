@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { interval, Observable, Subject } from 'rxjs';
-import {debounce, map, mergeMap, switchMap, tap} from 'rxjs/operators';
+import { debounce, map, mergeMap, switchMap } from 'rxjs/operators';
 import { FADE_IN_OUT_LIST, FADE_IN_OUT_SINGLE, SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../shared/animations';
 import { Router } from '@angular/router';
 import { Company, Plea, Product } from '@shared/model';
@@ -14,22 +14,17 @@ import { CompanyService, FirebaseStorageService, PleaService, ProductService } f
   animations: [SWIPE_IN_BELOW_SWIPE_OUT_TOP, FADE_IN_OUT_LIST, FADE_IN_OUT_SINGLE],
 })
 export class NewPleaComponent {
-  pleaId: number;
   querySource$: Subject<string> = new Subject<string>();
   similarPleas$: Observable<Plea[]>;
-  similarPleas: Plea[];
   pleaInSuggestions: boolean;
-  isOpen = false;
-  addedIngredients: string[] = [];
   newPleaForm = new FormGroup({
     company: new FormControl('', Validators.required),
     product: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
     companyContact: new FormControl(''),
     productImage: new FormControl(null, [Validators.required]),
-    ingredient: new FormControl(),
   });
-  loading: boolean = true;
+  submitted: boolean = false;
   imagePreview: string;
   imageFile: File;
 
@@ -42,18 +37,13 @@ export class NewPleaComponent {
     private cd: ChangeDetectorRef,
   ) {
     this.similarPleas$ = this.querySource$.pipe(
-      debounce(() => interval(500)),
-      tap((_) => (this.loading = true)),
+      debounce(() => interval(1000)),
       switchMap(this.pleaService.searchPleas),
-      tap((_) => (this.loading = false)),
     );
-
-    this.similarPleas$.subscribe((pleas: Plea[]) => {
-      this.similarPleas = pleas;
-    });
   }
 
-  submit(form: FormGroup): void {
+  submit( form: FormGroup ): void {
+    this.submitted = true;
     const product = new Product();
     product.name = form.value.product;
 
@@ -74,27 +64,12 @@ export class NewPleaComponent {
           return this.pleaService.createPlea(plea);
         }),
         map(({ id }: { id: number }) => {
-          this.isOpen = true;
-          this.pleaId = id;
+          this.router.navigate(['/', 'plea', id, 'details'])
         }),
       )
-      .subscribe();
-  }
-
-  handleModal(): void {
-    this.isOpen = false;
-    this.router.navigate(['/', 'plea', this.pleaId, 'details']);
-  }
-
-  createTag(event: KeyboardEvent): void {
-    if (event.code === 'Comma') {
-      this.addedIngredients.push(this.newPleaForm.value.ingredient.replace(',', ''));
-      this.newPleaForm.controls['ingredient'].setValue('');
-    }
-  }
-
-  removeTag(index: number): void {
-    this.addedIngredients.splice(index, 1);
+      .subscribe( { error: () => {
+          this.submitted = false;
+      }});
   }
 
   searchSimilarPleas(): void {

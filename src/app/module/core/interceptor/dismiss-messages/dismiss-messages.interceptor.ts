@@ -7,7 +7,7 @@ import {
   HttpRequest
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DisplayMessageService } from '../../service/display-message/display-message.service';
+import { DisplayMessageService } from '@core/service';
 
 @Injectable({
   providedIn: 'root'

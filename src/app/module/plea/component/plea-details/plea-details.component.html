@@ -27,9 +27,13 @@
 
     <div id="original-plea">
       <!--    TODO: not visible to owner of plea-->
-      <div class="plea-support-btn">
-        <app-plea-support-button [plea]="plea" (hasSupported)="refreshPlea()"></app-plea-support-button>
-      </div>
+      <ng-container *showOnAuth="true">
+        <div class="plea-support-btn" *ngIf="!(userIsInitiator$ | async)">
+          <app-plea-support-button [plea]="plea"
+                                   [userHasSupported]="(userHasSupported$ | async)"
+                                   (hasSupported)="refreshPlea()"></app-plea-support-button>
+        </div>
+      </ng-container>
 
       <div class="plea-header">
         <h3>
@@ -66,25 +70,29 @@
         <ul class="btn-list horizontal">
           <!--          TODO: only visible if not owner of this plea-->
           <!--          TODO: if user has reported, this should change to 'reported' and disabled so no user can report a plea twice-->
-          <li>
+          <li *showOnAuth="true">
             <button class="btn btn-secondary" aria-label="Report a problem" (click)="reportModalIsOpen = true">
               <clr-icon shape="warning-standard" size="14"></clr-icon>
               Report
             </button>
           </li>
           <!--          TODO: only if not owner of this plea and already supported-->
-          <li>
-            <button class="btn btn-secondary" aria-label="Retract support" (click)="retractSupportModalIsOpen = true">
-              <clr-icon shape="heart-broken"></clr-icon>
-              Retract support
-            </button>
+          <li *showOnAuth="true">
+            <ng-container *ngIf="userHasSupported$ | async">
+              <button class="btn btn-secondary" aria-label="Retract support" (click)="retractSupportModalIsOpen = true">
+                <clr-icon shape="heart-broken"></clr-icon>
+                Retract support
+              </button>
+            </ng-container>
           </li>
           <!--          TODO: only visible if owner of plea-->
-          <li>
-            <button class="btn btn-secondary" aria-label="Edit plea">
-              <clr-icon shape="note"></clr-icon>
-              Edit
-            </button>
+          <li *showOnAuth="true">
+            <ng-container *ngIf="userIsInitiator$ | async">
+              <button class="btn btn-secondary" aria-label="Edit plea">
+                <clr-icon shape="note"></clr-icon>
+                Edit
+              </button>
+            </ng-container>
           </li>
           <li>
             <button class="btn btn-secondary" aria-label="Plea statistics">
