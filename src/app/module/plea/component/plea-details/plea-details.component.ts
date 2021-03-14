@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '@shared/animations';
-import { PleaService } from '@core/service';
-import { Plea } from '@shared/model';
+import { AuthService, PleaService } from '@core/service';
+import { Plea, Support } from '@shared/model';
+import { map, shareReplay } from 'rxjs/operators';
+import firebase from 'firebase/app';
+import User = firebase.User;
 
 @Component({
   selector: 'app-submission-details',
@@ -12,10 +15,6 @@ import { Plea } from '@shared/model';
   animations: [SWIPE_IN_BELOW_SWIPE_OUT_TOP],
 })
 export class PleaDetailsComponent {
-  // this shouldn't just be a FE boolean. PleaSupportButtonComponent also uses this
-  // to display the correct button content.
-  userHasSupported = false;
-
   // Modals
   reportModalIsOpen = false;
   retractSupportModalIsOpen = false;
@@ -23,9 +22,18 @@ export class PleaDetailsComponent {
   retractReason: string = 'already-exists';
 
   plea$: Observable<Plea>;
+  userIsInitiator$: Observable<boolean>;
+  userHasSupported$: Observable<boolean>;
   // Select elements in modals
   reportReason: string = 'inappropriate-content';
-  constructor(private route: ActivatedRoute, private pleaService: PleaService) {
+
+  private pleaganAndPlea$: Observable<[User | null, Plea]>;
+
+  constructor(
+    private route: ActivatedRoute,
+    private pleaService: PleaService,
+    private authService: AuthService
+  ) {
     this.refreshPlea();
   }
   submitReport() {
@@ -37,11 +45,35 @@ export class PleaDetailsComponent {
     console.log('retract support');
     // remove comment
     // adjust count
-    this.userHasSupported = false;
     this.retractSupportModalIsOpen = false;
   }
 
   refreshPlea(): void {
+    // perform request for data
     this.plea$ = this.pleaService.getPleaById( parseInt( this.route.snapshot.paramMap.get('pleaId')! ) );
+
+    // combine plea and authorised user into a single observable
+    this.pleaganAndPlea$ = combineLatest( [
+      this.authService.user$,
+      this.plea$
+    ]).pipe(
+      shareReplay()
+    );
+
+    // emits `true` when the currently logged in user is also the initiator for this plea
+    this.userIsInitiator$ = this.pleaganAndPlea$.pipe(
+      map( ( [ pleagan, plea] ) => pleagan !== null && pleagan.uid === plea.pleagan!.uid ),
+      shareReplay()
+    );
+
+    // emits `true` when the currently logged in user has supported this plea
+    this.userHasSupported$ = this.pleaganAndPlea$.pipe(
+      map( ( [ pleagan, plea] ) => pleagan !== null && this.userInSupports( pleagan.uid, plea.supports! ) ),
+      shareReplay()
+    );
+  }
+
+  private userInSupports( uid: string, supports: Support[]): boolean {
+    return !!supports.find( ( support: Support ) => support.pleagan.uid === uid );
   }
 }

@@ -27,9 +27,11 @@
 
     <div id="original-plea">
       <!--    TODO: not visible to owner of plea-->
-      <div class="plea-support-btn" *showOnAuth="true">
-        <app-plea-support-button [plea]="plea" (hasSupported)="refreshPlea()"></app-plea-support-button>
-      </div>
+      <ng-container *showOnAuth="true">
+        <div class="plea-support-btn" *ngIf="!(userHasSupported$ | async) && !(userIsInitiator$ | async)">
+          <app-plea-support-button [plea]="plea" (hasSupported)="refreshPlea()"></app-plea-support-button>
+        </div>
+      </ng-container>
 
       <div class="plea-header">
         <h3>
@@ -74,17 +76,21 @@
           </li>
           <!--          TODO: only if not owner of this plea and already supported-->
           <li *showOnAuth="true">
-            <button class="btn btn-secondary" aria-label="Retract support" (click)="retractSupportModalIsOpen = true">
-              <clr-icon shape="heart-broken"></clr-icon>
-              Retract support
-            </button>
+            <ng-container *ngIf="userHasSupported$ | async">
+              <button class="btn btn-secondary" aria-label="Retract support" (click)="retractSupportModalIsOpen = true">
+                <clr-icon shape="heart-broken"></clr-icon>
+                Retract support
+              </button>
+            </ng-container>
           </li>
           <!--          TODO: only visible if owner of plea-->
           <li *showOnAuth="true">
-            <button class="btn btn-secondary" aria-label="Edit plea">
-              <clr-icon shape="note"></clr-icon>
-              Edit
-            </button>
+            <ng-container *ngIf="userIsInitiator$ | async">
+              <button class="btn btn-secondary" aria-label="Edit plea">
+                <clr-icon shape="note"></clr-icon>
+                Edit
+              </button>
+            </ng-container>
           </li>
           <li>
             <button class="btn btn-secondary" aria-label="Plea statistics">
