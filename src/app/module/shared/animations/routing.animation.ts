@@ -14,7 +14,8 @@ const menuRoutes = [
   'faq',
   'login',
   'signUp',
-  'settings'
+  'settings',
+  'profile'
 ];
 
 const otherRoutes = [
