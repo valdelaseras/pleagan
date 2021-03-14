@@ -1,5 +1,5 @@
 export enum PLEA_TARGET {
-  FIRST = 1,
-  SECOND = 3,
-  THIRD = 5,
+  FIRST = 200,
+  SECOND = 500,
+  THIRD = 1000,
 }
