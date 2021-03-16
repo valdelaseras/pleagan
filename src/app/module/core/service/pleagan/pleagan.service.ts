@@ -22,4 +22,8 @@ export class PleaganService {
       shareReplay(),
     );
   }
+
+  updatePleagan( pleagan: Pleagan ): Observable<void> {
+    return this.http.put<void>( `${environment.apiBaseUrl}/pleagan`, pleagan );
+  }
 }

@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { EMPTY, from, Observable } from 'rxjs';
+import { EMPTY, from, Observable, of } from 'rxjs';
 import firebase from 'firebase/app';
 import User = firebase.User;
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
-import { catchError, delay, map, mergeMap, switchMap, tap } from 'rxjs/operators';
+import { catchError, delay, map, mergeMap, switchMap, take, tap } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DisplayMessageService } from '../display-message/display-message.service';
 import { LoadingIndicatorService } from '../loading-indicator/loading-indicator.service';
 import { PleaganService } from '../pleagan/pleagan.service';
 import { DisplayMessage } from '@shared/model';
+import { filterNullOrUndefined } from '@shared/operator';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ import { DisplayMessage } from '@shared/model';
 export class AuthService {
   user$: Observable<User | null>;
 
-  get idToken$() {
+  get idToken$(): Observable<string | null> {
     return this.fireAuth.idToken;
   }
 
@@ -29,7 +30,9 @@ export class AuthService {
     private displayMessageService: DisplayMessageService,
     private loadingIndicatorService: LoadingIndicatorService
   ) {
-    this.user$ = this.fireAuth.authState;
+    this.user$ = this.fireAuth.user.pipe(
+      take(1)
+    );
   }
 
   signUp( email: string, password: string, displayName: string ): Observable<void> {
@@ -77,6 +80,12 @@ export class AuthService {
       mergeMap((_) => {
         return this.router.navigate(['/', 'login']);
       }),
+    );
+  }
+
+  getUser(): Observable<User> {
+    return this.user$.pipe(
+      filterNullOrUndefined(),
     );
   }
 

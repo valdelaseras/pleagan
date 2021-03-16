@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { THEME } from 'pleagan-model/dist/model/pleagan/settings/user-settings.interface';
-import { AuthService } from '../../../core/service';
+import { AuthService, PleaganService } from '../../../core/service';
+import { Pleagan } from '@shared/model';
+import { forkJoin, Observable } from 'rxjs';
+import firebase from 'firebase/app';
+import User = firebase.User;
+import { THEME } from 'pleagan-model';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-settings',
@@ -9,24 +14,24 @@ import { AuthService } from '../../../core/service';
 })
 export class SettingsComponent {
   themes = THEME;
-  // TODO: Temp, replace with actual settings
-  theme = THEME.DEFAULT;
-  pushEnabled: boolean = true;
-  pushOnThreshold: boolean = true;
-  pushOnCompliance: boolean = true;
-  pushSupportedPleasOnThreshold: boolean = true;
-  pushSupportedPleasOnCompliance: boolean = true;
-  pushOtherPleasOnNew: boolean = false;
-  pushOtherPleasOnLocation: boolean = true;
-  emailEnabled: boolean = false;
-  emailMyPleasOnThreshold: boolean = false;
-  emailMyPleasOnCompliance: boolean = false;
-  emailSupportedPleasOnThreshold: boolean = false;
-  emailSupportedPleasOnCompliance: boolean = false;
-  emailOtherPleasOnNew: boolean = false;
-  emailOtherPleasOnLocation: boolean = false;
+  user$: Observable<{auth: User, pleagan: Pleagan}>;
 
-  constructor(public authService: AuthService) {}
+  constructor(
+    public authService: AuthService,
+    private pleaganService: PleaganService
+  ) {
+    this.user$ = forkJoin( {
+      auth: this.authService.getUser(),
+      pleagan: this.pleaganService.getCurrentPleagan()
+    }).pipe(
+      tap( console.log)
+    );
+  }
+
+  saveUserSettings( user: { auth: User, pleagan: Pleagan } ): void {
+    this.pleaganService.updatePleagan( user.pleagan ).subscribe();
+  }
+
   confirmDeletion(): void {
     alert('Are you sure you want to delete your account?');
   }

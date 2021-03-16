@@ -2,7 +2,7 @@
   <h1 class="desktop-only">Settings</h1>
   <div class="clr-row">
     <div class="clr-col-lg-6">
-      <div *ngIf="authService.user$ | async as user" class="user-preferences">
+      <div *ngIf="user$ | async as user" class="user-preferences">
         <ul class="settings-list">
           <li>
             <h2>Account</h2>
@@ -10,7 +10,7 @@
               <li class="clr-row">
                 <p>Email address</p>
                 <p>
-                  {{ user.email }}
+                  {{ user.auth.email }}
                   <a title="Change email address">
                     <clr-icon size="14" shape="note"></clr-icon>
                   </a>
@@ -19,7 +19,7 @@
               <li class="clr-row">
                 <p>Display name</p>
                 <p>
-                  {{ user.displayName }}
+                  {{ user.auth.displayName }}
                   <a title="Change display name">
                     <clr-icon size="14" shape="note"></clr-icon>
                   </a>
@@ -32,8 +32,7 @@
                     <input
                       type="checkbox"
                       clrToggle
-                      name=""
-                      value=""
+                      name="privateCountry"
                     />
                   </clr-toggle-wrapper>
                 </clr-toggle-container>
@@ -61,12 +60,12 @@
                           clrToggle
                           name="all-push-notifications"
                           value="all-push-notifications"
-                          [(ngModel)]="pushEnabled"
+                          [(ngModel)]="user.pleagan.settings.notifications.push.enabled"
                         />
                       </clr-toggle-wrapper>
                     </clr-toggle-container>
                   </div>
-                  <ng-container *ngIf="pushEnabled">
+                  <ng-container *ngIf="user.pleagan.settings.notifications.push.enabled">
                     <ul>
                       <li>
                         <h3>My pleas</h3>
@@ -75,7 +74,7 @@
                             <p>On threshold</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushOnThreshold" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.push.myPleas.onThreshold" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -83,7 +82,7 @@
                             <p>On compliance</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushOnCompliance" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.push.myPleas.onCompliance" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -96,7 +95,7 @@
                             <p>On threshold</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushSupportedPleasOnThreshold" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.push.supportedPleas.onThreshold" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -104,7 +103,7 @@
                             <p>On compliance</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushSupportedPleasOnCompliance" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.push.supportedPleas.onCompliance" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -117,7 +116,7 @@
                             <p>All new pleas</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushOtherPleasOnNew" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.push.otherPleas.onNew" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -125,7 +124,7 @@
                             <p>On location</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushOtherPleasOnLocation" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.push.otherPleas.onLocation" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -148,12 +147,12 @@
                           clrToggle
                           name="all-mail-notifications"
                           value="all-mail-notifications"
-                          [(ngModel)]="emailEnabled"
+                          [(ngModel)]="user.pleagan.settings.notifications.email.enabled"
                         />
                       </clr-toggle-wrapper>
                     </clr-toggle-container>
                   </div>
-                  <ng-container *ngIf="emailEnabled">
+                  <ng-container *ngIf="user.pleagan.settings.notifications.email.enabled">
                     <ul>
                       <li>
                         <h3>My pleas</h3>
@@ -162,7 +161,7 @@
                             <p>On threshold</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailMyPleasOnThreshold" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.email.myPleas.onThreshold" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -170,7 +169,7 @@
                             <p>On compliance</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailMyPleasOnCompliance" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.email.myPleas.onCompliance" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -183,7 +182,7 @@
                             <p>On threshold</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailSupportedPleasOnThreshold" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.email.supportedPleas.onThreshold" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -191,7 +190,7 @@
                             <p>On compliance</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailSupportedPleasOnCompliance" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.email.supportedPleas.onCompliance" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -204,7 +203,7 @@
                             <p>All new pleas</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailOtherPleasOnNew" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.email.otherPleas.onNew" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -212,7 +211,7 @@
                             <p>On location</p>
                             <clr-toggle-container>
                               <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailOtherPleasOnLocation" />
+                                <input type="checkbox" clrToggle [(ngModel)]="user.pleagan.settings.notifications.email.otherPleas.onLocation" />
                               </clr-toggle-wrapper>
                             </clr-toggle-container>
                           </li>
@@ -229,7 +228,7 @@
             <ul>
               <li class="clr-row">
                 <p>Your theme preference</p>
-                <select clrSelect name="themes" [(ngModel)]="theme">
+                <select clrSelect name="themes" [(ngModel)]="user.pleagan.settings.theme">
                   <option [value]="themes.DEFAULT">Default</option>
                   <option [value]="themes.BEAN">Bean</option>
                   <option [value]="themes.OCEAN">Ocean</option>
@@ -238,6 +237,7 @@
             </ul>
           </li>
         </ul>
+        <button class="btn btn-primary" (click)="saveUserSettings( user )">Save</button>
       </div>
     </div>
   </div>
