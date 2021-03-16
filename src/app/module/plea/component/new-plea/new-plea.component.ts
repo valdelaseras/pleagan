@@ -1,11 +1,12 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { interval, Observable, Subject } from 'rxjs';
-import { debounce, map, mergeMap, switchMap } from 'rxjs/operators';
+import { debounce, map, mergeMap, switchMap, tap } from 'rxjs/operators';
 import { FADE_IN_OUT_LIST, FADE_IN_OUT_SINGLE, SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../shared/animations';
 import { Router } from '@angular/router';
 import { Company, Plea, Product } from '@shared/model';
 import { CompanyService, FirebaseStorageService, PleaService, ProductService } from '@core/service';
+import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loading-wrapper.model';
 
 @Component({
   selector: 'app-new-plea',
@@ -24,6 +25,8 @@ export class NewPleaComponent {
     companyContact: new FormControl(''),
     productImage: new FormControl(null, [Validators.required]),
   });
+  existingPleaCheckStatus: HTTP_LOADING_STATUS;
+  savingPleaStatus: HTTP_LOADING_STATUS;
   submitted: boolean = false;
   imagePreview: string;
   imageFile: File;
@@ -37,12 +40,15 @@ export class NewPleaComponent {
     private cd: ChangeDetectorRef,
   ) {
     this.similarPleas$ = this.querySource$.pipe(
+      tap( () => this.existingPleaCheckStatus = HTTP_LOADING_STATUS.LOADING),
       debounce(() => interval(1000)),
       switchMap(this.pleaService.searchPleas),
+      tap( () => this.existingPleaCheckStatus = HTTP_LOADING_STATUS.FINISHED),
     );
   }
 
   submit( form: FormGroup ): void {
+    this.savingPleaStatus = HTTP_LOADING_STATUS.LOADING;
     this.submitted = true;
     const product = new Product();
     product.name = form.value.product;
@@ -69,6 +75,7 @@ export class NewPleaComponent {
       )
       .subscribe( { error: () => {
           this.submitted = false;
+          this.savingPleaStatus = HTTP_LOADING_STATUS.FINISHED;
       }});
   }
 

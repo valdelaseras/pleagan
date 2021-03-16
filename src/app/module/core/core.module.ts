@@ -21,7 +21,7 @@ import { LoadingIndicatorInterceptorProvider } from '@core/interceptor/loading-i
     AuthorizationInterceptorProvider,
     HttpErrorInterceptorProvider,
     DismissMessagesInterceptorProvider,
-    LoadingIndicatorInterceptorProvider
+    // LoadingIndicatorInterceptorProvider
   ],
   exports: []
 })
