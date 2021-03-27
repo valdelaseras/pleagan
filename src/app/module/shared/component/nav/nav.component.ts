@@ -8,7 +8,7 @@ import { AuthService } from '../../../core/service/auth/auth.service';
 })
 export class NavComponent {
   largeScreen = this.isLargeScreen();
-  collapsed = true;
+  collapsed = !this.isLargeScreen();
 
   constructor(public authService: AuthService) {}
 
