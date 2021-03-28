@@ -7,22 +7,22 @@
       </p>
 
       <div class="cta-buttons">
-        <button type="button" class="btn btn-primary-outline" id="vegan-visitor-btn" [routerLink]="['/about']">for vegans</button>
-        <button type="button" class="btn btn-primary-outline" id="company-visitor-btn" [routerLink]="['/about']" [queryParams]="{ section: 'business' }">
+        <button type="button" class="btn btn-primary" id="vegan-visitor-btn" [routerLink]="['/about']">for vegans</button>
+        <button type="button" class="btn btn-primary" id="company-visitor-btn" [routerLink]="['/about']" [queryParams]="{ section: 'business' }">
           for businesses
         </button>
       </div>
     </div>
   </div>
   <div class="clr-col" id="l-mid-row">
-    <h5 class="underlined">How does veganism help our earth?</h5>
+      <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="underlined">Browse pleas</a>
   </div>
   <div class="desktop-row">
     <div class="clr-col" id="l-bot-col-a">
       <div class="col-header">
         <h3>Pleas</h3>
         <p>
-          Initiate or find an existing plea to a business to veganise a product of theirs
+          Find or initiate a plea to a business to veganise a product of theirs
         </p>
       </div>
     </div>
@@ -38,7 +38,7 @@
       <div class="col-header">
         <h3>Inform</h3>
         <p>
-          After a threshold of support has been acquired, Pleagan informs the business of the demand
+          With sufficient support, Pleagan informs the business of the demand
         </p>
       </div>
     </div>

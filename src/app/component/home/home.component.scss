@@ -72,15 +72,22 @@ h5 {
 .cta-buttons {
   margin-top: 1rem;
 }
+
+.cta-buttons button {
+  display: inline-block;
+}
 /*@end cta buttons*/
 
 /*@start rows by id*/
 // heights
 #l-top-row {
   height: calc( 100vh - 5.23rem );
+  background-color: lightpink;
 }
 
-#l-mid-row { height: 10vh; }
+#l-mid-row {
+  display: none;
+}
 
 #l-bot-col-a,
 #l-bot-col-b,
@@ -96,12 +103,6 @@ h5 {
   text-align: center;
 }
 
-#l-mid-row {
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
 #l-bot-col-a,
 #l-bot-col-b,
 #l-bot-col-c {
@@ -109,12 +110,12 @@ h5 {
 }
 
 // temporary
-#l-top-row { background-color: pink; }
+//#l-top-row { background-color: pink; }
 #l-bot-col-a,
 #l-bot-col-c {
   background-color: rgba(255, 208, 220, 0.45)
 }
-#l-bot-col-b { background-color: lightpink }
+//#l-bot-col-b { background-color: lightpink }
 
 @media only screen and (min-width: 768px) {
   #l-top-row {
@@ -122,7 +123,9 @@ h5 {
   }
 
   #l-mid-row {
+    display: flex;
     height: 5vh;
+    text-align: center;
   }
 
   #l-bot-col-a,
