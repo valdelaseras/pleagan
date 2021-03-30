@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet} from '@angular/router';
 import { ROUTING_ANIMATIONS } from '../../animations';
 
 @Component({
@@ -11,8 +11,13 @@ import { ROUTING_ANIMATIONS } from '../../animations';
   ]
 })
 export class AppContainerComponent implements OnInit {
+  // showInitiateButton = true;
 
-  constructor() { }
+  constructor( private router: Router ) {
+    // router.events.subscribe((event: any) => {
+    //   this.showInitiateButton = event.url && !event.url.includes( 'plea/initiate' );
+    // });
+  }
 
   ngOnInit(): void {
   }
