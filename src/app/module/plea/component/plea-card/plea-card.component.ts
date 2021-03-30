@@ -8,6 +8,8 @@ import { Plea, PLEA_TARGET } from '@shared/model';
 })
 export class PleaCardComponent {
   @Input() plea!: Plea;
+  // TODO: check if plea is supported by user, then display some indicator on card. A bg color perhaps
+
   constructor() {}
 
   getTarget(): number {
