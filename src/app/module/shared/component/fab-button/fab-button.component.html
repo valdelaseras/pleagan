@@ -1,5 +1,5 @@
-<footer [ngClass]="{ 'mobile-only': mobileOnly, 'fill-background': fillBackground }">
+<div [ngClass]="{ 'mobile-only': mobileOnly, 'desktop-only' : desktopOnly, 'fill-background': fillBackground }">
   <a [routerLink]="routerLink" class="btn btn-primary btn-icon" [attr.aria-label]="ariaLabel">
     <ng-content></ng-content>
   </a>
-</footer>
+</div>

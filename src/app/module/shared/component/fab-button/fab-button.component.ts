@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class FabButtonComponent {
   @Input() mobileOnly: boolean = false;
+  @Input() desktopOnly: boolean = false;
   @Input() fillBackground: boolean = false;
   @Input() ariaLabel: string = '';
   @Input() routerLink: string[] = [''];

@@ -7,10 +7,10 @@ body[cds-theme='light'] {
   --quinary-color: #b6b6b64f;
   --line-color: rgba(70, 70, 70, 0.15);
 
-  --primary-accent-color: #db8caf;
-  --primary-accent-darker-color: #222;
+  --primary-accent-color: #fe777e;
+  --primary-accent-darker-color: #a32530;
 
-  --secondary-accent-color: var(--primary-accent-color);
+  //--secondary-accent-color: var(--primary-accent-color);
 
   //--tertiary-accent-color: #fa7268;
   --tertiary-accent-color: var(--primary-accent-darker-color);
@@ -18,7 +18,7 @@ body[cds-theme='light'] {
   --primary-text-color: var(--quaternary-color);
   --primary-text-color-inverted: var(--primary-color);
   //--text-accent-color: var(--secondary-accent-color);
-  --text-accent-color: var(--primary-accent-darker-color);
+  //--text-accent-color: var(--primary-accent-darker-color);
 
   // HEADER
   --clr-header-bg-color: var(--primary-accent-darker-color);
@@ -37,11 +37,11 @@ body[cds-theme='light'] {
   --clr-global-font-color: var(--primary-text-color);
 
   --clr-p1-color: var(--primary-text-color);
-  --clr-h1-color: var(--text-accent-color);
-  --clr-h2-color: var(--text-accent-color);
-  --clr-h3-color: var(--text-accent-color);
-  --clr-h4-color: var(--text-accent-color);
-  --clr-h5-color: var(--text-accent-color);
+  --clr-h1-color: var(--primary-text-color);
+  --clr-h2-color: var(--primary-text-color);
+  --clr-h3-color: var(--primary-text-color);
+  --clr-h4-color: var(--primary-text-color);
+  --clr-h5-color: var(--primary-text-color);
 
   // BASE
   --clr-global-app-background: var(--secondary-color);
