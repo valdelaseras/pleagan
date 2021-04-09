@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { IPlea } from 'pleagan-model';
 import { map } from 'rxjs/operators';
 import { JsonConvertService } from '../json-convert/json-convert.service';
-import { ISupport } from 'pleagan-model/dist/model/plea/base/support.interfase';
+import { ISupport } from 'pleagan-model/dist/model/plea/base/support.interface';
 import { Plea, Support } from '@shared/model';
 import { environment } from '@env/*';
 

@@ -1,4 +1,4 @@
-import { ISupport } from 'pleagan-model/dist/model/plea/base/support.interfase';
+import { ISupport } from 'pleagan-model/dist/model/plea/base/support.interface';
 import { JsonObject, JsonProperty } from 'json2typescript';
 import { Pleagan } from '../pleagan/pleagan.model';
 

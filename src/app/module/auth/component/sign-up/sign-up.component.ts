@@ -29,7 +29,7 @@ export class SignUpComponent {
   }
 
   signUp( form: FormGroup): void {
-    const { email, password, displayName } = form.value;
-    this.authService.signUp(email, password, displayName).subscribe( this.redirect );
+    const { email, password, displayName, countryName } = form.value;
+    this.authService.signUp(email, password, displayName, countryName ).subscribe( this.redirect );
   }
 }

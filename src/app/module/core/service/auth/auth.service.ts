@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import User = firebase.User;
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
-import { catchError, delay, map, mergeMap, switchMap, take, tap } from 'rxjs/operators';
+import { catchError, delay, map, mergeMap, switchMap, take, takeLast, tap } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DisplayMessageService } from '../display-message/display-message.service';
 import { LoadingIndicatorService } from '../loading-indicator/loading-indicator.service';
@@ -30,12 +30,10 @@ export class AuthService {
     private displayMessageService: DisplayMessageService,
     private loadingIndicatorService: LoadingIndicatorService
   ) {
-    this.user$ = this.fireAuth.user.pipe(
-      take(1)
-    );
+    this.user$ = this.fireAuth.user;
   }
 
-  signUp( email: string, password: string, displayName: string ): Observable<void> {
+  signUp( email: string, password: string, displayName: string, country: string ): Observable<void> {
     this.displayMessageService.dismissAllDisplayMessages();
     this.loadingIndicatorService.showLoadingIndicator();
     return from(
@@ -54,7 +52,7 @@ export class AuthService {
           }
         }))
       }),
-      switchMap(() => this.pleaganService.createPleagan()),
+      switchMap(() => this.pleaganService.createPleagan( country )),
     );
   }
 

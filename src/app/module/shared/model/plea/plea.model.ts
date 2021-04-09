@@ -13,6 +13,9 @@ export class Plea implements IPlea {
   @JsonProperty('numberOfSupports', Number, true)
   numberOfSupports = 0;
 
+  @JsonProperty('userHasSupported', Boolean, true)
+  userHasSupported = false;
+
   @JsonProperty('status', String)
   status: PLEA_STATUS = PLEA_STATUS.UNNOTIFIED;
 
