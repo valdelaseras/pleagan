@@ -71,10 +71,12 @@
           <!--          TODO: only visible if not owner of this plea-->
           <!--          TODO: if user has reported, this should change to 'reported' and disabled so no user can report a plea twice-->
           <li *showOnAuth="true">
-            <button class="btn btn-secondary" aria-label="Report a problem" (click)="reportModalIsOpen = true">
-              <clr-icon shape="warning-standard" size="14"></clr-icon>
-              Report
-            </button>
+            <ng-container *ngIf="!( userIsInitiator$ | async )">
+              <button class="btn btn-secondary" aria-label="Report a problem" (click)="reportModalIsOpen = true">
+                <clr-icon shape="warning-standard" size="14"></clr-icon>
+                Report
+              </button>
+            </ng-container>
           </li>
           <!--          TODO: only if not owner of this plea and already supported-->
           <li *showOnAuth="true">
