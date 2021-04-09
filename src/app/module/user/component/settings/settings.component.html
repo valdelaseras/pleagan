@@ -2,242 +2,248 @@
   <h1 class="desktop-only">Settings</h1>
   <div class="clr-row">
     <div class="clr-col-lg-6">
-      <div *ngIf="authService.user$ | async as user" class="user-preferences">
-        <ul class="settings-list">
-          <li>
-            <h2>Account</h2>
-            <ul>
-              <li class="clr-row">
-                <p>Email address</p>
-                <p>
-                  {{ user.email }}
-                  <a title="Change email address">
-                    <clr-icon size="14" shape="note"></clr-icon>
-                  </a>
-                </p>
-              </li>
-              <li class="clr-row">
-                <p>Display name</p>
-                <p>
-                  {{ user.displayName }}
-                  <a title="Change display name">
-                    <clr-icon size="14" shape="note"></clr-icon>
-                  </a>
-                </p>
-              </li>
-              <li class="clr-row">
-                <p>Set country to private</p>
-                <clr-toggle-container>
-                  <clr-toggle-wrapper>
-                    <input
-                      type="checkbox"
-                      clrToggle
-                      name=""
-                      value=""
-                    />
-                  </clr-toggle-wrapper>
-                </clr-toggle-container>
-              </li>
-              <li class="clr-row">
-                <p>Delete account and data</p>
-                <button class="btn btn-compact btn-danger" id="delete-account" (click)="confirmDeletion()">
-                  Delete account
-                </button>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h2>Notifications</h2>
-            <clr-accordion>
-              <clr-accordion-panel>
-                <clr-accordion-title>Push notifications</clr-accordion-title>
-                <clr-accordion-content *clrIfExpanded>
-                  <div class="clr-row">
-                    <p>Enable</p>
-                    <clr-toggle-container>
-                      <clr-toggle-wrapper>
-                        <input
-                          type="checkbox"
-                          clrToggle
-                          name="all-push-notifications"
-                          value="all-push-notifications"
-                          [(ngModel)]="pushEnabled"
-                        />
-                      </clr-toggle-wrapper>
-                    </clr-toggle-container>
-                  </div>
-                  <ng-container *ngIf="pushEnabled">
-                    <ul>
-                      <li>
-                        <h3>My pleas</h3>
-                        <ul class="settings-sublist">
-                          <li class="clr-row">
-                            <p>On threshold</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushOnThreshold" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                          <li class="clr-row">
-                            <p>On compliance</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushOnCompliance" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h3>Supported pleas</h3>
-                        <ul class="settings-sublist">
-                          <li class="clr-row">
-                            <p>On threshold</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushSupportedPleasOnThreshold" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                          <li class="clr-row">
-                            <p>On compliance</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushSupportedPleasOnCompliance" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h3>Other pleas</h3>
-                        <ul class="settings-sublist">
-                          <li class="clr-row">
-                            <p>All new pleas</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushOtherPleasOnNew" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                          <li class="clr-row">
-                            <p>On location</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="pushOtherPleasOnLocation" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </ng-container>
-                </clr-accordion-content>
-              </clr-accordion-panel>
+      <div *ngIf="userRequest$ | async as result" class="user-preferences">
+        <app-loading-indicator height="500px"
+                               [httpStatus]="result.status">
+          <ul class="settings-list">
+            <li>
+              <h2>Account</h2>
+              <ul>
+                <li class="clr-row">
+                  <p>Email address</p>
+                  <p>
+                    {{ result.value?.auth.email }}
+                    <a title="Change email address">
+                      <clr-icon size="14" shape="note"></clr-icon>
+                    </a>
+                  </p>
+                </li>
+                <li class="clr-row">
+                  <p>Display name</p>
+                  <p>
+                    {{ result.value?.auth.displayName }}
+                    <a title="Change display name">
+                      <clr-icon size="14" shape="note"></clr-icon>
+                    </a>
+                  </p>
+                </li>
+                <li class="clr-row">
+                  <p>Set country to private</p>
+                  <clr-toggle-container>
+                    <clr-toggle-wrapper>
+                      <input
+                        type="checkbox"
+                        clrToggle
+                        name="privateCountry"
+                        [(ngModel)]="result.value?.pleagan.settings.countryPrivate"
+                      />
+                    </clr-toggle-wrapper>
+                  </clr-toggle-container>
+                </li>
+                <li class="clr-row">
+                  <p>Delete account and data</p>
+                  <button class="btn btn-compact btn-danger" id="delete-account" (click)="confirmDeletion()">
+                    Delete account
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <h2>Notifications</h2>
+              <clr-accordion>
+                <clr-accordion-panel>
+                  <clr-accordion-title>Push notifications</clr-accordion-title>
+                  <clr-accordion-content *clrIfExpanded>
+                    <div class="clr-row">
+                      <p>Enable</p>
+                      <clr-toggle-container>
+                        <clr-toggle-wrapper>
+                          <input
+                            type="checkbox"
+                            clrToggle
+                            name="all-push-notifications"
+                            value="all-push-notifications"
+                            [(ngModel)]="result.value?.pleagan.settings.notifications.push.enabled"
+                          />
+                        </clr-toggle-wrapper>
+                      </clr-toggle-container>
+                    </div>
+                    <ng-container *ngIf="result.value?.pleagan.settings.notifications.push.enabled">
+                      <ul>
+                        <li>
+                          <h3>My pleas</h3>
+                          <ul class="settings-sublist">
+                            <li class="clr-row">
+                              <p>On threshold</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.push.myPleas.onThreshold" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                            <li class="clr-row">
+                              <p>On compliance</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.push.myPleas.onCompliance" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <h3>Supported pleas</h3>
+                          <ul class="settings-sublist">
+                            <li class="clr-row">
+                              <p>On threshold</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.push.supportedPleas.onThreshold" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                            <li class="clr-row">
+                              <p>On compliance</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.push.supportedPleas.onCompliance" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <h3>Other pleas</h3>
+                          <ul class="settings-sublist">
+                            <li class="clr-row">
+                              <p>All new pleas</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.push.otherPleas.onNew" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                            <li class="clr-row">
+                              <p>On location</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.push.otherPleas.onLocation" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </ng-container>
+                  </clr-accordion-content>
+                </clr-accordion-panel>
 
-              <clr-accordion-panel>
-                <clr-accordion-title>Email notifications</clr-accordion-title>
-                <clr-accordion-content>
-                  <div class="clr-row">
-                    <p>Enable</p>
-                    <clr-toggle-container>
-                      <clr-toggle-wrapper>
-                        <input
-                          type="checkbox"
-                          clrToggle
-                          name="all-mail-notifications"
-                          value="all-mail-notifications"
-                          [(ngModel)]="emailEnabled"
-                        />
-                      </clr-toggle-wrapper>
-                    </clr-toggle-container>
-                  </div>
-                  <ng-container *ngIf="emailEnabled">
-                    <ul>
-                      <li>
-                        <h3>My pleas</h3>
-                        <ul class="settings-sublist">
-                          <li class="clr-row">
-                            <p>On threshold</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailMyPleasOnThreshold" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                          <li class="clr-row">
-                            <p>On compliance</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailMyPleasOnCompliance" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h3>Supported pleas</h3>
-                        <ul class="settings-sublist">
-                          <li class="clr-row">
-                            <p>On threshold</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailSupportedPleasOnThreshold" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                          <li class="clr-row">
-                            <p>On compliance</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailSupportedPleasOnCompliance" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h3>Other pleas</h3>
-                        <ul class="settings-sublist">
-                          <li class="clr-row">
-                            <p>All new pleas</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailOtherPleasOnNew" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                          <li class="clr-row">
-                            <p>On location</p>
-                            <clr-toggle-container>
-                              <clr-toggle-wrapper>
-                                <input type="checkbox" clrToggle [(ngModel)]="emailOtherPleasOnLocation" />
-                              </clr-toggle-wrapper>
-                            </clr-toggle-container>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </ng-container>
-                </clr-accordion-content>
-              </clr-accordion-panel>
-            </clr-accordion>
-          </li>
-          <li>
-            <h2>Theme</h2>
-            <ul>
-              <li class="clr-row">
-                <p>Your theme preference</p>
-                <select clrSelect name="themes" [(ngModel)]="theme">
-                  <option [value]="themes.DEFAULT">Default</option>
-                  <option [value]="themes.BEAN">Bean</option>
-                  <option [value]="themes.OCEAN">Ocean</option>
-                </select>
-              </li>
-            </ul>
-          </li>
-        </ul>
+                <clr-accordion-panel>
+                  <clr-accordion-title>Email notifications</clr-accordion-title>
+                  <clr-accordion-content>
+                    <div class="clr-row">
+                      <p>Enable</p>
+                      <clr-toggle-container>
+                        <clr-toggle-wrapper>
+                          <input
+                            type="checkbox"
+                            clrToggle
+                            name="all-mail-notifications"
+                            value="all-mail-notifications"
+                            [(ngModel)]="result.value?.pleagan.settings.notifications.email.enabled"
+                          />
+                        </clr-toggle-wrapper>
+                      </clr-toggle-container>
+                    </div>
+                    <ng-container *ngIf="result.value?.pleagan.settings.notifications.email.enabled">
+                      <ul>
+                        <li>
+                          <h3>My pleas</h3>
+                          <ul class="settings-sublist">
+                            <li class="clr-row">
+                              <p>On threshold</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.email.myPleas.onThreshold" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                            <li class="clr-row">
+                              <p>On compliance</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.email.myPleas.onCompliance" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <h3>Supported pleas</h3>
+                          <ul class="settings-sublist">
+                            <li class="clr-row">
+                              <p>On threshold</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.email.supportedPleas.onThreshold" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                            <li class="clr-row">
+                              <p>On compliance</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.email.supportedPleas.onCompliance" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <h3>Other pleas</h3>
+                          <ul class="settings-sublist">
+                            <li class="clr-row">
+                              <p>All new pleas</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.email.otherPleas.onNew" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                            <li class="clr-row">
+                              <p>On location</p>
+                              <clr-toggle-container>
+                                <clr-toggle-wrapper>
+                                  <input type="checkbox" clrToggle [(ngModel)]="result.value?.pleagan.settings.notifications.email.otherPleas.onLocation" />
+                                </clr-toggle-wrapper>
+                              </clr-toggle-container>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </ng-container>
+                  </clr-accordion-content>
+                </clr-accordion-panel>
+              </clr-accordion>
+            </li>
+            <li>
+              <h2>Theme</h2>
+              <ul>
+                <li class="clr-row">
+                  <p>Your theme preference</p>
+                  <select clrSelect name="themes" [(ngModel)]="result.value?.pleagan.settings.theme">
+                    <option [value]="themes.DEFAULT">Default</option>
+                    <option [value]="themes.BEAN">Bean</option>
+                    <option [value]="themes.OCEAN">Ocean</option>
+                  </select>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <app-loading-indicator [httpStatus]="updateStatus">
+            <button class="btn btn-primary" (click)="saveUserSettings( result.value )">Save</button>
+          </app-loading-indicator>
+        </app-loading-indicator>
       </div>
     </div>
   </div>

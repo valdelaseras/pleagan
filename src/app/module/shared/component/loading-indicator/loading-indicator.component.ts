@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input } from '@angular/core';
 import { FADE_IN_SINGLE } from '../../animations';
-import { LoadingIndicatorService } from '@core/service';
+import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loading-wrapper.model';
 
 @Component({
   selector: 'app-loading-indicator',
@@ -11,14 +10,9 @@ import { LoadingIndicatorService } from '@core/service';
     FADE_IN_SINGLE
   ]
 })
-export class LoadingIndicatorComponent implements OnInit {
+export class LoadingIndicatorComponent {
   @Input() height?: string;
+  @Input() httpStatus: HTTP_LOADING_STATUS;
 
-  show$: Observable<boolean>;
-
-  constructor( private loadingIndicatorService: LoadingIndicatorService ) {}
-
-  ngOnInit(): void {
-    this.show$ = this.loadingIndicatorService.showLoadingIndicator$;
-  }
+  HTTP_LOADING_STATUS = HTTP_LOADING_STATUS;
 }

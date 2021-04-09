@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
-import { THEME } from 'pleagan-model/dist/model/pleagan/settings/user-settings.interface';
-import { AuthService } from '../../../core/service';
+import { AuthService, PleaganService } from '../../../core/service';
+import { Pleagan } from '@shared/model';
+import { concat, forkJoin, Observable, of } from 'rxjs';
+import firebase from 'firebase/app';
+import { THEME } from 'pleagan-model';
+import { map, tap } from 'rxjs/operators';
+import { HTTP_LOADING_STATUS, HttpLoadingWrapper } from '@shared/model/http-loading-wrapper/http-loading-wrapper.model';
+import User = firebase.User;
 
 @Component({
   selector: 'app-settings',
@@ -9,24 +15,29 @@ import { AuthService } from '../../../core/service';
 })
 export class SettingsComponent {
   themes = THEME;
-  // TODO: Temp, replace with actual settings
-  theme = THEME.DEFAULT;
-  pushEnabled: boolean = true;
-  pushOnThreshold: boolean = true;
-  pushOnCompliance: boolean = true;
-  pushSupportedPleasOnThreshold: boolean = true;
-  pushSupportedPleasOnCompliance: boolean = true;
-  pushOtherPleasOnNew: boolean = false;
-  pushOtherPleasOnLocation: boolean = true;
-  emailEnabled: boolean = false;
-  emailMyPleasOnThreshold: boolean = false;
-  emailMyPleasOnCompliance: boolean = false;
-  emailSupportedPleasOnThreshold: boolean = false;
-  emailSupportedPleasOnCompliance: boolean = false;
-  emailOtherPleasOnNew: boolean = false;
-  emailOtherPleasOnLocation: boolean = false;
+  userRequest$: Observable<HttpLoadingWrapper<{auth: User, pleagan: Pleagan}>>;
+  updateStatus: HTTP_LOADING_STATUS;
 
-  constructor(public authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private pleaganService: PleaganService
+  ) {
+    this.userRequest$ = concat(
+      of( new HttpLoadingWrapper<{auth: User, pleagan: Pleagan}>() ),
+      forkJoin( {
+        auth: this.authService.getUser(),
+        pleagan: this.pleaganService.getCurrentPleagan()
+      }).pipe(
+        map( ( user: { auth: User, pleagan: Pleagan }) => (new HttpLoadingWrapper<{auth: User, pleagan: Pleagan}>( user )) )
+      )
+    );
+  }
+
+  saveUserSettings( user: { auth: User, pleagan: Pleagan } ): void {
+    this.updateStatus = HTTP_LOADING_STATUS.LOADING;
+    this.pleaganService.updatePleagan( user.pleagan ).subscribe(() => this.updateStatus = HTTP_LOADING_STATUS.FINISHED);
+  }
+
   confirmDeletion(): void {
     alert('Are you sure you want to delete your account?');
   }

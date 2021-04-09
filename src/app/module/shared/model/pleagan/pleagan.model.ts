@@ -16,5 +16,6 @@ export class Pleagan implements IPleagan {
   @JsonProperty('country', String, true)
   country?: string = '';
 
+  @JsonProperty( 'settings', JSON, true)
   settings: IUserSettings;
 }
