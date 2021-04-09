@@ -12,8 +12,8 @@ import { environment } from '@env/*';
 export class PleaganService {
   constructor(private http: HttpClient) {}
 
-  createPleagan(): Observable<void> {
-    return this.http.post<void>(`${environment.apiBaseUrl}/pleagan`, null);
+  createPleagan( country: string ): Observable<void> {
+    return this.http.post<void>(`${environment.apiBaseUrl}/pleagan`, { country });
   }
 
   getCurrentPleagan(): Observable<Pleagan> {
