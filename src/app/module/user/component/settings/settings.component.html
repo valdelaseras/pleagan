@@ -13,19 +13,19 @@
                   <p>Email address</p>
                   <p>
                     {{ result.value?.auth.email }}
-                    <a title="Change email address">
-                      <clr-icon size="14" shape="note"></clr-icon>
-                    </a>
                   </p>
                 </li>
                 <li class="clr-row">
                   <p>Display name</p>
                   <p>
                     {{ result.value?.auth.displayName }}
-                    <a title="Change display name">
-                      <clr-icon size="14" shape="note"></clr-icon>
-                    </a>
                   </p>
+                </li>
+                <li class="clr-row">
+                  <p>Country</p>
+                  <select clrSelect id="country" name="country" [(ngModel)]="result.value?.pleagan.country">
+                    <option *ngFor="let country of countries" value="{{ country }}">{{ country }}</option>
+                  </select>
                 </li>
                 <li class="clr-row">
                   <p>Set country to private</p>

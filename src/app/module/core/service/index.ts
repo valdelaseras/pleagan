@@ -7,10 +7,12 @@ import { LoadingIndicatorService } from './loading-indicator/loading-indicator.s
 import { PleaService } from './plea/plea.service';
 import { PleaganService } from './pleagan/pleagan.service';
 import { ProductService } from './product/product.service';
+import { CountryService } from './country/country.service';
 
 export const services = [
   AuthService,
   CompanyService,
+  CountryService,
   DisplayMessageService,
   FirebaseStorageService,
   JsonConvertService,
@@ -22,6 +24,7 @@ export const services = [
 
 export * from './auth/auth.service';
 export * from './company/company.service';
+export * from './country/country.service';
 export * from './display-message/display-message.service';
 export * from './firebase-storage/firebase-storage.service';
 export * from './json-convert/json-convert.service';

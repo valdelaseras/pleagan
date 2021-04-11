@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '@core/service';
+import { AuthService, CountryService } from '@core/service';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,6 +17,7 @@ export class SignUpComponent {
     confirmPassword: new FormControl('', Validators.compose( [ Validators.required, Validators.minLength( 6 ),
       this.passwordsMatch.bind( this ) ] ) ),
   });
+  countries = CountryService.countries;
 
   redirect = () => setTimeout(() => this.router.navigate(['/']), 2500);
 

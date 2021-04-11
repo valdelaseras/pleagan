@@ -17,6 +17,11 @@ const FADE_IN_SINGLE =
     transition(':enter', [style({ opacity: 0 }), animate('.3s ease-out', style({ opacity: 1 }))]),
   ]);
 
+const FADE_IN_SINGLE_DELAYED =
+  trigger('fadeInSingleDelayed', [
+    transition(':enter', [style({ opacity: 0 }), animate('.3s 2s ease-out', style({ opacity: 1 }))]),
+  ]);
+
 const FADE_IN_OUT_LIST =
   trigger('fadeInOutList', [
     transition('* => *', [
@@ -45,5 +50,6 @@ export {
   FADE_IN_OUT_LIST,
   FADE_IN_OUT_SINGLE,
   FADE_IN_SINGLE,
-  FADE_IN_OUT_SHRINK_SINGLE
+  FADE_IN_OUT_SHRINK_SINGLE,
+  FADE_IN_SINGLE_DELAYED
 };

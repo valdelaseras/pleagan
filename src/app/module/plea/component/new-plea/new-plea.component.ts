@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { interval, Observable, Subject } from 'rxjs';
 import { debounce, map, mergeMap, switchMap, tap } from 'rxjs/operators';
-import { FADE_IN_OUT_LIST, FADE_IN_OUT_SINGLE, SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../shared/animations';
+import { FADE_IN_OUT_LIST, SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../shared/animations';
 import { Router } from '@angular/router';
 import { Company, Plea, Product } from '@shared/model';
 import { CompanyService, FirebaseStorageService, PleaService, ProductService } from '@core/service';
@@ -12,7 +12,7 @@ import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loa
   selector: 'app-new-plea',
   templateUrl: './new-plea.component.html',
   styleUrls: ['./new-plea.component.scss'],
-  animations: [SWIPE_IN_BELOW_SWIPE_OUT_TOP, FADE_IN_OUT_LIST, FADE_IN_OUT_SINGLE],
+  animations: [SWIPE_IN_BELOW_SWIPE_OUT_TOP, FADE_IN_OUT_LIST],
 })
 export class NewPleaComponent {
   querySource$: Subject<string> = new Subject<string>();

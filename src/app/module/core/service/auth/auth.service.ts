@@ -83,6 +83,7 @@ export class AuthService {
 
   getUser(): Observable<User> {
     return this.user$.pipe(
+      take( 1 ),
       filterNullOrUndefined(),
     );
   }
