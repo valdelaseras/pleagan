@@ -97,7 +97,7 @@ export class PleaService {
 
   updateComment(id: number, comment: string): Observable<void> {
     const body = { comment };
-    return this.http.put<void>(`${environment.apiBaseUrl}/plea/${id}/support`, body);
+    return this.http.put<void>(`${environment.apiBaseUrl}/support/${id}`, body);
   }
 
   removeComment(id: number): Observable<void> {

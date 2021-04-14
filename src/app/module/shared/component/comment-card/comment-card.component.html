@@ -10,16 +10,26 @@
         <span>{{ support.createdAt | date: 'hh:mm dd-MM-YYYY' }}</span
         >, <span> {{ support.pleagan.country }}</span>
         <ng-container *ngIf="edit">
-          <clr-textarea-container>
-            <label>Edit comment</label>
-            <textarea clrTextarea [(ngModel)]="support.comment" name="edit comment" required></textarea>
-          </clr-textarea-container>
-          <button class="btn btn-primary">Save</button>
+          <div class="edit-comment-field">
+            <clr-textarea-container>
+              <label>Edit comment</label>
+              <textarea clrTextarea
+                        [(ngModel)]="comment"
+                        #editComment
+                        name="edit comment"
+                        required></textarea>
+            </clr-textarea-container>
+            <app-loading-indicator [httpStatus]="updatingPleaStatus">
+              <button [disabled]="support.comment == comment"
+                      class="btn btn-primary"
+                      (click)="saveCommentEdit()">Save</button>
+            </app-loading-indicator>
+          </div>
         </ng-container>
         <p class="italic" *ngIf="!edit">"{{ support.comment }}"</p>
       </div>
       <div class="comment-menu">
-        <clr-dropdown [clrCloseMenuOnItemClick]="false">
+        <clr-dropdown [clrCloseMenuOnItemClick]="true">
           <button clrDropdownTrigger aria-label="Menu">
             <clr-icon shape="ellipsis-vertical" size="18"></clr-icon>
           </button>
