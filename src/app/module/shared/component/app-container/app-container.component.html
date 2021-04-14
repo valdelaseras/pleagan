@@ -8,12 +8,15 @@
       </div>
     </main>
   </div>
-  <app-fab-button *showOnAuth="true"
-                  [desktopOnly]="true"
-                  [fillBackground]="true"
-                  ariaLabel="Initiate a plea"
-                  [routerLink]="['/', 'plea', 'initiate']">
-    <clr-icon shape="plus" size="16"></clr-icon>
-    Initiate
-  </app-fab-button>
+  <ng-container *showOnAuth="true">
+    <app-fab-button *hideOnRoutes="['/plea/initiate', '/', '/plea/details']"
+                    [desktopOnly]="true"
+                    [fillBackground]="true"
+                    ariaLabel="Initiate a plea"
+                    [routerLink]="['/', 'plea', 'initiate']"
+                    [@fadeInOutSingle]>
+      <clr-icon shape="plus" size="16"></clr-icon>
+      Initiate
+    </app-fab-button>
+  </ng-container>
 </clr-main-container>
