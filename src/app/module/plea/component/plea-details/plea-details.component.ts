@@ -3,10 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { combineLatest, Observable } from 'rxjs';
 import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '@shared/animations';
 import { AuthService, PleaService } from '@core/service';
-import { Plea, Support } from '@shared/model';
+import { Plea, Pleagan, Support } from '@shared/model';
 import { map, shareReplay } from 'rxjs/operators';
 import firebase from 'firebase/app';
 import User = firebase.User;
+import { filterNullOrUndefined } from '@shared/operator';
 
 @Component({
   selector: 'app-submission-details',
@@ -22,6 +23,7 @@ export class PleaDetailsComponent {
   retractReason: string = 'already-exists';
 
   plea$: Observable<Plea>;
+  pleaganUid$: Observable<string>;
   userIsInitiator$: Observable<boolean>;
   userHasSupported$: Observable<boolean>;
   // Select elements in modals
@@ -51,6 +53,11 @@ export class PleaDetailsComponent {
   refreshPlea(): void {
     // perform request for data
     this.plea$ = this.pleaService.getPleaById( parseInt( this.route.snapshot.paramMap.get('pleaId')! ) );
+
+    this.pleaganUid$ = this.authService.user$.pipe(
+      filterNullOrUndefined(),
+      map( ( user: User ) => user.uid )
+    );
 
     // combine plea and authorised user into a single observable
     this.pleaganAndPlea$ = combineLatest( [

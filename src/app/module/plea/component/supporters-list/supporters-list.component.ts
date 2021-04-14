@@ -8,6 +8,7 @@ import { Support } from '@shared/model';
 })
 export class SupportersListComponent implements OnInit {
   @Input() supports: Support[];
+  @Input() currentUserUid: string;
 
   constructor() {}
 

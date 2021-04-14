@@ -8,6 +8,12 @@ import { Support } from '../../model/plea/support.model';
 })
 export class CommentCardComponent {
   @Input() support: Support;
+  @Input() isOwner: boolean;
+  edit = false;
 
   constructor() {}
+
+  editComment() {
+    this.edit = true;
+  }
 }

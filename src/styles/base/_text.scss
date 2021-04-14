@@ -19,7 +19,7 @@ html {
   font-size: larger;
 }
 .highlighted-txt {
-  color: var(--text-accent-color);
+  color: var(--text-accent-color)!important;
 }
 /*@end util typography classes*/
 
