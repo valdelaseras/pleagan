@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet} from '@angular/router';
-import { ROUTING_ANIMATIONS } from '../../animations';
+import { FADE_IN_OUT_SINGLE, ROUTING_ANIMATIONS } from '../../animations';
 
 @Component({
   selector: 'app-container',
@@ -8,6 +8,7 @@ import { ROUTING_ANIMATIONS } from '../../animations';
   styleUrls: ['./app-container.component.scss'],
   animations: [
     ROUTING_ANIMATIONS,
+    FADE_IN_OUT_SINGLE
   ]
 })
 export class AppContainerComponent implements OnInit {
