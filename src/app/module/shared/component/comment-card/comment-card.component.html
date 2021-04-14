@@ -8,7 +8,7 @@
         <div class="msg-shape left"></div>
         <h4 class="comment-card-header" [ngClass]="{ 'highlighted-txt': isOwner }">{{ support.pleagan.displayName }}</h4>
         <span>{{ support.createdAt | date: 'hh:mm dd-MM-YYYY' }}</span
-        >, <span> {{ support.pleagan.country }}</span>
+        >, <span> {{ support.pleagan.country }}</span><span *ngIf="edited" class="highlighted-txt"> - edited</span>
         <ng-container *ngIf="edit">
           <div class="edit-comment-field">
             <clr-textarea-container>

@@ -20,11 +20,26 @@ export class CommentCardComponent implements OnInit {
   comment: string;
   updatingPleaStatus: HTTP_LOADING_STATUS;
   edit = false;
+  edited = false;
 
   constructor( private pleaService: PleaService ) {}
 
   ngOnInit() {
+    // somehow the updatedAt timestamp is a few hundred millis AFTER the createdAt timestamp
+    // therefore we need to compare them and make an educated guess as to whether or not the comment
+    // has been updated in the past.
+    let difference = this.support.createdAt.getTime() - this.support.updatedAt.getTime();
+
+    // I want a nice and positive number. Negative numbers get me down.
+    difference = difference < 0 ? -difference : difference;
+
+    // clone so we can detect if the user has actually changed the text
     this.comment = this.support.comment;
+
+    // consider comment edited when updatedAt and createdAt differ with more than 5 seconds
+    if ( difference > 5000 ) {
+      this.edited = true;
+    }
   }
 
   editComment() {
