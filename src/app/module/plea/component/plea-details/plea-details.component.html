@@ -122,7 +122,11 @@
       <div>
         <h3>Supporters</h3>
         <!--        TODO: report other comments, delete own comment options-->
-        <app-supporters-list [supports]="plea.supports" [currentUserUid]="pleaganUid$ | async"></app-supporters-list>
+        <h4 *ngIf="!plea.supports.length">No supporters yet. <a [routerLink]="['/', 'plea', 'initiate']">Be the first!</a></h4>
+        <app-supporters-list
+          *ngIf="plea.supports.length"
+          [supports]="plea.supports"
+          [currentUserUid]="pleaganUid$ | async"></app-supporters-list>
       </div>
     </div>
   </div>

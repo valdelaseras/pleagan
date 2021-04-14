@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, CountryService } from '@core/service';
+import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loading-wrapper.model';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,6 +10,7 @@ import { AuthService, CountryService } from '@core/service';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent {
+  signUpStatus: HTTP_LOADING_STATUS;
   form = new FormGroup({
     email: new FormControl('', Validators.required),
     displayName: new FormControl('', Validators.required),
@@ -18,8 +20,6 @@ export class SignUpComponent {
       this.passwordsMatch.bind( this ) ] ) ),
   });
   countries = CountryService.countries;
-
-  redirect = () => setTimeout(() => this.router.navigate(['/']), 2500);
 
   constructor(public authService: AuthService, private router: Router) {}
 
@@ -31,6 +31,9 @@ export class SignUpComponent {
 
   signUp( form: FormGroup): void {
     const { email, password, displayName, countryName } = form.value;
-    this.authService.signUp(email, password, displayName, countryName ).subscribe( this.redirect );
+    this.signUpStatus = HTTP_LOADING_STATUS.LOADING;
+    this.authService.signUp(email, password, displayName, countryName ).subscribe( () => {
+      this.router.navigate(['/'] );
+    } );
   }
 }

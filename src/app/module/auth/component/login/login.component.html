@@ -2,7 +2,7 @@
   <h1>Log in</h1>
   <div class="clr-row">
     <div class="clr-col-lg-6">
-      <app-loading-indicator [height]="'500px'">
+      <app-loading-indicator [height]="'500px'" [httpStatus]="loginStatus">
         <form clrForm
               clrLayout="vertical"
               (ngSubmit)="login( form )"
