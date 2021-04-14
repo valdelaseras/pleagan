@@ -87,7 +87,7 @@
           <a class="underlined" [routerLink]="['/', 'auth', 'sign-up']">sign up</a> to initiate and support pleas
         </small>
         <p *showOnAuth="true">
-          <a class="underlined" (click)="logout()">logout</a>
+          <button class="btn btn-link" (click)="logout()">logout</button>
         </p>
       </section>
     </section>
