@@ -122,7 +122,7 @@
       <div>
         <h3>Supporters</h3>
         <!--        TODO: report other comments, delete own comment options-->
-        <app-supporters-list [supports]="plea.supports"></app-supporters-list>
+        <app-supporters-list [supports]="plea.supports" [currentUserUid]="pleaganUid$ | async"></app-supporters-list>
       </div>
     </div>
   </div>

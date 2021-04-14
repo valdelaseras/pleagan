@@ -6,21 +6,38 @@
     <div class="comment-msg">
       <div class="msg-cloud">
         <div class="msg-shape left"></div>
-        <h4 class="comment-card-header">{{ support.pleagan.displayName }}</h4>
+        <h4 class="comment-card-header" [ngClass]="{ 'highlighted-txt': isOwner }">{{ support.pleagan.displayName }}</h4>
         <span>{{ support.createdAt | date: 'hh:mm dd-MM-YYYY' }}</span
-        >, <span> {{ support.pleagan.country }}</span>
-        <p class="italic">"{{ support.comment }}"</p>
+        >, <span> {{ support.pleagan.country }}</span><span *ngIf="edited" class="highlighted-txt"> - edited</span>
+        <ng-container *ngIf="edit">
+          <div class="edit-comment-field">
+            <clr-textarea-container>
+              <label>Edit comment</label>
+              <textarea clrTextarea
+                        [(ngModel)]="comment"
+                        #editComment
+                        name="edit comment"
+                        required></textarea>
+            </clr-textarea-container>
+            <app-loading-indicator [httpStatus]="updatingPleaStatus">
+              <button [disabled]="support.comment == comment"
+                      class="btn btn-primary"
+                      (click)="saveCommentEdit()">Save</button>
+            </app-loading-indicator>
+          </div>
+        </ng-container>
+        <p class="italic" *ngIf="!edit">"{{ support.comment }}"</p>
       </div>
       <div class="comment-menu">
-        <clr-dropdown [clrCloseMenuOnItemClick]="false">
+        <clr-dropdown [clrCloseMenuOnItemClick]="true">
           <button clrDropdownTrigger aria-label="Menu">
             <clr-icon shape="ellipsis-vertical" size="18"></clr-icon>
           </button>
           <clr-dropdown-menu *clrIfOpen clrPosition="top-right">
             <!--          if not owner of comment-->
-            <div clrDropdownItem>Report</div>
+            <div *ngIf="!isOwner" clrDropdownItem>Report</div>
             <!--          if owner of comment-->
-            <div clrDropdownItem>Edit</div>
+            <div *ngIf="isOwner" clrDropdownItem (click)="editComment()">Edit</div>
           </clr-dropdown-menu>
         </clr-dropdown>
       </div>
