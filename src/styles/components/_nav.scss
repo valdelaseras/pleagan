@@ -51,6 +51,15 @@
   background-color: var(--primary-color);
 }
 
+.sidenav .nav-group input[type=checkbox]:focus+label {
+  outline: var(--primary-accent-color) auto .25rem;
+}
+
+.sidenav .nav-group .nav-list,
+.sidenav .nav-group label {
+  margin: 0;
+}
+
 @media only screen and (min-width: 768px) {
   .clr-vertical-nav .nav-group-text,
   .clr-vertical-nav .nav-link {

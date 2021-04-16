@@ -15,6 +15,17 @@
 }
 /*@end plea header*/
 
+/*@start initiator information*/
+.initiator-information {
+  display: flex;
+  align-items: flex-end;
+
+  .avatar {
+    margin-right: 1rem;
+  }
+}
+/*@end initiator information*/
+
 /*@start plea details p*/
 // TODO: this may be redundant once I restructure the HTML to clr rows like the rest of the pages
 @media only screen and (min-width: 1440px) {

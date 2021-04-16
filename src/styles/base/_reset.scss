@@ -1,6 +1,6 @@
 *:focus,
 *:focus-within {
-  outline: none !important;
+  outline-color: var(--primary-accent-color)!important;
 }
 
 ul {

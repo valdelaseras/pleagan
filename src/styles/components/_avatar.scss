@@ -1,0 +1,18 @@
+.avatar {
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  overflow: hidden;
+
+  img {
+    border-radius: 3px;
+    height: 60px;
+    width: 60px;
+  }
+
+  &.lg {
+    img {
+      height: 80px;
+      width: 80px;
+    }
+  }
+}

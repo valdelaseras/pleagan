@@ -53,7 +53,9 @@ body[cds-theme='light'] {
   --clr-btn-primary-hover-bg-color: var(--primary-accent-darker-color);
 
   --clr-btn-default-color: var(--primary-accent-color);
+  --clr-btn-link-color: var(--primary-accent-color);
   --clr-btn-default-hover-color: var(--tertiary-color);
+  --clr-btn-link-hover-color: var(--primary-accent-darker-color);
   --clr-btn-default-border-color: var(--primary-accent-color);
   --clr-btn-default-hover-bg-color: var(--primary-accent-darker-color);
 
@@ -69,6 +71,9 @@ body[cds-theme='light'] {
 
   // ACCORDION
   --clr-accordion-active-background-color: var(--tertiary-color);
+
+  // FORMS
+  --clr-forms-textarea-focused-outline: 0 0 0.1rem 0.1rem var(--primary-accent-color)
 }
 
 //body[cds-theme="light"] {

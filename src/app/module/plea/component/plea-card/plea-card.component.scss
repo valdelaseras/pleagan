@@ -34,19 +34,20 @@
 
 .card-img {
   position: relative;
+
+   .ph-picture {
+     min-height: 350px;
+   }
+
+  img.loaded + .ph-item {
+    display: none;
+  }
 }
 
 //@TODO: enforce image ratios
 .card-img img {
   filter: opacity(0.8);
-  //max-height: 100%;
-  //width: auto;
-  //margin: 0 auto;
 }
-//
-//.card-img {
-//  height: 300px;
-//}
 
 .card.plea-card.clickable:active,
 .card.plea-card.clickable:focus,

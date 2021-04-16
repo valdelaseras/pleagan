@@ -42,7 +42,7 @@ export class HideOnRoutesDirective implements OnInit {
   }
 
   private urlInRoutes = ( url: string ) => {
-    url = url.replace( /\d\/+/g, '' );
+    url = url.replace( /\d+\//g, '' );
     return this.routes.filter( ( route: string ) => url === route ).length > 0;
   }
 }
