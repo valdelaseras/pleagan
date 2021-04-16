@@ -23,6 +23,25 @@ const otherRoutes = [
   'pleaDetails',
 ];
 
+const steps = [
+  style({ position: 'relative' }),
+  query(':enter, :leave', [
+    style({
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%'
+    })
+  ]),
+  query(':enter', [style({ left: '-100%', opacity: 0 })]),
+  query( ':leave', animateChild() ),
+  group([
+    query(':leave', [animate('.3s ease-in-out', style({ left: '100%', opacity: 0 }))]),
+    query(':enter', [animate('.3s ease-in-out', style({ left: '0%', opacity: 1 }))])
+  ]),
+  query(':enter', animateChild())
+];
+
 const generateTransitions = ( routeSet: string[], otherRouteSet: string[] ): string => {
   let transitions = '';
 
@@ -54,41 +73,8 @@ const transitionsForMenuRoutes = generateTransitions( menuRoutes, otherRoutes );
 
 export const ROUTING_ANIMATIONS =
   trigger('routingAnimations', [
-    transition( transitionsForOtherRoutes, [
-      style({ position: 'relative' }),
-      query(':enter, :leave', [
-        style({
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          width: '100%'
-        })
-      ]),
-      query(':enter', [style({ right: '-100%', opacity: 0 })]),
-      query( ':leave', animateChild() ),
-      group([
-        query(':leave', [animate('.3s ease-out', style({ right: '100%', opacity: 0 }))]),
-        query(':enter', [animate('.3s ease-out', style({ right: '0%', opacity: 1 }))])
-      ]),
-      query(':enter', animateChild())
-    ]),
+    transition( transitionsForOtherRoutes, steps ),
 
-    transition( transitionsForMenuRoutes, [
-      style({ position: 'relative' }),
-      query(':enter, :leave', [
-        style({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%'
-        })
-      ]),
-      query(':enter', [style({ left: '-100%', opacity: 0 })]),
-      query( ':leave', animateChild() ),
-      group([
-        query(':leave', [animate('.3s ease-out', style({ left: '100%', opacity: 0 }))]),
-        query(':enter', [animate('.3s ease-out', style({ left: '0%', opacity: 1 }))])
-      ]),
-      query(':enter', animateChild())
-    ])
+    transition( transitionsForMenuRoutes, steps )
   ]);
+

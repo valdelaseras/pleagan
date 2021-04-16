@@ -71,6 +71,9 @@ body[cds-theme='light'] {
 
   // ACCORDION
   --clr-accordion-active-background-color: var(--tertiary-color);
+
+  // FORMS
+  --clr-forms-textarea-focused-outline: 0 0 0.1rem 0.1rem var(--primary-accent-color)
 }
 
 //body[cds-theme="light"] {

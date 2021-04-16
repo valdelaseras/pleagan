@@ -6,7 +6,7 @@ import User = firebase.User;
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
 import { catchError, delay, map, mergeMap, switchMap, take, takeLast, tap } from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { DisplayMessageService } from '../display-message/display-message.service';
 import { LoadingIndicatorService } from '../loading-indicator/loading-indicator.service';
 import { PleaganService } from '../pleagan/pleagan.service';
@@ -24,6 +24,7 @@ export class AuthService {
   }
 
   constructor(
+    private http: HttpClient,
     private fireAuth: AngularFireAuth,
     private router: Router,
     private pleaganService: PleaganService,
@@ -46,7 +47,7 @@ export class AuthService {
       }),
       switchMap( ( userCredential: UserCredential ) => {
         return from(this.fireAuth.currentUser.then( async ( user: User | null ) => {
-          const photoURL = '/assets/images/default-user.png';
+          const photoURL = `https://ui-avatars.com/api/?name=${ displayName }&size=120&background=random`;
           if ( user ) {
             await user.updateProfile({ displayName, photoURL });
           }

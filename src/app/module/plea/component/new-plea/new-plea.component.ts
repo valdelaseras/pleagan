@@ -62,15 +62,15 @@ export class NewPleaComponent {
     plea.nonVeganProduct = product;
 
     this.firebaseStorageService
-      .uploadFile(this.imageFile)
+      .uploadFile( this.imageFile )
       .pipe(
-        mergeMap((imageUrl: string) => {
+        mergeMap(( imageUrl: string ) => {
           product.imageUrl = imageUrl;
 
           return this.pleaService.createPlea(plea);
         }),
         map(({ id }: { id: number }) => {
-          this.router.navigate(['/', 'plea', id, 'details'])
+          this.router.navigate( ['/', 'plea', id, 'details'] )
         }),
       )
       .subscribe( { error: () => {
@@ -88,7 +88,7 @@ export class NewPleaComponent {
     }
   }
 
-  onFileChange(files: File[]): void {
+  onFileChange( files: File[] ): void {
     const reader = new FileReader();
 
     if (files && files.length) {

@@ -48,11 +48,15 @@
 
       <div class="clr-row clr-flex-lg-row-reverse">
         <div class="plea-details clr-col-xl-6 clr-col-12">
-          <p>
-            Initiated on <span class="bold">{{ plea.createdAt | date: 'dd-MM-yyyy' }}</span
-            ><br />
-            By <span class="bold">{{ plea.pleagan.displayName }}</span>
-          </p>
+          <div class="initiator-information">
+            <div class="avatar lg">
+              <img [src]="plea.pleagan.photoURL" alt="avatar of {{ plea.pleagan.displayName }}" />
+            </div>
+            <div>
+              <h4>{{ plea.pleagan.displayName }}</h4>
+              <span>{{ plea.createdAt | date: 'dd-MM-yyyy' }}, {{ plea.pleagan.country }}</span>
+            </div>
+          </div>
 
           <div class="msg-cloud">
             <div class="msg-shape"></div>
@@ -68,7 +72,6 @@
       <!--      // TODO: these buttons are secondary but styling is wrong. Should be filled with a bg color-->
       <div class="clr-row util-bar">
         <ul class="btn-list horizontal">
-          <!--          TODO: only visible if not owner of this plea-->
           <!--          TODO: if user has reported, this should change to 'reported' and disabled so no user can report a plea twice-->
           <li *showOnAuth="true">
             <ng-container *ngIf="!( userIsInitiator$ | async )">
@@ -78,7 +81,6 @@
               </button>
             </ng-container>
           </li>
-          <!--          TODO: only if not owner of this plea and already supported-->
           <li *showOnAuth="true">
             <ng-container *ngIf="userHasSupported$ | async">
               <button class="btn btn-secondary" aria-label="Retract support" (click)="retractSupportModalIsOpen = true">
@@ -87,7 +89,6 @@
               </button>
             </ng-container>
           </li>
-          <!--          TODO: only visible if owner of plea-->
           <li *showOnAuth="true">
             <ng-container *ngIf="userIsInitiator$ | async">
               <button class="btn btn-secondary" aria-label="Edit plea">
