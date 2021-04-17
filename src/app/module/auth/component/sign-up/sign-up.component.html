@@ -19,6 +19,7 @@
               <input id="display-name" clrInput type="text" formControlName="displayName" required />
               <clr-control-helper>Your username will be the pseudonym under which you are known to other pleagans.</clr-control-helper>
               <clr-control-error *clrIfError="'required'">Please enter a username.</clr-control-error>
+              <clr-control-error *clrIfError="'duplicate'">This username is already taken.</clr-control-error>
             </clr-input-container>
 
             <clr-select-container>

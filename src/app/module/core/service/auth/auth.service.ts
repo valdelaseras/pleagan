@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { EMPTY, from, Observable, of } from 'rxjs';
+import { EMPTY, from, Observable } from 'rxjs';
 import firebase from 'firebase/app';
 import User = firebase.User;
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
-import { catchError, delay, map, mergeMap, switchMap, take, takeLast, tap } from 'rxjs/operators';
-import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { catchError, delay, map, mergeMap, switchMap, take, tap } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { DisplayMessageService } from '../display-message/display-message.service';
-import { LoadingIndicatorService } from '../loading-indicator/loading-indicator.service';
 import { PleaganService } from '../pleagan/pleagan.service';
 import { DisplayMessage } from '@shared/model';
 import { filterNullOrUndefined } from '@shared/operator';
@@ -29,22 +28,15 @@ export class AuthService {
     private router: Router,
     private pleaganService: PleaganService,
     private displayMessageService: DisplayMessageService,
-    private loadingIndicatorService: LoadingIndicatorService
   ) {
     this.user$ = this.fireAuth.user;
   }
 
   signUp( email: string, password: string, displayName: string, country: string ): Observable<void> {
     this.displayMessageService.dismissAllDisplayMessages();
-    this.loadingIndicatorService.showLoadingIndicator();
     return from(
       this.fireAuth.createUserWithEmailAndPassword( email, password )
     ).pipe(
-      catchError( ( error: HttpErrorResponse ) => {
-        this.loadingIndicatorService.hideLoadingIndicator();
-        this.displayMessageService.addDisplayMessage( new DisplayMessage( error.message, 'warning' ) );
-        return EMPTY;
-      }),
       switchMap( ( userCredential: UserCredential ) => {
         return from(this.fireAuth.currentUser.then( async ( user: User | null ) => {
           const photoURL = `https://ui-avatars.com/api/?name=${ displayName }&size=120&background=random`;
@@ -59,16 +51,9 @@ export class AuthService {
 
   login( email: string, password: string ): Observable<User> {
     this.displayMessageService.dismissAllDisplayMessages();
-    this.loadingIndicatorService.showLoadingIndicator();
     return from(
       this.fireAuth.signInWithEmailAndPassword( email, password )
     ).pipe(
-      tap( () => this.loadingIndicatorService.hideLoadingIndicator()),
-      catchError( ( error: any ) => { // DIRTYYYY!!!
-        this.loadingIndicatorService.hideLoadingIndicator();
-        this.displayMessageService.addDisplayMessage( new DisplayMessage( this.formatErrorMessage( error['code'], error.message ), 'warning' ) );
-        return EMPTY;
-      }),
       map( ( userCredential: UserCredential ) => userCredential.user! )
     );
   }

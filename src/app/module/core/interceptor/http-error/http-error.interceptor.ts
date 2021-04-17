@@ -7,7 +7,7 @@ import {
   HttpInterceptor,
   HttpRequest
 } from '@angular/common/http';
-import { EMPTY, Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { DisplayMessageService } from '../../service';
 import { DisplayMessage, DisplayMessageLevel } from '@shared/model/display-message/display-message.model';
@@ -23,7 +23,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       .pipe(
         catchError(( error: HttpErrorResponse ) => {
           this.displayMessageService.addDisplayMessage( new DisplayMessage( error.error.message || error.statusText, this.resolveDisplayMessageLevel( error.status ) ) );
-          return EMPTY;
+          return throwError( error );
         })
       )
   }
