@@ -21,10 +21,10 @@ export class SignUpComponent {
   });
   countries = CountryService.countries;
 
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor( public authService: AuthService, private router: Router ) {}
 
   private passwordsMatch( fieldControl: FormControl ): null | { nomatch: boolean } {
-    return this.form && fieldControl.value === this.form.get('password')!.value ? null : {
+    return this.form && fieldControl.value === this.form.get( 'password' )!.value ? null : {
       nomatch: true
     };
   }
@@ -32,8 +32,12 @@ export class SignUpComponent {
   signUp( form: FormGroup): void {
     const { email, password, displayName, countryName } = form.value;
     this.signUpStatus = HTTP_LOADING_STATUS.LOADING;
-    this.authService.signUp(email, password, displayName, countryName ).subscribe( () => {
-      this.router.navigate(['/'] );
-    } );
+    this.authService.signUp( email, password, displayName, countryName ).subscribe(
+      () => {
+        this.router.navigate(['/'] );
+      }, ( error ) => {
+        this.signUpStatus = HTTP_LOADING_STATUS.FINISHED;
+        form.controls[ 'displayName' ].setErrors( { 'duplicate': true } );
+      } );
   }
 }

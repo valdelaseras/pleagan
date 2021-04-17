@@ -7,7 +7,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthorizationInterceptorProvider } from '@core/interceptor/authorization/authorization.interceptor';
 import { HttpErrorInterceptorProvider } from '@core/interceptor/http-error/http-error.interceptor';
 import { DismissMessagesInterceptorProvider } from '@core/interceptor/dismiss-messages/dismiss-messages.interceptor';
-import { LoadingIndicatorInterceptorProvider } from '@core/interceptor/loading-indicator/loading-indicator.interceptor';
 
 @NgModule({
   declarations: [],
@@ -21,7 +20,6 @@ import { LoadingIndicatorInterceptorProvider } from '@core/interceptor/loading-i
     AuthorizationInterceptorProvider,
     HttpErrorInterceptorProvider,
     DismissMessagesInterceptorProvider,
-    // LoadingIndicatorInterceptorProvider
   ],
   exports: []
 })
