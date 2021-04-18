@@ -48,15 +48,11 @@
 
       <div class="clr-row clr-flex-lg-row-reverse">
         <div class="plea-details clr-col-xl-6 clr-col-12">
-          <div class="initiator-information">
-            <div class="avatar lg">
-              <img [src]="plea.pleagan.photoURL" alt="avatar of {{ plea.pleagan.displayName }}" />
-            </div>
-            <div>
-              <h4>{{ plea.pleagan.displayName }}</h4>
-              <span>{{ plea.createdAt | date: 'dd-MM-yyyy' }}, {{ plea.pleagan.country }}</span>
-            </div>
-          </div>
+          <p>
+            Initiated on <span class="bold">{{ plea.createdAt | date: 'dd-MM-yyyy' }}</span
+          ><br />
+            By <span class="bold">{{ plea.pleagan.displayName }}</span>
+          </p>
 
           <div class="msg-cloud">
             <div class="msg-shape"></div>
