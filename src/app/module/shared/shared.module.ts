@@ -1,6 +1,5 @@
 import * as fromComponents from './component';
 import * as fromPipes from './pipe';
-import { ClarityModule } from '@clr/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -38,7 +37,6 @@ echarts.use(
     ...fromDirectives.directives
   ],
   imports: [
-    ClarityModule,
     CommonModule,
     FormsModule,
     NgxEchartsModule.forRoot({ echarts }),
@@ -48,7 +46,6 @@ echarts.use(
   exports: [
     ...fromComponents.components,
     ...fromPipes.pipes,
-    ClarityModule,
     FormsModule,
     NgxEchartsModule,
     ReactiveFormsModule,

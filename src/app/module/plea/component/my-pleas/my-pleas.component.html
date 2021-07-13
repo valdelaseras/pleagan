@@ -1,11 +1,37 @@
-<section id="my-pleas-section" class="section">
-  <h1 class="desktop-only">My initiated pleas</h1>
-  <app-search-box></app-search-box>
-  <div class="clr-row">
-    <div class="clr-col-lg-12">
-      <app-loading-indicator [height]="'66vh'" [httpStatus]="pleaStatus">
-        <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>
-      </app-loading-indicator>
+<section id="my-pleas-section">
+  <div class="section-content">
+    <div class="grid">
+
+      <div class="column">
+        <div class="column">
+          <div class="content">
+            <h1>Title</h1>
+          </div>
+          <div class="column two">
+            <div class="content">
+              <p>Content</p>
+            </div>
+          </div>
+          <div class="column two">
+            <div class="content">
+              <p>Content</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
+<!--<section id="my-pleas-section" class="section">-->
+<!--  <h1 class="desktop-only">My initiated pleas</h1>-->
+<!--  <app-search-box></app-search-box>-->
+<!--  <div class="clr-row">-->
+<!--    <div class="clr-col-lg-12">-->
+<!--      <app-loading-indicator [height]="'66vh'" [httpStatus]="pleaStatus">-->
+<!--        <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>-->
+<!--      </app-loading-indicator>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->

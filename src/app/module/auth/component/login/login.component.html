@@ -1,56 +1,82 @@
-<section id="login-section" class="section">
-  <h1>Log in</h1>
-  <div class="clr-row">
-    <div class="clr-col-lg-6">
-      <app-loading-indicator [height]="'500px'" [httpStatus]="loginStatus">
-        <form clrForm
-              clrLayout="vertical"
-              (ngSubmit)="login( form )"
-              [formGroup]="form"
-              *ngIf="!(authService.user$ | async)">
-          <clr-input-container>
-            <label for="email">Email</label>
-            <input id="email" clrInput type="text" formControlName="email" />
-            <clr-control-error *clrIfError="'required'">Please enter your email address.</clr-control-error>
-          </clr-input-container>
+<section id="login-section">
+  <div class="section-content">
+    <div class="grid">
 
-          <clr-password-container>
-            <label for="password">Password</label>
-            <input id="password" clrPassword formControlName="password" />
-            <clr-control-error *clrIfError="'required'">Please enter your password.</clr-control-error>
-          </clr-password-container>
-
-          <app-message-display [messageLevels]="['warning']"></app-message-display>
-
-          <div class="mobile-only">
-            <button class="btn btn-primary btn-block"
-                    type="submit">
-              log in
-            </button>
-
-            <button class="btn btn-secondary-outline btn-block"
-                    [routerLink]="['/', 'sign-up']"
-                    type="button">
-              sign up
-            </button>
+      <div class="column">
+        <div class="column">
+          <div class="content">
+            <h1>Title</h1>
           </div>
-
-          <div class="desktop-only">
-            <button class="btn btn-primary" id="login-btn"
-                    type="submit">
-              log in
-            </button>
-
-            <button class="btn btn-secondary-outline"
-                    [routerLink]="['/', 'sign-up']"
-                    type="button">
-              sign up
-            </button>
+          <div class="column two">
+            <div class="content">
+              <p>Content</p>
+            </div>
           </div>
+          <div class="column two">
+            <div class="content">
+              <p>Content</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <a class="underlined"> I forgot my password </a>
-        </form>
-      </app-loading-indicator>
     </div>
   </div>
 </section>
+
+<!--<section id="login-section" class="section">-->
+<!--  <h1>Log in</h1>-->
+<!--  <div class="clr-row">-->
+<!--    <div class="clr-col-lg-6">-->
+<!--      <app-loading-indicator [height]="'500px'" [httpStatus]="loginStatus">-->
+<!--        <form clrForm-->
+<!--              clrLayout="vertical"-->
+<!--              (ngSubmit)="login( form )"-->
+<!--              [formGroup]="form"-->
+<!--              *ngIf="!(authService.user$ | async)">-->
+<!--          <clr-input-container>-->
+<!--            <label for="email">Email</label>-->
+<!--            <input id="email" clrInput type="text" formControlName="email" />-->
+<!--            <clr-control-error *clrIfError="'required'">Please enter your email address.</clr-control-error>-->
+<!--          </clr-input-container>-->
+
+<!--          <clr-password-container>-->
+<!--            <label for="password">Password</label>-->
+<!--            <input id="password" clrPassword formControlName="password" />-->
+<!--            <clr-control-error *clrIfError="'required'">Please enter your password.</clr-control-error>-->
+<!--          </clr-password-container>-->
+
+<!--          <app-message-display [messageLevels]="['warning']"></app-message-display>-->
+
+<!--          <div class="mobile-only">-->
+<!--            <button class="btn btn-primary btn-block"-->
+<!--                    type="submit">-->
+<!--              log in-->
+<!--            </button>-->
+
+<!--            <button class="btn btn-secondary-outline btn-block"-->
+<!--                    [routerLink]="['/', 'sign-up']"-->
+<!--                    type="button">-->
+<!--              sign up-->
+<!--            </button>-->
+<!--          </div>-->
+
+<!--          <div class="desktop-only">-->
+<!--            <button class="btn btn-primary" id="login-btn"-->
+<!--                    type="submit">-->
+<!--              log in-->
+<!--            </button>-->
+
+<!--            <button class="btn btn-secondary-outline"-->
+<!--                    [routerLink]="['/', 'sign-up']"-->
+<!--                    type="button">-->
+<!--              sign up-->
+<!--            </button>-->
+<!--          </div>-->
+
+<!--          <a class="underlined"> I forgot my password </a>-->
+<!--        </form>-->
+<!--      </app-loading-indicator>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->

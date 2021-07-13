@@ -1,81 +1,10 @@
-body[cds-theme='light'] {
-  // Variety of white to 'black' shades
-  --primary-color: #f4f4f4;
-  --secondary-color: #e3e3e3;
-  --tertiary-color: #fff;
-  --quaternary-color: #222;
-  --quinary-color: #b6b6b64f;
-  --line-color: rgba(70, 70, 70, 0.15);
-
-  --primary-accent-color: #fe777e;
-  --primary-accent-darker-color: #a32530;
-
-  //--secondary-accent-color: var(--primary-accent-color);
-
-  //--tertiary-accent-color: #fa7268;
-  --tertiary-accent-color: var(--primary-accent-darker-color);
-
-  --primary-text-color: var(--quaternary-color);
-  --primary-text-color-inverted: var(--primary-color);
-  //--text-accent-color: var(--secondary-accent-color);
-  //--text-accent-color: var(--primary-accent-darker-color);
-
-  // HEADER
-  --clr-header-bg-color: var(--primary-accent-darker-color);
-
-  // NAV
-  --clr-vertical-nav-item-color: var(--primary-text-color);
-  --clr-vertical-nav-item-active-color: var(--primary-text-color);
-  --clr-vertical-nav-active-bg-color: none;
-  --clr-vertical-nav-hover-bg-color: var(--primary-color);
-  --clr-vertical-nav-bg-color: transparent;
-
-  --clr-sidenav-link-active-bg-color: var(--clr-vertical-nav-active-bg-color);
-  --clr-sidenav-link-hover-color: var(--clr-vertical-nav-hover-bg-color);
-
-  // TEXT
-  --clr-global-font-color: var(--primary-text-color);
-  --text-accent-color: var(--primary-accent-color);
-
-  --clr-p1-color: var(--primary-text-color);
-  --clr-h1-color: var(--primary-text-color);
-  --clr-h2-color: var(--primary-text-color);
-  --clr-h3-color: var(--primary-text-color);
-  --clr-h4-color: var(--primary-text-color);
-  --clr-h5-color: var(--primary-text-color);
-
-  // BASE
-  --clr-global-app-background: var(--secondary-color);
-
-  // BUTTONS
-  --clr-btn-primary-color: var(--quaternary-color);
-  --clr-btn-primary-bg-color: var(--primary-accent-color);
-  --clr-btn-primary-hover-bg-color: var(--primary-accent-darker-color);
-
-  --clr-btn-default-color: var(--primary-accent-color);
-  --clr-btn-link-color: var(--primary-accent-color);
-  --clr-btn-default-hover-color: var(--tertiary-color);
-  --clr-btn-link-hover-color: var(--primary-accent-darker-color);
-  --clr-btn-default-border-color: var(--primary-accent-color);
-  --clr-btn-default-hover-bg-color: var(--primary-accent-darker-color);
-
-  // CARDS
-  --clr-card-bg-color: var(--primary-color);
-  --clr-card-border-color: var(--secondary-color);
-  //--clr-card-title-color: var(--primary-accent-color);
-  --clr-card-divider-color: var(--primary-color);
-  --clr-card-box-shadow: 0 0 0 0 var(--primary-color);
-
-  // CARDS - PROGRESS
-  --clr-progress-default-color: var(--secondary-accent-color);
-
-  // ACCORDION
-  --clr-accordion-active-background-color: var(--tertiary-color);
-
-  // FORMS
-  --clr-forms-textarea-focused-outline: 0 0 0.1rem 0.1rem var(--primary-accent-color)
+:root {
+  --primary-color: #e2e1e1;
+  --secondary-color: #292929;
+  --tertiary-color: #bebebe;
+  --quaternary-color: #fe777e;
 }
 
-//body[cds-theme="light"] {
-//  --clr-h2-color: red;
-//}
+html {
+  background-color: var(--primary-color);
+}
