@@ -2,9 +2,45 @@
 .btn {
   display: inline-block;
   text-transform: uppercase;
-  padding: 5px 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 /*@end btn*/
+
+
+
+/*@start btn primary*/
+.btn-primary {
+  background-color: var(--quaternary-color);
+  border: none;
+  color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:focus-within {
+  color: var(--quaternary-color);
+  background-color: var(--primary-color);
+}
+/*@end btn primary*/
+
+
+
+/*@start btn primary*/
+.btn-secondary {
+  border-color: var(--quaternary-color);
+  color: var(--secondary-color);
+}
+
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus,
+.btn-secondary:focus-within {
+  background-color: var(--quaternary-color);
+  color: var(--primary-color);
+}
+/*@end btn primary*/
 
 
 
