@@ -9,6 +9,13 @@
   box-sizing: border-box;
   justify-content: space-between;
   background-color: var(--primary-color);
+  box-shadow: 0 -8px 10px 5px rgba(0, 0, 0, 0.35);
+}
+
+@media only screen and (min-width: 1024px){
+  #nav {
+    box-shadow: none;
+  }
 }
 /*@end nav*/
 
