@@ -2,5 +2,15 @@
 .btn {
   display: inline-block;
   text-transform: uppercase;
+  padding: 5px 10px;
 }
 /*@end btn*/
+
+
+
+/*@start btn vertical margin*/
+.btn-vertical-margin {
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+/*@end btn vertical margin*/

@@ -8,11 +8,9 @@
   padding: 0 20px;
   box-sizing: border-box;
   justify-content: space-between;
-  align-content: space-between;
+  background-color: var(--primary-color);
 }
 /*@end nav*/
-
-
 
 
 
@@ -38,7 +36,6 @@
 
 
 
-
 /*@start nav page*/
 @media only screen and (min-width: 1024px){
   .nav-page {
@@ -46,8 +43,6 @@
   }
 }
 /*@end nav page*/
-
-
 
 
 
@@ -85,7 +80,6 @@
 
 
 
-
 /*@start menu*/
 .menu {
   position: fixed;
@@ -106,7 +100,6 @@
 
 
 
-
 /*@start menu section*/
 .menu-section {
   margin-bottom: 2rem;
@@ -115,14 +108,11 @@
 
 
 
-
-
 /*@start menu list*/
 .menu-list {
   line-height: 2rem;
 }
 /*@end menu list*/
-
 
 
 

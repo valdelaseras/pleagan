@@ -5,114 +5,62 @@
       <div class="column">
         <div class="column">
           <div class="content">
-            <h1>Title</h1>
+            <h1>What is Pleagan?</h1>
           </div>
-          <div class="column two">
+          <div class="column three">
             <div class="content">
-              <p>Content</p>
+              <h2>A virtuous circle</h2>
+            </div>
+            <div class="content">
+              <p>
+                A better world is a vegan world. At pleagan we believe the most efficient way to working
+                towards this goal is to increase the amount of vegan products on the market. The more vegan products are
+                available, the easier it will be for people to consume more animal free products.
+              </p>
+            </div>
+            <div class="content">
+              <p>
+                If you are not yet convinced on why a better world would be vegan, we urge you to check out the
+                resources below.
+              </p>
+              <button class="btn btn-primary btn-vertical-margin">
+                Resources here
+              </button>
             </div>
           </div>
-          <div class="column two">
+          <div class="column three">
             <div class="content">
-              <p>Content</p>
+              <h2>For vegans</h2>
+            </div>
+            <div class="content">
+              <p>
+                Pleagan aims to aggregate the collective pleas and support for vegan products into one platform, so our
+                voices can be heard loud and clear. <a class="underlined" [routerLink]="['/', 'statistics']">Our publicly available statistics</a>
+                can help vegans determine which companies and products to support and which ones to avoid.
+              </p>
+            </div>
+          </div>
+          <div class="column three">
+            <div class="content">
+              <h2>For companies</h2>
+            </div>
+            <div class="content">
+              <p>
+                Learn about the demands for your vegan product, where demand is concentrated and how you are doing compared to
+                your competitors. Search for relevant pleas
+                <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="underlined">here</a> and check out
+                our statistics <a [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="underlined">here</a>.
+              </p>
+            </div>
+            <div class="content">
+              <p>
+                Don't hesitate to initiate a plea as a business to gauge demand for one of your potential vegan
+                products and adjust your business strategies accordingly.
+              </p>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
-<!--<section id="about-section" class="section">-->
-<!--  <h1>What is Pleagan?</h1>-->
-<!--  <div class="clr-row">-->
-<!--    <div class="clr-col-lg-5">-->
-<!--      <h2>Our purpose</h2>-->
-<!--    </div>-->
-<!--    <div class="clr-col-lg-7">-->
-<!--      <p>-->
-<!--        Pleagan aims to aggregate the collective pleas of vegans for plant-based products into one platform, so our-->
-<!--        voices can be heard loud and clear.-->
-<!--        <a class="underlined" [routerLink]="['/', 'statistics']">Our publicly available statistics</a>-->
-<!--        help producers to efficiently adjust their business strategies while helping vegans determine which companies-->
-<!--        and products to support.-->
-<!--      </p>-->
-<!--      <clr-accordion class="bg-transparent">-->
-<!--        <clr-accordion-panel>-->
-<!--          <clr-accordion-title>Read more</clr-accordion-title>-->
-<!--          <clr-accordion-content *clrIfExpanded> Lorem ipsum </clr-accordion-content>-->
-<!--        </clr-accordion-panel>-->
-<!--      </clr-accordion>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--  <div class="clr-row">-->
-<!--    <div class="clr-col-lg-5">-->
-<!--      <h2>A virtuous circle</h2>-->
-<!--    </div>-->
-<!--    <div class="clr-col-lg-7">-->
-<!--      <p>-->
-<!--        At pleagan we believe the most effective way to a more vegan world is to increase demand. Consequently, the more-->
-<!--        plant-based products are available on the market, the easier it will be for people to consume more animal free-->
-<!--        products.-->
-<!--      </p>-->
-<!--      <clr-accordion class="bg-transparent">-->
-<!--        <clr-accordion-panel>-->
-<!--          <clr-accordion-title>Read more</clr-accordion-title>-->
-<!--          <clr-accordion-content *clrIfExpanded> Lorem ipsum </clr-accordion-content>-->
-<!--        </clr-accordion-panel>-->
-<!--      </clr-accordion>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--  <div id="herbivore-section-only" *ngIf="section !== 'business'">-->
-<!--    <p>-->
-<!--      Read about how Pleagan helps your business <a class="underlined">here</a>-->
-<!--      &lt;!&ndash;      TODO: display about-business&ndash;&gt;-->
-<!--    </p>-->
-<!--  </div>-->
-<!--</section>-->
-
-<!--<section class="section" id="business" *ngIf="section === 'business'">-->
-<!--  <h1>How pleagan helps your business</h1>-->
-
-<!--  <div class="clr-row">-->
-<!--    <div class="clr-col-lg-5">-->
-<!--      <h2>Stats</h2>-->
-<!--    </div>-->
-
-<!--    <div class="clr-col-lg-7">-->
-<!--      <p class="larger">-->
-<!--        Learn about the demand for your vegan product, where demand is concentrated and how you are doing compared to-->
-<!--        your competitors. Find the relevant pleas by searching for your company name-->
-<!--        <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="underlined">here</a> and check out-->
-<!--        our statistics <a [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="underlined">here</a>.-->
-<!--      </p>-->
-<!--      <p>-->
-<!--        <span class="highlighted-txt larger"-->
-<!--          >Quick tip: as a business you can initiate a plea yourself to gauge demand for one of your potential vegan-->
-<!--          products</span-->
-<!--        >-->
-<!--      </p>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--  <div class="clr-row">-->
-<!--    <div class="clr-col-lg-5">-->
-<!--      <h2>Exposure</h2>-->
-<!--    </div>-->
-
-<!--    <div class="clr-col-lg-7">-->
-<!--      <p>-->
-<!--        <span class="highlighted-txt larger">Upon plea compliance...</span>-->
-<!--      </p>-->
-<!--      <ul class="reg-list">-->
-<!--        <li>we notify all pleagans who have subscribed to the plea and have given permission for us to do so</li>-->
-<!--        <li>a news update is posted on our platform</li>-->
-<!--        <li>your veganized product gets a permanent spot in our Hall of Fame</li>-->
-<!--        <li>you increase your visibility in our statistics</li>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
