@@ -17,7 +17,8 @@
 /*@start nav element positioning*/
 .nav-toggle,
 .nav-branding,
-.nav-page {
+.nav-page,
+.nav-initiate {
   height: 60px;
   display: flex;
   flex-direction: column;
@@ -36,6 +37,19 @@
 
 
 
+/*@start nav initiate*/
+.nav-initiate {
+  display: none;
+}
+
+@media only screen and (min-width: 1024px){
+  .nav-initiate {
+    display: flex;
+  }
+}
+/*@end nav initiate*/
+
+
 /*@start nav page*/
 @media only screen and (min-width: 1024px){
   .nav-page {
@@ -47,6 +61,15 @@
 
 
 /*@start nav toggle*/
+.nav-toggle:hover,
+#menu-toggle:hover {
+  cursor: pointer;
+}
+
+.menu:hover {
+  cursor: default;
+}
+
 #nav-checkbox {
   display: none;
 }
@@ -95,6 +118,18 @@
 
 #nav-checkbox:checked ~ .menu {
   left: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .menu {
+    width: 40vw;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .menu {
+    width: 20vw;
+  }
 }
 /*@end menu*/
 

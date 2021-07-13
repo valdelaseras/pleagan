@@ -65,10 +65,10 @@
               </ul>
             </section>
             <section class="menu-section user-state">
-              <small *showOnAuth="false">
+              <p *showOnAuth="false">
                 Please <a class="underlined" [routerLink]="['/', 'auth', 'login']">log in</a> or
                 <a class="underlined" [routerLink]="['/', 'auth', 'sign-up']">sign up</a> to initiate and support pleas
-              </small>
+              </p>
               <p *showOnAuth="true">
                 <button class="btn btn-link" (click)="logout()">logout</button>
               </p>
@@ -79,11 +79,15 @@
     </div>
     <div class="nav-branding">
       <a [routerLink]="['/']">
-        <span>pleagan</span>
+        <p>pleagan</p>
       </a>
     </div>
   </div>
   <div class="nav-page mobile-only">
-    <span>{{ resolveCurrentPage() }}</span>
+    <p>{{ resolveCurrentPage() }}</p>
+  </div>
+  <div class="nav-initiate">
+<!--    todo: if not logged in, redirect this to sign up / login page-->
+    <a role="button" class="btn btn-compact btn-primary" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']">Initiate</a>
   </div>
 </nav>
