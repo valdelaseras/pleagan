@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #e2e1e1;
+  --primary-color: #e3e3e3;
   --secondary-color: #292929;
   --tertiary-color: #bebebe;
   --quaternary-color: #f88086;
@@ -9,6 +9,23 @@ html {
   background-color: var(--primary-color);
 }
 
+.theme-secondary {
+  background-color: var(--secondary-color);
+}
+
+.theme-secondary h1,
+.theme-secondary h2,
+.theme-secondary h3,
+.theme-secondary h4,
+.theme-secondary p,
+.theme-secondary a, {
+  color: var(--primary-color);
+}
+
 .theme-tertiary {
   background-color: var(--tertiary-color);
+}
+
+.theme-quaternary {
+  background-color: var(--quaternary-color);
 }
