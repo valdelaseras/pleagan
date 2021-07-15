@@ -1,0 +1,30 @@
+/*@start image (avatar)*/
+img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+@media only screen and (min-width: 768px){
+  img {
+    max-width: 301px;
+    margin: 0 auto;
+  }
+}
+/*@end image (avatar)*/
+
+
+
+/*@start button list*/
+.btn-list {
+  text-align: center;
+}
+/*@end button list*/
+
+
+
+/*@start user detai list*/
+.user-detail-list > li {
+  display: flex;
+  justify-content: space-between;
+}
+/*@end user detai list*/

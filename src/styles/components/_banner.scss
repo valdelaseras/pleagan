@@ -4,6 +4,11 @@
 }
 
 @media only screen and (min-width: 1024px){
+  .banner {
+    margin: 0;
+    padding: 0;
+  }
+
   .banner.theme-primary,
   .banner.theme-secondary,
   .banner.theme-tertiary,
