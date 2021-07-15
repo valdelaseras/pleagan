@@ -1,3 +1,119 @@
+<!--todo: check with user-->
+<section id="settings-section">
+  <div class="section-content">
+    <div class="grid">
+      <div class="column">
+        <div class="column">
+          <div class="content desktop-only">
+            <h1>Settings</h1>
+          </div>
+
+          <div *ngIf="userRequest$ | async as result" class="user-preferences">
+            <app-loading-indicator height="500px"
+                                   [httpStatus]="result.status">
+
+              <div class="column three">
+                <div class="content">
+                  <h2>Account</h2>
+                </div>
+                <div class="content">
+                  <ul class="space-between-list">
+                    <li>
+                      <p class="bold">Email</p>
+                      <p>{{ result.value?.auth.email }}</p>
+                    </li>
+                    <li>
+                      <p class="bold">Display name</p>
+                      <p>{{ result.value?.auth.displayName }}</p>
+                    </li>
+                    <li>
+                      <p class="bold">Country</p>
+                      <p>
+                        <select id="country" name="country" [(ngModel)]="result.value?.pleagan.country">
+                          <option *ngFor="let country of countries" value="{{ country }}">{{ country }}</option>
+                        </select>
+                      </p>
+                    </li>
+                    <li>
+                      <p class="bold">Set country to private</p>
+                      <div>
+                        <input type="checkbox"
+                               name="privateCountry"
+                               [(ngModel)]="result.value?.pleagan.settings.countryPrivate"/>
+                      </div>
+                    </li>
+                    <li>
+                      <p class="bold">Delete account and data</p>
+                      <div>
+                        <a role="button"
+                           (click)="confirmDeletion()"
+                           class="btn btn-compact btn-danger"
+                           id="delete-account">
+                          Delete account
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="column three">
+                <div class="content">
+                  <h2>Notifications</h2>
+                </div>
+                <div class="content">
+                  <ul class="space-between-list">
+                    <li>
+                      <p class="bold">Push notifications</p>
+                      <div></div>
+                    </li>
+                    <li>
+                      <p class="bold">Email notifications</p>
+                      <div></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="column three">
+                <div class="content">
+                  <h2>Theme</h2>
+                </div>
+                <div class="content">
+                  <ul class="space-between-list">
+                    <li>
+                      <p class="bold">Selected</p>
+                      <div>
+                        Select goes here
+                      </div>
+                    </li>
+                    <li>
+                      <p class="bold">Email notifications</p>
+                      <div></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="content align-center">
+                  <app-loading-indicator [httpStatus]="updateStatus">-->
+                    <a role="button" class="btn btn-primary" (click)="saveUserSettings( result.value )">Save</a>
+                  </app-loading-indicator>
+                </div>
+              </div>
+
+            </app-loading-indicator>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 <!--<section id="my-settings-section" class="section">-->
 <!--  <h1 class="desktop-only">Settings</h1>-->
 <!--  <div class="clr-row">-->
