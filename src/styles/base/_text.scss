@@ -4,6 +4,12 @@
   font-size: 16px;
   color: var(--secondary-color);
 }
+
+@media only screen and (min-width: 1440px){
+  * {
+    font-size: 17px;
+  }
+}
 /*@end base font*/
 
 
@@ -38,3 +44,12 @@ p {
   font-weight: bold;
 }
 /*@end text styles*/
+
+
+
+
+/*@start danger text*/
+.danger-text {
+  color: var(--danger-color);
+}
+/*@end danger text*/

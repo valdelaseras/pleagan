@@ -2,40 +2,42 @@
   <div class="section-content">
     <div class="grid">
       <div class="column">
-        <div class="column">
+        <div class="column three desktop-only">
+          <div class="content"></div>
+        </div>
+        <div class="column three">
           <div class="content desktop-only">
             <h1>Contact</h1>
           </div>
-          <div class="column four">
-            <div class="content">
-              <h2>Email</h2>
-            </div>
-            <div class="content">
-              <p>
-                question@pleagan.vg
-              </p>
-              <p>
-                problem@pleagan.vg
-              </p>
-              <p>
-                feedback@pleagan.vg
-              </p>
-            </div>
+          <div class="content">
+            <h2>Email</h2>
           </div>
-          <div class="column four">
-            <div class="content">
-              <h2>Social media</h2>
-            </div>
-            <div class="content">
-              <ul class="icon-list">
-                <li *ngFor="let icon of icons">
-                  <a href="{{ icon.socialUrl }}">
-                    <img src="{{ icon.imageUrl }}" alt="{{ icon.socialAlt }}" />
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div class="content">
+            <p>
+              question@pleagan.vg
+            </p>
+            <p>
+              problem@pleagan.vg
+            </p>
+            <p>
+              feedback@pleagan.vg
+            </p>
           </div>
+          <div class="content">
+            <h2>Social media</h2>
+          </div>
+          <div class="content">
+            <ul class="icon-list">
+              <li *ngFor="let icon of icons">
+                <a href="{{ icon.socialUrl }}">
+                  <img src="{{ icon.imageUrl }}" alt="{{ icon.socialAlt }}" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column three desktop-only">
+          <div class="content"></div>
         </div>
       </div>
     </div>

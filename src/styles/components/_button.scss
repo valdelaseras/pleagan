@@ -25,7 +25,7 @@
 /*@start btn primary*/
 .btn-primary {
   background-color: var(--quaternary-color);
-  border: 2px solid transparent;
+  border: 2px solid var(--quaternary-color);
   color: var(--primary-color);
 }
 
@@ -41,10 +41,11 @@
 
 
 
-/*@start btn primary*/
+/*@start btn secondary*/
 .btn-secondary {
   border: 2px solid var(--quaternary-color);
   color: var(--quaternary-color);
+  background-color: var(--primary-color);
 }
 
 .btn-secondary:hover,
@@ -54,7 +55,7 @@
   background-color: var(--quaternary-color);
   color: var(--primary-color);
 }
-/*@end btn primary*/
+/*@end btn secondary*/
 
 
 
@@ -68,7 +69,7 @@
 
 
 /*@start btn list horizontal*/
-.btn-list > li:last-child {
+.btn-list.horizontal > li:last-child {
   margin-right: 0;
 }
 
@@ -77,3 +78,13 @@
   display: inline-block;
 }
 /*@end btn list*/
+
+
+
+/*@start btn danger*/
+.btn-danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  color: var(--primary-color);
+}
+/*@end btn danger*/

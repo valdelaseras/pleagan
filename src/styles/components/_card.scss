@@ -1,0 +1,29 @@
+/*@start card*/
+.card {
+  background: #f4f4f4;
+  padding: 1rem;
+  border-radius: 5px;
+}
+/*@end card*/
+
+
+
+/*@start card header*/
+.card-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+// header & text spacing
+.card-header,
+.card-text, {
+  margin-bottom: 2rem;
+}
+/*@end card header*/
+
+
+
+/*@start card footer*/
+.card-footer {
+  text-align: right;
+}
+/*@end card footer*/

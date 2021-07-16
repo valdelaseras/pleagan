@@ -1,0 +1,57 @@
+/*@start input*/
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="search"],
+select {
+  width: 100%;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 5px 0;
+  // zindex needed or the placeholder lays on top of menu when opened
+  z-index: -1;
+}
+
+input::placeholder {
+  opacity: .5;
+}
+
+input[type="checkbox"] {
+  height: 1rem;
+  width: 1rem;
+  margin-top: 12px;
+}
+/*@end input*/
+
+
+
+/*@start form row*/
+.form-row {
+  margin-bottom: 2rem;
+}
+/*@end form row*/
+
+
+
+/*@start select*/
+select {
+  display: block;
+  margin-top: .5rem;
+  width: 100%;
+}
+/*@end select*/
+
+
+
+/*@start textarea*/
+textarea {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  background: #f4f4f4;
+  border: none;
+  border-radius: 5px;
+}
+/*@end textarea*/
