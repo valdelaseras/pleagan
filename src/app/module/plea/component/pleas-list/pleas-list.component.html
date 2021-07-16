@@ -17,46 +17,56 @@
 </ng-template>
 
 <ng-template #desktop let-pleas="pleas">
-  <div class="column three">
-    <ng-container *ngFor="let plea of pleas; let i = index">
-      <ng-container *ngIf="i % 2 == 0">
-        <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+  <div class="column two">
+    <div class="content">
+      <ng-container *ngFor="let plea of pleas; let i = index">
+        <ng-container *ngIf="i % 2 == 0">
+          <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+        </ng-container>
       </ng-container>
-    </ng-container>
+    </div>
   </div>
 
-  <div class="column three">
-    <ng-container *ngFor="let plea of pleas; let i = index">
-      <ng-container *ngIf="i % 2 > 0">
-        <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+  <div class="column two">
+    <div class="content">
+      <ng-container *ngFor="let plea of pleas; let i = index">
+        <ng-container *ngIf="i % 2 > 0">
+          <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+        </ng-container>
       </ng-container>
-    </ng-container>
+    </div>
   </div>
 </ng-template>
 
 <ng-template #desktopXl let-pleas="pleas">
-  <div class="column four">
-    <ng-container *ngFor="let plea of pleas; let i = index">
-      <ng-container *ngIf="i % 3 == 0">
-        <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+  <div class="column three">
+    <div class="content">
+      <ng-container *ngFor="let plea of pleas; let i = index">
+        <ng-container *ngIf="i % 3 == 0">
+          <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+        </ng-container>
       </ng-container>
-    </ng-container>
+    </div>
   </div>
 
-  <div class="column four">
-    <ng-container *ngFor="let plea of pleas; let i = index">
-      <ng-container *ngIf="i % 3 == 1">
-        <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+  <div class="column three">
+    <div class="content">
+      <ng-container *ngFor="let plea of pleas; let i = index">
+        <ng-container *ngIf="i % 3 == 1">
+          <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+        </ng-container>
       </ng-container>
-    </ng-container>
+    </div>
   </div>
 
-  <div class="column four">
-    <ng-container *ngFor="let plea of pleas; let i = index">
-      <ng-container *ngIf="i % 3 == 2">
-        <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+  <div class="column three">
+    <div class="content">
+      <ng-container *ngFor="let plea of pleas; let i = index">
+        <ng-container *ngIf="i % 3 == 2">
+          <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+        </ng-container>
       </ng-container>
-    </ng-container>
+    </div>
   </div>
 </ng-template>
 

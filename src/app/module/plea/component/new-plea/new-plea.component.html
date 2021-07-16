@@ -136,7 +136,8 @@
 
 <ng-template #existingPleas let-pleas="pleas">
   <div class="card suggested-pleas">
-    <div class="card-header">Make sure a plea for this product doesn't already exist</div>
+    <p class="card-header">
+      <p class="bold">Make sure a plea for this product doesn't already exist</p>
     <div class="card-body">
       <p>
         Please take a moment to verify. If it doesn't, support the existing plea instead of initiating a
@@ -161,7 +162,11 @@
 
 <ng-template #noSimilarPleas>
   <div class="card suggested-pleas">
-    <div class="card-header">You're good!</div>
+    <div class="card-header">
+      <p class="bold">
+        You're good!
+      </p>
+    </div>
     <div class="card-body">
       <p>
         No other pleas matching the given information exists! You can go ahead and create it.

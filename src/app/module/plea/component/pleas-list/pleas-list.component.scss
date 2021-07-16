@@ -1,1 +1,11 @@
+/*@start plea list*/
+.plea-list {
+  padding: 20px;
+}
 
+@media only screen and (min-width: 1024px) {
+  .plea-list {
+    padding: 0;
+  }
+}
+/*@start plea list*/
