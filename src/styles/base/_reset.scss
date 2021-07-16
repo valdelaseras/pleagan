@@ -12,7 +12,7 @@ a {
   text-decoration: none;
 }
 
-a:visited {
+a:not(.btn):visited {
   color: var(--secondary-color);
 }
 

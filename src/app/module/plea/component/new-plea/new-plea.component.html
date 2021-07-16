@@ -7,7 +7,7 @@
         </div>
         <div class="column three">
           <div class="content desktop-only">
-            <h1>Initiate a new plea</h1>
+            <h1>Initiate a plea</h1>
           </div>
           <div class="content">
             <form (ngSubmit)="submit(newPleaForm)" [formGroup]="newPleaForm">
@@ -89,8 +89,7 @@
                 <!--  TODO: max chars-->
                 <div class="form-row">
                   <label>Your message*</label>
-                  <textarea formControlName="description"></textarea>
-
+                  <textarea formControlName="description" rows="6"></textarea>
 <!--                  <clr-control-helper>-->
 <!--                    Write your plea to the producer or call for support of other pleagans here!-->
 <!--                  </clr-control-helper>-->
@@ -138,25 +137,24 @@
 <ng-template #existingPleas let-pleas="pleas">
   <div class="card suggested-pleas">
     <div class="card-header">Make sure a plea for this product doesn't already exist</div>
-    <div class="card-block">
-      <div class="card-text">
-        <p>
-          Please take a moment to verify. If it doesn't, support the existing plea instead of initiating a
-          new one. Duplicate pleas decrease Pleagan's effectiveness!
-        </p>
-        <ul>
-          <li *ngFor="let plea of pleas"
+    <div class="card-body">
+      <p>
+        Please take a moment to verify. If it doesn't, support the existing plea instead of initiating a
+        new one. Duplicate pleas decrease Pleagan's effectiveness!
+      </p>
+
+      <ul class="suggestion-list">
+        <li *ngFor="let plea of pleas"
             [routerLink]="['/', 'plea', 'details', plea.id]">
-            <span class="bold">{{ plea.company.name }}</span>
-            <p>
-              {{ plea.nonVeganProduct.name }}
-            </p>
-          </li>
-        </ul>
-      </div>
+          <span class="bold">{{ plea.company.name }}</span>
+          <p>
+            {{ plea.nonVeganProduct.name }}
+          </p>
+        </li>
+      </ul>
     </div>
-    <div class="card-footer">
-      <a role="button" class="btn btn-primary" (click)="pleaInSuggestions = false">This is a different product</a>
+    <div class="card-footer align-right">
+      <a role="button" class="btn btn-primary btn-compact" (click)="pleaInSuggestions = false">This is a different product</a>
     </div>
   </div>
 </ng-template>
@@ -164,14 +162,12 @@
 <ng-template #noSimilarPleas>
   <div class="card suggested-pleas">
     <div class="card-header">You're good!</div>
-    <div class="card-block">
-      <div class="card-text">
-        <p>
-          No other pleas matching the given information exists! You can go ahead and create it.
-        </p>
-      </div>
+    <div class="card-body">
+      <p>
+        No other pleas matching the given information exists! You can go ahead and create it.
+      </p>
     </div>
-    <div class="card-footer">
+    <div class="card-footer align-right">
       <a role="button" class="btn btn-primary btn-compact" (click)="pleaInSuggestions = false">Continue</a>
     </div>
   </div>

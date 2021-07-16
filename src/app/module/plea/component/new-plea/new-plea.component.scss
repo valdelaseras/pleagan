@@ -6,7 +6,19 @@ img {
 
 
 
+/*@start suggestion-list*/
+.suggestion-list {
+  margin: 1rem 0;
+}
+
+.suggestion-list > li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+/*@end suggestion-list*/
+
+
 /*@start file upload*/
+// also note margin below image preview
 //.file-upload-container {}
 //input[type="file"]{}
 //.custom-file-upload {}

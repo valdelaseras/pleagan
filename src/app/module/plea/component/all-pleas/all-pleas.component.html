@@ -7,10 +7,10 @@
             <h1>All pleas</h1>
           </div>
           <div class="column">
+            <app-search-box (queryUpdated)="updateQuery($event)"></app-search-box>
             <div class="content">
-              <app-search-box (queryUpdated)="updateQuery($event)"></app-search-box>
 <!--              <app-loading-indicator [height]="'66vh'" [httpStatus]="pleaStatus">-->
-                <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>
+              <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>
 <!--              </app-loading-indicator>-->
             </div>
           </div>

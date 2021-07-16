@@ -10,6 +10,7 @@
   justify-content: space-between;
   background-color: var(--primary-color);
   box-shadow: 0 -8px 10px 5px rgba(0, 0, 0, 0.35);
+  z-index: 10;
 }
 
 @media only screen and (min-width: 1024px){
@@ -40,6 +41,10 @@
 .nav-branding {
   margin-left: 1rem;
 }
+
+.nav-branding p {
+  font-size: 20px
+}
 /*@end nav branding*/
 
 
@@ -58,6 +63,10 @@
 
 
 /*@start nav page*/
+.nav-page p {
+ font-size: 20px;
+}
+
 @media only screen and (min-width: 1024px){
   .nav-page {
     display: none;
