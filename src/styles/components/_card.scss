@@ -91,6 +91,12 @@
   transform: translateY(-6px);
 }
 
+@media only screen and (min-width: 1440px) {
+  .card-progress-bar {
+    transform: translateY(-10px);
+  }
+}
+
 progress,
 progress::-webkit-progress-bar,
 progress[value],

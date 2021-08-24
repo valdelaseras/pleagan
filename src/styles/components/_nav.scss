@@ -193,4 +193,8 @@
   transition: background-color 150ms ease-in-out,
               padding-left 300ms ease-in-out 75ms;
 }
+
+.menu-list > li a {
+  font-size: 1.25rem;
+}
 /*@end menu list li*/

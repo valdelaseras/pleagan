@@ -16,6 +16,7 @@ import { NewsListComponent } from './component/news-list/news-list.component';
 
 const imports = [
   AppRoutingModule,
+  SharedModule,
   BrowserModule,
   BrowserAnimationsModule,
   CoreModule,
@@ -33,7 +34,6 @@ const imports = [
   ],
   imports: [
     imports,
-    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],

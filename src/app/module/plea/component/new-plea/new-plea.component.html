@@ -49,9 +49,10 @@
 
               <ng-container *ngIf="this.pleaInSuggestions === false; else existingPleaCheck">
                 <div class="form-row">
-                  <label>Company email</label>
+                  <label>Company email*</label>
                   <input type="email" formControlName="companyContact" />
 
+<!--                  todo: should probably also add 'target country' with international as option as well-->
 <!--                  <clr-control-helper>-->
 <!--                    Please help us out if you can and provide the companies customer service email, so we can notify them of-->
 <!--                    the plea-->
