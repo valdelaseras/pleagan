@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { PLEA_STATUS } from 'pleagan-model';
-import { Plea } from '@shared/model';
+import { GetPleaDto, PLEA_STATUS } from '@shared/model';
 import { PleaService } from '@core/service';
 
 @Component({
@@ -12,11 +11,11 @@ import { PleaService } from '@core/service';
 })
 export class CompliedPleasComponent {
   updateQuery$: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  pleas$: Observable<Plea[]>;
+  pleas$: Observable<GetPleaDto[]>;
   constructor(private pleaService: PleaService) {
     this.pleas$ = this.updateQuery$.pipe(
       switchMap((query: string) => (query.length ? this.pleaService.searchPleas(query) : this.pleaService.getPleas())),
-      map((pleas: Plea[]) => pleas.filter((plea: Plea) => plea.status === PLEA_STATUS.COMPLIED)),
+      map((pleas: GetPleaDto[]) => pleas.filter((plea: GetPleaDto) => plea.status === PLEA_STATUS.COMPLIED)),
     );
   }
 

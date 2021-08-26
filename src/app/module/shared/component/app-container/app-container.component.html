@@ -1,22 +1,28 @@
-<clr-main-container>
-  <app-header></app-header>
-  <div class="content-container">
-    <app-nav></app-nav>
-    <main class="content-area">
-      <div class="grid" [@routingAnimations]="prepareRoute( outlet )">
-        <router-outlet #outlet="outlet"></router-outlet>
-      </div>
-    </main>
-  </div>
-  <ng-container *showOnAuth="true">
-    <app-fab-button *hideOnRoutes="['/plea/initiate', '/', '/plea/details']"
-                    [desktopOnly]="true"
-                    [fillBackground]="true"
-                    ariaLabel="Initiate a plea"
-                    [routerLink]="['/', 'plea', 'initiate']"
-                    [@fadeInOutSingle]>
-      <clr-icon shape="plus" size="16"></clr-icon>
-      Initiate
-    </app-fab-button>
-  </ng-container>
-</clr-main-container>
+<app-nav></app-nav>
+<main>
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>
+
+
+<!--<clr-main-container>-->
+<!--  <app-header></app-header>-->
+<!--  <div class="content-container">-->
+<!--    <app-nav></app-nav>-->
+<!--    <main class="content-area">-->
+<!--      <div class="grid" [@routingAnimations]="prepareRoute( outlet )">-->
+<!--        <router-outlet #outlet="outlet"></router-outlet>-->
+<!--      </div>-->
+<!--    </main>-->
+<!--  </div>-->
+<!--  <ng-container *showOnAuth="true">-->
+<!--    <app-fab-button *hideOnRoutes="['/plea/initiate', '/', '/plea/details']"-->
+<!--                    [desktopOnly]="true"-->
+<!--                    [fillBackground]="true"-->
+<!--                    ariaLabel="Initiate a plea"-->
+<!--                    [routerLink]="['/', 'plea', 'initiate']"-->
+<!--                    [@fadeInOutSingle]>-->
+<!--      <clr-icon shape="plus" size="16"></clr-icon>-->
+<!--      Initiate-->
+<!--    </app-fab-button>-->
+<!--  </ng-container>-->
+<!--</clr-main-container>-->

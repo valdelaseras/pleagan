@@ -7,11 +7,13 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthorizationInterceptorProvider } from '@core/interceptor/authorization/authorization.interceptor';
 import { HttpErrorInterceptorProvider } from '@core/interceptor/http-error/http-error.interceptor';
 import { DismissMessagesInterceptorProvider } from '@core/interceptor/dismiss-messages/dismiss-messages.interceptor';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
 @NgModule({
   declarations: [],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireMessagingModule,
     CommonModule,
     HttpClientModule,
     AngularFireAuthModule

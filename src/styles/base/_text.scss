@@ -1,47 +1,57 @@
-/*@start html*/
-html {
-  font-smoothing: antialiased;
+/*@start base font*/
+* {
+  //font-family: Metropolis, "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  color: var(--secondary-color);
   -webkit-font-smoothing: antialiased;
 }
-/*@end html*/
 
-/*@start util typography classes*/
+@media only screen and (min-width: 1440px){
+  * {
+    font-size: 18px;
+  }
+}
+/*@end base font*/
+
+
+
+/*@start headers*/
+h1 { font-size: 3rem; }
+h2{ font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+/*@end headers*/
+
+
+
+/*@start text decoration*/
 .underlined {
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
-.italic {
-  font-style: italic;
+/*@end text decoration*/
+
+
+
+/*@start p*/
+p {
+  line-height: 2rem;
 }
+/*@end p*/
+
+
+
+/*@start text styles*/
 .bold {
   font-weight: bold;
 }
-.larger {
-  font-size: larger;
-}
-.highlighted-txt {
-  color: var(--text-accent-color)!important;
-}
-/*@end util typography classes*/
+/*@end text styles*/
 
-/*@start title-xl*/
-h1.title-xl {
-  font-size: 4rem;
-}
 
-@media only screen and (min-width: 768px){
-  h1.title-xl {
-    font-size: 6rem;
-  }
-}
-/*@end title-xl*/
 
-/*@start anchor states*/
-a:hover {
-  cursor: pointer;
-}
 
-a:visited,
-a:link {
-  color: var(--text-accent-color);
+/*@start danger text*/
+.danger-text {
+  color: var(--danger-color);
 }
-/*@end anchor states*/
+/*@end danger text*/

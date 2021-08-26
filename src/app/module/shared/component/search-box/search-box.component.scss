@@ -1,20 +1,18 @@
+/*@start search box*/
 .search-box {
-  margin: 0 -1rem;
-  padding: 1rem;
-  display: block;
-}
-
-.search-box input {
-  margin-left: 0.75rem;
-  width: 100%;
-}
-
-.search-box clr-icon {
-  margin-top: 4px;
-}
-
-.search-box > div {
   display: flex;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  flex-direction: row;
+  height: 25px;
+  padding: 10px 20px 5px 20px;
 }
+/*@end search box*/
+
+
+
+/*@start search box icon*/
+img {
+  padding-top: 5px;
+  height: 20px;
+  margin-right: 10px;
+}
+/*@end search box icon*/

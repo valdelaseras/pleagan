@@ -1,95 +1,91 @@
-<ng-container *ngIf="largeScreen; else sidenav">
-  <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
-    <ng-container *ngTemplateOutlet="nav"></ng-container>
-  </clr-vertical-nav>
-</ng-container>
+<nav id="nav" class="flex flex-row">
+  <div class="flex flex-row">
+    <div class="nav-toggle">
+      <input type="checkbox" id="nav-checkbox">
+      <label for="nav-checkbox" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+      </label>
 
-<ng-template #sidenav>
-  <ng-container *ngTemplateOutlet="nav"></ng-container>
-</ng-template>
+      <div class="menu">
+        <div class="column">
+          <div class="content">
+            <section class="menu-section" *ngIf="authService.user$ | async as user">
+              <ul class="menu-list">
+                <li>
+                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'profile']">Profile</a>
+                </li>
+                <li>
+                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'settings']">Settings</a>
+                </li>
+              </ul>
+            </section>
+            <section class="menu-section">
+              <ul class="menu-list">
+                <li>
+                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']">All pleas</a>
+                </li>
+                <li *ngIf="authService.user$ | async as user">
+                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiated']">My initiated pleas</a>
+                </li>
+                <li *ngIf="authService.user$ | async as user">
+                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'supported']">My supported pleas</a>
+                </li>
+              </ul>
+            </section>
+            <section class="menu-section">
+              <ul class="menu-list">
+                <li>
+                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']">Hall of Fame</a>
+                </li>
+                <li>
+                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'statistics']">Statistics</a>
+                </li>
+                <li>
+                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'news']">News</a>
+                </li>
+              </ul>
+            </section>
+            <section class="menu-section">
+              <ul class="menu-list">
+                <li>
+                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'about']">About</a>
+                </li>
 
-<ng-template #nav>
-  <nav id="sidenav" class="sidenav" [clr-nav-level]="1">
-    <section class="sidenav-content">
-      <section *ngIf="authService.user$ | async as user" class="nav-group collapsible">
-        <input id="nav-profile-section" type="checkbox" />
-        <label for="nav-profile-section">{{ user.displayName || 'Profile' }}</label>
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'profile']">Profile</a>
-            <!--            email settings etc go here. I guess maybe also user pic, password reset, delete account, sign out-->
-          </li>
+                <li>
+                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'faq']">FAQ</a>
+                </li>
 
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'settings']">Settings</a>
-            <!--            email settings etc go here. I guess maybe also user pic, password reset, delete account, sign out-->
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiated']">My pleas </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'supported']">My supported pleas</a>
-          </li>
-
-<!--     @TODO: fix     -->
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'profile', 'my-news']">My news</a>-->
-<!--          </li>-->
-        </ul>
-      </section>
-
-      <section class="nav-group collapsible">
-        <input id="nav-pleas-section" type="checkbox" />
-        <label for="nav-pleas-section">Pleas</label>
-
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']">All pleas</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']">Hall of Fame</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'statistics']">Statistics</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'news']">News</a>
-          </li>
-        </ul>
-      </section>
-
-      <section class="nav-group collapsible">
-        <input id="nav-about-section" type="checkbox" checked />
-        <label for="nav-about-section">Pleagan</label>
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'about']">About</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'faq']">FAQ</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/', 'contact']">Contact</a>
-          </li>
-        </ul>
-      </section>
-
-      <section class="nav-group user-state">
-        <small *showOnAuth="false">
-          Please <a class="underlined" [routerLink]="['/', 'auth', 'login']">log in</a> or
-          <a class="underlined" [routerLink]="['/', 'auth', 'sign-up']">sign up</a> to initiate and support pleas
-        </small>
-        <p *showOnAuth="true">
-          <button class="btn btn-link" (click)="logout()">logout</button>
-        </p>
-      </section>
-    </section>
-  </nav>
-</ng-template>
+                <li>
+                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'contact']">Contact</a>
+                </li>
+              </ul>
+            </section>
+            <section class="menu-section user-state">
+              <p *showOnAuth="false">
+                Please <a class="underlined" [routerLink]="['/', 'auth', 'login']">log in</a> or
+                <a class="underlined" [routerLink]="['/', 'auth', 'sign-up']">sign up</a> to initiate and support pleas
+              </p>
+<!--              <p *showOnAuth="true">-->
+<!--                <a role="button" class="btn btn-secondary btn-compact" (click)="logout()">logout</a>-->
+<!--              </p>-->
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-branding">
+      <a [routerLink]="['/']">
+        <p>pleagan</p>
+      </a>
+    </div>
+  </div>
+  <div class="nav-page mobile-only">
+    <p>{{ resolveCurrentPage() }}</p>
+  </div>
+  <div class="nav-initiate">
+<!--    todo: if not logged in, redirect this to sign up / login page-->
+    <a role="button" class="btn btn-compact btn-primary" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']">Initiate</a>
+  </div>
+</nav>

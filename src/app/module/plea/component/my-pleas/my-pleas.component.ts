@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PleaService } from '@core/service';
-import { Plea } from '@shared/model';
 import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loading-wrapper.model';
 import { tap } from 'rxjs/operators';
+import { GetPleaDto } from '@shared/model';
 
 @Component({
   selector: 'app-my-pleas',
@@ -11,7 +11,7 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./my-pleas.component.scss'],
 })
 export class MyPleasComponent {
-  pleas$: Observable<Plea[]>;
+  pleas$: Observable<GetPleaDto[]>;
   pleaStatus: HTTP_LOADING_STATUS = HTTP_LOADING_STATUS.LOADING;
   constructor( private pleaService: PleaService ) {
     this.pleas$ = this.pleaService.getMyPleas().pipe(

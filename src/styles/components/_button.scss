@@ -1,0 +1,90 @@
+/*@start btn*/
+.btn {
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+/*@end btn*/
+
+
+
+/*@start btn compact*/
+.btn-compact {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+/*@end btn compact*/
+
+
+
+/*@start btn primary*/
+.btn-primary {
+  background-color: var(--quaternary-color);
+  border: 2px solid var(--quaternary-color);
+  color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:focus-within {
+  color: var(--quaternary-color);
+  background-color: var(--primary-color);
+  border-color: var(--quaternary-color);
+}
+/*@end btn primary*/
+
+
+
+/*@start btn secondary*/
+.btn-secondary {
+  border: 2px solid var(--quaternary-color);
+  color: var(--quaternary-color);
+  background-color: var(--primary-color);
+}
+
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus,
+.btn-secondary:focus-within {
+  background-color: var(--quaternary-color);
+  color: var(--primary-color);
+}
+/*@end btn secondary*/
+
+
+
+/*@start btn vertical margin*/
+.btn-vertical-margin {
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+/*@end btn vertical margin*/
+
+
+
+/*@start btn list horizontal*/
+.btn-list.horizontal > li:last-child {
+  margin-right: 0;
+}
+
+.btn-list.horizontal > li {
+  margin-right: 10px;
+  display: inline-block;
+}
+/*@end btn list*/
+
+
+
+/*@start btn danger*/
+.btn-danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  color: var(--primary-color);
+}
+/*@end btn danger*/

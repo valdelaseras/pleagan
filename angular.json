@@ -21,22 +21,24 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/pleagan",
-            "allowedCommonJsDependencies": ["pleagan-model", "json2typescript"],
+            "allowedCommonJsDependencies": ["json2typescript", "device-uuid"],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/manifest.json",
+              "src/firebase-messaging-sw.js"
+            ],
             "styles": [
-              "node_modules/@clr/ui/clr-ui.min.css",
-              "node_modules/@clr/icons/clr-icons.min.css",
               "src/styles/index.scss"
             ],
             "scripts": [
               "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
-              "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
-              "node_modules/@clr/icons/clr-icons.min.js"
+              "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"
             ]
           },
           "configurations": {

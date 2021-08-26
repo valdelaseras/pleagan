@@ -3,9 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { JsonConvertService } from '../json-convert/json-convert.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ICompany } from 'pleagan-model';
-import { Company } from '@shared/model';
 import { environment } from '@env/*';
+import { GetCompanyDto } from '@shared/model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +12,11 @@ import { environment } from '@env/*';
 export class CompanyService {
   constructor(private http: HttpClient, private convertService: JsonConvertService) {}
 
-  getCompanies(): Observable<Company[]> {
-    return this.http.get<Company[]>(`${environment.apiBaseUrl}/company/all`).pipe(
-      map((companies: ICompany[]) => {
+  getCompanies(): Observable<GetCompanyDto[]> {
+    return this.http.get<GetCompanyDto[]>(`${environment.apiBaseUrl}/company/all`).pipe(
+      map((companies: GetCompanyDto[]) => {
         try {
-          return this.convertService.parseArray(companies, Company);
+          return this.convertService.parseArray(companies, GetCompanyDto);
         } catch (e) {
           console.log(e);
           return [];

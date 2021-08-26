@@ -28,9 +28,9 @@ export class LoginComponent {
       this.resetForm();
       this.router.navigate(['/']);
     });
-  };
+  }
 
   private resetForm = (): void => {
     this.form.reset();
-  };
+  }
 }

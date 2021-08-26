@@ -3,9 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { JsonConvertService } from '../json-convert/json-convert.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IProduct } from 'pleagan-model';
-import { Product } from '@shared/model';
 import { environment } from '@env/*';
+import { GetProductDto } from '@shared/model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +12,11 @@ import { environment } from '@env/*';
 export class ProductService {
   constructor(private http: HttpClient, private convertService: JsonConvertService) {}
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${environment.apiBaseUrl}/product/all`).pipe(
-      map((companies: IProduct[]) => {
+  getProducts(): Observable<GetProductDto[]> {
+    return this.http.get<GetProductDto[]>(`${environment.apiBaseUrl}/product/all`).pipe(
+      map((companies: GetProductDto[]) => {
         try {
-          return this.convertService.parseArray(companies, Product);
+          return this.convertService.parseArray(companies, GetProductDto);
         } catch (e) {
           console.log(e);
           return [];

@@ -1,26 +1,136 @@
 /*@start card*/
 .card {
-  box-shadow: none;
-  -webkit-box-shadow: none;
+  background-color: rgb(244,244,244);
+  border-radius: 3px;
+  width: 100%;
+  display: block;
+  position: relative;
 }
 /*@end card*/
 
-/*@start card-progress*/
-.card-block .progress,
-.card-block .progress-static,
-.card-footer .progress,
-.card-footer .progress-static {
-  height: 0.5rem;
-  margin-top: -1.1rem;
-  position: absolute;
-  left: 0;
+
+
+/*@start card 'block' padding*/
+.card-header,
+.card-body,
+.card-footer {
+  padding: 1.5rem 1rem;
+}
+/*@end card 'block' padding*/
+
+
+
+/*@start card header*/
+.card-header {
+  border-bottom: .5px solid #dedede;
+  height: 70px;
+  max-height: 70px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.card-block .progress > progress,
-.card-block .progress-static > .progress-meter,
-.card-footer .progress > progress,
-.card-footer .progress-static > .progress-meter {
-  height: 0.5rem;
-  position: absolute;
+.card-header .card-title {
+  font-size: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
-/*@end card-progress*/
+/*@end card header*/
+
+
+
+/*@start card tag*/
+.card .card-tag {
+  position: absolute;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 10px 20px;
+  border-bottom-right-radius: 3px;
+  left: 0;
+  z-index: 1;
+  max-width: 100%;
+  height: auto;
+}
+/*@end card tag*/
+
+
+
+/*@start card image*/
+//todo: rather not have fixed heights
+// but fix 2 px overflow on bottom first
+.card-img {
+  background-color: #fff;
+}
+
+.card-img img {
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+  filter: opacity(.8);
+}
+/*@end card image*/
+
+
+
+/*@start card footer*/
+.card-footer {
+  border-top: .5px solid #dedede;
+  height: 99px;
+  max-height: 99px;
+  box-sizing: border-box;
+}
+/*@end card footer*/
+
+
+
+/*@start card progress bar*/
+.card-progress-bar {
+  width: 100%;
+  height: 10px;
+  transform: translateY(-6px);
+}
+
+@media only screen and (min-width: 1440px) {
+  .card-progress-bar {
+    transform: translateY(-10px);
+  }
+}
+
+progress,
+progress::-webkit-progress-bar,
+progress[value],
+progress[value]::-webkit-progress-value {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: var(--primary-color);
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: var(--quaternary-color);
+}
+/*@end card progress bar*/
+
+
+
+/*@start plea card*/
+.card.plea-card {
+  margin-bottom: 2rem;
+}
+
+.card.plea-card.clickable:hover {
+  cursor: pointer;
+}
+/*@end plea card*/
+
+
+
+/*@start plea card card title*/
+//cut off text if too long
+/*@end plea card card title*/
+

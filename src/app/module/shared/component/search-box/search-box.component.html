@@ -1,13 +1,9 @@
-<form class="clr-form search-box">
-  <div>
-    <clr-icon shape="search" size="20"></clr-icon>
-    <input
-      type="search"
-      name="query"
-      autocomplete="off"
-      (keyup)="updateQuery($event)"
-      placeholder="Search by product or company name"
-      class="clr-input"
-    />
-  </div>
+<form class="search-box">
+  <img src="{{ iconSrc }}" alt="search icon"/>
+  <input
+    type="search"
+    name="query"
+    autocomplete="off"
+    (keyup)="updateQuery($event)"
+    placeholder="Search by product or company name"/>
 </form>

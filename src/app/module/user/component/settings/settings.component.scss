@@ -1,27 +1,77 @@
-/*@start clr row*/
-clr-accordion-content div.clr-row,
-li.clr-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+/*@start ul*/
+ul > li:not(:last-child) {
+  margin-bottom: 1rem;
 }
-/*@end clr row*/
+/*@end ul*/
 
-/*@start settings list list items*/
-// First list that holds Accounts, Notification and Theme lists
-.settings-list > li {
-  padding-bottom: 1rem;
+
+
+/*@start ul > li select*/
+ul > li select {
+  transform: translateY(-5px);
+  width: 150px;
+}
+/*@end ul > li select*/
+
+
+
+/*@start danger zone*/
+.danger-zone {
+  flex-direction: column;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
-.settings-sublist > li:last-child {
-  padding-bottom: 1rem;
-}
 /*@end settings list list items*/
+
+.allow-push-notifications {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+  .clr-form-control {
+    margin-top: 0;
+  }
+}
+
+.notifications-settings {
+  margin-top: .5rem;
+}
+
+.notification-toggles {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  > div {
+    flex: 1 1 0;
+    height: 250px;
+    background-color: var(--secondary-color);
+    border-radius: var(--clr-btn-border-radius, 0.15rem);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background-color 200ms ease-in-out;
+
+    &.enabled {
+      background-color: rgba( #05FE93, .2 );
+    }
+
+    &:not(:first-child):not(:last-child) {
+      margin: 2rem 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .notification-toggles {
+    flex-direction: row;
+
+    > div:not(:first-child):not(:last-child) {
+      margin: 0 2rem!important;
+    }
+  }
+}

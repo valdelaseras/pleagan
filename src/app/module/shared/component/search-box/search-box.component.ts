@@ -7,6 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SearchBoxComponent {
   @Output() queryUpdated: EventEmitter<string> = new EventEmitter<string>();
+  iconSrc = '/assets/icons/search.svg';
   constructor() {}
   updateQuery(event: any): void {
     this.queryUpdated.emit(event.currentTarget.value);

@@ -1,17 +1,17 @@
-<div
-  *ngIf="list.length"
-  [ngClass]="{ invisible: !showList || !(list | search: query)?.length }"
-  class="suggestion-list"
->
-  <ul>
-    <ng-container *ngFor="let entry of list | search: query | sortByLikelihood: query; let last = last">
-      <li (click)="updateSelectedEntry(entry)">
-        {{ entry }}
-      </li>
-      <hr *ngIf="!last" />
-    </ng-container>
-    <!--    <li *ngIf="!(list | search: query)?.length">-->
-    <!--      No pleas have been initiated for this company yet-->
-    <!--    </li>-->
-  </ul>
-</div>
+<!--<div-->
+<!--  *ngIf="list.length"-->
+<!--  [ngClass]="{ invisible: !showList || !(list | search: query)?.length }"-->
+<!--  class="suggestion-list"-->
+<!--&gt;-->
+<!--  <ul>-->
+<!--    <ng-container *ngFor="let entry of list | search: query | sortByLikelihood: query; let last = last">-->
+<!--      <li (click)="updateSelectedEntry(entry)">-->
+<!--        {{ entry }}-->
+<!--      </li>-->
+<!--      <hr *ngIf="!last" />-->
+<!--    </ng-container>-->
+<!--    &lt;!&ndash;    <li *ngIf="!(list | search: query)?.length">&ndash;&gt;-->
+<!--    &lt;!&ndash;      No pleas have been initiated for this company yet&ndash;&gt;-->
+<!--    &lt;!&ndash;    </li>&ndash;&gt;-->
+<!--  </ul>-->
+<!--</div>-->

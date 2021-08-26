@@ -1,0 +1,26 @@
+/*@start mobile only*/
+.mobile-only {
+  display: inherit;
+}
+
+@media only screen and (min-width: 1024px){
+  .mobile-only {
+    display: none;
+  }
+}
+/*@end mobile only*/
+
+
+
+
+/*@start desktop only*/
+.desktop-only {
+  display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  .desktop-only {
+    display: block;
+  }
+}
+/*@end desktop only*/

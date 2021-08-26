@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Support } from '@shared/model';
+import { GetSupportDto } from '@shared/model';
 
 @Component({
   selector: 'app-supporters-list',
@@ -7,7 +7,7 @@ import { Support } from '@shared/model';
   styleUrls: ['./supporters-list.component.scss'],
 })
 export class SupportersListComponent implements OnInit {
-  @Input() supports: Support[];
+  @Input() supports: GetSupportDto[];
   @Input() currentUserUid: string;
 
   constructor() {}

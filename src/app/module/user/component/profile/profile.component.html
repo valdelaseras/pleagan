@@ -1,47 +1,58 @@
-<section id="profile" class="section">
-  <h1 class="desktop-only">Username</h1>
-  <div class="clr-row">
-    <div class="clr-col-lg-6">
-      <img src="{{ profilePictureImgSrc }}" alt="Profile picture"/>
-<!--      if owner of profile-->
-      <ul class="btn-list horizontal">
-        <li>
-<!--          if deleted, display a default pic (of a dolphin of course)-->
-          <button class="btn btn-secondary" aria-label="Delete profile picture">
-            Delete
-          </button>
-        </li>
-        <li>
-          <button class="btn btn-primary" aria-label="Upload profile picture">
-            <clr-icon shape="upload"></clr-icon>
-            Upload
-          </button>
-        </li>
-      </ul>
-    </div>
-    <div class="clr-col-lg-6">
-      <ul>
-        <li class="clr-row">
-          <p>Display name</p>
-          <p>Name</p>
-        </li>
-        <li class="clr-row">
-          <p>Initiated pleas</p>
-          <p>12</p>
-        </li>
-        <li class="clr-row">
-          <p>Complied initiated pleas</p>
-          <p>2</p>
-        </li>
-        <li class="clr-row">
-          <p>Supported pleas</p>
-          <p>540</p>
-        </li>
-        <li class="clr-row">
-          <p>Complied supported pleas</p>
-          <p>46</p>
-        </li>
-      </ul>
+<section id="profile-section">
+  <div class="section-content">
+    <div class="grid">
+      <div class="column">
+        <div class="column three desktop-only">
+          <div class="content"></div>
+        </div>
+        <div class="column three align-center">
+          <div class="content">
+            <img src="{{ profilePictureImgSrc }}" alt="Profile picture"/>
+          </div>
+<!--           todo: if owner of profile-->
+          <div class="content">
+            <ul class="btn-list horizontal">
+              <li>
+                <a role="button" class="btn btn-compact btn-primary">Upload</a>
+              </li>
+<!--              todo: default if no pic-->
+              <li>
+                <a role="button" class="btn btn-compact btn-secondary">Delete</a>
+              </li>
+            </ul>
+          </div>
+          <div class="content desktop-only">
+            <h1>Username</h1>
+          </div>
+          <div class="content">
+            <ul class="space-between-list">
+              <li>
+                <p class="bold">Username</p>
+                <p>dolphinOnKeys</p>
+              </li>
+              <li>
+                <p class="bold">Initiated pleas</p>
+                <p>12</p>
+              </li>
+              <li>
+                <p class="bold">Complied initiated pleas</p>
+                <p>2</p>
+              </li>
+              <li>
+                <p class="bold">Supported pleas</p>
+                <p>547</p>
+              </li>
+              <li>
+                <p class="bold">Complied supported pleas</p>
+                <p>62</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column three desktop-only">
+          <div class="content"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

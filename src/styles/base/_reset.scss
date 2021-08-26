@@ -1,8 +1,18 @@
-*:focus,
-*:focus-within {
-  outline-color: var(--primary-accent-color)!important;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 ul {
   list-style-type: none;
+  padding-left: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:not(.btn):visited {
+  color: var(--secondary-color);
+}
+

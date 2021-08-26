@@ -1,49 +1,46 @@
-<section id="contact-section" class="section">
-  <h1 class="desktop-only">Contact</h1>
-  <div class="clr-row">
-    <div class="clr-col-lg-4">
-      <h5>Questions?</h5>
-    </div>
-    <div class="clr-col-lg-8">
-      <p>
-        <span class="larger highlighted-txt bold">aquestionaimed@pleagan.vg</span>
-      </p>
-    </div>
-  </div>
-  <div class="clr-row">
-    <div class="clr-col-lg-4">
-      <h5>Problems?</h5>
-    </div>
-    <div class="clr-col-lg-8">
-      <p>
-        <span class="larger highlighted-txt bold">reportaproblem@pleagan.vg</span>
-      </p>
-    </div>
-  </div>
-  <div class="clr-row">
-    <div class="clr-col-lg-4">
-      <h5>Feedback?</h5>
-    </div>
-    <div class="clr-col-lg-8">
-      <p>
-        <span class="larger highlighted-txt bold">heresafreetipnoobs@pleagan.vg</span>
-      </p>
-    </div>
-  </div>
-  <div class="clr-row">
-    <div class="clr-col-lg-4">
-      <h5>Social media</h5>
-    </div>
-    <div class="clr-col-lg-8">
-      <p>Alternatively you can always shoot us a message on our social media accounts!</p>
-
-      <ul class="icon-list horizontal">
-        <li *ngFor="let icon of icons">
-          <a href="{{ icon.socialUrl }}">
-            <img src="{{ icon.imageUrl }}" alt="{{ icon.socialAlt }}" />
-          </a>
-        </li>
-      </ul>
+<section id="contact-section">
+  <div class="section-content">
+    <div class="grid">
+      <div class="column">
+        <div class="column three desktop-only">
+          <div class="content"></div>
+        </div>
+        <div class="column three">
+          <div class="content desktop-only">
+            <h1>Contact</h1>
+          </div>
+          <div class="content">
+            <h2>Email</h2>
+          </div>
+          <div class="content">
+            <p>
+              question@pleagan.vg
+            </p>
+            <p>
+              problem@pleagan.vg
+            </p>
+            <p>
+              feedback@pleagan.vg
+            </p>
+          </div>
+          <div class="content">
+            <h2>Social media</h2>
+          </div>
+          <div class="content">
+            <ul class="icon-list">
+              <li *ngFor="let icon of icons">
+                <a href="{{ icon.socialUrl }}">
+                  <img src="{{ icon.imageUrl }}" alt="{{ icon.socialAlt }}" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column three desktop-only">
+          <div class="content"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+

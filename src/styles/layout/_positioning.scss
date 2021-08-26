@@ -1,0 +1,26 @@
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+/*@start space-between-list*/
+.space-between-list > li {
+  display: flex;
+  justify-content: space-between;
+}
+/*@end user space-between-list*/
