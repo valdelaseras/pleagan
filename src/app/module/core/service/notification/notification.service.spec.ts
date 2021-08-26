@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DisplayMessageService } from './display-message.service';
+import { NotificationService } from './display-message.service';
 
 describe('ErrorService', () => {
-  let service: DisplayMessageService;
+  let service: NotificationService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DisplayMessageService);
+    service = TestBed.inject(NotificationService);
   });
 
   it('should be created', () => {

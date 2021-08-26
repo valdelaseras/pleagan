@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Plea } from '@shared/model';
+import { GetPleaDto } from '@shared/model';
 
 // TODO:
 // cards broken, fix and then fix styles as well
@@ -14,5 +14,5 @@ import { Plea } from '@shared/model';
   styleUrls: ['./haf-card.component.scss'],
 })
 export class HafCardComponent {
-  @Input() plea: Plea;
+  @Input() plea: GetPleaDto;
 }

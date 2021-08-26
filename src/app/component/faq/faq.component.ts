@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PLEA_TARGET } from 'pleagan-model';
+import { PLEA_TARGET } from '@shared/model';
 
 @Component({
   selector: 'app-faq',

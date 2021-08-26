@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { IPlea } from 'pleagan-model';
 import { map } from 'rxjs/operators';
 import { JsonConvertService } from '../json-convert/json-convert.service';
-import { ISupport } from 'pleagan-model/dist/model/plea/base/support.interface';
-import { Plea, Support } from '@shared/model';
+import { CreatePleaDto, GetPleaDto, GetSupportDto, UpdatePleaDto } from '@shared/model';
 import { environment } from '@env/*';
 
 @Injectable({
@@ -14,11 +12,11 @@ import { environment } from '@env/*';
 export class PleaService {
   constructor(private http: HttpClient, private convertService: JsonConvertService) {}
 
-  getPleas(): Observable<Plea[]> {
-    return this.http.get<IPlea[]>(`${environment.apiBaseUrl}/plea/all`).pipe(
-      map((pleas: IPlea[]) => {
+  getPleas(): Observable<GetPleaDto[]> {
+    return this.http.get<GetPleaDto[]>(`${environment.apiBaseUrl}/plea/all`).pipe(
+      map((pleas: GetPleaDto[]) => {
         try {
-          return this.convertService.parseArray(pleas, Plea);
+          return this.convertService.parseArray(pleas, GetPleaDto);
         } catch (e) {
           console.log(e);
           return [];
@@ -27,11 +25,11 @@ export class PleaService {
     );
   }
 
-  getMyPleas(): Observable<Plea[]> {
-    return this.http.get<IPlea[]>(`${environment.apiBaseUrl}/plea/my-pleas`).pipe(
-      map((pleas: IPlea[]) => {
+  getMyPleas(): Observable<GetPleaDto[]> {
+    return this.http.get<GetPleaDto[]>(`${environment.apiBaseUrl}/plea/my-pleas`).pipe(
+      map((pleas: GetPleaDto[]) => {
         try {
-          return this.convertService.parseArray(pleas, Plea);
+          return this.convertService.parseArray(pleas, GetPleaDto);
         } catch (e) {
           console.log(e);
           return [];
@@ -40,11 +38,11 @@ export class PleaService {
     );
   }
 
-  getPleasISupport(): Observable<Plea[]> {
-    return this.http.get<IPlea[]>(`${environment.apiBaseUrl}/plea/my-supported-pleas`).pipe(
-      map((pleas: IPlea[]) => {
+  getPleasISupport(): Observable<GetPleaDto[]> {
+    return this.http.get<GetPleaDto[]>(`${environment.apiBaseUrl}/plea/my-supported-pleas`).pipe(
+      map((pleas: GetPleaDto[]) => {
         try {
-          return this.convertService.parseArray(pleas, Plea);
+          return this.convertService.parseArray(pleas, GetPleaDto);
         } catch (e) {
           console.log(e);
           return [];
@@ -53,11 +51,11 @@ export class PleaService {
     );
   }
 
-  getSupportById( id: number ): Observable<Support> {
-    return this.http.get<ISupport>( `${environment.apiBaseUrl}/support/${id}` ).pipe(
-      map((support: ISupport) => {
+  getSupportById( id: number ): Observable<GetSupportDto> {
+    return this.http.get<GetSupportDto>( `${environment.apiBaseUrl}/support/${id}` ).pipe(
+      map((support: GetSupportDto) => {
         try {
-          return this.convertService.parse(support, Support);
+          return this.convertService.parse(support, GetSupportDto);
         } catch (e) {
           throw e;
         }
@@ -78,11 +76,11 @@ export class PleaService {
   //   );
   // }
 
-  getPleaById(id: number): Observable<Plea> {
-    return this.http.get<IPlea>(`${environment.apiBaseUrl}/plea/${id}`).pipe(
-      map((plea: IPlea) => {
+  getPleaById(id: number): Observable<GetPleaDto> {
+    return this.http.get<GetPleaDto>(`${environment.apiBaseUrl}/plea/${id}`).pipe(
+      map((plea: GetPleaDto) => {
         try {
-          return this.convertService.parse(plea, Plea);
+          return this.convertService.parse(plea, GetPleaDto);
         } catch (e) {
           throw e;
         }
@@ -104,23 +102,23 @@ export class PleaService {
     return this.http.delete<void>(`${environment.apiBaseUrl}/plea/${id}/support`);
   }
 
-  createPlea(plea: Plea): Observable<{ id: number }> {
+  createPlea(plea: CreatePleaDto): Observable<{ id: number }> {
     return this.http.post<{ id: number }>(`${environment.apiBaseUrl}/plea`, plea);
   }
 
-  updatePlea(plea: Plea): Observable<void> {
-    return this.http.put<void>(`${environment.apiBaseUrl}/plea/${plea.id}`, plea);
+  updatePlea(pleaId: number, plea: UpdatePleaDto): Observable<void> {
+    return this.http.put<void>(`${environment.apiBaseUrl}/plea/${pleaId}`, plea);
   }
 
   removePlea(id: number): Observable<void> {
     return this.http.delete<void>(`${environment.apiBaseUrl}/plea/${id}`);
   }
 
-  searchPleas = (query: string): Observable<Plea[]> => {
+  searchPleas = (query: string): Observable<GetPleaDto[]> => {
     return this.http
-      .get<IPlea[]>(`${environment.apiBaseUrl}/plea`, {
+      .get<GetPleaDto[]>(`${environment.apiBaseUrl}/plea`, {
         params: { query },
       })
-      .pipe(map((pleas: IPlea[]) => this.convertService.parseArray(pleas, Plea)));
+      .pipe(map((pleas: GetPleaDto[]) => this.convertService.parseArray(pleas, GetPleaDto)));
   };
 }

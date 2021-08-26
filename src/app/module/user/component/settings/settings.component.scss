@@ -21,7 +21,57 @@ ul > li select {
   margin-left: -20px;
   margin-right: -20px;
 }
-/*@end danger zone*/
 
+/*@end settings list list items*/
 
+.allow-push-notifications {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 
+  .clr-form-control {
+    margin-top: 0;
+  }
+}
+
+.notifications-settings {
+  margin-top: .5rem;
+}
+
+.notification-toggles {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  > div {
+    flex: 1 1 0;
+    height: 250px;
+    background-color: var(--secondary-color);
+    border-radius: var(--clr-btn-border-radius, 0.15rem);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background-color 200ms ease-in-out;
+
+    &.enabled {
+      background-color: rgba( #05FE93, .2 );
+    }
+
+    &:not(:first-child):not(:last-child) {
+      margin: 2rem 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .notification-toggles {
+    flex-direction: row;
+
+    > div:not(:first-child):not(:last-child) {
+      margin: 0 2rem!important;
+    }
+  }
+}

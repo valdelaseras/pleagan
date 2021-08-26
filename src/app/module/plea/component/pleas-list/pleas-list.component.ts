@@ -1,7 +1,6 @@
 import { Component, HostListener, Input } from '@angular/core';
-import { PLEA_STATUS } from 'pleagan-model';
 import { FADE_IN_LIST } from '@shared/animations';
-import { Plea } from '@shared/model';
+import { GetPleaDto, PLEA_STATUS } from '@shared/model';
 
 @Component({
   selector: 'app-pleas-list',
@@ -11,7 +10,7 @@ import { Plea } from '@shared/model';
 })
 export class PleasListComponent {
   screenSize: 'small' | 'large' | 'xl' = this.getScreenSize();
-  @Input() pleas: Plea[];
+  @Input() pleas: GetPleaDto[];
   PLEA_STATUS = PLEA_STATUS;
   constructor() {}
 

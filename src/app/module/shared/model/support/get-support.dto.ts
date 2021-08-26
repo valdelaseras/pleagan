@@ -1,18 +1,17 @@
-import { ISupport } from 'pleagan-model/dist/model/plea/base/support.interface';
 import { JsonObject, JsonProperty } from 'json2typescript';
-import { Pleagan } from '../pleagan/pleagan.model';
 import { DateConverter } from '@core/service/json-convert/date.converter';
+import { GetPleaganDto } from '../pleagan/get-pleagan.dto';
 
-@JsonObject( 'Support' )
-export class Support implements ISupport {
+@JsonObject( 'GetSupportDto' )
+export class GetSupportDto {
   @JsonProperty('id', Number )
   id = 0;
 
   @JsonProperty('comment', String )
   comment = '';
 
-  @JsonProperty('pleagan', Pleagan, true )
-  pleagan = new Pleagan();
+  @JsonProperty('pleagan', () => GetPleaganDto )
+  pleagan = new GetPleaganDto();
 
   @JsonProperty('createdAt', DateConverter )
   createdAt = new Date();

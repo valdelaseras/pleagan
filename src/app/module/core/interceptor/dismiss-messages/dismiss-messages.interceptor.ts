@@ -7,16 +7,16 @@ import {
   HttpRequest
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DisplayMessageService } from '@core/service';
+import { NotificationService } from '@core/service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DismissMessagesInterceptor implements HttpInterceptor {
-  constructor( private displayMessageService: DisplayMessageService ) {}
+  constructor( private displayMessageService: NotificationService ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.displayMessageService.dismissAllDisplayMessages();
+    this.displayMessageService.dismissAllNotifications();
     return next.handle(request);
   }
 }
