@@ -2,6 +2,8 @@
 #nav {
   position: fixed;
   top: 0;
+  //margin: 0 auto;
+  //max-width: 1266px;
   left: 0;
   right: 0;
   height: 60px;
@@ -13,9 +15,14 @@
   z-index: 10;
 }
 
-@media only screen and (min-width: 1024px){
-  #nav {
-    box-shadow: none;
+.nav-grid {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 1440px){
+  .nav-grid {
+    max-width: calc( 62vw - 40px );
   }
 }
 /*@end nav*/
@@ -65,6 +72,7 @@
 /*@start nav page*/
 .nav-page p {
  font-size: 20px;
+  //todo: hide under open menu mobile
 }
 
 @media only screen and (min-width: 1024px){
@@ -125,9 +133,9 @@
   top: 0;
   bottom: 0;
   left: -100%;
-  width: 75vw;
+  width: 85vw;
   padding-top: 60px;
-  transition: 150ms ease-in-out;
+  transition: 550ms ease-in-out;
   background-color: var(--tertiary-color);
   z-index: -5;
 }
@@ -138,13 +146,13 @@
 
 @media only screen and (min-width: 768px) {
   .menu {
-    width: 40vw;
+    width: 30vw;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .menu {
-    width: 20vw;
+    width: 17vw;
   }
 }
 /*@end menu*/
@@ -161,7 +169,12 @@
 
 /*@start menu list*/
 .menu-list {
-  line-height: 2rem;
+  line-height: 2.25rem;
+}
+@media only screen and (min-width: 1440px){
+  .menu-list {
+    line-height: 2.5rem;
+  }
 }
 /*@end menu list*/
 
@@ -185,6 +198,7 @@
 .menu-list > li:active {
   background-color: var(--primary-color);
   padding-left: 40px;
+  cursor: pointer;
 }
 
 .menu-list > li {

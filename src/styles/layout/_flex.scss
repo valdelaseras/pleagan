@@ -1,0 +1,22 @@
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+/*@start space-between-list*/
+.space-between-list > li {
+  display: flex;
+  justify-content: space-between;
+}
+/*@end user space-between-list*/

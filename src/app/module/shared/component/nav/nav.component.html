@@ -1,91 +1,90 @@
-<nav id="nav" class="flex flex-row">
-  <div class="flex flex-row">
-    <div class="nav-toggle">
-      <input type="checkbox" id="nav-checkbox">
-      <label for="nav-checkbox" id="menu-toggle">
+<nav id="nav" class="flex">
+  <div class="nav-grid flex space-between">
+    <div class="flex">
+      <div class="nav-toggle">
+        <input type="checkbox" id="nav-checkbox">
+        <label for="nav-checkbox" id="menu-toggle">
           <span></span>
           <span></span>
           <span></span>
-      </label>
+        </label>
 
-      <div class="menu">
-        <div class="column">
-          <div class="content">
-            <section class="menu-section" *ngIf="authService.user$ | async as user">
-              <ul class="menu-list">
-                <li>
-                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'profile']">Profile</a>
-                </li>
-                <li>
-                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'settings']">Settings</a>
-                </li>
-              </ul>
-            </section>
-            <section class="menu-section">
-              <ul class="menu-list">
-                <li>
-                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']">All pleas</a>
-                </li>
-                <li *ngIf="authService.user$ | async as user">
-                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiated']">My initiated pleas</a>
-                </li>
-                <li *ngIf="authService.user$ | async as user">
-                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'supported']">My supported pleas</a>
-                </li>
-              </ul>
-            </section>
-            <section class="menu-section">
-              <ul class="menu-list">
-                <li>
-                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']">Hall of Fame</a>
-                </li>
-                <li>
-                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'statistics']">Statistics</a>
-                </li>
-                <li>
-                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'news']">News</a>
-                </li>
-              </ul>
-            </section>
-            <section class="menu-section">
-              <ul class="menu-list">
-                <li>
-                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'about']">About</a>
-                </li>
-
-                <li>
-                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'faq']">FAQ</a>
-                </li>
-
-                <li>
-                  <a class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'contact']">Contact</a>
-                </li>
-              </ul>
-            </section>
-            <section class="menu-section user-state">
-              <p *showOnAuth="false">
-                Please <a class="underlined" [routerLink]="['/', 'auth', 'login']">log in</a> or
-                <a class="underlined" [routerLink]="['/', 'auth', 'sign-up']">sign up</a> to initiate and support pleas
-              </p>
-<!--              <p *showOnAuth="true">-->
-<!--                <a role="button" class="btn btn-secondary btn-compact" (click)="logout()">logout</a>-->
-<!--              </p>-->
-            </section>
+        <div class="menu">
+          <div class="column">
+            <div class="content">
+              <section class="menu-section">
+                <ul class="menu-list">
+                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']">
+                    <a title="all pleas">All pleas</a>
+                  </li>
+                  <!--                  todo: so need new path here like plea/username to new page-->
+                  <li class="menu-link" *ngIf="authService.user$ | async as user" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiated']">
+                    <a title="my pleas">My pleas</a>
+                    <!--                    todo: under my pleas will be my supported and my initiated-->
+                  </li>
+                </ul>
+              </section>
+              <section class="menu-section" *ngIf="authService.user$ | async as user">
+                <ul class="menu-list">
+                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'profile']">
+                    <a title="profile">Profile</a>
+                  </li>
+                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'settings']">
+                    <a title="settings">Settings</a>
+                  </li>
+                </ul>
+              </section>
+              <section class="menu-section">
+                <ul class="menu-list">
+                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']">
+                    <a title="spotlight">Spotlight</a>
+                  </li>
+                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'statistics']">
+                    <a title="statistics">Statistics</a>
+                  </li>
+                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'news']">
+                    <a title="news">News</a>
+                  </li>
+                </ul>
+              </section>
+              <section class="menu-section">
+                <ul class="menu-list">
+                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'about']">
+                    <a title="about">About</a>
+                  </li>
+                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'faq']">
+                    <a title="faq">FAQ</a>
+                  </li>
+                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'contact']">
+                    <a title="contact">Contact</a>
+                  </li>
+                </ul>
+              </section>
+              <section class="menu-section user-state">
+                <p *showOnAuth="false">
+                  Please <a class="underlined" [routerLink]="['/', 'auth', 'login']">log in</a> or
+                  <a class="underlined" [routerLink]="['/', 'auth', 'sign-up']">sign up</a> to initiate and support pleas
+                </p>
+                <!--              <p *showOnAuth="true">-->
+                <!--                <a role="button" class="btn btn-secondary btn-compact" (click)="logout()">logout</a>-->
+                <!--              </p>-->
+              </section>
+            </div>
           </div>
         </div>
       </div>
+      <div class="nav-branding">
+        <a [routerLink]="['/']">
+          <p>pleagan</p>
+        </a>
+      </div>
     </div>
-    <div class="nav-branding">
-      <a [routerLink]="['/']">
-        <p>pleagan</p>
-      </a>
+    <div class="nav-page mobile-only">
+      <p>{{ resolveCurrentPage() }}</p>
     </div>
-  </div>
-  <div class="nav-page mobile-only">
-    <p>{{ resolveCurrentPage() }}</p>
-  </div>
-  <div class="nav-initiate">
-<!--    todo: if not logged in, redirect this to sign up / login page-->
-    <a role="button" class="btn btn-compact btn-primary" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']">Initiate</a>
+    <div class="nav-initiate">
+      <!--    todo: if not logged in, redirect this to sign up / login page-->
+      <a role="button" class="btn btn-compact btn-primary" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']">Initiate</a>
+    </div>
   </div>
 </nav>

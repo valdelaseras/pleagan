@@ -9,16 +9,28 @@
             </div>
             <div class="content">
               <p>
-                Hello friend.
+                Lorem ipsum dolor sit amet.
               </p>
             </div>
           </div>
           <div class="column banner theme-tertiary">
             <div class="column three">
               <div class="content">
-                <h2>Plea</h2>
+                <h2>Plead</h2>
               </div>
               <div class="content">
+                <ul class="btn-list horizontal">
+                  <li>
+                    <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="btn btn-secondary btn-compact">
+                      Support
+                    </a>
+                  </li>
+                  <li>
+                    <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']" class="btn btn-secondary btn-compact">
+                      Initiate
+                    </a>
+                  </li>
+                </ul>
                 <p>
                   <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="underlined">Find</a> or
                   <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']" class="underlined">initiate</a>
@@ -32,9 +44,12 @@
                 <h2>Inform</h2>
               </div>
               <div class="content">
+                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'news']" class="btn btn-secondary btn-compact">
+                  News
+                </a>
                 <p>
-                  With enough support, Pleagan contacts the company in question and informs them of the plea. We keep track
-                  of communications and post updates to Pleagan accordingly to our
+                  Once the support threshold is reached, Pleagan contacts the company in question and informs them of the
+                  plea. We keep track of communications and post updates to Pleagan accordingly to our
                   <a [routerLinkActive]="'active'" [routerLink]="['/', 'news']" class="underlined">news page</a>.
                 </p>
               </div>
@@ -44,13 +59,24 @@
                 <h2>Profit</h2>
               </div>
               <div class="content">
+                <ul class="btn-list horizontal">
+                  <li>
+                    <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="btn btn-secondary btn-compact">
+                      Stats
+                    </a>
+                  </li>
+                  <li>
+                    <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']" class="btn btn-secondary btn-compact">
+                      Spotlight
+                    </a>
+                  </li>
+                </ul>
                 <p>
-                  When a company answers our pleas and complies they climb
+                  When a company answers our pleas and complies, they climb
                   <!--                todo: stat company leaderboard-->
                   <a [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="underlined">the rankings</a> and we
                   promote their brand new vegan product in our
-                  <a [routerLinkActive]="'active'" [routerLink]="['/', 'news']" class="underlined">Hall of Fame</a> with
-                  a permanent spot.
+                  <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']" class="underlined">Spotlight page</a>.
                 </p>
               </div>
             </div>
