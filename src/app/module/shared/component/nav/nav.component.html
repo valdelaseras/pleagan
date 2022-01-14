@@ -17,17 +17,24 @@
                   <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']">
                     <a title="all pleas">All pleas</a>
                   </li>
-                  <!--                  todo: so need new path here like plea/username to new page-->
-                  <li class="menu-link" *ngIf="authService.user$ | async as user" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiated']">
-                    <a title="my pleas">My pleas</a>
-                    <!--                    todo: under my pleas will be my supported and my initiated-->
-                  </li>
                 </ul>
               </section>
               <section class="menu-section" *ngIf="authService.user$ | async as user">
                 <ul class="menu-list">
                   <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'profile']">
                     <a title="profile">Profile</a>
+<!--                    <ul class="menu-sub-link-list desktop-only">-->
+<!--                      <li>-->
+<!--                        <p>My pleas</p>-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <p>My supported pleas</p>-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <p>My news</p>-->
+<!--&lt;!&ndash;                        achievements?&ndash;&gt;-->
+<!--                      </li>-->
+<!--                    </ul>-->
                   </li>
                   <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'settings']">
                     <a title="settings">Settings</a>
