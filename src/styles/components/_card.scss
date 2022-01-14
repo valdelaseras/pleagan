@@ -182,7 +182,7 @@ progress[value]::-webkit-progress-value {
 //  ...
 //}
 
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 768px){
   .card.mini-card {
     margin-bottom: 0;
     width: calc( 33% - 6px );
@@ -198,7 +198,7 @@ progress[value]::-webkit-progress-value {
   flex-direction: column;
 }
 
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 768px){
   .card-preview-list {
     flex-direction: row;
     justify-content: space-between;
