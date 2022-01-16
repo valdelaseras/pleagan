@@ -1,90 +1,102 @@
 <section id="landing-section">
   <div class="section-content">
-    <div class="grid">
-      <div class="column">
-        <div class="column">
+    <div id="landing-img" class="column img-background">
+      <div class="grid">
+        <div class="column three b">
           <div class="column">
             <div class="content">
-              <h1>Pleagan</h1>
-            </div>
-            <div class="content">
-              <p>
-                Lorem ipsum dolor sit amet.
-              </p>
+              <h1 class="header-title">Pleagan</h1>
+              <div class="landing-subtitle">
+                <h2 class="header-subtitle">"Contains 1% milk powder"</h2>
+<!--                maybe red stripethrough will look better-->
+<!--                <img src="/assets/images/wrong.svg" alt="red cross"/>-->
+              </div>
             </div>
           </div>
-          <div class="column banner theme-tertiary">
-            <div class="column three">
-              <div class="content">
-                <h2>Plead</h2>
-              </div>
-              <div class="content">
-                <ul class="btn-list horizontal">
-                  <li>
-                    <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="btn btn-secondary btn-compact">
-                      Support
-                    </a>
-                  </li>
-                  <li>
-                    <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']" class="btn btn-secondary btn-compact">
-                      Initiate
-                    </a>
-                  </li>
-                </ul>
-                <p>
-                  <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="underlined">Find</a> or
-                  <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']" class="underlined">initiate</a>
-                  a plea to a business to veganise a product of theirs. Gather support from other vegans or show your
-                  support for existing pleas.
-                </p>
-              </div>
-            </div>
-            <div class="column three">
-              <div class="content">
-                <h2>Inform</h2>
-              </div>
-              <div class="content">
-                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'news']" class="btn btn-secondary btn-compact">
-                  News
-                </a>
-                <p>
-                  Once the support threshold is reached, Pleagan contacts the company in question and informs them of the
-                  plea. We keep track of communications and post updates to Pleagan accordingly to our
-                  <a [routerLinkActive]="'active'" [routerLink]="['/', 'news']" class="underlined">news page</a>.
-                </p>
-              </div>
-            </div>
-            <div class="column three">
-              <div class="content">
-                <h2>Profit</h2>
-              </div>
-              <div class="content">
-                <ul class="btn-list horizontal">
-                  <li>
-                    <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="btn btn-secondary btn-compact">
-                      Stats
-                    </a>
-                  </li>
-                  <li>
-                    <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']" class="btn btn-secondary btn-compact">
-                      Spotlight
-                    </a>
-                  </li>
-                </ul>
-                <p>
-                  When a company answers our pleas and complies, they climb
-                  <!--                todo: stat company leaderboard-->
-                  <a [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="underlined">the rankings</a> and we
-                  promote their brand new vegan product in our
-                  <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']" class="underlined">Spotlight page</a>.
-                </p>
-              </div>
+          <div class="column">
+            <div class="content">
+              <p class="header-content">
+                Regularly come across products that are only 1 or 2 ingredients away from being vegan? Missing a product
+                you haven't consumed since you went vegan? Simply want more options? Pleagan is the platform for all
+                your vegan product petitions!
+              </p>
             </div>
           </div>
         </div>
       </div>
-
     </div>
+    <div class="grid">
+      <div class="column">
+        <div class="column three">
+          <div class="content">
+            <h3>Plead</h3>
+            <ul class="btn-list horizontal">
+              <li>
+                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="btn btn-secondary btn-compact btn-xs">
+                  Support
+                </a>
+              </li>
+              <li>
+                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']" class="btn btn-secondary btn-compact btn-xs">
+                  Initiate
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="content">
+            <p>
+              <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="underlined">Find</a> or
+              <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']" class="underlined">initiate</a>
+              a plea to a company to veganise a product of theirs. Gather support from other vegans or show your
+              support for existing pleas.
+            </p>
+          </div>
+        </div>
+        <div class="column three">
+          <div class="content">
+            <h3>Inform</h3>
+            <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'news']" class="btn btn-secondary btn-compact btn-xs">
+              News
+            </a>
+          </div>
+          <div class="content">
+            <p>
+              Once the support threshold is reached, the plea is send to the relevant company. We keep track of
+              communications and post updates accordingly to our
+              <a [routerLinkActive]="'active'" [routerLink]="['/', 'news']" class="underlined">news page</a>.
+            </p>
+          </div>
+        </div>
+        <div class="column three">
+          <div class="content">
+            <h3>Profit</h3>
+            <ul class="btn-list horizontal">
+              <li>
+                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="btn btn-secondary btn-compact btn-xs">
+                  Stats
+                </a>
+              </li>
+              <li>
+                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']" class="btn btn-secondary btn-compact btn-xs">
+                  Spotlight
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="content">
+            <p>
+              When a company answers our pleas and complies, they climb
+              <!--                todo: stat company leaderboard-->
+              <a [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="underlined">our Rankings</a> and we
+              promote their brand new vegan product on our
+              <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']" class="underlined">Spotlight page</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--    todo: maybe some image banner thing or nice catchphrase or whatever. -->
+    <app-about></app-about>
   </div>
 </section>
 

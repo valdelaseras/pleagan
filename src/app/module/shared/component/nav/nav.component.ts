@@ -8,7 +8,8 @@ import { AuthService } from '../../../core/service/auth/auth.service';
 })
 export class NavComponent {
   largeScreen = this.isLargeScreen();
-  collapsed = !this.isLargeScreen();
+  // buttonContent = this.setButtonContent();
+  // collapsed = !this.isLargeScreen();
 
   constructor(public authService: AuthService) {}
 
@@ -18,8 +19,12 @@ export class NavComponent {
   }
 
   private isLargeScreen(): boolean {
-    return window.innerWidth > 768;
+    return window.innerWidth > 1024;
   }
+
+  // setButtonContent(): string {
+  //   return this.buttonContent = this.largeScreen ? 'initiate' : '+';
+  // }
 
   // TODO: onLoggedInDirective needs to be triggered again right after logout
   logout(): void {

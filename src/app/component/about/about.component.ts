@@ -8,6 +8,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class AboutComponent {
   section: string | null = null;
+  imgSrc = '/assets/images/placeholder-two.png';
   constructor(private route: ActivatedRoute) {
     this.route.queryParamMap.subscribe((params: ParamMap) => {
       this.section = params.get('section');

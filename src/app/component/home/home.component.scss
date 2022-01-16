@@ -1,3 +1,93 @@
-.btn.btn-secondary {
-  margin-bottom: 1.25rem;
+/*@start reset default padding / margin*/
+.section-content {
+  padding: 10px 0 0 0;
 }
+
+@media only screen and (min-width: 1440px) {
+  .section-content {
+    padding: 0;
+  }
+}
+/*@end reset default padding / margin*/
+
+
+
+/*@start home cta buttons*/
+.btn.btn-secondary {
+  margin-top: 1rem;
+}
+/*@end home cta buttons*/
+
+
+
+/*@start landing header image*/
+#landing-img {
+  background-image: url("/assets/images/placeholder-test.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -630px;
+  background-attachment: fixed;
+}
+
+.img-background {
+  padding: 50px 0;
+}
+
+@media only screen and (min-width: 768px){
+  #landing-img {
+    background-position: bottom 0 right 0;
+  }
+
+
+}
+
+@media only screen and (min-width: 1024px){
+  .img-background {
+    margin-bottom: 50px;
+  }
+}
+/*@end landing header image*/
+
+
+
+/*@start header section typography*/
+.header-subtitle {
+  font-size: 1.25rem;
+  margin: .8rem 0;
+  text-decoration: line-through;
+  //text-decoration-color: var(--danger-color);
+}
+
+@media only screen and (min-width: 1440px){
+  .header-title {
+    font-size: 4.5rem;
+  }
+
+  .header-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .header-content {
+    font-size: 1.3rem;
+    line-height: 2.3rem;
+  }
+}
+/*@end header section typography*/
+
+
+
+
+/*@start landing subtitle*/
+//.landing-subtitle {
+//  display: inline-block;
+//  position: relative;
+//}
+//
+//.landing-subtitle img {
+//  position: absolute;
+//  top: 0;
+//
+//  height: 60px;
+//  width: auto;
+//}
+/*@end landing subtitle*/

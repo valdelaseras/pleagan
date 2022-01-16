@@ -212,6 +212,6 @@ progress[value]::-webkit-progress-value {
 
 .temp-box {
   width: 100%;
-  background-color: #00C3FF;
+  background-color: var(--quaternary-color);
   height: 175px; // just placeholder, img should just be 100% width auto height and that should all be the same height
 }
