@@ -1,6 +1,6 @@
 import { JsonObject, JsonProperty } from 'json2typescript';
 
-@JsonObject('ProductDto')
+@JsonObject('GetProductDto')
 export class GetProductDto {
   @JsonProperty('id', Number )
   id = 0;

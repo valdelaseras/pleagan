@@ -3,8 +3,8 @@ import { JsonObject, JsonProperty } from 'json2typescript';
 @JsonObject( 'GetCompanyDto' )
 export class GetCompanyDto {
   @JsonProperty('id', Number )
-  id: number;
+  id = 0;
 
   @JsonProperty('name', String )
-  name: string;
+  name = '';
 }

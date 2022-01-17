@@ -12,11 +12,11 @@ export class JsonConvertService extends JsonConvert {
     this.valueCheckingMode = ValueCheckingMode.ALLOW_NULL;
   }
 
-  parseArray<T, K>(input: K[], type: new () => T): T[] {
+  parseArray<T>(input: object[], type: new () => T): T[] {
     return this.deserializeArray<T>(input, type);
   }
 
-  parse<T, K>(input: K, type: new () => T): T {
+  parse<T>(input: object, type: new () => T): T {
     return this.deserializeObject<T>(input, type);
   }
 }

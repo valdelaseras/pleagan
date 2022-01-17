@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CreatePleaDto, GetPleaDto, GetPleaganDto, PLEA_TARGET} from '@shared/model';
 
 @Component({
@@ -8,9 +8,6 @@ import {CreatePleaDto, GetPleaDto, GetPleaganDto, PLEA_TARGET} from '@shared/mod
 })
 export class PleaCardComponent {
   @Input() plea!: GetPleaDto;
-
-  constructor() {}
-
   getTarget(): number {
     if (this.plea.numberOfSupports < PLEA_TARGET.FIRST) {
       return PLEA_TARGET.FIRST;

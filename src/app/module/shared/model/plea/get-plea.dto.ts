@@ -20,23 +20,23 @@ export class GetPleaDto {
   status: PLEA_STATUS = PLEA_STATUS.UNNOTIFIED;
 
   @JsonProperty('description', String, true )
-  description: string = '';
+  description = '';
 
   @JsonProperty('createdAt', String)
   createdAt = new Date();
 
-  @JsonProperty('company', () => GetCompanyDto )
+  @JsonProperty('company', GetCompanyDto )
   company: GetCompanyDto = new GetCompanyDto();
 
-  @JsonProperty('nonVeganProduct', () => GetProductDto )
+  @JsonProperty('nonVeganProduct', GetProductDto )
   nonVeganProduct: GetProductDto = new GetProductDto();
 
-  @JsonProperty('pleagan', () => GetPleaganDto )
-  pleagan?: GetPleaganDto = new GetPleaganDto();
+  @JsonProperty('pleagan', GetPleaganDto, true )
+  pleagan?: GetPleaganDto = undefined;
 
-  @JsonProperty('supports', () => [ GetSupportDto ], true)
-  supports?: GetSupportDto[] = [];
+  @JsonProperty('supports', [ GetSupportDto ], true)
+  supports?: GetSupportDto[] = undefined;
 
-  @JsonProperty('veganProduct', () => GetProductDto, true)
-  veganProduct?: GetProductDto = new GetProductDto();
+  @JsonProperty('veganProduct', GetProductDto, true)
+  veganProduct?: GetProductDto = undefined;
 }

@@ -23,7 +23,7 @@ export class SettingsComponent {
   token$: Observable<string>;
   notificationPermission = Notification.permission;
   device$: Observable<GetDeviceDto | undefined>;
-  isKnownDevice: boolean = false;
+  isKnownDevice = false;
 
   constructor(
     private authService: AuthService,
@@ -67,22 +67,24 @@ export class SettingsComponent {
     // this.pleaganService.updatePleagan( user.pleagan ).subscribe(() => this.updateStatus = HTTP_LOADING_STATUS.FINISHED );
   }
 
-  onAllowNotifications( value: boolean ) {
+  onAllowNotifications( value: boolean ): void{
     if ( value ) {
       // @FIXME
       // this.notificationService.requestPushNotificationPermission().subscribe(( device: GetDeviceDto ) => {
       //   this.userRequest$ = this.getUser();
       //   this.device$ = this.getDevice();
       // });
-    } else this.removePushNotificationPermission();
+    } else {
+      this.removePushNotificationPermission();
+    }
   }
 
-  requestPushNotificationPermission() {
+  requestPushNotificationPermission(): void {
     // @FIXME
     // this.notificationService.requestPushNotificationPermission().subscribe();
   }
 
-  removePushNotificationPermission() {
+  removePushNotificationPermission(): void {
     // this.notificationService.removePushNotificationPermission();
   }
 
