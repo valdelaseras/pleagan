@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Company, Plea, Product } from '@shared/model';
 import { CompanyService, FirebaseStorageService, PleaService, ProductService } from '@core/service';
 import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loading-wrapper.model';
+import {IPlea} from 'pleagan-model';
 
 @Component({
   selector: 'app-new-plea',
