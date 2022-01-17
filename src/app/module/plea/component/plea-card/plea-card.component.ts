@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Plea, PLEA_TARGET } from '@shared/model';
+import {CreatePleaDto, GetPleaDto, GetPleaganDto, PLEA_TARGET} from '@shared/model';
 
 @Component({
   selector: 'app-plea-card',
@@ -7,7 +7,7 @@ import { Plea, PLEA_TARGET } from '@shared/model';
   styleUrls: ['./plea-card.component.scss'],
 })
 export class PleaCardComponent {
-  @Input() plea!: Plea;
+  @Input() plea!: GetPleaDto;
 
   constructor() {}
 

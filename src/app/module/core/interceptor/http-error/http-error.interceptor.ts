@@ -9,26 +9,26 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { DisplayMessageService } from '../../service';
-import { DisplayMessage, DisplayMessageLevel } from '@shared/model/display-message/display-message.model';
+import { NotificationService } from '../../service';
+import { NotificationLevel, Notification } from '@shared/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpErrorInterceptor implements HttpInterceptor {
-  constructor( private displayMessageService: DisplayMessageService ) {}
+  constructor( private notificationService: NotificationService ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)
       .pipe(
         catchError(( error: HttpErrorResponse ) => {
-          this.displayMessageService.addDisplayMessage( new DisplayMessage( error.error.message || error.statusText, this.resolveDisplayMessageLevel( error.status ) ) );
+          this.notificationService.addNotification( new Notification( error.error.message || error.statusText, this.resolveDisplayMessageLevel( error.status ) ) );
           return throwError( error );
         })
       )
   }
 
-  resolveDisplayMessageLevel( statusCode: number ): DisplayMessageLevel {
+  resolveDisplayMessageLevel( statusCode: number ): NotificationLevel {
     if ( statusCode >= 400 && statusCode < 500 ) {
       return 'warning';
     } else {

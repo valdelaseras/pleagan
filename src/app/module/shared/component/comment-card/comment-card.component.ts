@@ -1,9 +1,9 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { GROW_IN_SHRINK_OUT } from '@shared/animations/grow.animation';
-import { Support } from '@shared/model';
 import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loading-wrapper.model';
 import { PleaService } from '@core/service';
 import { tap } from 'rxjs/operators';
+import { GetSupportDto } from '@shared/model';
 
 @Component({
   selector: 'app-comment-card',
@@ -15,7 +15,7 @@ import { tap } from 'rxjs/operators';
 })
 export class CommentCardComponent implements OnInit {
   @ViewChild( 'editComment' ) editCommentField: ElementRef;
-  @Input() support: Support;
+  @Input() support: GetSupportDto;
   @Input() isOwner: boolean;
   comment: string;
   updatingPleaStatus: HTTP_LOADING_STATUS;

@@ -1,5 +1,8 @@
 import { Component, HostListener } from '@angular/core';
 import { AuthService } from '../../../core/service/auth/auth.service';
+import { PleaganService } from '@core/service';
+import { Observable } from 'rxjs';
+import { GetCurrentPleaganDto } from '@shared/model';
 
 @Component({
   selector: 'app-nav',
@@ -8,11 +11,22 @@ import { AuthService } from '../../../core/service/auth/auth.service';
 })
 export class NavComponent {
   largeScreen = this.isLargeScreen();
+  collapsed = !this.isLargeScreen();
+  numberOfUnopenedMessages$: Observable<number>;
+  private pleagan$: Observable<GetCurrentPleaganDto>;
 
-  constructor(public authService: AuthService) {}
 
-  @HostListener('window:resize', ['$event'])
-  handleResize(event: UIEvent): void {
+  constructor( public authService: AuthService,
+               private pleaganService: PleaganService ) {
+    this.pleagan$ = pleaganService.getCurrentPleagan();
+    // @TODO: get number of unopened messages by implementing inbox/message services
+    // this.numberOfUnopenedMessages$ = this.pleagan$.pipe(
+    //   map( ( pleagan: GetCurrentPleaganDto ) => pleagan.inbox.messages.filter( ( message: Message ) => !message.opened ).length )
+    // )
+  }
+
+  @HostListener( 'window:resize', ['$event'] )
+  handleResize( event: UIEvent ): void {
     this.largeScreen = this.isLargeScreen();
   }
 

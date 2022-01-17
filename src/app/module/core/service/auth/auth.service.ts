@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { EMPTY, from, Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import firebase from 'firebase/app';
 import User = firebase.User;
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
-import { catchError, delay, map, mergeMap, switchMap, take, tap } from 'rxjs/operators';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { DisplayMessageService } from '../display-message/display-message.service';
+import { delay, map, mergeMap, switchMap, take, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { NotificationService } from '../notification/notification.service';
 import { PleaganService } from '../pleagan/pleagan.service';
-import { DisplayMessage } from '@shared/model';
 import { filterNullOrUndefined } from '@shared/operator';
 
 @Injectable({
@@ -27,13 +26,13 @@ export class AuthService {
     private fireAuth: AngularFireAuth,
     private router: Router,
     private pleaganService: PleaganService,
-    private displayMessageService: DisplayMessageService,
+    private displayMessageService: NotificationService,
   ) {
     this.user$ = this.fireAuth.user;
   }
 
   signUp( email: string, password: string, displayName: string, country: string ): Observable<void> {
-    this.displayMessageService.dismissAllDisplayMessages();
+    this.displayMessageService.dismissAllNotifications();
     return from(
       this.fireAuth.createUserWithEmailAndPassword( email, password )
     ).pipe(
@@ -50,7 +49,7 @@ export class AuthService {
   }
 
   login( email: string, password: string ): Observable<User> {
-    this.displayMessageService.dismissAllDisplayMessages();
+    this.displayMessageService.dismissAllNotifications();
     return from(
       this.fireAuth.signInWithEmailAndPassword( email, password )
     ).pipe(

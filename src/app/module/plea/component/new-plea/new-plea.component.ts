@@ -4,10 +4,9 @@ import { interval, Observable, Subject } from 'rxjs';
 import { debounce, map, mergeMap, switchMap, tap } from 'rxjs/operators';
 import { FADE_IN_OUT_LIST, SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../shared/animations';
 import { Router } from '@angular/router';
-import { Company, Plea, Product } from '@shared/model';
 import { CompanyService, FirebaseStorageService, PleaService, ProductService } from '@core/service';
 import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loading-wrapper.model';
-import {IPlea} from 'pleagan-model';
+import {CreateCompanyDto, CreatePleaDto, CreateProductDto, GetPleaDto} from '@shared/model';
 
 @Component({
   selector: 'app-new-plea',
@@ -17,7 +16,7 @@ import {IPlea} from 'pleagan-model';
 })
 export class NewPleaComponent {
   querySource$: Subject<string> = new Subject<string>();
-  similarPleas$: Observable<Plea[]>;
+  similarPleas$: Observable<GetPleaDto[]>;
   pleaInSuggestions: boolean;
   newPleaForm = new FormGroup({
     company: new FormControl('', Validators.required),
@@ -28,7 +27,7 @@ export class NewPleaComponent {
   });
   existingPleaCheckStatus: HTTP_LOADING_STATUS;
   savingPleaStatus: HTTP_LOADING_STATUS;
-  submitted: boolean = false;
+  submitted = false;
   imagePreview: string;
   imageFile: File;
 
@@ -51,27 +50,19 @@ export class NewPleaComponent {
   submit( form: FormGroup ): void {
     this.savingPleaStatus = HTTP_LOADING_STATUS.LOADING;
     this.submitted = true;
-    const product = new Product();
-    product.name = form.value.product;
-
-    const company = new Company();
-    company.name = form.value.company;
-
-    const plea = new Plea();
-    plea.description = form.value.description;
-    plea.company = company;
-    plea.nonVeganProduct = product;
 
     this.firebaseStorageService
       .uploadFile( this.imageFile )
       .pipe(
         mergeMap(( imageUrl: string ) => {
-          product.imageUrl = imageUrl;
+          const product = new CreateProductDto( form.value.product, imageUrl );
+          const company = new CreateCompanyDto( form.value.company );
+          const plea = new CreatePleaDto( product, company, form.value.description );
 
           return this.pleaService.createPlea(plea);
         }),
         map(({ id }: { id: number }) => {
-          this.router.navigate( ['/', 'plea', id, 'details'] )
+          this.router.navigate( ['/', 'plea', id, 'details'] );
         }),
       )
       .subscribe( { error: () => {

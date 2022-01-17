@@ -3,9 +3,9 @@ import { AuthService } from '../../../core/service/auth/auth.service';
 import { PleaService } from '@core/service';
 import { PleaganService } from '@core/service';
 import { Observable } from 'rxjs';
-import {Plea, Pleagan} from '@shared/model';
 import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loading-wrapper.model';
 import {map, shareReplay, tap} from 'rxjs/operators';
+import {GetPleaDto} from '@shared/model';
 
 @Component({
   selector: 'app-profile',
@@ -14,8 +14,8 @@ import {map, shareReplay, tap} from 'rxjs/operators';
 })
 export class ProfileComponent {
   profilePictureImgSrc = '/assets/images/dolphin.jpg';
-  pleas$: Observable<Plea[]>;
-  supportedPleas$: Observable<Plea[]>;
+  pleas$: Observable<GetPleaDto[]>;
+  supportedPleas$: Observable<GetPleaDto[]>;
   numberOfInitiatedPleas$: Observable<number>;
   numberOfSupportedPleas$: Observable<number>;
 

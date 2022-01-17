@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {Plea, Support} from '@shared/model';
 import {PleaService} from '@core/service';
+import { GetPleaDto } from '@shared/model';
 
 @Component({
   selector: 'app-plea-support-button',
@@ -9,7 +9,7 @@ import {PleaService} from '@core/service';
   styleUrls: ['./plea-support-button.component.scss'],
 })
 export class PleaSupportButtonComponent {
-  @Input() plea: Plea;
+  @Input() plea: GetPleaDto;
   @Input() userHasSupported: boolean = false;
   @Output() hasSupported: EventEmitter<void> = new EventEmitter<void>();
   supportModalIsOpen = false;

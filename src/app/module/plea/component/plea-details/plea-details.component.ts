@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { combineLatest, Observable } from 'rxjs';
 import { SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '@shared/animations';
 import { AuthService, PleaService } from '@core/service';
-import { Plea, Pleagan, Support } from '@shared/model';
 import { map, shareReplay } from 'rxjs/operators';
 import firebase from 'firebase/app';
 import User = firebase.User;
 import { filterNullOrUndefined } from '@shared/operator';
+import { GetPleaDto, GetSupportDto } from '@shared/model';
 
 @Component({
   selector: 'app-submission-details',
@@ -22,14 +22,14 @@ export class PleaDetailsComponent {
 
   retractReason: string = 'already-exists';
 
-  plea$: Observable<Plea>;
+  plea$: Observable<GetPleaDto>;
   pleaganUid$: Observable<string>;
   userIsInitiator$: Observable<boolean>;
   userHasSupported$: Observable<boolean>;
   // Select elements in modals
   reportReason: string = 'inappropriate-content';
 
-  private pleaganAndPlea$: Observable<[User | null, Plea]>;
+  private pleaganAndPlea$: Observable<[User | null, GetPleaDto]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -80,7 +80,7 @@ export class PleaDetailsComponent {
     );
   }
 
-  private userInSupports( uid: string, supports: Support[]): boolean {
-    return !!supports.find( ( support: Support ) => support.pleagan.uid === uid );
+  private userInSupports( uid: string, supports: GetSupportDto[]): boolean {
+    return !!supports.find( ( support: GetSupportDto ) => support.pleagan.uid === uid );
   }
 }

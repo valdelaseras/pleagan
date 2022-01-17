@@ -4,8 +4,8 @@ import { mockPleagans } from './mockdata/data';
 import { mockCompanies } from './mockdata/data';
 import firebase from 'firebase/app';
 import User = firebase.User;
-import { Company, Plea } from '@shared/model';
 import { AuthService, CompanyService, PleaService } from '@core/service';
+import { GetCompanyDto, GetPleaDto } from '@shared/model';
 
 @Component({
   selector: 'app-statistics',
@@ -15,8 +15,8 @@ import { AuthService, CompanyService, PleaService } from '@core/service';
 export class StatisticsComponent {
   // temporary
   datasetOptions: string = 'pleas';
-  pleas$: Observable<Plea[]>;
-  companies$: Observable<Company[]>;
+  pleas$: Observable<GetPleaDto[]>;
+  companies$: Observable<GetCompanyDto[]>;
   user$: Observable<User | null>;
 
   // Some random options for graph and chart demos
