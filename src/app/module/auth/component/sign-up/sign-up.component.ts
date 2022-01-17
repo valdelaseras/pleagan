@@ -10,6 +10,7 @@ import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loa
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent {
+  imgSrc = '/assets/images/placeholder-four.jpg';
   signUpStatus: HTTP_LOADING_STATUS;
   form = new FormGroup({
     email: new FormControl('', Validators.required),

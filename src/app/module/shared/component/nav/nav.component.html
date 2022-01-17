@@ -15,42 +15,42 @@
               <section class="menu-section">
                 <ul class="menu-list">
                   <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']">
-                    <a title="all pleas">All pleas</a>
-                  </li>
-                </ul>
-              </section>
-              <section class="menu-section" *ngIf="authService.user$ | async as user">
-                <ul class="menu-list">
-                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'profile']">
-                    <a title="profile">Profile</a>
-<!--                    <ul class="menu-sub-link-list desktop-only">-->
-<!--                      <li>-->
-<!--                        <p>My pleas</p>-->
-<!--                      </li>-->
-<!--                      <li>-->
-<!--                        <p>My supported pleas</p>-->
-<!--                      </li>-->
-<!--                      <li>-->
-<!--                        <p>My news</p>-->
-<!--&lt;!&ndash;                        achievements?&ndash;&gt;-->
-<!--                      </li>-->
-<!--                    </ul>-->
-                  </li>
-                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'settings']">
-                    <a title="settings">Settings</a>
+                    <a title="all pleas" class="bordered-text bold">browse pleas</a>
                   </li>
                 </ul>
               </section>
               <section class="menu-section">
                 <ul class="menu-list">
                   <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']">
-                    <a title="spotlight">Spotlight</a>
+                    <a title="spotlight">spotlight</a>
                   </li>
                   <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'statistics']">
-                    <a title="statistics">Statistics</a>
+                    <a title="statistics">statistics</a>
                   </li>
                   <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'news']">
-                    <a title="news">News</a>
+                    <a title="news">news</a>
+                  </li>
+                </ul>
+              </section>
+              <section class="menu-section" *ngIf="authService.user$ | async as user">
+                <ul class="menu-list">
+                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'profile']">
+                    <a title="profile">profile</a>
+                    <!--                    <ul class="menu-sub-link-list desktop-only">-->
+                    <!--                      <li>-->
+                    <!--                        <p>My pleas</p>-->
+                    <!--                      </li>-->
+                    <!--                      <li>-->
+                    <!--                        <p>My supported pleas</p>-->
+                    <!--                      </li>-->
+                    <!--                      <li>-->
+                    <!--                        <p>My news</p>-->
+                    <!--&lt;!&ndash;                        achievements?&ndash;&gt;-->
+                    <!--                      </li>-->
+                    <!--                    </ul>-->
+                  </li>
+                  <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'user', 'settings']">
+                    <a title="settings">settings</a>
                   </li>
                 </ul>
               </section>
@@ -58,19 +58,19 @@
                 <ul class="menu-list">
 <!--                  todo: home #about-section-->
                   <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'about']">
-                    <a title="about">About</a>
+                    <a title="about">about</a>
                   </li>
                   <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'faq']">
-                    <a title="faq">FAQ</a>
+                    <a title="faq">faq</a>
                   </li>
                   <li class="menu-link" [routerLinkActive]="'active'" [routerLink]="['/', 'contact']">
-                    <a title="contact">Contact</a>
+                    <a title="contact">contact</a>
                   </li>
                 </ul>
               </section>
               <section class="menu-section user-state">
                 <p *showOnAuth="false">
-                  Please <a class="underlined" [routerLink]="['/', 'auth', 'login']">log in</a> or
+                  please <a class="underlined" [routerLink]="['/', 'auth', 'login']">log in</a> or
                   <a class="underlined" [routerLink]="['/', 'auth', 'sign-up']">sign up</a> to initiate and support pleas
                 </p>
                 <!--              <p *showOnAuth="true">-->

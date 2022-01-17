@@ -1,4 +1,4 @@
-<section id="profile-section">
+<section id="profile-section" *ngIf="authService.user$ | async as user">
   <div class="section-content">
     <div class="grid">
       <div class="column">
@@ -22,17 +22,17 @@
             </ul>
           </div>
           <div class="content desktop-only">
-            <h1>Username</h1>
+            <h3>{{ user.displayName }}</h3>
           </div>
           <div class="content">
             <ul class="space-between-list">
               <li>
                 <p class="bold">Username</p>
-                <p>dolphinOnKeys</p>
+                <p>{{user.displayName}}</p>
               </li>
               <li>
                 <p class="bold">Initiated pleas</p>
-                <p>12</p>
+                <p>{{numberOfInitiatedPleas$ | async}}</p>
               </li>
               <li>
                 <p class="bold">Complied initiated pleas</p>
@@ -40,7 +40,7 @@
               </li>
               <li>
                 <p class="bold">Supported pleas</p>
-                <p>547</p>
+                <p>{{numberOfSupportedPleas$ | async}}</p>
               </li>
               <li>
                 <p class="bold">Complied supported pleas</p>
@@ -51,167 +51,35 @@
         </div>
         <div class="column">
           <div class="content">
-            <ul class="card-list">
-              <li>
-                <div class="card simple-card">
-                  <h2 class="simple-card-title">
-<!--                    todo: if not owner of profile: username's pleas-->
-                    My pleas
-                  </h2>
-                  <div class="simple-card-content">
-<!--                    ngif user has no pleas-->
-<!--                    <p>You haven't initiated any pleas yet</p>-->
-<!--                    else show latest 3 pleas in mini card + 'see all' if more than 3-->
-                    <div class="card-preview-list">
-
-                      <a class="card mini-card" title="" [routerLink]="" [routerLinkActive]="'active'">
-                        <div class="mini-card-img">
-<!--                          <img src="" alt=""/>-->
-                          <div class="temp-box"></div>
-                        </div>
-                        <div class="mini-card-title">
-                          <h3>Line-clamped title</h3>
-                        </div>
-                      </a>
-
-                      <a class="card mini-card" title="" [routerLink]="" [routerLinkActive]="'active'">
-                        <div class="mini-card-img">
-                          <!--                          <img src="" alt=""/>-->
-                          <div class="temp-box"></div>
-                        </div>
-                        <div class="mini-card-title">
-                          <h3>Line-clamped title</h3>
-                        </div>
-                      </a>
-
-                      <a class="card mini-card" title="" [routerLink]="" [routerLinkActive]="'active'">
-                        <div class="mini-card-img">
-                          <!--                          <img src="" alt=""/>-->
-                          <div class="temp-box"></div>
-                        </div>
-                        <div class="mini-card-title">
-                          <h3>Line-clamped title</h3>
-                        </div>
-                      </a>
-
-                    </div>
-                  </div>
-                  <!--                    ng if more than 3-->
-                  <footer class="card simple-card-footer align-right">
-                    <a title="" [routerLink]="" [routerLinkActive]="'active'">
-                      View all
-                    </a>
-                  </footer>
-                </div>
-              </li>
-              <li>
-                <div class="card simple-card">
-                  <h2 class="simple-card-title">
-<!--                    todo: if not owner of profile: username's supported pleas-->
-                    My supported pleas
-                  </h2>
-                  <div class="simple-card-content">
-<!--                    ngif user has no supported pleas-->
-<!--                    <p>You haven't supported any pleas yet</p>-->
-<!--                    else show latest 3 pleas in mini card + 'see all if more than 3-->
-                    <div class="card-preview-list">
-
-                      <a class="card mini-card" title="" [routerLink]="" [routerLinkActive]="'active'">
-                        <div class="mini-card-img">
-                          <!--                          <img src="" alt=""/>-->
-                          <div class="temp-box"></div>
-                        </div>
-                        <div class="mini-card-title">
-                          <h3>Line-clamped title</h3>
-                        </div>
-                      </a>
-
-                      <a class="card mini-card" title="" [routerLink]="" [routerLinkActive]="'active'">
-                        <div class="mini-card-img">
-                          <!--                          <img src="" alt=""/>-->
-                          <div class="temp-box"></div>
-                        </div>
-                        <div class="mini-card-title">
-                          <h3>Line-clamped title</h3>
-                        </div>
-                      </a>
-
-                      <a class="card mini-card" title="" [routerLink]="" [routerLinkActive]="'active'">
-                        <div class="mini-card-img">
-                          <!--                          <img src="" alt=""/>-->
-                          <div class="temp-box"></div>
-                        </div>
-                        <div class="mini-card-title">
-                          <h3>Line-clamped title</h3>
-                        </div>
-                      </a>
-
-                    </div>
-                  </div>
-                  <!--                    ng if more than 3-->
-                  <footer class="card simple-card-footer align-right">
-                    <a title="" [routerLink]="" [routerLinkActive]="'active'">
-                      View all
-                    </a>
-                  </footer>
-                </div>
-              </li>
-<!--              todo: ngif owner of profile-->
-              <li>
-                <div class="card simple-card">
-                  <h2 class="simple-card-title">
-                    My news
-<!--                    todo: consider changing to 'achievements' or something instead of news?-->
-<!--                    more engaging and fun for people to see what they have achieved with their supports and-->
-<!--                    pleas. Other users may view these achievements as well. If I go down this route, this one -->
-<!--                    should be on top of these 3 in the 'quick menu'-->
-                  </h2>
-                  <div class="simple-card-content">
-                    <!--                    ngif user has no news-->
-<!--                    <p>There is no news for you yet</p>-->
-                    <div class="card-preview-list">
-
-                      <a class="card mini-card" title="" [routerLink]="" [routerLinkActive]="'active'">
-                        <div class="mini-card-img">
-                          <!--                          <img src="" alt=""/>-->
-                          <div class="temp-box"></div>
-                        </div>
-                        <div class="mini-card-title">
-                          <h3>Line-clamped title</h3>
-                        </div>
-                      </a>
-
-                      <a class="card mini-card" title="" [routerLink]="" [routerLinkActive]="'active'">
-                        <div class="mini-card-img">
-                          <!--                          <img src="" alt=""/>-->
-                          <div class="temp-box"></div>
-                        </div>
-                        <div class="mini-card-title">
-                          <h3>Line-clamped title</h3>
-                        </div>
-                      </a>
-
-                      <a class="card mini-card" title="" [routerLink]="" [routerLinkActive]="'active'">
-                        <div class="mini-card-img">
-                          <!--                          <img src="" alt=""/>-->
-                          <div class="temp-box"></div>
-                        </div>
-                        <div class="mini-card-title">
-                          <h3>Line-clamped title</h3>
-                        </div>
-                      </a>
-
-                    </div>
-                  </div>
-                  <!--                    ng if more than 3-->
-                  <footer class="card simple-card-footer align-right">
-                    <a title="" [routerLink]="" [routerLinkActive]="'active'">
-                      View all
-                    </a>
-                  </footer>
-                </div>
-              </li>
-            </ul>
+            <h4>My pleas</h4>
+          </div>
+          <div *ngIf="pleas$ | async as pleas">
+            <app-pleas-list [pleas]="pleas"></app-pleas-list>
+            <div class="content">
+              <p *ngIf="pleas.length === 0">You haven't initiated any pleas yet</p>
+              <a title="" [routerLink]="" [routerLinkActive]="'active'" *ngIf="pleas.length > 3">
+                View all
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <h4>My supported pleas</h4>
+          </div>
+          <div *ngIf="supportedPleas$ | async as supportedPleas">
+            <app-pleas-list [pleas]="supportedPleas"></app-pleas-list>
+            <div class="content">
+              <p *ngIf="supportedPleas.length === 0">You haven't supported any pleas yet</p>
+              <a title="" [routerLink]="" [routerLinkActive]="'active'" *ngIf="supportedPleas.length > 3">
+                View all
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <h4>My news</h4>
           </div>
         </div>
       </div>

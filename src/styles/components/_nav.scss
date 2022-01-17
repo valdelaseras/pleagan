@@ -2,8 +2,6 @@
 #nav {
   position: fixed;
   top: 0;
-  //margin: 0 auto;
-  //max-width: 1266px;
   left: 0;
   right: 0;
   height: 60px;
@@ -11,6 +9,8 @@
   box-sizing: border-box;
   justify-content: space-between;
   background-color: var(--primary-color);
+  //background-color: #ddd6d6;
+  //background-color: #90af8d;
   box-shadow: 0 -8px 10px 5px rgba(0, 0, 0, 0.35);
   z-index: 10;
 }
@@ -126,12 +126,19 @@
 .menu {
   position: fixed;
   top: 0;
-  bottom: 0;
+  bottom: 80px;
   left: -100%;
   width: 85vw;
   padding-top: 60px;
-  transition: 550ms ease-in-out;
-  background-color: var(--tertiary-color);
+  transition: 150ms ease-in-out;
+  //background-color: var(--tertiary-color);
+  //background-color: #3bbde5;
+  background-color: #e53b68;
+  //background-color: #633be5;
+  //background-color: #e5b83b;
+  //background-color: #448b57;
+  //background-color: #e5633b;
+  border-bottom-right-radius: 90px;
   z-index: -5;
 }
 
@@ -142,12 +149,15 @@
 @media only screen and (min-width: 768px) {
   .menu {
     width: 30vw;
+    height: auto;
+    padding-bottom: 60px;
+    bottom: auto;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .menu {
-    width: 18vw;
+    width: 17.5vw;
   }
 }
 /*@end menu*/
@@ -190,11 +200,19 @@
 /*@start menu list li*/
 .menu-list > li:hover,
 .menu-list > li:focus,
-.menu-list > li:focus-within,
-.menu-list > li:active {
-  background-color: var(--primary-color);
-  padding-left: 60px;
+.menu-list > li:focus-within {
+  padding-left: 30px;
+  font-weight: bold;
   cursor: pointer;
+  outline: none;
+}
+
+.menu-list > li.active {
+  background-color: var(--primary-color);
+
+  a {
+    color: var(--secondary-color)
+  }
 }
 
 .menu-list > li {
@@ -206,6 +224,7 @@
 
 .menu-list > li a {
   font-size: 1.15rem;
+  color: var(--primary-color);
 }
 /*@end menu list li*/
 

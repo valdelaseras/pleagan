@@ -49,6 +49,13 @@ p {
 
 
 
+/*@start text styles*/
+.italic {
+  font-style: italic;
+}
+/*@end text styles*/
+
+
 
 /*@start danger text*/
 .danger-text {
@@ -58,4 +65,19 @@ p {
 
 
 
+/*@start bordered text*/
+.bordered-text {
+  border-bottom: 1px solid var(--primary-color);
+  padding: 5px 0;
+}
+/*@end bordered text*/
 
+
+
+/*@start small*/
+small {
+  padding: 10px 0;
+  display: block;
+  font-size: .8rem;
+}
+/*@end small*/

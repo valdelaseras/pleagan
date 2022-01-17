@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { IPlea } from 'pleagan-model';
-import { map } from 'rxjs/operators';
+import {map, shareReplay} from 'rxjs/operators';
 import { JsonConvertService } from '../json-convert/json-convert.service';
 import { ISupport } from 'pleagan-model/dist/model/plea/base/support.interface';
 import { Plea, Support } from '@shared/model';
@@ -37,6 +37,7 @@ export class PleaService {
           return [];
         }
       }),
+      shareReplay(1)
     );
   }
 
@@ -50,6 +51,7 @@ export class PleaService {
           return [];
         }
       }),
+      shareReplay(1)
     );
   }
 

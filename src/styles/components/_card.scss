@@ -131,87 +131,87 @@ progress[value]::-webkit-progress-value {
 }
 /*@end plea card*/
 
-
-
-/*@start simple card*/
-.simple-card {
-  transition: all 200ms;
-  background-color: transparent;
-}
-
-.simple-card-title {
- font-size: 1.5rem;
-}
-
-.simple-card-content {
-  padding: 10px 0;
-}
-
-.card-list > li:not(:last-child){
-  margin-bottom: 10px;
-}
-
-.simple-card-footer {
-  background-color: transparent;
-  padding: 10px 0;
-}
-/*@end simple card*/
-
-
-
-/*@start mini card*/
-.card.mini-card {
-  background-color: var(--primary-color);
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.mini-card-title {
-  padding: 10px 0;
-  //line clamp
-}
-
-.mini-card-title h3 {
-  font-size: 1rem;
-}
-
-//.card.mini-card:hover,
-//.card.mini-card:active,
-//.card.mini-card:focus,
-//.card.mini-card:focus-within {
-//  ...
+//
+//
+///*@start simple card*/
+//.simple-card {
+//  transition: all 200ms;
+//  background-color: transparent;
 //}
-
-@media only screen and (min-width: 768px){
-  .card.mini-card {
-    margin-bottom: 0;
-    width: calc( 33% - 6px );
-  }
-}
-/*@end mini card*/
-
-
-/*@start card preview list*/
-.card-preview-list {
-  margin: 10px 0 0;
-  display: flex;
-  flex-direction: column;
-}
-
-@media only screen and (min-width: 768px){
-  .card-preview-list {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-/*@end card preview list*/
-
-/*@start plea card card title*/
-//cut off text if too long
-/*@end plea card card title*/
-
-.temp-box {
-  width: 100%;
-  background-color: var(--quaternary-color);
-  height: 175px; // just placeholder, img should just be 100% width auto height and that should all be the same height
-}
+//
+//.simple-card-title {
+// font-size: 1.5rem;
+//}
+//
+//.simple-card-content {
+//  padding: 10px 0;
+//}
+//
+//.card-list > li:not(:last-child){
+//  margin-bottom: 10px;
+//}
+//
+//.simple-card-footer {
+//  background-color: transparent;
+//  padding: 10px 0;
+//}
+///*@end simple card*/
+//
+//
+//
+///*@start mini card*/
+//.card.mini-card {
+//  background-color: var(--primary-color);
+//  display: inline-block;
+//  margin-bottom: 10px;
+//}
+//
+//.mini-card-title {
+//  padding: 10px 0;
+//  //line clamp
+//}
+//
+//.mini-card-title h3 {
+//  font-size: 1rem;
+//}
+//
+////.card.mini-card:hover,
+////.card.mini-card:active,
+////.card.mini-card:focus,
+////.card.mini-card:focus-within {
+////  ...
+////}
+//
+//@media only screen and (min-width: 768px){
+//  .card.mini-card {
+//    margin-bottom: 0;
+//    width: calc( 33% - 6px );
+//  }
+//}
+///*@end mini card*/
+//
+//
+///*@start card preview list*/
+//.card-preview-list {
+//  margin: 10px 0 0;
+//  display: flex;
+//  flex-direction: column;
+//}
+//
+//@media only screen and (min-width: 768px){
+//  .card-preview-list {
+//    flex-direction: row;
+//    justify-content: space-between;
+//  }
+//}
+///*@end card preview list*/
+//
+///*@start plea card card title*/
+////cut off text if too long
+///*@end plea card card title*/
+//
+//.temp-box {
+//  width: 100%;
+//  background-color: var(--quaternary-color);
+//  height: 175px; // just placeholder, img should just be 100% width auto height and that should all be the same height
+//}

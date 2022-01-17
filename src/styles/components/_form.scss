@@ -52,10 +52,15 @@ select {
 textarea {
   display: block;
   width: 100%;
-  padding: 5px;
+  padding: 10px;
   background: #f4f4f4;
   border: none;
   border-radius: 5px;
   margin: 1rem 0;
+  box-sizing: border-box;
+}
+
+textarea::placeholder {
+  font-size: .8rem;
 }
 /*@end textarea*/

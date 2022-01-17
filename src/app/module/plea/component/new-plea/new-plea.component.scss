@@ -6,6 +6,19 @@ img {
 
 
 
+/*@start form elements*/
+input:focus,
+input:focus-within,
+input:active,
+textarea:focus,
+textarea:focus-within,
+textarea:active {
+  outline: none;
+}
+/*@end form elements*/
+
+
+
 /*@start suggestion-list*/
 .suggestion-list {
   margin: 1rem 0;
@@ -17,7 +30,20 @@ img {
 /*@end suggestion-list*/
 
 
+
 /*@start file upload*/
+input[type="file"] {
+  display: none;
+}
+
+.file-upload-container > label:first-child {
+  display: block;
+}
+
+.custom-file-upload {
+  margin-top: 10px;
+}
+
 // also note margin below image preview
 //.file-upload-container {}
 //input[type="file"]{}
