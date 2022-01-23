@@ -1,0 +1,14 @@
+img {
+  width: 100%;
+}
+
+.supporters-messages-list > li {
+  background-color: var(--quaternary-color);
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-bottom: 1rem;
+
+  p {
+    color: var(--primary-color);
+  }
+}

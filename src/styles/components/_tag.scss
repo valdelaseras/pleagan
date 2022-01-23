@@ -1,0 +1,20 @@
+.ingredient-tags-list {
+  margin: 20px 0 0 0;
+}
+
+.ingredient-tags-list > li {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: var(--secondary-color);
+  border-radius: 4px;
+
+  span {
+    color: var(--primary-color);
+  }
+}
+
+.ingredient-tags-list > li:not(:last-child) {
+  margin-right: 10px;
+}
+
+

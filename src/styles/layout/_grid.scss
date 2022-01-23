@@ -19,4 +19,10 @@
     max-width: 62vw;
   }
 }
+
+@media only screen and ( min-width: 2560px ) {
+  .grid {
+    max-width: 50vw;
+  }
+}
 /* @end grid */

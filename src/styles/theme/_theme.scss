@@ -8,6 +8,7 @@
   //--quaternary-color: #dd8449;
   //--quaternary-color: #dd7849;
   --quaternary-color: #e5633b;
+  --quinary-color: #e53b68;
 
   //greenish to colder more cyan
   //--quaternary-color: #248124;
@@ -44,6 +45,11 @@ html {
   background-color: var(--quaternary-color);
 }
 
+.theme-quinary {
+  background-color: var(--quinary-color);
+}
+
 .font-quaternary {
   color: var(--quaternary-color);
 }
+
