@@ -57,5 +57,7 @@ export class PleasDataSource
   }
 
   // Required implementation of method used by abstract data source
-  protected mapObjectToListItem = mapPleaToListItem;
+  protected mapObjectToListItem( plea: GetPleaDto ): PleaListItem {
+    return mapPleaToListItem( plea );
+  }
 }
