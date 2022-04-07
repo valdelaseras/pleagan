@@ -4,7 +4,7 @@ import { FabButtonComponent } from './fab-button/fab-button.component';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NavComponent } from './nav/nav.component';
-import { SearchBoxComponent } from './search-box/search-box.component';
+import { SearchFieldComponent } from './search-field/search-field.component';
 
 export const components = [
   AppContainerComponent,
@@ -13,7 +13,7 @@ export const components = [
   LoadingIndicatorComponent,
   NotificationComponent,
   NavComponent,
-  SearchBoxComponent
+  SearchFieldComponent
 ];
 
 export * from './app-container/app-container.component';
@@ -22,4 +22,4 @@ export * from './fab-button/fab-button.component';
 export * from './loading-indicator/loading-indicator.component';
 export * from './notification/notification.component';
 export * from './nav/nav.component';
-export * from './search-box/search-box.component';
+export * from './search-field/search-field.component';

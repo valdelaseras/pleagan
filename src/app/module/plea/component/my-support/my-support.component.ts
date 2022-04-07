@@ -14,7 +14,7 @@ export class MySupportComponent {
   pleas$: Observable<GetPleaDto[]>;
   pleaStatus: HTTP_LOADING_STATUS = HTTP_LOADING_STATUS.LOADING;
   constructor(private pleaService: PleaService) {
-    this.pleas$ = this.pleaService.getPleasISupport().pipe(
+    this.pleas$ = this.pleaService.getSupported().pipe(
       tap( _ => this.pleaStatus = HTTP_LOADING_STATUS.FINISHED )
     );
   }

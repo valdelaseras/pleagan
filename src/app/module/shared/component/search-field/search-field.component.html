@@ -1,9 +1,8 @@
-<form class="search-box">
+<div class="search-box">
   <img src="{{ iconSrc }}" alt="search icon"/>
   <input
-    type="search"
-    name="query"
+    type="text"
     autocomplete="off"
-    (keyup)="updateQuery($event)"
+    [formControl]="control"
     placeholder="Search by product or company name"/>
-</form>
+</div>

@@ -1,22 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { JsonConvertService } from '../json-convert/json-convert.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '@env/*';
 import { GetProductDto } from '@shared/model';
+import { ApiService, GenericParams } from '@core/service/abstract-api/api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
-  constructor(private http: HttpClient, private convertService: JsonConvertService) {}
+export class ProductService extends ApiService<GetProductDto> {
+  constructor(
+    protected http: HttpClient
+  ) {
+    super( http );
+  }
 
-  getProducts(): Observable<GetProductDto[]> {
+  get( params: GenericParams ): Observable<GetProductDto[]> {
     return this.http.get<GetProductDto[]>(`${environment.apiBaseUrl}/product/all`).pipe(
       map((companies: GetProductDto[]) => {
         try {
-          return this.convertService.parseArray(companies, GetProductDto);
+          return this.parseArray(companies, GetProductDto);
         } catch (e) {
           console.log(e);
           return [];

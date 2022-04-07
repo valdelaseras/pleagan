@@ -1,30 +1,24 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { interval, Observable, Subject } from 'rxjs';
+import { combineLatest, interval, Observable, Subject } from 'rxjs';
 import { debounce, map, mergeMap, switchMap, tap } from 'rxjs/operators';
-import { FADE_IN_OUT_LIST, SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '../../../shared/animations';
+import { FADE_IN_OUT_LIST, SWIPE_IN_BELOW_SWIPE_OUT_TOP } from '@shared/animations';
 import { Router } from '@angular/router';
 import { CompanyService, FirebaseStorageService, PleaService, ProductService } from '@core/service';
 import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loading-wrapper.model';
 import {CreateCompanyDto, CreatePleaDto, CreateProductDto, GetPleaDto} from '@shared/model';
+import { mapPleaToListItem, PleaListItem } from '../pleas-container/pleas.data-source';
 
 @Component({
-  selector: 'app-new-plea',
-  templateUrl: './new-plea.component.html',
-  styleUrls: ['./new-plea.component.scss'],
+  selector: 'app-create-plea',
+  templateUrl: './create-plea.component.html',
+  styleUrls: ['./create-plea.component.scss'],
   animations: [SWIPE_IN_BELOW_SWIPE_OUT_TOP, FADE_IN_OUT_LIST],
 })
-export class NewPleaComponent {
-  querySource$: Subject<string> = new Subject<string>();
-  similarPleas$: Observable<GetPleaDto[]>;
-  pleaInSuggestions: boolean;
-  newPleaForm = new FormGroup({
-    company: new FormControl('', Validators.required),
-    product: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required),
-    companyContact: new FormControl(''),
-    productImage: new FormControl(null, [Validators.required]),
-  });
+export class CreatePleaComponent implements OnInit {
+  similarPleas: Observable<PleaListItem[]>;
+
+  form: FormGroup;
   existingPleaCheckStatus: HTTP_LOADING_STATUS;
   savingPleaStatus: HTTP_LOADING_STATUS;
   submitted = false;
@@ -34,16 +28,35 @@ export class NewPleaComponent {
   constructor(
     private productService: ProductService,
     private companyService: CompanyService,
-    private pleaService: PleaService,
     private router: Router,
     private firebaseStorageService: FirebaseStorageService,
     private cd: ChangeDetectorRef,
-  ) {
-    this.similarPleas$ = this.querySource$.pipe(
-      tap( () => this.existingPleaCheckStatus = HTTP_LOADING_STATUS.LOADING),
+
+    private pleaService: PleaService,
+  ) {}
+
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  private initForm(): void {
+    this.form = new FormGroup({
+      companyName: new FormControl('', Validators.required),
+      productName: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      companyContact: new FormControl(''),
+      productImage: new FormControl(null, [Validators.required]),
+    });
+
+    this.similarPleas = combineLatest([
+      this.form.get( 'companyName' )!.valueChanges,
+      this.form.get( 'productName' )!.valueChanges
+    ]).pipe(
       debounce(() => interval(1000)),
-      switchMap(this.pleaService.searchPleas),
-      tap( () => this.existingPleaCheckStatus = HTTP_LOADING_STATUS.FINISHED),
+      switchMap( ([ companyName, productName ]) => this.pleaService.get({ companyName, productName })),
+      map( ( pleas: GetPleaDto[] ) => (
+        pleas.map( mapPleaToListItem )
+      ))
     );
   }
 
@@ -59,11 +72,11 @@ export class NewPleaComponent {
           const company = new CreateCompanyDto( form.value.company );
           const plea = new CreatePleaDto( product, company, form.value.description );
 
-          return this.pleaService.createPlea(plea);
+          return this.pleaService.create(plea);
         }),
-        map(({ id }: { id: number }) => {
-          this.router.navigate( ['/', 'plea', id, 'details'] );
-        }),
+        // map(({ id }: { id: number }) => {
+        //   this.router.navigate( ['/', 'plea', id, 'details'] );
+        // }),
       )
       .subscribe( { error: () => {
           this.submitted = false;
@@ -71,14 +84,14 @@ export class NewPleaComponent {
       }});
   }
 
-  searchSimilarPleas(): void {
-    const companyName = this.newPleaForm.get('company')?.value;
-    const productName = this.newPleaForm.get('product')?.value;
-
-    if (companyName && productName) {
-      this.querySource$.next(this.getSearchQuery());
-    }
-  }
+  // searchSimilarPleas(): void {
+  //   const companyName = this.form.get('company')?.value;
+  //   const productName = this.form.get('product')?.value;
+  //
+  //   if (companyName && productName) {
+  //     this.querySource$.next(this.getSearchQuery());
+  //   }
+  // }
 
   onFileChange( files: File[] ): void {
     const reader = new FileReader();
@@ -97,10 +110,10 @@ export class NewPleaComponent {
     }
   }
 
-  private getSearchQuery(): string {
-    const companyName = this.newPleaForm.get('company')!.value;
-    const productName = this.newPleaForm.get('product')!.value;
-
-    return `${companyName} ${productName}`;
-  }
+  // private getSearchQuery(): string {
+  //   const companyName = this.form.get('company')!.value;
+  //   const productName = this.form.get('product')!.value;
+  //
+  //   return `${companyName} ${productName}`;
+  // }
 }

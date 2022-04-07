@@ -1,13 +1,13 @@
 <!--todo: capitalize names etc-->
 <a [routerLink]="['/plea', plea.id, 'details']" class="card plea-card clickable">
   <div class="card-header">
-    <p class="card-title">{{ plea.nonVeganProduct.name }}</p>
+    <p class="card-title">{{ plea.productName }}</p>
   </div>
 
   <div class="card-img">
-    <span class="card-tag">by {{ plea.company.name }}</span>
+    <span class="card-tag">by {{ plea.companyName }}</span>
     <img (load)="$event.target['classList'].add('loaded')"
-         src="{{ plea.nonVeganProduct.imageUrl }}"
+         src="{{ plea.productImage }}"
          alt="product image"/>
 <!--    <div class="ph-item">-->
 <!--      <div class="ph-picture"></div>-->

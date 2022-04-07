@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewPleaComponent } from './new-plea.component';
+import { SearchFieldComponent } from './search-box.component';
 
-describe('NewSubmissionComponent', () => {
-  let component: NewPleaComponent;
-  let fixture: ComponentFixture<NewPleaComponent>;
+describe('SearchBoxComponent', () => {
+  let component: SearchFieldComponent;
+  let fixture: ComponentFixture<SearchFieldComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NewPleaComponent],
+      declarations: [SearchFieldComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewPleaComponent);
+    fixture = TestBed.createComponent(SearchFieldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

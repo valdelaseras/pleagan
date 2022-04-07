@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AllPleasComponent } from './all-pleas.component';
+import { CreatePleaComponent } from './new-plea.component';
 
-describe('SubmissionsComponent', () => {
-  let component: AllPleasComponent;
-  let fixture: ComponentFixture<AllPleasComponent>;
+describe('NewSubmissionComponent', () => {
+  let component: CreatePleaComponent;
+  let fixture: ComponentFixture<CreatePleaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AllPleasComponent],
+      declarations: [CreatePleaComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AllPleasComponent);
+    fixture = TestBed.createComponent(CreatePleaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

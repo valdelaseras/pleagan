@@ -52,7 +52,7 @@ export class PleaDetailsComponent {
 
   refreshPlea(): void {
     // perform request for data
-    this.plea$ = this.pleaService.getPleaById( parseInt( this.route.snapshot.paramMap.get('pleaId')! ) );
+    this.plea$ = this.pleaService.getById( parseInt( this.route.snapshot.paramMap.get('pleaId')! ) );
 
     this.pleaganUid$ = this.authService.user$.pipe(
       filterNullOrUndefined(),

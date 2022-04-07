@@ -4,7 +4,7 @@ import { JsonConvert, OperationMode, ValueCheckingMode } from 'json2typescript';
 @Injectable({
   providedIn: 'root',
 })
-export class JsonConvertService extends JsonConvert {
+export class JsonConvertService<T> extends JsonConvert {
   constructor() {
     super();
     // this.operationMode = OperationMode.LOGGING;
@@ -12,11 +12,21 @@ export class JsonConvertService extends JsonConvert {
     this.valueCheckingMode = ValueCheckingMode.ALLOW_NULL;
   }
 
-  parseArray<T>(input: object[], type: new () => T): T[] {
-    return this.deserializeArray<T>(input, type);
+  parseArray(input: object[], type: new () => T): T[] {
+    try {
+      return this.deserializeArray<T>(input, type);
+    } catch ( error ) {
+      console.error( error );
+      return [] as T[];
+    }
   }
 
-  parse<T>(input: object, type: new () => T): T {
-    return this.deserializeObject<T>(input, type);
+  parse(input: object, type: new () => T): T {
+    try {
+      return this.deserializeObject<T>(input, type);
+    } catch ( error ) {
+      console.error( error );
+      return null as unknown as T;
+    }
   }
 }

@@ -1,69 +1,59 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import {map, shareReplay} from 'rxjs/operators';
-import { JsonConvertService } from '../json-convert/json-convert.service';
-import { CreatePleaDto, GetPleaDto, GetSupportDto, UpdatePleaDto } from '@shared/model';
+import { catchError, map, tap } from 'rxjs/operators';
+import { CreatePleaDto, GetPleaDto, UpdatePleaDto } from '@shared/model';
 import { environment } from '@env/*';
+import { ApiService, GenericParams } from '@core/service/abstract-api/api.service';
+import { HttpErrorHandlerService } from '@core/service/error/http-error-handler.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PleaService {
-  constructor(private http: HttpClient, private convertService: JsonConvertService) {}
+export class PleaService extends ApiService<GetPleaDto> {
+  constructor(
+    protected http: HttpClient,
+    private httpErrorHandler: HttpErrorHandlerService
+  ) {
+    super( http );
+    this.endpoint += '/plea';
+    this.handleError = httpErrorHandler.createHandleError( 'PleaService' );
+  }
 
-  getPleas(): Observable<GetPleaDto[]> {
-    return this.http.get<GetPleaDto[]>(`${environment.apiBaseUrl}/plea/all`).pipe(
-      map((pleas: GetPleaDto[]) => {
-        try {
-          return this.convertService.parseArray(pleas, GetPleaDto);
-        } catch (e) {
-          console.log(e);
-          return [];
-        }
-      }),
+  get( params?: GenericParams ): Observable<GetPleaDto[]> {
+    this.fetchAll( params );
+    return this.cache.asObservable();
+  }
+
+  getMine(): Observable<GetPleaDto[]> {
+    return this.http.get<GetPleaDto[]>(
+      `${this.endpoint}/mine`
+    ).pipe(
+      map((pleas: GetPleaDto[]) => this.parseArray( pleas, GetPleaDto ) ),
+      catchError( this.handleError( 'getMine', [] ) )
     );
   }
 
-  getMyPleas(): Observable<GetPleaDto[]> {
-    return this.http.get<GetPleaDto[]>(`${environment.apiBaseUrl}/plea/my-pleas`).pipe(
-      map((pleas: GetPleaDto[]) => {
-        try {
-          return this.convertService.parseArray(pleas, GetPleaDto);
-        } catch (e) {
-          console.log(e);
-          return [];
-        }
-      }),
-      shareReplay(1)
+  getSupported(): Observable<GetPleaDto[]> {
+    return this.http.get<GetPleaDto[]>(
+      `${this.endpoint}/supported`
+    ).pipe(
+      map((pleas: GetPleaDto[]) => this.parseArray( pleas, GetPleaDto ) ),
+      catchError( this.handleError( 'getSupported', [] ) ),
     );
   }
 
-  getPleasISupport(): Observable<GetPleaDto[]> {
-    return this.http.get<GetPleaDto[]>(`${environment.apiBaseUrl}/plea/my-supported-pleas`).pipe(
-      map((pleas: GetPleaDto[]) => {
-        try {
-          return this.convertService.parseArray(pleas, GetPleaDto);
-        } catch (e) {
-          console.log(e);
-          return [];
-        }
-      }),
-      shareReplay(1)
-    );
-  }
-
-  getSupportById( id: number ): Observable<GetSupportDto> {
-    return this.http.get<GetSupportDto>( `${environment.apiBaseUrl}/support/${id}` ).pipe(
-      map((support: GetSupportDto) => {
-        try {
-          return this.convertService.parse(support, GetSupportDto);
-        } catch (e) {
-          throw e;
-        }
-      }),
-    );
-  }
+  // getSupportById( id: number ): Observable<GetSupportDto> {
+  //   return this.http.get<GetSupportDto>( `${environment.apiBaseUrl}/support/${id}` ).pipe(
+  //     map((support: GetSupportDto) => {
+  //       try {
+  //         return this.parse(support, GetSupportDto);
+  //       } catch (e) {
+  //         throw e;
+  //       }
+  //     }),
+  //   );
+  // }
 
   // getMySupports(): Observable<Support[]> {
   //   return this.http.get<ISupport[]>(`${environment.apiBaseUrl}/plea/my-supports`).pipe(
@@ -78,49 +68,81 @@ export class PleaService {
   //   );
   // }
 
-  getPleaById(id: number): Observable<GetPleaDto> {
-    return this.http.get<GetPleaDto>(`${environment.apiBaseUrl}/plea/${id}`).pipe(
-      map((plea: GetPleaDto) => {
-        try {
-          return this.convertService.parse(plea, GetPleaDto);
-        } catch (e) {
-          throw e;
-        }
-      }),
+  getById( id: number ): Observable<GetPleaDto> {
+    return this.http.get<GetPleaDto>(
+      `${this.endpoint}/${id}`
+    ).pipe(
+      map((plea: GetPleaDto) => this.parse( plea, GetPleaDto ) ),
+      catchError( this.handleError( 'getById', {} as GetPleaDto ) ),
     );
   }
 
+  // @todo put in support service
   supportPlea(id: number, comment: string): Observable<void> {
     const body = { comment };
-    return this.http.post<void>(`${environment.apiBaseUrl}/plea/${id}/support`, body);
+    return this.http.post<void>(`${this.endpoint}/${id}/support`, body);
   }
 
+  // @todo put in support service
   updateComment(id: number, comment: string): Observable<void> {
     const body = { comment };
-    return this.http.put<void>(`${environment.apiBaseUrl}/support/${id}`, body);
+    return this.http.put<void>(`${this.endpoint}/support/${id}`, body);
   }
 
+  // @todo put in support service
   removeComment(id: number): Observable<void> {
     return this.http.delete<void>(`${environment.apiBaseUrl}/plea/${id}/support`);
   }
 
-  createPlea(plea: CreatePleaDto): Observable<{ id: number }> {
-    return this.http.post<{ id: number }>(`${environment.apiBaseUrl}/plea`, plea);
+  create( plea: CreatePleaDto ): Observable<null> {
+    return this.http.post<null>(
+      this.endpoint,
+      plea
+    ).pipe(
+      tap( () => this.fetchAll() ),
+      catchError( this.handleError( 'create', null ) )
+    );
   }
 
-  updatePlea(pleaId: number, plea: UpdatePleaDto): Observable<void> {
-    return this.http.put<void>(`${environment.apiBaseUrl}/plea/${pleaId}`, plea);
+  update( id: number, updatedPlea: UpdatePleaDto): Observable<null> {
+    return this.http.put<null>(
+      `${this.endpoint}/${id}`,
+      updatedPlea
+    ).pipe(
+      tap( () => this.fetchAll() ),
+      catchError( this.handleError( 'update', null ) )
+    );
   }
 
-  removePlea(id: number): Observable<void> {
-    return this.http.delete<void>(`${environment.apiBaseUrl}/plea/${id}`);
+  delete( id: number ): Observable<null> {
+    return this.http.delete<null>(
+      `${this.endpoint}/${id}`
+    ).pipe(
+      tap( () => this.fetchAll() ),
+      catchError( this.handleError( 'delete', null ) )
+    );
   }
 
-  searchPleas = (query: string): Observable<GetPleaDto[]> => {
-    return this.http
-      .get<GetPleaDto[]>(`${environment.apiBaseUrl}/plea`, {
-        params: { query },
-      })
-      .pipe(map((pleas: GetPleaDto[]) => this.convertService.parseArray(pleas, GetPleaDto)));
+  // searchPleas = (query: string): Observable<GetPleaDto[]> => {
+  //   let params = new HttpParams();
+  //   params = params.append( 'query', query );
+  //
+  //   return this.http.get<GetPleaDto[]>(
+  //     this.endpoint,
+  //     { params }
+  //     ).pipe(
+  //       map((pleas: GetPleaDto[]) => this.parseArray(pleas, GetPleaDto))
+  //     );
+  // }
+
+  protected fetchAll( params?: GenericParams ): void  {
+    this.http.get<GetPleaDto[]>(
+      this.endpoint,
+      params ? { params: this.mapToHttpParams( params ) } : {}
+    ).pipe(
+      catchError( this.handleError( 'get', [] ) ),
+      map(( pleas: GetPleaDto[] ) => this.parseArray( pleas, GetPleaDto )),
+      tap( ( pleas: GetPleaDto[] ) => this.cache.next( pleas ) )
+    ).subscribe();
   }
 }

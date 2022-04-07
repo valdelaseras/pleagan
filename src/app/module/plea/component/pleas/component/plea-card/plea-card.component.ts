@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {CreatePleaDto, GetPleaDto, GetPleaganDto, PLEA_TARGET} from '@shared/model';
+import {Component, Input} from '@angular/core';
+import {PLEA_TARGET} from '@shared/model';
+import { PleaListItem } from '../pleas-container/pleas.data-source';
 
 @Component({
   selector: 'app-plea-card',
@@ -7,7 +8,7 @@ import {CreatePleaDto, GetPleaDto, GetPleaganDto, PLEA_TARGET} from '@shared/mod
   styleUrls: ['./plea-card.component.scss'],
 })
 export class PleaCardComponent {
-  @Input() plea!: GetPleaDto;
+  @Input() plea!: PleaListItem;
   getTarget(): number {
     if (this.plea.numberOfSupports < PLEA_TARGET.FIRST) {
       return PLEA_TARGET.FIRST;

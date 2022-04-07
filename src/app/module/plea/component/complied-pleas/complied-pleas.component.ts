@@ -13,10 +13,10 @@ export class CompliedPleasComponent {
   updateQuery$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   pleas$: Observable<GetPleaDto[]>;
   constructor(private pleaService: PleaService) {
-    this.pleas$ = this.updateQuery$.pipe(
-      switchMap((query: string) => (query.length ? this.pleaService.searchPleas(query) : this.pleaService.getPleas())),
-      map((pleas: GetPleaDto[]) => pleas.filter((plea: GetPleaDto) => plea.status === PLEA_STATUS.COMPLIED)),
-    );
+    // this.pleas$ = this.updateQuery$.pipe(
+    //   switchMap((query: string) => (query.length ? this.pleaService.get({query}) : this.pleaService.getPleas())),
+    //   map((pleas: GetPleaDto[]) => pleas.filter((plea: GetPleaDto) => plea.status === PLEA_STATUS.COMPLIED)),
+    // );
   }
 
   updateQuery(query: string): void {

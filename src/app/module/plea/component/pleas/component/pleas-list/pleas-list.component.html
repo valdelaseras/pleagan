@@ -1,14 +1,19 @@
-<div class="column plea-list" [@fadeInList]="pleas.length">
-  <ng-container *ngIf="screenSize == 'small'">
-    <ng-container *ngTemplateOutlet="mobile; context: { pleas: pleas }"></ng-container>
-  </ng-container>
-  <ng-container *ngIf="screenSize == 'large'">
-    <ng-container *ngTemplateOutlet="desktop; context: { pleas: pleas }"></ng-container>
-  </ng-container>
-  <ng-container *ngIf="screenSize == 'xl'">
-    <ng-container *ngTemplateOutlet="desktopXl; context: { pleas: pleas }"></ng-container>
-  </ng-container>
-</div>
+<ng-container *ngIf="pleas | async as pleas">
+  <div *ngIf="pleas.length; else noItems"
+       class="column plea-list">
+    <div [@fadeInList]="pleas.length">
+      <ng-container *ngIf="screenSize == 'small'">
+        <ng-container *ngTemplateOutlet="mobile; context: { pleas: pleas }"></ng-container>
+      </ng-container>
+      <ng-container *ngIf="screenSize == 'large'">
+        <ng-container *ngTemplateOutlet="desktop; context: { pleas: pleas }"></ng-container>
+      </ng-container>
+      <ng-container *ngIf="screenSize == 'xl'">
+        <ng-container *ngTemplateOutlet="desktopXl; context: { pleas: pleas }"></ng-container>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
 
 <ng-template #mobile let-pleas="pleas">
   <ng-container *ngFor="let plea of pleas">
@@ -78,4 +83,8 @@
   <ng-container *ngIf="plea.status === PLEA_STATUS.COMPLIED">
     <app-haf-card [plea]="plea" class="column"></app-haf-card>
   </ng-container>
+</ng-template>
+
+<ng-template #noItems>
+  <span [@fadeInSingle]>No pleas found</span>
 </ng-template>

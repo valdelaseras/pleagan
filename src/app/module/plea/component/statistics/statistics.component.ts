@@ -208,7 +208,7 @@ export class StatisticsComponent {
   //   private authService: AuthService,
   // ) {
   //   this.pleas$ = pleaService.getPleas();
-  //   this.companies$ = companyService.getCompanies();
+  //   this.companies$ = companyService.get();
   //   this.user$ = authService.user$;
   // }
 }
