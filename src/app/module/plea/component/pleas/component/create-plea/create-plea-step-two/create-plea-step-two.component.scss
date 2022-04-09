@@ -21,7 +21,6 @@ textarea:active {
 
 /*@start suggestion-list*/
 .suggestion-list {
-  margin: 1rem 0;
   > li {
     cursor: pointer;
     display: flex;
@@ -57,26 +56,4 @@ textarea:active {
   }
 }
 /*@end suggestion-list*/
-
-
-
-/*@start file upload*/
-input[type="file"] {
-  display: none;
-}
-
-.file-upload-container > label:first-child {
-  display: block;
-}
-
-.custom-file-upload {
-  margin-top: 10px;
-}
-
-// also note margin below productImage preview
-//.file-upload-container {}
-//input[type="file"]{}
-//.custom-file-upload {}
-/*@end file upload*/
-
 

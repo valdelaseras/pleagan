@@ -6,7 +6,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { NavComponent } from './nav/nav.component';
 import { SearchFieldComponent } from './search-field/search-field.component';
 import { WizardStepIndicatorComponent } from './wizard/component/wizard-step-indicator/wizard-step-indicator.component';
-import { AbstractWizardStepComponent } from './wizard/component/abstract-wizard-step/abstract-wizard-step.component';
+import { AbstractWizardStepDirective } from './wizard/component/abstract-wizard-step/abstract-wizard-step.directive';
 import { WizardComponent } from './wizard/component/wizard/wizard.component';
 
 export const components = [
@@ -19,7 +19,7 @@ export const components = [
   SearchFieldComponent,
   WizardComponent,
   WizardStepIndicatorComponent,
-  AbstractWizardStepComponent
+  AbstractWizardStepDirective
 ];
 
 export * from './app-container/app-container.component';
@@ -31,4 +31,4 @@ export * from './nav/nav.component';
 export * from './search-field/search-field.component';
 export * from './wizard/component/wizard/wizard.component';
 export * from './wizard/component/wizard-step-indicator/wizard-step-indicator.component';
-export * from './wizard/component/abstract-wizard-step/abstract-wizard-step.component';
+export * from './wizard/component/abstract-wizard-step/abstract-wizard-step.directive';

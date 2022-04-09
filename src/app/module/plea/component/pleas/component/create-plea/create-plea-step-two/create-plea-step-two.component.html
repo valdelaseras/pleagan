@@ -1,7 +1,10 @@
 <div class="step-template">
   <div class="content">
-    <h2>Similar pleas</h2>
-    <sub>We have found {{ pleas.length }} pleas that look very similar to yours. Please verify it doesn't exist yet or support a pre-existing plea.</sub>
+    <h3>Similar pleas</h3>
+    <sub>
+      We have found {{ pleas.length }} plea{{(pleas.length > 1 ? 's' : '')}} that look{{(pleas.length < 2 ? 's' : '')}}
+      very similar to yours. Please verify that your plea is unique.
+    </sub>
   </div>
 
   <div class="content">
@@ -21,6 +24,6 @@
 
   <div class="content">
     <input id="myPleaIsNew" type="checkbox" [(ngModel)]="step.isComplete">
-    <label for="myPleaIsNew">My plea is not in the list</label>
+    <label for="myPleaIsNew">My plea not in the above list</label>
   </div>
 </div>

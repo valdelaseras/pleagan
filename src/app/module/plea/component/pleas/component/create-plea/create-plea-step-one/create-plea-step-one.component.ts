@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AbstractWizardStepComponent } from '@shared/component';
+import { AbstractWizardStepDirective } from '@shared/component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PleaService } from '@core/service';
 import { debounce, filter, map, shareReplay, tap } from 'rxjs/operators';
@@ -14,7 +14,7 @@ import { mapPleaToListItem } from '../../pleas-container/pleas.data-source';
     './create-plea-step-one.component.scss'
   ]
 })
-export class CreatePleaStepOneComponent extends AbstractWizardStepComponent {
+export class CreatePleaStepOneComponent extends AbstractWizardStepDirective {
   constructor(
     private pleaService: PleaService,
     protected wizardService: WizardService

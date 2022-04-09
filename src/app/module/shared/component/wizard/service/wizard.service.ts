@@ -1,12 +1,12 @@
 import { Injectable, Type } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
 import { filter, map, tap, withLatestFrom } from 'rxjs/operators';
-import { AbstractWizardStepComponent } from '@shared/component';
+import { AbstractWizardStepDirective } from '@shared/component';
 
 export interface WizardStep {
   index: number;
   isComplete: boolean;
-  component: Type<AbstractWizardStepComponent>;
+  component: Type<AbstractWizardStepDirective>;
   shouldDisplay: boolean;
   formValues?: any;
   data?: any;

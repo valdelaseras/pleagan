@@ -6,7 +6,7 @@ import { tap } from 'rxjs/operators';
 @Directive({
   selector: '[step]'
 })
-export class AbstractWizardStepComponent implements OnInit {
+export class AbstractWizardStepDirective implements OnInit {
   @Input() step: WizardStep;
   form: FormGroup;
 

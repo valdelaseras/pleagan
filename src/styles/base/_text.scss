@@ -34,7 +34,7 @@ h4 { font-size: 1.5rem; }
 
 
 /*@start p*/
-p {
+p, sub {
   line-height: 2rem;
 }
 /*@end p*/
@@ -81,3 +81,13 @@ small {
   font-size: .8rem;
 }
 /*@end small*/
+
+
+
+/*@start sub*/
+sub {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+/*@end sub*/

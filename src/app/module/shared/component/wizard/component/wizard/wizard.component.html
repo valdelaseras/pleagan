@@ -1,11 +1,9 @@
 <div class="wizard">
-  <div class="step-indicator">
+  <div class="content">
     <app-wizard-step-indicator></app-wizard-step-indicator>
   </div>
-  <div class="step-panel">
-    <ng-template #step></ng-template>
-  </div>
-  <div class="controls">
+  <ng-template #step></ng-template>
+  <div class="controls content">
     <button class="btn btn-secondary"
             *ngIf="!(isFirstStep | async)"
             type="button"

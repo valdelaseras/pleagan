@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AbstractWizardStepComponent } from '@shared/component';
+import { AbstractWizardStepDirective } from '@shared/component';
 import { WizardService } from '@shared/component/wizard/service/wizard.service';
 import { PleaListItem } from '../../pleas-container/pleas.data-source';
 
@@ -10,7 +10,7 @@ import { PleaListItem } from '../../pleas-container/pleas.data-source';
     './create-plea-step-two.component.scss'
   ]
 })
-export class CreatePleaStepTwoComponent extends AbstractWizardStepComponent {
+export class CreatePleaStepTwoComponent extends AbstractWizardStepDirective {
   pleas: PleaListItem[];
 
   constructor(
