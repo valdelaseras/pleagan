@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { PleasDataSource } from './pleas.data-source';
+import { Component, OnInit } from '@angular/core';
+import { PleasDataSource } from '../../pleas.data-source';
 import { PleaService } from '@core/service';
 import { PleaFilterService } from '../../../../service/plea-filter.service';
 import { FormControl } from '@angular/forms';
@@ -7,11 +7,11 @@ import { debounce, tap } from 'rxjs/operators';
 import { interval } from 'rxjs';
 
 @Component({
-  selector: 'app-pleas-container',
-  templateUrl: './pleas-container.component.html',
-  styleUrls: ['./pleas-container.component.scss'],
+  selector: 'app-all-pleas-container',
+  templateUrl: './all-pleas-container.component.html',
+  styleUrls: ['./all-pleas-container.component.scss'],
 })
-export class PleasContainerComponent implements OnInit {
+export class AllPleasContainerComponent implements OnInit {
   search = new FormControl();
   dataSource: PleasDataSource;
 

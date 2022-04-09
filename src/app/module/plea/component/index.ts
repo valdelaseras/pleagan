@@ -1,4 +1,4 @@
-import { PleasContainerComponent } from './pleas/component/pleas-container/pleas-container.component';
+import { AllPleasContainerComponent } from './pleas/component/all-pleas-container/all-pleas-container.component';
 import { CompliedPleasComponent } from './complied-pleas/complied-pleas.component';
 import { HafDetailsComponent } from './haf-details/haf-details.component';
 import { HafCardComponent } from './haf-card/haf-card.component';
@@ -25,7 +25,7 @@ import {
 
 
 export const components = [
-  PleasContainerComponent,
+  AllPleasContainerComponent,
   CompliedPleasComponent,
   HafDetailsComponent,
   HafCardComponent,
@@ -46,7 +46,7 @@ export const components = [
   CreatePleaStepTwoComponent
 ];
 
-export * from './pleas/component/pleas-container/pleas-container.component';
+export * from './pleas/component/all-pleas-container/all-pleas-container.component';
 export * from './complied-pleas/complied-pleas.component';
 export * from './haf-details/haf-details.component';
 export * from './haf-card/haf-card.component';

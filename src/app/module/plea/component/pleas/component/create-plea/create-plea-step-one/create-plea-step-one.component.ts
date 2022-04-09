@@ -5,7 +5,7 @@ import { PleaService } from '@core/service';
 import { debounce, filter, map, shareReplay, tap } from 'rxjs/operators';
 import { WizardService } from '@shared/component/wizard/service/wizard.service';
 import { interval } from 'rxjs';
-import { mapPleaToListItem } from '../../pleas-container/pleas.data-source';
+import { mapPleaToListItem } from '../../../pleas.data-source';
 
 @Component({
   selector: 'app-create-plea-step-one',

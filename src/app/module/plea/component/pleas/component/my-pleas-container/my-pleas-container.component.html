@@ -1,0 +1,22 @@
+<section id="my-pleas-section">
+  <div class="section-content">
+    <div class="grid">
+      <div class="column">
+        <div class="column">
+          <div class="content desktop-only">
+            <h2>My initiated pleas</h2>
+          </div>
+          <div class="column">
+            <!--            todo: functionality for searchbox-->
+<!--            <app-search-box></app-search-box>-->
+            <!--            <app-loading-indicator [height]="'66vh'" [httpStatus]="pleaStatus">-->
+<!--            <app-pleas-list *ngIf="pleas$ | async as pleas" [pleas]="pleas"></app-pleas-list>-->
+            <app-pleas-list [dataSource]="dataSource"></app-pleas-list>
+            <!--            </app-loading-indicator>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

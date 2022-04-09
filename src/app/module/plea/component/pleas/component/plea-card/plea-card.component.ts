@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {PLEA_TARGET} from '@shared/model';
-import { PleaListItem } from '../pleas-container/pleas.data-source';
+import { PleaListItem } from '../../pleas.data-source';
 
 @Component({
   selector: 'app-plea-card',
