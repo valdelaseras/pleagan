@@ -4,9 +4,17 @@
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 10px;
+
+  transition: color .15s ease-in-out,
+              background-color .15s ease-in-out,
+              border-color .15s ease-in-out;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
 }
 
-.btn:hover {
+.btn:hover:not([disabled]) {
   cursor: pointer;
 }
 /*@end btn*/
@@ -38,15 +46,22 @@
   background-color: var(--quaternary-color);
   border: 2px solid var(--quaternary-color);
   color: var(--primary-color);
+
+  &[disabled] {
+    background-color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+  }
 }
 
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:focus-within {
-  color: var(--quaternary-color);
-  background-color: var(--primary-color);
-  border-color: var(--quaternary-color);
+  &:not([disabled]) {
+    color: var(--quaternary-color);
+    background-color: var(--primary-color);
+    border-color: var(--quaternary-color);
+  }
 }
 /*@end btn primary*/
 
@@ -63,8 +78,10 @@
 .btn-secondary:active,
 .btn-secondary:focus,
 .btn-secondary:focus-within {
-  background-color: var(--quaternary-color);
-  color: var(--primary-color);
+  &:not([disabled]){
+    background-color: var(--quaternary-color);
+    color: var(--primary-color);
+  }
 }
 /*@end btn secondary*/
 

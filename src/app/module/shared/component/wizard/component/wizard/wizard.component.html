@@ -1,0 +1,22 @@
+<div class="wizard">
+  <div class="step-indicator">
+    <app-wizard-step-indicator></app-wizard-step-indicator>
+  </div>
+  <div class="step-panel">
+    <ng-template #step></ng-template>
+  </div>
+  <div class="controls">
+    <button class="btn btn-secondary"
+            *ngIf="!(isFirstStep | async)"
+            type="button"
+            (click)="toPreviousStep.next()">
+      Previous
+    </button>
+    <button class="btn btn-primary"
+            type="button"
+            (click)="toNextStep.next()"
+            [disabled]="!(currentStep | async)!.isComplete">
+      {{ ( isLastStep | async ) ? 'Submit' : 'Next' }}
+    </button>
+  </div>
+</div>

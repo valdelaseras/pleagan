@@ -25,6 +25,10 @@ input[type="checkbox"] {
   height: 1rem;
   width: 1rem;
   margin-top: 12px;
+
+  &~label {
+    margin-left: 1rem;
+  }
 }
 /*@end input*/
 

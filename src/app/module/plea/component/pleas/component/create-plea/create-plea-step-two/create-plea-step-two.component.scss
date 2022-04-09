@@ -22,10 +22,39 @@ textarea:active {
 /*@start suggestion-list*/
 .suggestion-list {
   margin: 1rem 0;
-}
+  > li {
+    cursor: pointer;
+    display: flex;
+    border-radius: 3px;
+    background-color: #F4F4F4FF;
+    height: 4rem;
+    padding: .5rem;
 
-.suggestion-list > li:not(:last-child) {
-  margin-bottom: 1rem;
+    > div {
+      display: inline-flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+
+      .thumbnail {
+        width: 6rem;
+        height: 100%;
+        border-radius: 3px;
+        background-size: cover;
+      }
+
+      .title {
+        font-size: 2rem;
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
 }
 /*@end suggestion-list*/
 

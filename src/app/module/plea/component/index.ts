@@ -15,6 +15,15 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { SuggestionListComponent } from './suggestion-list/suggestion-list.component';
 import { SupportersListComponent } from './supporters-list/supporters-list.component';
 
+
+import {
+  CreatePleaStepOneComponent
+} from './pleas/component/create-plea/create-plea-step-one/create-plea-step-one.component';
+import {
+  CreatePleaStepTwoComponent
+} from './pleas/component/create-plea/create-plea-step-two/create-plea-step-two.component';
+
+
 export const components = [
   PleasContainerComponent,
   CompliedPleasComponent,
@@ -32,6 +41,9 @@ export const components = [
   StatisticsComponent,
   SuggestionListComponent,
   SupportersListComponent,
+
+  CreatePleaStepOneComponent,
+  CreatePleaStepTwoComponent
 ];
 
 export * from './pleas/component/pleas-container/pleas-container.component';
@@ -50,3 +62,6 @@ export * from './pleas/component/pleas-list/pleas-list.component';
 export * from './statistics/statistics.component';
 export * from './suggestion-list/suggestion-list.component';
 export * from './supporters-list/supporters-list.component';
+
+export * from './pleas/component/create-plea/create-plea-step-one/create-plea-step-one.component';
+export * from './pleas/component/create-plea/create-plea-step-two/create-plea-step-two.component';

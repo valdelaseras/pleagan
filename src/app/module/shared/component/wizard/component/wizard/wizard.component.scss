@@ -1,0 +1,25 @@
+.wizard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.step-panel {
+  flex: 1;
+  margin: 32px;
+
+  > div {
+    display: inline-flex;
+  }
+}
+
+.controls {
+  display: flex;
+  margin: 32px;
+  gap: 1rem;
+
+  button {
+    flex: 1;
+  }
+}

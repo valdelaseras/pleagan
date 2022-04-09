@@ -1,0 +1,31 @@
+<div class="step-template">
+  <div class="content">
+    <h2>Product and company name</h2>
+    <p>Please provide us with some basic information such as the name of the product as well as the company that produces or sells it.</p>
+  </div>
+
+  <div class="content">
+    <form [formGroup]="form">
+      <div class="form-row">
+        <label for="companyName">Company name*</label>
+        <input
+          id="companyName"
+          autocomplete="off"
+          type="text"
+          formControlName="companyName"
+          required/>
+      </div>
+
+      <div class="form-row">
+        <label for="productName">Product name*</label>
+        <input
+          id="productName"
+          autocomplete="off"
+          type="text"
+          formControlName="productName"
+          required
+        />
+      </div>
+    </form>
+  </div>
+</div>

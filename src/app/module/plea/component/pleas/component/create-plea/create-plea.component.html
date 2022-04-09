@@ -6,78 +6,101 @@
           <h2>Initiate a plea</h2>
         </div>
         <div class="column">
-          <div class="column two">
-            <div class="content">
-              <form (ngSubmit)="submit(form)" [formGroup]="form">
-                <div class="form-row">
-                  <label for="company">Company name*</label>
-                  <input
-                    id="company"
-                    autocomplete="off"
-                    type="text"
-                    formControlName="companyName"
-                    required/>
-                </div>
+          <app-wizard [steps]="steps" (onSubmit)="submit()"></app-wizard>
+<!--          <div class="wizard-step-indicator">-->
+<!--            <app-wizard-step-indicator></app-wizard-step-indicator>-->
+<!--          </div>-->
+<!--          <div class="wizard-step-content">-->
+<!--            <div class="form-step">-->
+<!--              <ng-template #step></ng-template>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="wizard-controls">-->
+<!--            <button class="btn btn-secondary"-->
+<!--                    *ngIf="!(isFirstStep | async)"-->
+<!--                    type="button"-->
+<!--                    (click)="toPreviousStep.next()">-->
+<!--              Previous-->
+<!--            </button>-->
+<!--            <button class="btn btn-primary"-->
+<!--                    type="button"-->
+<!--                    (click)="toNextStep.next()"-->
+<!--                    [disabled]="!(currentStep | async)!.isComplete">-->
+<!--              {{ ( isLastStep | async ) ? 'Submit' : 'Next' }}-->
+<!--            </button>-->
+<!--          </div>-->
+<!--          <div class="column two">-->
+<!--            <div class="content">-->
+<!--              <form (ngSubmit)="onSubmit(form)" [formGroup]="form">-->
+<!--                <div class="form-row">-->
+<!--                  <label for="company">Company name*</label>-->
+<!--                  <input-->
+<!--                    id="company"-->
+<!--                    autocomplete="off"-->
+<!--                    type="text"-->
+<!--                    formControlName="companyName"-->
+<!--                    required/>-->
+<!--                </div>-->
 
-                <div class="form-row">
-                  <label for="product">Product name*</label>
-                  <input
-                    id="product"
-                    autocomplete="off"
-                    type="text"
-                    formControlName="productName"
-                    required
-                  />
+<!--                <div class="form-row">-->
+<!--                  <label for="product">Product name*</label>-->
+<!--                  <input-->
+<!--                    id="product"-->
+<!--                    autocomplete="off"-->
+<!--                    type="text"-->
+<!--                    formControlName="productName"-->
+<!--                    required-->
+<!--                  />-->
 
-                  <!--                <clr-control-helper>Please enter the product name</clr-control-helper>-->
-                  <!--                <clr-control-error>This field is required</clr-control-error>-->
-                </div>
+<!--                  &lt;!&ndash;                <clr-control-helper>Please enter the product name</clr-control-helper>&ndash;&gt;-->
+<!--                  &lt;!&ndash;                <clr-control-error>This field is required</clr-control-error>&ndash;&gt;-->
+<!--                </div>-->
 
-                <!--        <clr-input-container>-->
-                <!--          <clr-checkbox-wrapper>-->
-                <!--            <input type="checkbox" clrCheckbox id="hospitality-sector"/>-->
-                <!--            <label for="hospitality-sector">This is a product in the hospitality sector</label>-->
-                <!--          </clr-checkbox-wrapper>-->
-                <!--        </clr-input-container> if true, display extra select field with countries and input field for city since cafes etc are very local -->
+<!--                &lt;!&ndash;        <clr-input-container>&ndash;&gt;-->
+<!--                &lt;!&ndash;          <clr-checkbox-wrapper>&ndash;&gt;-->
+<!--                &lt;!&ndash;            <input type="checkbox" clrCheckbox id="hospitality-sector"/>&ndash;&gt;-->
+<!--                &lt;!&ndash;            <label for="hospitality-sector">This is a product in the hospitality sector</label>&ndash;&gt;-->
+<!--                &lt;!&ndash;          </clr-checkbox-wrapper>&ndash;&gt;-->
+<!--                &lt;!&ndash;        </clr-input-container> if true, display extra select field with countries and input field for city since cafes etc are very local &ndash;&gt;-->
 
-                <ng-container *ngIf="similarPleas | async as similarPleas">
-                  <ng-container *ngIf="similarPleas.length; else noSimilarPleas">
-                    <div class="card suggested-pleas">
-                      <p class="card-header">
-                      <p class="bold">Make sure a plea for this product doesn't already exist</p>
-                      <div class="card-body">
-                        <p>
-                          Please take a moment to verify. If it doesn't, support the existing plea instead of initiating a
-                          new one. Duplicate pleas decrease Pleagan's effectiveness!
-                        </p>
+<!--                <ng-container *ngIf="similarPleas | async as similarPleas">-->
+<!--                  <ng-container *ngIf="similarPleas.length; else noSimilarPleas">-->
+<!--                    <div class="card suggested-pleas">-->
+<!--                      <p class="card-header">-->
+<!--                      <p class="bold">Make sure a plea for this product doesn't already exist</p>-->
+<!--                      <div class="card-body">-->
+<!--                        <p>-->
+<!--                          Please take a moment to verify. If it doesn't, support the existing plea instead of initiating a-->
+<!--                          new one. Duplicate pleas decrease Pleagan's effectiveness!-->
+<!--                        </p>-->
 
-                        <ul class="suggestion-list">
-                          <li *ngFor="let plea of similarPleas"
-                              [routerLink]="['/', 'plea', 'details', plea.id]">
-                            <span class="bold">{{ plea.companyName }}</span>
-                            <p>
-                              {{ plea.productName }}
-                            </p>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="card-footer align-right">
-<!--                        <a role="button" class="btn btn-primary btn-compact" (click)="pleaInSuggestions = false">This is a different product</a>-->
-                      </div>
-                    </div>
-                  </ng-container>
-                </ng-container>
-              </form>
-            </div>
-          </div>
-          <div class="column two">
-            <div class="content">
-<!--              <app-plea-card></app-plea-card>-->
-              <p class="italic">
-                Lorem ipsum dolor sit amet
-              </p>
-            </div>
-          </div>
+<!--                        <ul class="suggestion-list">-->
+<!--                          <li *ngFor="let plea of similarPleas"-->
+<!--                              [routerLink]="['/', 'plea', 'details', plea.id]">-->
+<!--                            <span class="bold">{{ plea.companyName }}</span>-->
+<!--                            <p>-->
+<!--                              {{ plea.productName }}-->
+<!--                            </p>-->
+<!--                          </li>-->
+<!--                        </ul>-->
+<!--                      </div>-->
+<!--                      <div class="card-footer align-right">-->
+<!--&lt;!&ndash;                        <a role="button" class="btn btn-primary btn-compact" (click)="pleaInSuggestions = false">This is a different product</a>&ndash;&gt;-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </ng-container>-->
+<!--                </ng-container>-->
+<!--              </form>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="column two">-->
+<!--            <div class="content">-->
+<!--&lt;!&ndash;              <app-plea-card></app-plea-card>&ndash;&gt;-->
+<!--              <p class="italic">-->
+<!--                Lorem ipsum dolor sit amet-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
     </div>
