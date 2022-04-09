@@ -1,6 +1,6 @@
 import { AbstractDataSource } from '@shared/component/abstract-container/abstract-data-source';
 import { GetPleaDto } from '@shared/model';
-import { PleaFilterOptions } from '../../service/plea-filter.service';
+import { PleaFilterOptions } from '../../../../service/plea-filter.service';
 import { PleaService } from '@core/service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -32,7 +32,7 @@ export const mapPleaToListItem = ( plea: GetPleaDto ): PleaListItem => {
   }
 };
 
-export class PleasDataSource
+export class AllPleasDataSource
   extends AbstractDataSource<
     GetPleaDto,
     PleaListItem,

@@ -9,13 +9,14 @@ import {
   MySupportComponent,
   CreatePleaComponent,
   PleaDetailsComponent,
-  StatisticsComponent
+  StatisticsComponent, MyPleasContainerComponent
 } from './component';
 
 const routes: Routes = [
   { path: 'initiate', component: CreatePleaComponent, canActivate: [IsLoggedIn], data: { animation: 'newPlea'} },
   { path: 'initiated', component: MyPleasComponent, canActivate: [IsLoggedIn], data: { animation: 'initiatedPleas'} },
   { path: 'supported', component: MySupportComponent, canActivate: [IsLoggedIn], data: { animation: 'supportedPleas'} },
+  { path: 'mine', component: MyPleasContainerComponent, canActivate: [IsLoggedIn], data: { animation: 'myPleas'} },
   { path: 'all', component: AllPleasContainerComponent, data: { animation: 'allPleas'} },
   { path: 'statistics', component: StatisticsComponent, data: { animation: 'statistics'} },
   { path: 'complied', component: CompliedPleasComponent, data: { animation: 'compliedPleas'} },

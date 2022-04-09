@@ -1,7 +1,7 @@
 import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
 import { FADE_IN_LIST, FADE_IN_SINGLE } from '@shared/animations';
 import { PLEA_STATUS } from '@shared/model';
-import { PleaListItem, PleasDataSource } from '../../pleas.data-source';
+import { PleaListItem, AllPleasDataSource } from '../all-pleas-container/all-pleas.data-source';
 import { Observable } from 'rxjs';
 import { PleaFilterService } from '../../../../service/plea-filter.service';
 
@@ -12,7 +12,7 @@ import { PleaFilterService } from '../../../../service/plea-filter.service';
   animations: [FADE_IN_LIST, FADE_IN_SINGLE],
 })
 export class PleasListComponent implements OnInit, OnDestroy {
-  @Input() dataSource: PleasDataSource;
+  @Input() dataSource: AllPleasDataSource;
 
   screenSize: 'small' | 'large' | 'xl' = this.getScreenSize();
   PLEA_STATUS = PLEA_STATUS;

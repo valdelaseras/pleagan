@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractWizardStepDirective } from '@shared/component';
 import { WizardService } from '@shared/component/wizard/service/wizard.service';
-import { PleaListItem } from '../../../pleas.data-source';
+import { PleaListItem } from '../../all-pleas-container/all-pleas.data-source';
 
 @Component({
   selector: 'app-create-plea-step-two',

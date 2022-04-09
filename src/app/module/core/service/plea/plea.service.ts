@@ -25,7 +25,7 @@ export class PleaService extends ApiService<GetPleaDto> {
     return this.cache.asObservable();
   }
 
-  getMine(): Observable<GetPleaDto[]> {
+  getMine( params?: GenericParams ): Observable<GetPleaDto[]> {
     return this.http.get<GetPleaDto[]>(
       `${this.endpoint}/mine`
     ).pipe(

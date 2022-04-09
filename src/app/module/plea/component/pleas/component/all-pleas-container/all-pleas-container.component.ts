@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PleasDataSource } from '../../pleas.data-source';
+import { AllPleasDataSource } from './all-pleas.data-source';
 import { PleaService } from '@core/service';
 import { PleaFilterService } from '../../../../service/plea-filter.service';
 import { FormControl } from '@angular/forms';
@@ -13,7 +13,7 @@ import { interval } from 'rxjs';
 })
 export class AllPleasContainerComponent implements OnInit {
   search = new FormControl();
-  dataSource: PleasDataSource;
+  dataSource: AllPleasDataSource;
 
   constructor(
     private pleaService: PleaService,
@@ -21,7 +21,7 @@ export class AllPleasContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-      this.search.valueChanges.pipe(
+    this.search.valueChanges.pipe(
       debounce(() => interval(1000)),                 // Wait 1s before updating filters
       tap( ( search ) => this.filterService.filterOptions.next( {
         ...this.filterService.filterOptions.value,                        // Pass in the current filters
@@ -29,7 +29,7 @@ export class AllPleasContainerComponent implements OnInit {
       }) )
     ).subscribe();
 
-    this.dataSource = new PleasDataSource(
+    this.dataSource = new AllPleasDataSource(
       this.pleaService,
       this.filterService.filterOptions
     );
