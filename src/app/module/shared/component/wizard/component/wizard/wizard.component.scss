@@ -11,6 +11,13 @@
   }
 }
 
+@media only screen and (min-width: 1440px) {
+  .controls {
+    max-width: 62vw;
+    margin: 0 auto;
+  }
+}
+
 .wizard {
   padding-bottom: 85px;
 }
