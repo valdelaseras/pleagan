@@ -1,4 +1,4 @@
-<section id="profile-section" *ngIf="authService.user$ | async as user">
+<section id="profile-section" *ngIf="authService.currentUser | async as user">
   <div class="section-content">
     <div class="grid">
       <div class="column">

@@ -1,14 +1,16 @@
 <!--todo: capitalize names etc-->
-<a [routerLink]="['/plea', plea.id, 'details']" class="card plea-card clickable">
+<a [routerLink]="plea.id ? ['/plea', plea.id] : null"
+   class="card plea-card clickable">
   <div class="card-header">
     <p class="card-title">{{ plea.productName }}</p>
   </div>
 
   <div class="card-img">
     <span class="card-tag">by {{ plea.companyName }}</span>
-    <img (load)="$event.target['classList'].add('loaded')"
-         src="{{ plea.productImage }}"
-         alt="product image"/>
+    <div class="img" [attr.data-background-src]="plea.productImage"></div>
+<!--    <img (load)="$event.target['classList'].add('loaded')"-->
+<!--         [src]="plea.productImage"-->
+<!--         alt="product image"/>-->
 <!--    <div class="ph-item">-->
 <!--      <div class="ph-picture"></div>-->
 <!--    </div>-->

@@ -34,7 +34,7 @@ import { ShowOnAuthDirective } from '@shared/directive';
   declarations: [
     ...fromComponents.components,
     ...fromPipes.pipes,
-    ...fromDirectives.directives
+    ...fromDirectives.directives,
   ],
   imports: [
     CommonModule,
@@ -43,14 +43,14 @@ import { ShowOnAuthDirective } from '@shared/directive';
     ReactiveFormsModule,
     RouterModule
   ],
-  exports: [
-    ...fromComponents.components,
-    ...fromPipes.pipes,
-    FormsModule,
-    // NgxEchartsModule,
-    ReactiveFormsModule,
-    RouterModule,
-    ShowOnAuthDirective
-  ]
+    exports: [
+        ...fromComponents.components,
+        ...fromPipes.pipes,
+        FormsModule,
+        // NgxEchartsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        ShowOnAuthDirective,
+    ]
 })
 export class SharedModule { }

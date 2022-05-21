@@ -16,7 +16,7 @@ export class IsNotLoggedIn implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.authService.user$.pipe(
+    return this.authService.currentUser.pipe(
       map((user: User | null) => user === null),
       tap((loggedOut: boolean) => !loggedOut && this.router.navigate(['/'])),
     );

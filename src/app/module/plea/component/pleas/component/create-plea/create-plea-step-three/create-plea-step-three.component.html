@@ -1,0 +1,50 @@
+<div class="flex flex-col flex-grow">
+  <div class="content">
+    <h2>Additional plea information</h2>
+  </div>
+
+  <div class="flex flex-row flex-grow">
+    <div class="flex-grow">
+      <form [formGroup]="form">
+        <div class="form-row">
+          <div class="file-upload-container">
+            <label>Product image*</label>
+            <app-file-upload-field formControlName="productImage"></app-file-upload-field>
+            <!--            <label for="file-upload" class="custom-file-upload">-->
+            <!--              <a role="button" class="btn btn-secondary btn-compact custom-file-upload">-->
+            <!--                + choose file-->
+            <!--              </a>-->
+            <!--              <input-->
+            <!--                type="file"-->
+            <!--                id="file-upload"-->
+            <!--                (change)="onFileChange($event.target['files'])"-->
+            <!--                accept=".jpg,.png,.webp"-->
+            <!--                data-max-size="2048"-->
+            <!--                formControlName="productImage"/>-->
+            <!--            </label>-->
+          </div>
+        </div>
+
+        <!--  TODO: max chars-->
+        <div class="form-row">
+          <label>Your message*</label>
+          <textarea placeholder="Write a message to the producer and / or call for support of other pleagans"
+                    formControlName="description"
+                    rows="6"></textarea>
+        </div>
+
+        <div class="form-row">
+          <label>Company email</label>
+          <input type="email" formControlName="companyContact" />
+        </div>
+      </form>
+    </div>
+
+    <div class="flex-grow">
+      <div class="form-row" lazy-load-images>
+        <label>Example</label>
+        <app-plea-card [plea]="plea"></app-plea-card>
+      </div>
+    </div>
+  </div>
+</div>

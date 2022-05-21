@@ -32,7 +32,7 @@ export class GetPleaDto {
   nonVeganProduct: GetProductDto = new GetProductDto();
 
   @JsonProperty('pleagan', GetPleaganDto, true )
-  pleagan?: GetPleaganDto = undefined;
+  pleagan: GetPleaganDto = new GetPleaganDto();
 
   @JsonProperty('supports', [ GetSupportDto ], true)
   supports?: GetSupportDto[] = undefined;

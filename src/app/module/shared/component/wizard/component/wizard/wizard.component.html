@@ -1,8 +1,10 @@
 <div class="wizard">
   <div class="content">
-    <app-wizard-step-indicator></app-wizard-step-indicator>
+    <app-wizard-step-indicator [showStepIndex]="showStepIndex"></app-wizard-step-indicator>
   </div>
-  <ng-template #step></ng-template>
+  <div class="wizard-step">
+    <ng-template #step></ng-template>
+  </div>
   <div class="controls content">
     <button class="btn btn-secondary"
             *ngIf="!(isFirstStep | async)"

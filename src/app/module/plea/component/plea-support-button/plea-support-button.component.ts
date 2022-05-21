@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input, Output} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {PleaService} from '@core/service';
 import { GetPleaDto } from '@shared/model';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-plea-support-button',
@@ -10,29 +11,18 @@ import { GetPleaDto } from '@shared/model';
 })
 export class PleaSupportButtonComponent {
   @Input() plea: GetPleaDto;
-  @Input() userHasSupported: boolean = false;
-  @Output() hasSupported: EventEmitter<void> = new EventEmitter<void>();
+  @Output() onSupport: Subject<string> = new Subject<string>();
+  comment: FormControl = new FormControl();
   supportModalIsOpen = false;
 
-  supportPleaForm = new FormGroup({
-    comment: new FormControl('', Validators.required),
-  });
-  constructor(private pleaService: PleaService) {}
-
-  submitSupport( form: FormGroup ): void {
-    // display success message first then:
-    this.pleaService.supportPlea( this.plea.id, form.value.comment ).subscribe(() => {
-      this.userHasSupported = true;
-      this.supportModalIsOpen = false;
-      // trigger data refresh
-      this.hasSupported.emit();
-    });
+  supportPlea(): void {
+    this.onSupport.next( this.comment.value );
   }
 
   displayModal(event: MouseEvent): void {
-    if ( this.userHasSupported ) return;
-    event.stopPropagation();
-    event.preventDefault();
-    this.supportModalIsOpen = true;
+    // if ( this.userHasSupported ) return;
+    // event.stopPropagation();
+    // event.preventDefault();
+    // this.supportModalIsOpen = true;
   }
 }

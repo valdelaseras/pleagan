@@ -1,0 +1,16 @@
+<div class="filters">
+  <div class="flex flex-gap flex-grow" *ngIf="showMyPleasFilter | async">
+    <app-plea-status-select-field [control]="statusControl"></app-plea-status-select-field>
+    <div class="btn-group">
+      <button class="btn btn-secondary"
+         (click)="myPleasControl.setValue( !myPleasControl.value )"
+         [ngClass]="{'selected': myPleasControl.value}">
+        I created</button>
+      <button class="btn btn-secondary"
+         (click)="supportedPleasControl.setValue( !supportedPleasControl.value )"
+         [ngClass]="{'selected': supportedPleasControl.value}">
+        I supported
+      </button>
+    </div>
+  </div>
+</div>

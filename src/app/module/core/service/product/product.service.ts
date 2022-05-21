@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '@env/*';
 import { GetProductDto } from '@shared/model';
-import { ApiService, GenericParams } from '@core/service/abstract-api/api.service';
+import { ApiService } from '@core/service/abstract-api/api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class ProductService extends ApiService<GetProductDto> {
     super( http );
   }
 
-  get( params: GenericParams ): Observable<GetProductDto[]> {
+  get(): Observable<GetProductDto[]> {
     return this.http.get<GetProductDto[]>(`${environment.apiBaseUrl}/product/all`).pipe(
       map((companies: GetProductDto[]) => {
         try {

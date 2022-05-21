@@ -65,12 +65,11 @@
   background-color: #fff;
 }
 
-.card-img img {
-  height: auto;
+.card-img .img {
+  height: 250px;
   width: 100%;
-  max-width: 100%;
-  vertical-align: middle;
-  filter: opacity(.8);
+  background-position: center;
+  background-size: cover;
 }
 /*@end card productImage*/
 
@@ -117,17 +116,6 @@ progress[value]::-webkit-progress-value {
 }
 /*@end card progress bar*/
 
-
-
-/*@start plea card*/
-.card.plea-card {
-  margin-bottom: 2rem;
-}
-
-.card.plea-card.clickable:hover {
-  cursor: pointer;
-}
-/*@end plea card*/
 
 //
 //

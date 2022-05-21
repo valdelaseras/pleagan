@@ -1,22 +1,28 @@
-/*@start search box*/
+:host {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+/*@start searchControl box*/
 .search-box {
   display: flex;
   flex-direction: row;
   height: 25px;
-  padding: 10px 20px 5px 20px;
+  //padding: 10px 20px 5px 20px;
 
   & input {
     z-index: 0;
   }
 }
-/*@end search box*/
+/*@end searchControl box*/
 
 
 
-/*@start search box icon*/
+/*@start searchControl box icon*/
 img {
   padding-top: 5px;
   height: 20px;
   margin-right: 10px;
 }
-/*@end search box icon*/
+/*@end searchControl box icon*/

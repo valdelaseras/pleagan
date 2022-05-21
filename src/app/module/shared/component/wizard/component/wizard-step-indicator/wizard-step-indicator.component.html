@@ -1,13 +1,16 @@
-<div class="form-steps-container">
-  <ng-container *ngFor="let step of steps | async; let i = index;">
+<div class="form-steps-container" *ngIf="steps | async as steps">
+  <ng-container *ngFor="let step of displayableSteps(steps); let stepIndex = index;">
     <div (click)="step.shouldDisplay && setStepIndex( step.index )"
+         [@fadeInOutSingle]
          [ngClass]="{
            'complete': step.isComplete,
            'disabled': !step.shouldDisplay,
            'incomplete': !step.isComplete,
            'current': ( currentStep | async )?.index === step.index
          }"
-         class="step-bubble">{{ step.index }}</div>
-    <div *ngIf="i < (steps | async)?.length - 1" class="step-divider"></div>
+         class="step-bubble">{{ showStepIndex ? stepIndex + 1 : '' }}</div>
+    <div *ngIf="stepIndex < displayableSteps(steps)?.length - 1"
+         [@growInShrinkOutSingle]
+         class="step-divider"></div>
   </ng-container>
 </div>

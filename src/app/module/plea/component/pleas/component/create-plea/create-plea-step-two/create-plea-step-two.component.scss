@@ -4,21 +4,6 @@ img {
 }
 /*@end productImage*/
 
-
-
-/*@start form elements*/
-input:focus,
-input:focus-within,
-input:active,
-textarea:focus,
-textarea:focus-within,
-textarea:active {
-  outline: none;
-}
-/*@end form elements*/
-
-
-
 /*@start suggestion-list*/
 .suggestion-list {
   > li {
@@ -27,7 +12,7 @@ textarea:active {
     border-radius: 3px;
     background-color: #F4F4F4FF;
     height: 4rem;
-    padding: .5rem;
+    padding: 20px;
 
     > div {
       display: inline-flex;

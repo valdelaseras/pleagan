@@ -13,7 +13,11 @@ select {
   border-color: rgba(41,41,41,.5);
   padding: 5px 0;
   // zindex needed or the placeholder lays on top of menu when opened
-  z-index: -1;
+  // z-index: -1;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 input::placeholder {
@@ -21,13 +25,13 @@ input::placeholder {
   font-size: .9rem;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"],
+input[type="radio"] {
   height: 1rem;
   width: 1rem;
-  margin-top: 12px;
 
   &~label {
-    margin-left: 1rem;
+    margin-left: .5rem;
   }
 }
 /*@end input*/
@@ -45,8 +49,16 @@ input[type="checkbox"] {
 /*@start select*/
 select {
   display: block;
-  margin-top: .5rem;
   width: 100%;
+  border: 1px solid var(--quaternary-color);
+  border-radius: 3px;
+  transition: border-color 150ms ease-in-out;
+  padding: 10px 20px;
+  //background-color: var(--primary-color);
+
+  &:focus {
+    border-color: var(--quaternary-color);
+  }
 }
 /*@end select*/
 

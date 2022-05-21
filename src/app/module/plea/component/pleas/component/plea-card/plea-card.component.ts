@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {PLEA_TARGET} from '@shared/model';
 import { PleaListItem } from '../all-pleas-container/all-pleas.data-source';
 

@@ -25,7 +25,7 @@ export class MyPleasContainerComponent implements OnInit {
       debounce(() => interval(1000)),                 // Wait 1s before updating filters
       tap( ( search ) => this.filterService.filterOptions.next( {
         ...this.filterService.filterOptions.value,                        // Pass in the current filters
-        search                                                            // and update the search property
+        search                                                            // and update the searchControl property
       }) )
     ).subscribe();
 

@@ -1,14 +1,15 @@
 <!--<ng-container *ngIf="httpStatus === HTTP_LOADING_STATUS.LOADING; else content">-->
-<!--  <div class="clr-row clr-justify-content-center loading-indicator-container"-->
-<!--       [@fadeInSingle]-->
-<!--       [style]="height ? 'height: ' + height : ''">-->
-<!--    <div class="loading-indicator">-->
-<!--      <div></div>-->
-<!--      <div></div>-->
-<!--      <div></div>-->
-<!--      <div></div>-->
-<!--    </div>-->
-<!--  </div>-->
+<div class="flex flex-grow flex-col flex-center loading-indicator-container"
+     [@enter]
+     [@leave]>
+  <div class="loading-indicator">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <span *ngIf="label">{{ label }}</span>
+</div>
 <!--</ng-container>-->
 
 <!--<ng-template #content>-->

@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { GROW_IN_SHRINK_OUT } from '@shared/animations/grow.animation';
+import { GROW_IN_SHRINK_OUT_SINGLE } from '@shared/animations/grow.animation';
 import { HTTP_LOADING_STATUS } from '@shared/model/http-loading-wrapper/http-loading-wrapper.model';
 import { PleaService } from '@core/service';
 import { tap } from 'rxjs/operators';
@@ -10,7 +10,7 @@ import { GetSupportDto } from '@shared/model';
   templateUrl: './comment-card.component.html',
   styleUrls: ['./comment-card.component.scss'],
   animations: [
-    GROW_IN_SHRINK_OUT
+    GROW_IN_SHRINK_OUT_SINGLE
   ]
 })
 export class CommentCardComponent implements OnInit {

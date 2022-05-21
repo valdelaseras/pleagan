@@ -85,6 +85,10 @@
 }
 /*@end btn secondary*/
 
+.btn.btn-outline {
+
+}
+
 
 
 /*@start btn vertical margin*/
@@ -116,3 +120,33 @@
   color: var(--primary-color);
 }
 /*@end btn danger*/
+
+
+.btn-group {
+  .btn:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  .btn:last-child {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  .btn {
+    font-size: 14px;
+    border-radius: 0;
+    border-width: 1px;
+    border-style: solid;
+
+    &.selected {
+      color: white;
+      border-color: var(--quaternary-color);
+      background-color: var(--quaternary-color);
+    }
+  }
+
+  .btn:not(:first-child) {
+    margin-left: -1px;
+  }
+}

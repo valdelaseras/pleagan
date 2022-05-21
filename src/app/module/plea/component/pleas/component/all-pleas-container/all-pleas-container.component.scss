@@ -1,0 +1,9 @@
+app-plea-toolbar {
+  padding: 0 20px;
+}
+
+@media screen and ( min-width: 768px ) {
+  app-plea-toolbar {
+    padding: 0;
+  }
+}

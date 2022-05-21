@@ -29,7 +29,7 @@ export class AppContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.user$ = this.authService.user$.pipe(
+    this.user$ = this.authService.currentUser.pipe(
       filterNullOrUndefined()
     );
 

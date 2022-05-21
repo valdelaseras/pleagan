@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 
 import { PleaRoutingModule } from './plea-routing.module';
 import { SharedModule } from '../shared/shared.module';
@@ -12,7 +13,8 @@ import * as fromComponents from './component';
   imports: [
     CommonModule,
     SharedModule,
-    PleaRoutingModule
+    PleaRoutingModule,
+    LazyLoadImagesModule,
   ],
   exports: [
     ...fromComponents.components

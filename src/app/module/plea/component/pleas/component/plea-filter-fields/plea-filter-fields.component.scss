@@ -1,0 +1,39 @@
+.filters {
+  display: flex;
+  gap: 20px;
+
+  > div {
+    flex-direction: column;
+  }
+}
+
+.personal-filters {
+  display: flex;
+  //flex-direction: column;
+  gap: 5px;
+}
+
+.personal-filters span {
+  color: var(--secondary-color);
+}
+
+label {
+  font-size: 14px;
+}
+
+app-plea-status-select-field {
+  font-size: 14px;
+}
+
+input[type='radio'] {
+  height: 15px;
+  align-self: center;
+}
+
+@media screen and ( min-width: 768px ) {
+  .filters {
+    > div {
+      flex-direction: row
+    }
+  }
+}

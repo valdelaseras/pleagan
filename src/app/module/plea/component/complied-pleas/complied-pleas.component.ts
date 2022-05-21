@@ -15,7 +15,7 @@ export class CompliedPleasComponent {
   constructor(private pleaService: PleaService) {
     // this.pleas$ = this.updateQuery$.pipe(
     //   switchMap((query: string) => (query.length ? this.pleaService.get({query}) : this.pleaService.getPleas())),
-    //   map((pleas: GetPleaDto[]) => pleas.filter((plea: GetPleaDto) => plea.status === PLEA_STATUS.COMPLIED)),
+    //   map((pleas: GetPleaDto[]) => pleas.filter((plea: GetPleaDto) => plea.statusControl === PLEA_STATUS.COMPLIED)),
     // );
   }
 

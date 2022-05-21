@@ -1,4 +1,4 @@
-<section id="plea-detail-section" *ngIf="plea$ | async as plea">
+<section id="plea-detail-section" *ngIf="plea | async as plea">
   <div class="section-content">
     <div class="grid">
       <div class="column">
@@ -55,9 +55,8 @@
               <!--    TODO: not visible to owner of plea-->
 <!--              <ng-container *showOnAuth="true">-->
 <!--                <div class="plea-support-btn" *ngIf="!(userIsInitiator$ | async)">-->
-<!--                  <app-plea-support-button [plea]="plea"-->
-<!--                                           [userHasSupported]="(userHasSupported$ | async)"-->
-<!--                                           (hasSupported)="refreshPlea()"></app-plea-support-button>-->
+                  <app-plea-support-button [plea]="plea"
+                                           (onSupport)="refreshPlea()"></app-plea-support-button>
 <!--                </div>-->
 <!--              </ng-container>-->
 

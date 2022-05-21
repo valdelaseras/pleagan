@@ -1,17 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { WizardService, WizardStep } from '../../service/wizard.service';
+import {
+  FADE_IN_OUT_SINGLE, GROW_IN_SHRINK_OUT_SINGLE_FLEX,
+} from '@shared/animations';
 
 @Component({
   selector: 'app-wizard-step-indicator',
   templateUrl: './wizard-step-indicator.component.html',
   styleUrls: [
     './wizard-step-indicator.component.scss'
+  ],
+  animations: [
+    FADE_IN_OUT_SINGLE,
+    GROW_IN_SHRINK_OUT_SINGLE_FLEX
   ]
 })
 export class WizardStepIndicatorComponent implements OnInit {
-  steps: Observable<WizardStep[]>;
+  @Input() showStepIndex = true;
   currentStep: Observable<WizardStep>;
+  steps: Observable<WizardStep[]>;
 
   constructor ( private wizardService: WizardService ) {}
 
@@ -22,5 +30,9 @@ export class WizardStepIndicatorComponent implements OnInit {
 
   setStepIndex( index: number ): void {
     this.wizardService.setCurrentStepIndex( index );
+  }
+
+  displayableSteps( steps: WizardStep[] ): WizardStep[] {
+    return steps.filter( step => step.shouldDisplay );
   }
 }

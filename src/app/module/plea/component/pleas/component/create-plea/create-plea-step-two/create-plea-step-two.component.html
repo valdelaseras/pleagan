@@ -2,17 +2,19 @@
   <div class="content">
     <h3>Similar pleas</h3>
     <sub>
-      We have found {{ pleas.length }} plea{{(pleas.length > 1 ? 's' : '')}} that look{{(pleas.length < 2 ? 's' : '')}}
-      very similar to yours. Please verify that your plea is unique.
+      We have found {{ pleas.length }} plea{{pleas.length > 1 ? 's' : ''}} that look{{pleas.length < 2 ? 's' : ''}}
+      similar to yours. Please verify that your plea is unique.
     </sub>
   </div>
 
   <div class="content">
     <ul class="suggestion-list">
-      <li *ngFor="let plea of pleas"
+      <li *ngFor="let plea of pleas; let i = index"
+          lazy-load-images
+          [@enter]="{ value: '', params: { delay: i * 50 } }"
           [routerLink]="['/', 'plea', 'details', plea.id]">
         <div>
-          <div class="thumbnail" [style.background-image]="'url(' + plea.productImage + ')'"></div>
+          <div class="thumbnail" [attr.data-background-src]="plea.productImage"></div>
           <div class="title">
             <span class="bold">{{ plea.companyName }}</span>
             <span>{{ plea.productName }}</span>

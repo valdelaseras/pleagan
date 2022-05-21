@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { CreatePleaDto, GetPleaDto, UpdatePleaDto } from '@shared/model';
 import { environment } from '@env/*';
-import { ApiService, GenericParams } from '@core/service/abstract-api/api.service';
+import { ApiService } from '@core/service/abstract-api/api.service';
 import { HttpErrorHandlerService } from '@core/service/error/http-error-handler.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PleaService extends ApiService<GetPleaDto> {
+  protected cache: BehaviorSubject<GetPleaDto[]>;
+
   constructor(
     protected http: HttpClient,
     private httpErrorHandler: HttpErrorHandlerService
@@ -20,19 +22,22 @@ export class PleaService extends ApiService<GetPleaDto> {
     this.handleError = httpErrorHandler.createHandleError( 'PleaService' );
   }
 
-  get( params?: GenericParams ): Observable<GetPleaDto[]> {
-    this.fetchAll( params );
+  get(): Observable<GetPleaDto[]> {
+    if ( !this.cache ) {
+      this.cache = new BehaviorSubject<GetPleaDto[]>([]);
+      this.fetchAll();
+    }
     return this.cache.asObservable();
   }
 
-  getMine( params?: GenericParams ): Observable<GetPleaDto[]> {
-    return this.http.get<GetPleaDto[]>(
-      `${this.endpoint}/mine`
-    ).pipe(
-      map((pleas: GetPleaDto[]) => this.parseArray( pleas, GetPleaDto ) ),
-      catchError( this.handleError( 'getMine', [] ) )
-    );
-  }
+  // getMine(): Observable<GetPleaDto[]> {
+  //   return this.http.get<GetPleaDto[]>(
+  //     `${this.endpoint}/mine`
+  //   ).pipe(
+  //     map((pleas: GetPleaDto[]) => this.parseArray( pleas, GetPleaDto ) ),
+  //     catchError( this.handleError( 'getMine', [] ) )
+  //   );
+  // }
 
   getSupported(): Observable<GetPleaDto[]> {
     return this.http.get<GetPleaDto[]>(
@@ -94,23 +99,23 @@ export class PleaService extends ApiService<GetPleaDto> {
     return this.http.delete<void>(`${environment.apiBaseUrl}/plea/${id}/support`);
   }
 
-  create( plea: CreatePleaDto ): Observable<null> {
-    return this.http.post<null>(
+  create( plea: CreatePleaDto ): Observable<GetPleaDto> {
+    return this.http.post<GetPleaDto>(
       this.endpoint,
       plea
     ).pipe(
       tap( () => this.fetchAll() ),
-      catchError( this.handleError( 'create', null ) )
+      catchError( this.handleError( 'create', {} as GetPleaDto ) )
     );
   }
 
-  update( id: number, updatedPlea: UpdatePleaDto): Observable<null> {
-    return this.http.put<null>(
+  update( id: number, updatedPlea: UpdatePleaDto): Observable<GetPleaDto> {
+    return this.http.put<GetPleaDto>(
       `${this.endpoint}/${id}`,
       updatedPlea
     ).pipe(
       tap( () => this.fetchAll() ),
-      catchError( this.handleError( 'update', null ) )
+      catchError( this.handleError( 'update', {} as GetPleaDto ) )
     );
   }
 
@@ -135,14 +140,13 @@ export class PleaService extends ApiService<GetPleaDto> {
   //     );
   // }
 
-  protected fetchAll( params?: GenericParams ): void  {
+  protected fetchAll(): void  {
     this.http.get<GetPleaDto[]>(
-      this.endpoint,
-      params ? { params: this.mapToHttpParams( params ) } : {}
+      this.endpoint
     ).pipe(
       catchError( this.handleError( 'get', [] ) ),
       map(( pleas: GetPleaDto[] ) => this.parseArray( pleas, GetPleaDto )),
-      tap( ( pleas: GetPleaDto[] ) => this.cache.next( pleas ) )
+      tap( ( pleas: GetPleaDto[] ) => this.cache.next( pleas ) ),
     ).subscribe();
   }
 }

@@ -1,6 +1,6 @@
-import { ApiService, GenericParams } from '@core/service/abstract-api/api.service';
+import { ApiService } from '@core/service/abstract-api/api.service';
 import { BehaviorSubject, combineLatest, Observable, of, ReplaySubject, Subject } from 'rxjs';
-import { catchError, map, pairwise, take, takeUntil, tap } from 'rxjs/operators';
+import { catchError, map, takeUntil, tap } from 'rxjs/operators';
 
 export type SortDirection = 'ASC' | 'DESC' | '';
 
@@ -16,7 +16,7 @@ const stringifyProperty = ( value: any ): string => {
   }
 };
 
-export abstract class AbstractDataSource<O, LI, FO extends GenericParams, DS extends ApiService<O>> {
+export abstract class AbstractDataSource<O, LI, FO, DS extends ApiService<O>> {
 
   // Columns to sort list items by when using frontend-side sorting
   protected defaultSortColumns: (keyof LI)[] = [];
@@ -27,10 +27,8 @@ export abstract class AbstractDataSource<O, LI, FO extends GenericParams, DS ext
   // Contains the raw data returned by the data service
   protected itemsSubject: ReplaySubject<LI[]> =  new ReplaySubject<LI[]>( 1 );
 
-  // Emits true when no items are available and true otherwise
-  noItems: Observable<boolean> = this.itemsSubject.asObservable().pipe(
-    map( items => items.length === 0 )
-  );
+  // Emits true when no items are available and false otherwise
+  noItems: BehaviorSubject<boolean> = new BehaviorSubject<boolean>( true );
 
   // Default page and sorting values
   // These are only required for frontend-side pagination, filtering and sorting
@@ -46,20 +44,25 @@ export abstract class AbstractDataSource<O, LI, FO extends GenericParams, DS ext
 
   count: BehaviorSubject<number> = new BehaviorSubject<number>( 0 );
   unsubscribe: Subject<void> = new Subject();
+  loading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   protected constructor (
     protected dataService: DS,
     protected filters: Observable<FO>
   ) {
     this.mapObjectToListItem = this.mapObjectToListItem.bind( this );
-
-    // Reload the data when new filters have been emitted
-    this.filters.pipe(
+    let first = true;
+    this.itemsChange.asObservable().pipe(
       takeUntil( this.unsubscribe ),
-      map( ( filters ) => {
-        this.load( filters as GenericParams );
+      tap(() => {
+        if ( !first ) {
+          // show toast notifying user that data was updated
+        }
+        first = false;
       })
     ).subscribe();
+
+    this.itemsSubject.next([]);
   }
 
   /**
@@ -85,6 +88,9 @@ export abstract class AbstractDataSource<O, LI, FO extends GenericParams, DS ext
         // Update pagination size
         this.count.next( items.length );
 
+        // Update noItems subject
+        this.noItems.next( items.length === 0 );
+
         // Apply sorting
         items = this.getSortedData( items, sortActive, sortDirection );
 
@@ -98,6 +104,7 @@ export abstract class AbstractDataSource<O, LI, FO extends GenericParams, DS ext
    * Disconnect the observable streams
    */
   disconnect(): void {
+    this.unsubscribe.next();
     this.itemsSubject.complete();
     this.pageIndex.complete();
     this.pageSize.complete();
@@ -128,14 +135,13 @@ export abstract class AbstractDataSource<O, LI, FO extends GenericParams, DS ext
 
   /**
    * (Re)-load the list of items by performing a new API call.
-   * Calling this method manually should not be necessary since it is automatically called upon initialisation and
-   * filter update, but is possible.
-   * @param params
+   * Calling this method manually should not be necessary since it is automatically called upon filter update, but is
+   * possible.
    */
-  load( params?: GenericParams ): void {
-    // fixme: do we need this?
-    // this.unsubscribe.next();
-    this.dataService.get( params ).pipe(
+  load(): void {
+    this.unsubscribe.next()
+    this.loading.next( true );
+    this.dataService.get().pipe(
       takeUntil( this.unsubscribe ),
       catchError( () => {
         return of([]);
@@ -147,6 +153,7 @@ export abstract class AbstractDataSource<O, LI, FO extends GenericParams, DS ext
         this.itemsSubject.next(
           this.getDefaultSortedData( listItems )
         );
+        this.loading.next( false );
         this.itemsChange.next();
       })
     ).subscribe();

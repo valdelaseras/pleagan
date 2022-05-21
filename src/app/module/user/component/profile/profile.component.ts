@@ -23,9 +23,9 @@ export class ProfileComponent {
 
   constructor( public authService: AuthService, public pleaService: PleaService, public pleaganService: PleaganService ) {
     this.authService.getUser();
-    this.pleas$ = this.pleaService.getMine().pipe(
-      tap( _ => this.pleaStatus = HTTP_LOADING_STATUS.FINISHED )
-    );
+    // this.pleas$ = this.pleaService.getMine().pipe(
+    //   tap( _ => this.pleaStatus = HTTP_LOADING_STATUS.FINISHED )
+    // );
     this.supportedPleas$ = this.pleaService.getSupported().pipe(
       tap( _ => this.pleaStatus = HTTP_LOADING_STATUS.FINISHED )
     );

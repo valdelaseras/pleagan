@@ -1,4 +1,4 @@
-<div>
+<div class="flex flex-col flex-grow">
   <div class="content">
     <h3>Product and company name</h3>
   </div>
@@ -25,6 +25,12 @@
           required
         />
       </div>
+
+      <p *ngIf="similarPleasFound | async"
+         class="alert warn"
+         [@enter]>
+        Similar pleas have been found. Please take a moment in the next step to verify your product hasn't already been added.
+      </p>
     </form>
   </div>
 </div>

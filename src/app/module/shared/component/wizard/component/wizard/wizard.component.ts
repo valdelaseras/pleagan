@@ -18,6 +18,7 @@ import { filter, map, shareReplay, startWith, tap, timestamp, withLatestFrom } f
 })
 export class WizardComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() steps: WizardStep[];
+  @Input() showStepIndex = true;
   @Output() onSubmit: Subject<void> = new Subject();
 
   currentStep: Observable<WizardStep>;

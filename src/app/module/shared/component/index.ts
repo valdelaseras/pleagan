@@ -8,18 +8,20 @@ import { SearchFieldComponent } from './search-field/search-field.component';
 import { WizardStepIndicatorComponent } from './wizard/component/wizard-step-indicator/wizard-step-indicator.component';
 import { AbstractWizardStepDirective } from './wizard/component/abstract-wizard-step/abstract-wizard-step.directive';
 import { WizardComponent } from './wizard/component/wizard/wizard.component';
+import { FileUploadFieldComponent } from './file-upload-field/file-upload-field.component';
 
 export const components = [
+  AbstractWizardStepDirective,
   AppContainerComponent,
   CommentCardComponent,
   FabButtonComponent,
+  FileUploadFieldComponent,
   LoadingIndicatorComponent,
   NotificationComponent,
   NavComponent,
   SearchFieldComponent,
   WizardComponent,
   WizardStepIndicatorComponent,
-  AbstractWizardStepDirective
 ];
 
 export * from './app-container/app-container.component';
@@ -32,3 +34,4 @@ export * from './search-field/search-field.component';
 export * from './wizard/component/wizard/wizard.component';
 export * from './wizard/component/wizard-step-indicator/wizard-step-indicator.component';
 export * from './wizard/component/abstract-wizard-step/abstract-wizard-step.directive';
+export * from './file-upload-field/file-upload-field.component';

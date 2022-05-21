@@ -5,6 +5,7 @@ import { NewsListComponent } from './component/news-list/news-list.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { FaqComponent } from './component/faq/faq.component';
+import { PleasResolver } from './module/plea/resolver/pleas.resolver';
 
 const routes: Routes = [
   {
@@ -14,6 +15,9 @@ const routes: Routes = [
   {
     path: 'plea',
     loadChildren: () => import( './module/plea/plea.module' ).then( m => m.PleaModule ),
+    resolve: {
+      pleas: PleasResolver, // value is not used, but this will pre-load and cache the data
+    }
   },
   {
     path: 'user',

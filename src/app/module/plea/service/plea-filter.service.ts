@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { GenericParams } from '@core/service/abstract-api/api.service';
-import { SortDirection } from '@shared/component/abstract-container/abstract-data-source';
+import { PLEA_STATUS } from '@shared/model';
 
-export interface PleaFilterOptions extends GenericParams {
+export interface PleaFilterOptions {
   search?: string;
+  pleagan?: string;
+  status?: PLEA_STATUS;
+  supported?: boolean;
   companyName?: string;
   productName?: string;
-  orderBy?: 'companyName' | 'productName' | 'createdAt' | 'numberOfSupports';
-  direction?: SortDirection;
 }
 
 @Injectable({
@@ -17,10 +17,11 @@ export interface PleaFilterOptions extends GenericParams {
 export class PleaFilterService {
   private blankFilterOptions: PleaFilterOptions = {
     search: '',
+    pleagan: '',
+    status: undefined,
+    supported: false,
     companyName: '',
     productName: '',
-    orderBy: 'createdAt',
-    direction: 'ASC'
   }
 
   filterOptions: BehaviorSubject<PleaFilterOptions> = new BehaviorSubject<PleaFilterOptions>( this.blankFilterOptions );

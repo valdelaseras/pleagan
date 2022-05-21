@@ -1,11 +1,10 @@
-/*@start loading indicator*/
-.loading-indicator-container {
+:host {
   display: flex;
-  flex-direction: column;
+  flex-grow: 1;
   align-items: center;
-  justify-content: center;
 }
 
+/*@start loading indicator*/
 .loading-indicator {
   position: relative;
   width: 80px;
@@ -18,7 +17,7 @@
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: var(--primary-accent-color);
+  background: var(--quaternary-color);
   -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
@@ -47,3 +46,30 @@
   animation: loading-indicator3 0.6s infinite;
 }
 /*@end loading indicator*/
+
+@keyframes loading-indicator1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loading-indicator2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+@keyframes loading-indicator3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}

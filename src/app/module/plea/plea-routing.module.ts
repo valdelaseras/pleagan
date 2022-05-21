@@ -11,17 +11,29 @@ import {
   PleaDetailsComponent,
   StatisticsComponent, MyPleasContainerComponent
 } from './component';
+import { PleaResolver } from './resolver/plea.resolver';
 
 const routes: Routes = [
   { path: 'initiate', component: CreatePleaComponent, canActivate: [IsLoggedIn], data: { animation: 'newPlea'} },
   { path: 'initiated', component: MyPleasComponent, canActivate: [IsLoggedIn], data: { animation: 'initiatedPleas'} },
   { path: 'supported', component: MySupportComponent, canActivate: [IsLoggedIn], data: { animation: 'supportedPleas'} },
   { path: 'mine', component: MyPleasContainerComponent, canActivate: [IsLoggedIn], data: { animation: 'myPleas'} },
-  { path: 'all', component: AllPleasContainerComponent, data: { animation: 'allPleas'} },
+  {
+    path: 'all',
+    component: AllPleasContainerComponent,
+    data: { animation: 'allPleas'}
+  },
   { path: 'statistics', component: StatisticsComponent, data: { animation: 'statistics'} },
   { path: 'complied', component: CompliedPleasComponent, data: { animation: 'compliedPleas'} },
-  { path: 'complied/:pleaId/details', component: HafDetailsComponent, data: { animation: 'compliedPleaDetails'} },
-  { path: ':pleaId/details', component: PleaDetailsComponent, data: { animation: 'pleaDetails'} },
+  { path: 'complied/:pleaId', component: HafDetailsComponent, data: { animation: 'compliedPleaDetails'} },
+  {
+    path: ':pleaId',
+    component: PleaDetailsComponent,
+    data: { animation: 'pleaDetails'},
+    resolve: {
+      plea: PleaResolver,
+    }
+  },
   { path: '**', redirectTo: 'all' },
 ];
 

@@ -1,90 +1,11 @@
-<ng-container *ngIf="pleas | async as pleas">
-  <div *ngIf="pleas.length; else noItems"
-       class="column plea-list">
-    <div [@fadeInList]="pleas.length">
-      <ng-container *ngIf="screenSize == 'small'">
-        <ng-container *ngTemplateOutlet="mobile; context: { pleas: pleas }"></ng-container>
-      </ng-container>
-      <ng-container *ngIf="screenSize == 'large'">
-        <ng-container *ngTemplateOutlet="desktop; context: { pleas: pleas }"></ng-container>
-      </ng-container>
-      <ng-container *ngIf="screenSize == 'xl'">
-        <ng-container *ngTemplateOutlet="desktopXl; context: { pleas: pleas }"></ng-container>
-      </ng-container>
-    </div>
-  </div>
-</ng-container>
-
-<ng-template #mobile let-pleas="pleas">
-  <ng-container *ngFor="let plea of pleas">
-    <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
+<div class="plea-list" lazy-load-images>
+  <ng-container *ngIf="pleas | async as pleas; else noItems">
+    <app-plea-card *ngFor="let plea of pleas; let i = index"
+                   [@enter]="{ value: '', params: { delay: i * 50 } }"
+                   [plea]="plea"></app-plea-card>
   </ng-container>
-</ng-template>
-
-<ng-template #desktop let-pleas="pleas">
-  <div class="column two">
-    <div class="content">
-      <ng-container *ngFor="let plea of pleas; let i = index">
-        <ng-container *ngIf="i % 2 == 0">
-          <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
-        </ng-container>
-      </ng-container>
-    </div>
-  </div>
-
-  <div class="column two">
-    <div class="content">
-      <ng-container *ngFor="let plea of pleas; let i = index">
-        <ng-container *ngIf="i % 2 > 0">
-          <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
-        </ng-container>
-      </ng-container>
-    </div>
-  </div>
-</ng-template>
-
-<ng-template #desktopXl let-pleas="pleas">
-  <div class="column three">
-    <div class="content">
-      <ng-container *ngFor="let plea of pleas; let i = index">
-        <ng-container *ngIf="i % 3 == 0">
-          <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
-        </ng-container>
-      </ng-container>
-    </div>
-  </div>
-
-  <div class="column three">
-    <div class="content">
-      <ng-container *ngFor="let plea of pleas; let i = index">
-        <ng-container *ngIf="i % 3 == 1">
-          <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
-        </ng-container>
-      </ng-container>
-    </div>
-  </div>
-
-  <div class="column three">
-    <div class="content">
-      <ng-container *ngFor="let plea of pleas; let i = index">
-        <ng-container *ngIf="i % 3 == 2">
-          <ng-container *ngTemplateOutlet="card; context: { plea: plea }"></ng-container>
-        </ng-container>
-      </ng-container>
-    </div>
-  </div>
-</ng-template>
-
-<ng-template #card let-plea="plea">
-  <ng-container *ngIf="plea.status !== PLEA_STATUS.COMPLIED">
-    <app-plea-card [plea]="plea" class="column"></app-plea-card>
-  </ng-container>
-
-  <ng-container *ngIf="plea.status === PLEA_STATUS.COMPLIED">
-    <app-haf-card [plea]="plea" class="column"></app-haf-card>
-  </ng-container>
-</ng-template>
+</div>
 
 <ng-template #noItems>
-  <span [@fadeInSingle]>No pleas found</span>
+  <span [@enter]>No pleas found</span>
 </ng-template>

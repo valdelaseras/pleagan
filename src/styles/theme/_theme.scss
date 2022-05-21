@@ -1,3 +1,6 @@
+$quaternaryColor: #e5633b;
+$warnColor: #ffd859;
+
 :root {
   --primary-color: #e3e3e3;
   --secondary-color: #292929;
@@ -7,7 +10,7 @@
   //--quaternary-color: #f88086;
   //--quaternary-color: #dd8449;
   //--quaternary-color: #dd7849;
-  --quaternary-color: #e5633b;
+  --quaternary-color: #{$quaternaryColor};
   --quinary-color: #e53b68;
 
   //greenish to colder more cyan
@@ -18,7 +21,7 @@
 
   //--danger-color: #a73535;
   --danger-color: #d42323;
-
+  --warn-color: $warnColor;
   --success-color: #c4deae;
 }
 

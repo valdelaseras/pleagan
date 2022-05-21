@@ -14,10 +14,18 @@
   justify-content: space-between;
 }
 
+.flex-grow {
+  flex: 1;
+}
+
+.flex-gap {
+  gap: 20px;
+}
+
 .flex-center {
   text-align: center;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 /*@start space-between-list*/

@@ -17,6 +17,7 @@ export class AbstractWizardStepDirective implements OnInit {
     if ( this.form ) {
       this.form.valueChanges.pipe(
         tap( ( formValues ) => {
+          console.log('form updated');
           this.step.formValues = formValues;
         })
       ).subscribe();
