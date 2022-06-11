@@ -9,8 +9,8 @@ select {
   border-top: none;
   border-left: none;
   border-right: none;
-  border-width: .5px;
-  border-color: rgba(41,41,41,.5);
+  border-width: 1px;
+  border-color: var(--secondary-color);
   padding: 5px 0;
   // zindex needed or the placeholder lays on top of menu when opened
   // z-index: -1;
@@ -21,7 +21,7 @@ select {
 }
 
 input::placeholder {
-  opacity: .5;
+  opacity: .8;
   font-size: .9rem;
 }
 
@@ -69,7 +69,7 @@ textarea {
   display: block;
   width: 100%;
   padding: 10px;
-  background: #f4f4f4;
+  background: var(--tertiary-color);
   border: none;
   border-radius: 5px;
   margin: 1rem 0;

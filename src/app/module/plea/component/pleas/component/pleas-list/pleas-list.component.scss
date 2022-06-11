@@ -1,6 +1,5 @@
 /*@start plea list*/
 .plea-list {
-  padding: 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -12,8 +11,6 @@
 
 @media only screen and (min-width: 768px) {
   .plea-list {
-    padding: 0;
-
     > * {
       flex: 1 0 45%;
       max-width: 49%;
@@ -23,14 +20,10 @@
 
 @media only screen and (min-width: 1024px) {
   .plea-list {
-    padding: 0;
-
     > * {
       flex: 1 0 25%;
       max-width: 32%;
     }
   }
 }
-
-
 /*@start plea list*/

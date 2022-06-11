@@ -1,4 +1,4 @@
-<section id="all-pleas-section">
+<section class="section" id="all-pleas-section">
   <div class="section-content">
     <div class="grid">
       <div class="column">
@@ -6,14 +6,16 @@
           <div class="content desktop-only">
             <h2>Pleas</h2>
           </div>
-          <div class="content">
+          <div class="content desktop-only">
             <div class="flex flex-col flex-gap">
               <app-plea-toolbar [searchControl]="searchControl"
                                 [statusControl]="statusControl"
                                 [myPleasControl]="myPleasControl"
                                 [supportedPleasControl]="supportedPleasControl"></app-plea-toolbar>
-              <app-pleas-list [dataSource]="dataSource"></app-pleas-list>
             </div>
+          </div>
+          <div class="content">
+            <app-pleas-list [dataSource]="dataSource"></app-pleas-list>
           </div>
         </div>
       </div>

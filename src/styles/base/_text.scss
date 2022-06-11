@@ -1,13 +1,12 @@
 /*@start base font*/
 * {
-  //font-family: Metropolis, "Avenir Next", "Helvetica Neue", Arial, sans-serif;
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 17px;
   color: var(--secondary-color);
   -webkit-font-smoothing: antialiased;
 }
 
-@media only screen and (min-width: 1440px){
+@media only screen and (min-width: 768px){
   * {
     font-size: 18px;
   }
@@ -17,10 +16,17 @@
 
 
 /*@start headers*/
-h1 { font-size: 3rem; }
-h2{ font-size: 2.5rem; }
-h3 { font-size: 2rem; }
-h4 { font-size: 1.5rem; }
+h1 { font-size: 4rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1rem; }
+
+@media only screen and (min-width: 768px){
+  h1 { font-size: 8.2rem; }
+  h2{ font-size: 5.1rem }
+  h3 { font-size: 3.2rem; }
+  h4 { font-size: 1.6rem; }
+}
 /*@end headers*/
 
 

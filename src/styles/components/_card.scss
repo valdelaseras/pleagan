@@ -1,6 +1,6 @@
 /*@start card*/
 .card {
-  background-color: rgb(244,244,244);
+  background-color: var(--tertiary-color);
   border-radius: 3px;
   width: 100%;
   display: block;
@@ -17,7 +17,7 @@
 .card-header,
 .card-body,
 .card-footer {
-  padding: 1.5rem 1rem;
+  padding: 20px;
 }
 /*@end card 'block' padding*/
 
@@ -25,15 +25,14 @@
 
 /*@start card header*/
 .card-header {
-  border-bottom: .5px solid #dedede;
-  height: 70px;
-  max-height: 70px;
+  height: 100px;
+  max-height: 100px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .card-header .card-title {
-  font-size: 20px;
+  font-size: 22px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -47,7 +46,8 @@
   position: absolute;
   background-color: var(--secondary-color);
   color: var(--primary-color);
-  padding: 10px 20px;
+  padding: 5px 20px;
+  transform: translateY(-20px);
   border-bottom-right-radius: 3px;
   left: 0;
   z-index: 1;
@@ -59,10 +59,8 @@
 
 
 /*@start card productImage*/
-//todo: rather not have fixed heights
-// but fix 2 px overflow on bottom first
 .card-img {
-  background-color: #fff;
+  background-color: var(--tertiary-color);
 }
 
 .card-img .img {

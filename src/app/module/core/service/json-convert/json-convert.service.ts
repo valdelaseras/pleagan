@@ -14,6 +14,7 @@ export class JsonConvertService<T> extends JsonConvert {
 
   parseArray(input: object[], type: new () => T): T[] {
     try {
+      // @ts-ignore
       return this.deserializeArray<T>(input, type);
     } catch ( error ) {
       console.error( error );
@@ -23,6 +24,7 @@ export class JsonConvertService<T> extends JsonConvert {
 
   parse(input: object, type: new () => T): T {
     try {
+      // @ts-ignore
       return this.deserializeObject<T>(input, type);
     } catch ( error ) {
       console.error( error );
