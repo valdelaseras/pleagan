@@ -1,25 +1,14 @@
-$quaternaryColor: #e5633b;
+$quaternaryColor: #3bcce5;
 $warnColor: #ffd859;
 
 :root {
-  --primary-color: #e3e3e3;
-  --secondary-color: #292929;
-  --tertiary-color: #bebebe;
+  --primary-color: #080224;
+  --secondary-color: #e2e2e2;
+  --tertiary-color: #191332;
 
-  //warm colours
-  //--quaternary-color: #f88086;
-  //--quaternary-color: #dd8449;
-  //--quaternary-color: #dd7849;
   --quaternary-color: #{$quaternaryColor};
-  --quinary-color: #e53b68;
+  --quinary-color: #ff7fdd;
 
-  //greenish to colder more cyan
-  //--quaternary-color: #248124;
-  //--quaternary-color: #349b5d;
-  //--quaternary-color: #349B77FF;
-  //--quaternary-color: #2b9d91;
-
-  //--danger-color: #a73535;
   --danger-color: #d42323;
   --warn-color: $warnColor;
   --success-color: #c4deae;

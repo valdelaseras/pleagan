@@ -2,17 +2,3 @@
   margin: 40px 0;
   padding: 40px 0;
 }
-
-@media only screen and (min-width: 1024px){
-  .banner {
-    margin: 0;
-    padding: 0;
-  }
-
-  .banner.theme-primary,
-  .banner.theme-secondary,
-  .banner.theme-tertiary,
-  .banner.theme-quaternary {
-    background-color: transparent;
-  }
-}

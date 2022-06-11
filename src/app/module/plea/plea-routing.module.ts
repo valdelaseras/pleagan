@@ -4,7 +4,6 @@ import { IsLoggedIn } from '../core/guard';
 import {
   AllPleasContainerComponent,
   CompliedPleasComponent,
-  HafDetailsComponent,
   MyPleasComponent,
   MySupportComponent,
   CreatePleaComponent,
@@ -25,7 +24,6 @@ const routes: Routes = [
   },
   { path: 'statistics', component: StatisticsComponent, data: { animation: 'statistics'} },
   { path: 'complied', component: CompliedPleasComponent, data: { animation: 'compliedPleas'} },
-  { path: 'complied/:pleaId', component: HafDetailsComponent, data: { animation: 'compliedPleaDetails'} },
   {
     path: ':pleaId',
     component: PleaDetailsComponent,
