@@ -1,8 +1,5 @@
 import { AllPleasContainerComponent } from './pleas/component/all-pleas-container/all-pleas-container.component';
 import { CompliedPleasComponent } from './complied-pleas/complied-pleas.component';
-import { HafDetailsComponent } from './haf-details/haf-details.component';
-import { HafCardComponent } from './haf-card/haf-card.component';
-import { HallOfFameComponent } from './hall-of-fame/hall-of-fame.component';
 import { MyPleasContainerComponent } from './pleas/component/my-pleas-container/my-pleas-container.component';
 import { MySupportComponent } from './my-support/my-support.component';
 import { CreatePleaComponent } from './pleas/component/create-plea/create-plea.component';
@@ -14,7 +11,6 @@ import { PleasListComponent } from './pleas/component/pleas-list/pleas-list.comp
 import { StatisticsComponent } from './statistics/statistics.component';
 import { SuggestionListComponent } from './suggestion-list/suggestion-list.component';
 import { SupportersListComponent } from './supporters-list/supporters-list.component';
-
 
 import {
   CreatePleaStepOneComponent
@@ -36,9 +32,6 @@ import { PleaFilterFieldsComponent } from './pleas/component/plea-filter-fields/
 export const components = [
   AllPleasContainerComponent,
   CompliedPleasComponent,
-  HafDetailsComponent,
-  HafCardComponent,
-  HallOfFameComponent,
   MyPleasComponent,
   MyPleasContainerComponent,
   MySupportComponent,
@@ -61,9 +54,6 @@ export const components = [
 
 export * from './pleas/component/all-pleas-container/all-pleas-container.component';
 export * from './complied-pleas/complied-pleas.component';
-export * from './haf-details/haf-details.component';
-export * from './haf-card/haf-card.component';
-export * from './hall-of-fame/hall-of-fame.component';
 export * from './my-pleas/my-pleas.component';
 export * from './my-support/my-support.component';
 export * from './pleas/component/create-plea/create-plea.component';

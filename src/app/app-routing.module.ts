@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageComponent } from './page/home-page/home-page.component';
-import { NewsPageComponent } from './page/news-page/news-page.component';
-import { AboutSectionComponent } from './section/about-section/about-section.component';
-import { ContactPageComponent } from './page/contact-page/contact-page.component';
-import { FaqPageComponent } from './page/faq-page/faq-page.component';
+import { HomePageComponent } from './component/page/home-page/home-page.component';
+import { NewsPageComponent } from './component/page/news-page/news-page.component';
+import { AboutPageComponent } from './component/page/about-page/about-page.component';
+import { ContactPageComponent } from './component/page/contact-page/contact-page.component';
+import { FaqPageComponent } from './component/page/faq-page/faq-page.component';
 import { PleasResolver } from './module/plea/resolver/pleas.resolver';
 
 const routes: Routes = [
@@ -25,11 +25,10 @@ const routes: Routes = [
   },
   { path: '', component: HomePageComponent, data: { animation: 'home' } },
   { path: 'news', component: NewsPageComponent, data: { animation: 'news' } },
-  { path: 'about', component: AboutSectionComponent, data: { animation: 'about' } },
   { path: 'contact', component: ContactPageComponent, data: { animation: 'contact' } },
   { path: 'faq', component: FaqPageComponent, data: { animation: 'faq' }  },
+  { path: 'about', component: AboutPageComponent, data: { animation: 'faq' }  },
   { path: '**', redirectTo: '/' },
-  // { path: 'my-news', component: MyNewsComponent },
 ];
 
 @NgModule({
