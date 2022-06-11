@@ -143,8 +143,7 @@
   width: 85vw;
   padding-top: 60px;
   transition: 150ms ease-in-out;
-  background-color: var(--quinary-color);
-  border-bottom-right-radius: 90px;
+  background-color: var(--tertiary-color);
   z-index: -5;
 }
 
@@ -164,15 +163,16 @@
 @media only screen and (min-width: 1440px) {
   .menu {
     padding-top: 80px;
-    width: 17.5vw;
+    width: 9.5vw;
+    bottom: 0;
   }
 }
 
-@media only screen and ( min-width: 2560px ) {
-  .menu {
-    max-width: 10vw;
-  }
-}
+//@media only screen and ( min-width: 2560px ) {
+//  .menu {
+//    max-width: 10vw;
+//  }
+//}
 /*@end menu*/
 
 
@@ -237,7 +237,7 @@
 
 .menu-list > li a {
   font-size: 1.15rem;
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 /*@end menu list li*/
 

@@ -1,8 +1,21 @@
-/*@start home cta buttons*/
-.btn.btn-secondary {
-  margin-top: 1rem;
+/*@start landing section typography*/
+.header-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+  color: var(--danger-color);
+  text-decoration: line-through;
+  text-decoration-color: var(--danger-color);
 }
-/*@end home cta buttons*/
+
+@media only screen and (min-width: 1440px){
+  .header-subtext {
+    font-size: 1.3rem;
+    line-height: 2.3rem;
+  }
+}
+/*@end landing section typography*/
 
 
 
@@ -33,26 +46,3 @@
 //  }
 //}
 /*@end landing header productImage*/
-
-
-
-/*@start landing section typography*/
-.header-subtitle {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-size: 3.2rem;
-  line-height: 3.2rem;
-  color: var(--danger-color);
-  text-decoration: line-through;
-  text-decoration-color: var(--danger-color);
-}
-
-//@media only screen and (min-width: 1440px){
-//  .header-content {
-//    font-size: 1.3rem;
-//    line-height: 2.3rem;
-//  }
-//}
-/*@end landing section typography*/
-
-

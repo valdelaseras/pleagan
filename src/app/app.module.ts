@@ -19,6 +19,7 @@ import { FaqSectionComponent } from './component/section/faq-section/faq-section
 import { ProfileSectionComponent } from './component/section/profile-section/profile-section.component';
 import { ContactSectionComponent } from './component/section/contact-section/contact-section.component';
 import { AboutPageComponent } from './component/page/about-page/about-page.component';
+import { SimpleExplainerSectionComponent } from './component/section/simple-explainer-section/simple-explainer-section.component';
 
 const imports = [
   AppRoutingModule,
@@ -45,6 +46,7 @@ const imports = [
     ProfileSectionComponent,
     ContactSectionComponent,
     AboutPageComponent,
+    SimpleExplainerSectionComponent,
   ],
   imports: [
     imports,
