@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./simple-explainer-section.component.scss']
 })
 export class SimpleExplainerSectionComponent implements OnInit {
-
-  constructor() { }
+  isExpanded = false;
+  constructor() {}
 
   ngOnInit(): void {
   }
-
 }

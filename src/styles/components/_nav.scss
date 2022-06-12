@@ -125,12 +125,12 @@
 
 #nav-checkbox:checked + #menu-toggle span:nth-child(2) {
   width: 10px;
-  transition-delay: 300ms;
+  transition-delay: 400ms;
 }
 
 #nav-checkbox:checked + #menu-toggle span:last-child {
   width: 5px;
-  transition-delay: 150ms;
+  transition-delay: 250ms;
 }
 /*@end nav toggle*/
 
@@ -234,24 +234,15 @@
               padding-left 300ms ease-in-out 75ms;
 }
 
+@media only screen and (min-width: 1440px){
+  .menu-list > li {
+    padding-left: 40px;
+  }
+}
+
 .menu-list > li a {
   font-size: 1.15rem;
   color: var(--secondary-color);
 }
 /*@end menu list li*/
 
-
-
-/*@start menu-sub-link-list*/
-//.menu-sub-link-list {
-//  padding-left: 10px;
-//}
-//
-//.menu-sub-link-list > li {
-//  line-height: 1.5rem;
-//}
-//
-//.menu-sub-link-list > li p {
-//  font-size: 1rem;
-//}
-/*@end menu-sub-link-list*/

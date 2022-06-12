@@ -19,6 +19,11 @@
     //padding: 25px 0;
     max-width: 62vw;
   }
+
+  .outer-grid {
+    max-width: calc(81vw - 40px);
+    margin: 0 auto -50px;
+  }
 }
 
 @media only screen and ( min-width: 2560px ) {

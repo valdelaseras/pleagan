@@ -1,50 +1,56 @@
-<!--@TODO: to make some kind of quick infograph 3 step thing on how pleagan works with nice simple imagery-->
-<section class="section id=">
-  <div class="section-content">
-    <div class="grid">
+<section class="section" id="simple-explainer-section">
+
+  <div class="desktop-only">
+    <div class="outer-grid" id="toggle">
+      <div class="content">
+        <input type="checkbox" id="explainer-checkbox" [(ngModel)]="isExpanded"/>
+        <label for="explainer-checkbox" id="explainer-toggle">
+          {{ isExpanded ? 'collapse' : 'expand' }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-content" [ngClass]="{'expanded' : isExpanded }">
+    <div *ngIf="!isExpanded" class="grid">
       <div class="column">
         <div class="column three">
           <div class="content">
-            <h3>Plead</h3>
+            <h3>plead</h3>
             <ul class="btn-list horizontal">
               <li>
-                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="btn btn-secondary btn-compact btn-xs">
+                <a role="button"
+                   [routerLinkActive]="'active'"
+                   [routerLink]="['/', 'plea', 'all']"
+                   class="btn btn-secondary btn-compact btn-xs">
                   Support
                 </a>
               </li>
               <li>
-                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']" class="btn btn-secondary btn-compact btn-xs">
+                <a role="button"
+                   [routerLinkActive]="'active'"
+                   [routerLink]="['/', 'plea', 'initiate']"
+                   class="btn btn-secondary btn-compact btn-xs">
                   Initiate
                 </a>
               </li>
             </ul>
           </div>
-          <div class="content">
-            <p>
-              <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="underlined">Find</a> or
-              <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']" class="underlined">initiate</a>
-              a plea to a company to veganise a product of theirs. Gather support from others or show your
-              support for existing pleas.
-            </p>
-          </div>
         </div>
         <div class="column three">
           <div class="content">
-            <h3>Inform</h3>
-            <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'news']" class="btn btn-secondary btn-compact btn-xs">
+            <h3>inform</h3>
+            <a role="button"
+               [routerLinkActive]="'active'"
+               [routerLink]="['/', 'news']"
+               class="btn btn-secondary btn-compact btn-xs">
               News
             </a>
           </div>
-          <div class="content">
-            <p>
-              When the minimum support threshold is reached, the plea is send to the relevant company. We post updates accordingly to our
-              <a [routerLinkActive]="'active'" [routerLink]="['/', 'news']" class="underlined">news page</a>.
-            </p>
-          </div>
         </div>
         <div class="column three">
           <div class="content">
-            <h3>Profit</h3>
+            <h3>profit</h3>
             <ul class="btn-list horizontal">
               <li>
                 <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="btn btn-secondary btn-compact btn-xs">
@@ -58,17 +64,79 @@
               </li>
             </ul>
           </div>
-          <div class="content">
-            <!--            todo: rewrite this ... to something better idk-->
-            <p>
-              When a company answers our pleas and complies, they climb
-              <a [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="underlined">our rankings</a> and we
-              promote their brand new vegan product on our
-              <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']" class="underlined">spotlight page</a>.
-            </p>
-          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!--      <div class="column">-->
+<!--        <div class="column three">-->
+<!--          <div class="content">-->
+<!--            <h3>Plead</h3>-->
+<!--            <ul class="btn-list horizontal">-->
+<!--              <li>-->
+<!--                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="btn btn-secondary btn-compact btn-xs">-->
+<!--                  Support-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']" class="btn btn-secondary btn-compact btn-xs">-->
+<!--                  Initiate-->
+<!--                </a>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--          <div class="content">-->
+<!--            <p>-->
+<!--              <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'all']" class="underlined">Find</a> or-->
+<!--              <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'initiate']" class="underlined">initiate</a>-->
+<!--              a plea to a company to veganise a product of theirs. Gather support from others or show your-->
+<!--              support for existing pleas.-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="column three">-->
+<!--          <div class="content">-->
+<!--            <h3>Inform</h3>-->
+<!--            <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'news']" class="btn btn-secondary btn-compact btn-xs">-->
+<!--              News-->
+<!--            </a>-->
+<!--          </div>-->
+<!--          <div class="content">-->
+<!--            <p>-->
+<!--              When the minimum support threshold is reached, the plea is send to the relevant company. We post updates accordingly to our-->
+<!--              <a [routerLinkActive]="'active'" [routerLink]="['/', 'news']" class="underlined">news page</a>.-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="column three">-->
+<!--          <div class="content">-->
+<!--            <h3>Profit</h3>-->
+<!--            <ul class="btn-list horizontal">-->
+<!--              <li>-->
+<!--                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="btn btn-secondary btn-compact btn-xs">-->
+<!--                  Stats-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                <a role="button" [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']" class="btn btn-secondary btn-compact btn-xs">-->
+<!--                  Spotlight-->
+<!--                </a>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--          <div class="content">-->
+<!--            &lt;!&ndash;            todo: rewrite this ... to something better idk&ndash;&gt;-->
+<!--            <p>-->
+<!--              When a company answers our pleas and complies, they climb-->
+<!--              <a [routerLinkActive]="'active'" [routerLink]="['/', 'statistics']" class="underlined">our rankings</a> and we-->
+<!--              promote their brand new vegan product on our-->
+<!--              <a [routerLinkActive]="'active'" [routerLink]="['/', 'plea', 'complied']" class="underlined">spotlight page</a>.-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
