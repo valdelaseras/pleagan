@@ -9,40 +9,11 @@
   text-decoration-color: var(--danger-color);
 }
 
-@media only screen and (min-width: 1440px){
-  .header-subtext {
-    font-size: 1.3rem;
-    line-height: 2.3rem;
-  }
+.header-subtext {
+  font-size: 1.3rem;
+  line-height: 2.3rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
 }
 /*@end landing section typography*/
 
-
-
-/*@start landing header productImage*/
-//#landing-img {
-//  background-image: url("/assets/images/placeholder-test.jpg");
-//  background-size: cover;
-//  background-repeat: no-repeat;
-//  background-position: -630px;
-//  background-attachment: fixed;
-//}
-
-//.img-background {
-//  padding: 50px 0;
-////}
-//
-//@media only screen and (min-width: 768px){
-//  #landing-img {
-//    background-position: bottom 0 right 0;
-//  }
-//
-//
-//}
-//
-//@media only screen and (min-width: 1024px){
-//  .img-background {
-//    margin-bottom: 50px;
-//  }
-//}
-/*@end landing header productImage*/
